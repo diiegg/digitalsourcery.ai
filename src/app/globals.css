@@ -1,0 +1,163 @@
+@import "tailwindcss";
+
+@theme {
+  /* === Base tokens (shared) === */
+  --color-ds-black: #000000;
+  --color-ds-void: #050505;
+  --color-ds-carbon: #0a0a0a;
+  --color-ds-dark: #141414;
+  --color-ds-text: #ffffff;
+
+  /* Accent colors — available in both themes */
+  --color-ds-violet: #7c3aed;
+  --color-ds-violet-glow: #8b5cf6;
+  --color-ds-indigo: #6366f1;
+  --color-ds-indigo-glow: #818cf8;
+  --color-ds-gold: #c9a84c;
+  --color-ds-gold-glow: #e5c07b;
+
+  /* === Theme-driven tokens (defaults = mono) === */
+  --color-ds-card: #1a1a1a;
+  --color-ds-card-border: #2a2a2a;
+  --color-ds-text-secondary: #999999;
+  --color-ds-text-dim: #666666;
+  --color-ds-border: #1f1f1f;
+  --color-ds-border-light: #2a2a2a;
+
+  /* Semantic accent — components use these */
+  --color-ds-accent: #ffffff;
+  --color-ds-accent-hover: #000000;
+  --color-ds-metric: #c9a84c;
+  --color-ds-label: #666666;
+  --color-ds-section-label: #666666;
+  --color-ds-logo-dot: rgba(255, 255, 255, 0.8);
+  --color-ds-logo-border: #2a2a2a;
+  --color-ds-cta-bg: transparent;
+  --color-ds-cta-border: rgba(255, 255, 255, 0.8);
+  --color-ds-cta-text: #ffffff;
+  --color-ds-cta-hover-bg: #ffffff;
+  --color-ds-cta-hover-text: #000000;
+  --color-ds-card-hover-border: #333333;
+  --color-ds-phase-num: #666666;
+  --color-ds-headline-accent: #ffffff;
+
+  /* Typography */
+  --font-display: "Outfit", sans-serif;
+  --font-body: "IBM Plex Sans", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+/* =============================================================
+   THEME: MONO (current — clean white/gray, minimal accents)
+   ============================================================= */
+[data-theme="mono"] {
+  --color-ds-card: #1a1a1a;
+  --color-ds-card-border: #2a2a2a;
+  --color-ds-text-secondary: #999999;
+  --color-ds-text-dim: #666666;
+  --color-ds-border: #1f1f1f;
+  --color-ds-border-light: #2a2a2a;
+  --color-ds-accent: #ffffff;
+  --color-ds-metric: #c9a84c;
+  --color-ds-label: #666666;
+  --color-ds-section-label: #666666;
+  --color-ds-logo-dot: rgba(255, 255, 255, 0.8);
+  --color-ds-logo-border: #2a2a2a;
+  --color-ds-cta-bg: transparent;
+  --color-ds-cta-border: rgba(255, 255, 255, 0.8);
+  --color-ds-cta-text: #ffffff;
+  --color-ds-cta-hover-bg: #ffffff;
+  --color-ds-cta-hover-text: #000000;
+  --color-ds-card-hover-border: #333333;
+  --color-ds-phase-num: #666666;
+  --color-ds-headline-accent: #ffffff;
+}
+
+/* =============================================================
+   THEME: ACCENT (deep violet / electric indigo / muted gold)
+   ============================================================= */
+[data-theme="accent"] {
+  --color-ds-card: #0c0c10;
+  --color-ds-card-border: #1e1e24;
+  --color-ds-text-secondary: #a8aeb8;
+  --color-ds-text-dim: #6a6e78;
+  --color-ds-border: #18181e;
+  --color-ds-border-light: #1e1e24;
+  --color-ds-accent: #c9daed;
+  --color-ds-metric: #e5c07b;
+  --color-ds-label: #d2e1f0;
+  --color-ds-section-label: #8ea8c4;
+  --color-ds-logo-dot: #c9daed;
+  --color-ds-logo-border: rgba(201, 218, 237, 0.3);
+  --color-ds-cta-bg: rgba(201, 218, 237, 0.08);
+  --color-ds-cta-border: rgba(201, 218, 237, 0.5);
+  --color-ds-cta-text: #c9daed;
+  --color-ds-cta-hover-bg: #c9daed;
+  --color-ds-cta-hover-text: #000000;
+  --color-ds-card-hover-border: rgba(201, 218, 237, 0.25);
+  --color-ds-phase-num: #8ea8c4;
+  --color-ds-headline-accent: #d2e1f0;
+}
+
+/* Accent theme — card glow on hover */
+[data-theme="accent"] .themed-card:hover {
+  box-shadow: 0 0 50px rgba(201, 218, 237, 0.08);
+  border-color: rgba(201, 218, 237, 0.2);
+}
+
+/* Accent theme — selection color */
+[data-theme="accent"] ::selection {
+  background-color: rgba(201, 218, 237, 0.25);
+}
+
+/* Accent theme — border glow on section dividers */
+[data-theme="accent"] section {
+  border-color: var(--color-ds-border) !important;
+}
+
+/* =============================================================
+   BASE STYLES
+   ============================================================= */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-ds-black);
+  color: var(--color-ds-text);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: var(--color-ds-text);
+}
+
+/* Theme transition — smooth color changes on theme switch */
+/* Scoped to avoid conflicting with Framer Motion transforms */
+[data-theme] body {
+  transition: background-color 0.4s ease;
+}
+
+[data-theme] .themed-card,
+[data-theme] .ds-cta,
+[data-theme] nav,
+[data-theme] footer,
+[data-theme] section {
+  transition: background-color 0.4s ease, border-color 0.4s ease, color 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* CTA button — theme-aware hover via CSS only */
+.ds-cta {
+  color: var(--color-ds-cta-text);
+  border: 1px solid var(--color-ds-cta-border);
+  background-color: var(--color-ds-cta-bg);
+  transition: all 0.2s ease;
+}
+
+.ds-cta:hover {
+  background-color: var(--color-ds-cta-hover-bg);
+  color: var(--color-ds-cta-hover-text);
+}
