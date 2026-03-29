@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import TextScramble from "@/components/TextScramble";
 
 const outcomes = [
   {
@@ -31,29 +32,46 @@ const outcomes = [
 
 export default function OutcomesSection() {
   return (
-    <section id="outcomes" className="py-32 lg:py-44" style={{ borderTop: "1px solid var(--color-ds-border)" }}>
-      <div className="mx-auto max-w-[1400px] px-8 lg:px-16">
+    <section
+      id="outcomes"
+      style={{
+        paddingTop: "var(--fib-7)",
+        paddingBottom: "var(--fib-7)",
+        borderTop: "1px solid var(--color-ds-border)",
+      }}
+    >
+      <div className="mx-auto max-w-[1400px] px-[var(--fib-4)] lg:px-[var(--fib-5)]">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8 }}
-          className="mb-20"
+          style={{ marginBottom: "var(--fib-6)" }}
         >
           <p
-            className="text-xs font-[family-name:var(--font-mono)] tracking-[0.2em] uppercase mb-5"
-            style={{ color: "var(--color-ds-section-label)" }}
+            className="font-[family-name:var(--font-mono)] tracking-[0.2em] uppercase"
+            style={{
+              fontSize: "var(--text-fib-xs)",
+              color: "var(--color-ds-section-label)",
+              marginBottom: "var(--fib-3)",
+            }}
           >
             Outcomes
           </p>
-          <h2 className="font-[family-name:var(--font-display)] text-[clamp(2rem,4.5vw,3.5rem)] font-bold leading-[1.1] tracking-[-0.02em] max-w-xl">
-            Measurable Impact,
-            <br />
-            Not Promises
-          </h2>
+          <TextScramble
+            as="h2"
+            className="font-[family-name:var(--font-display)] font-bold leading-[1.1] tracking-[-0.02em] max-w-xl"
+            style={{ fontSize: "clamp(var(--text-fib-lg), 4.5vw, var(--text-fib-xl))" }}
+          >
+            Measurable Impact, Not Promises
+          </TextScramble>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 lg:gap-24">
+        {/* 2-column grid with golden ratio gap */}
+        <div
+          className="grid grid-cols-1 md:grid-cols-2"
+          style={{ gap: "var(--fib-6) var(--fib-7)" }}
+        >
           {outcomes.map((item, i) => (
             <motion.div
               key={item.label}
@@ -63,15 +81,28 @@ export default function OutcomesSection() {
               transition={{ duration: 0.6, delay: i * 0.1 }}
             >
               <div
-                className="font-[family-name:var(--font-display)] text-5xl lg:text-6xl font-bold mb-3"
-                style={{ color: "var(--color-ds-metric)" }}
+                className="font-[family-name:var(--font-display)] font-bold"
+                style={{
+                  color: "var(--color-ds-metric)",
+                  fontSize: "var(--text-fib-xl)",
+                  marginBottom: "var(--fib-2)",
+                }}
               >
                 {item.metric}
               </div>
-              <h3 className="font-[family-name:var(--font-display)] text-lg font-semibold mb-2">
+              <h3
+                className="font-[family-name:var(--font-display)] font-semibold"
+                style={{
+                  fontSize: "var(--text-fib-base)",
+                  marginBottom: "var(--fib-1)",
+                }}
+              >
                 {item.label}
               </h3>
-              <p className="text-ds-text-secondary text-sm leading-relaxed max-w-sm">
+              <p
+                className="text-ds-text-secondary leading-relaxed max-w-sm"
+                style={{ fontSize: "var(--text-fib-sm)" }}
+              >
                 {item.description}
               </p>
             </motion.div>

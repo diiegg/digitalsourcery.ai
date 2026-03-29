@@ -116,6 +116,39 @@
 }
 
 /* =============================================================
+   GOLDEN RATIO DESIGN SYSTEM — φ = 1.618033988749895
+   Derived from Fibonacci sequence & sacred geometry.
+   Every proportion on this page relates to its neighbors by φ.
+   ============================================================= */
+:root {
+  /* φ — the golden ratio */
+  --phi: 1.618033988749895;
+
+  /* ── Fibonacci spacing scale (px → rem at 16px base) ── */
+  --fib-1: 0.5rem;      /*   8px */
+  --fib-2: 0.8125rem;   /*  13px */
+  --fib-3: 1.3125rem;   /*  21px */
+  --fib-4: 2.125rem;    /*  34px */
+  --fib-5: 3.4375rem;   /*  55px */
+  --fib-6: 5.5625rem;   /*  89px */
+  --fib-7: 9rem;        /* 144px */
+  --fib-8: 14.5625rem;  /* 233px */
+
+  /* ── Typography scale (fibonacci px values) ── */
+  --text-fib-xs: 0.8125rem;   /*  13px — labels, captions */
+  --text-fib-sm: 0.875rem;    /*  14px — small body */
+  --text-fib-base: 1rem;      /*  16px — body text */
+  --text-fib-md: 1.3125rem;   /*  21px — sub-headings */
+  --text-fib-lg: 2.125rem;    /*  34px — section headings */
+  --text-fib-xl: 3.4375rem;   /*  55px — hero sub-heading */
+  --text-fib-2xl: 5.5625rem;  /*  89px — hero main heading */
+
+  /* ── Golden ratio layout splits ── */
+  --phi-minor: 38.196%;  /* 1 / (1 + φ) — the smaller portion */
+  --phi-major: 61.804%;  /* φ / (1 + φ) — the larger portion */
+}
+
+/* =============================================================
    BASE STYLES
    ============================================================= */
 html {
@@ -126,6 +159,8 @@ body {
   background-color: var(--color-ds-black);
   color: var(--color-ds-text);
   font-family: var(--font-body);
+  font-size: var(--text-fib-base);
+  line-height: 1.618; /* φ — golden ratio line-height */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

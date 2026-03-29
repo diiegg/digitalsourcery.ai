@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import TextScramble from "@/components/TextScramble";
 
 const steps = [
   {
@@ -35,30 +36,52 @@ const steps = [
 
 export default function ProcessSection() {
   return (
-    <section id="process" className="py-32 lg:py-44" style={{ borderTop: "1px solid var(--color-ds-border)" }}>
-      <div className="mx-auto max-w-[1400px] px-8 lg:px-16">
+    <section
+      id="process"
+      style={{
+        paddingTop: "var(--fib-7)",
+        paddingBottom: "var(--fib-7)",
+        borderTop: "1px solid var(--color-ds-border)",
+      }}
+    >
+      <div className="mx-auto max-w-[1400px] px-[var(--fib-4)] lg:px-[var(--fib-5)]">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8 }}
-          className="mb-20"
+          style={{ marginBottom: "var(--fib-6)" }}
         >
           <p
-            className="text-xs font-[family-name:var(--font-mono)] tracking-[0.2em] uppercase mb-5"
-            style={{ color: "var(--color-ds-section-label)" }}
+            className="font-[family-name:var(--font-mono)] tracking-[0.2em] uppercase"
+            style={{
+              fontSize: "var(--text-fib-xs)",
+              color: "var(--color-ds-section-label)",
+              marginBottom: "var(--fib-3)",
+            }}
           >
             Process
           </p>
-          <h2 className="font-[family-name:var(--font-display)] text-[clamp(2rem,4.5vw,3.5rem)] font-bold leading-[1.1] tracking-[-0.02em] max-w-lg">
+          <TextScramble
+            as="h2"
+            className="font-[family-name:var(--font-display)] font-bold leading-[1.1] tracking-[-0.02em] max-w-lg"
+            style={{ fontSize: "clamp(var(--text-fib-lg), 4.5vw, var(--text-fib-xl))" }}
+          >
             How We Work
-          </h2>
-          <p className="text-ds-text-secondary text-base mt-5 max-w-md">
+          </TextScramble>
+          <p
+            className="text-ds-text-secondary max-w-md"
+            style={{
+              fontSize: "var(--text-fib-base)",
+              marginTop: "var(--fib-3)",
+            }}
+          >
             12 weeks from audit to autonomous operations.
             No value by week 4? Walk away.
           </p>
         </motion.div>
 
+        {/* 4-column grid — fibonacci gap between cards */}
         <div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[1px]"
           style={{ backgroundColor: "var(--color-ds-card-border)" }}
@@ -70,22 +93,44 @@ export default function ProcessSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="themed-card p-8 lg:p-10"
-              style={{ backgroundColor: "var(--color-ds-black)" }}
+              className="themed-card"
+              style={{
+                backgroundColor: "var(--color-ds-black)",
+                padding: "var(--fib-4) var(--fib-4)",
+              }}
             >
               <div
-                className="text-xs font-[family-name:var(--font-mono)] mb-6"
-                style={{ color: "var(--color-ds-phase-num)" }}
+                className="font-[family-name:var(--font-mono)]"
+                style={{
+                  fontSize: "var(--text-fib-xs)",
+                  color: "var(--color-ds-phase-num)",
+                  marginBottom: "var(--fib-3)",
+                }}
               >
                 {step.phase}
               </div>
-              <h3 className="font-[family-name:var(--font-display)] text-xl font-semibold mb-1">
+              <h3
+                className="font-[family-name:var(--font-display)] font-semibold"
+                style={{
+                  fontSize: "var(--text-fib-md)",
+                  marginBottom: "var(--fib-1)",
+                }}
+              >
                 {step.title}
               </h3>
-              <div className="text-ds-text-dim text-xs font-[family-name:var(--font-mono)] mb-4">
+              <div
+                className="text-ds-text-dim font-[family-name:var(--font-mono)]"
+                style={{
+                  fontSize: "var(--text-fib-xs)",
+                  marginBottom: "var(--fib-2)",
+                }}
+              >
                 {step.duration}
               </div>
-              <p className="text-ds-text-secondary text-sm leading-relaxed">
+              <p
+                className="text-ds-text-secondary leading-relaxed"
+                style={{ fontSize: "var(--text-fib-sm)" }}
+              >
                 {step.description}
               </p>
             </motion.div>
