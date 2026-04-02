@@ -6,31 +6,31 @@ import TextScramble from "@/components/TextScramble";
 const steps = [
   {
     phase: "01",
-    title: "Assess",
-    duration: "Weeks 1–2",
+    title: "Discover",
+    duration: "Week 1-2",
     description:
-      "Deep audit of your infrastructure, observability gaps, and AI readiness. We map the landscape before designing the solution.",
+      "Understand your systems, constraints, and goals. Map legacy integrations. Identify high-impact, low-cost wins. Define measurable success metrics. No slide decks — technical deep dives with your team.",
   },
   {
     phase: "02",
-    title: "Architect",
-    duration: "Weeks 3–5",
+    title: "Pilot",
+    duration: "Week 3-12",
     description:
-      "Design the intelligence layer: AIOps pipelines, autonomous platform topology, and ML integration points for your stack.",
+      "Build and deploy one high-impact use case. Production-grade code from day one. Integrate with existing systems. Implement cost controls. Validate ROI. Knowledge transfer starts here — pair programming, code reviews, documentation.",
   },
   {
     phase: "03",
-    title: "Implement",
-    duration: "Weeks 6–10",
+    title: "Scale",
+    duration: "Month 4-6",
     description:
-      "Build and deploy iteratively. Each sprint delivers working autonomous capabilities — self-healing, predictive scaling, intelligent routing.",
+      "Expand to additional use cases. Automate what was manual. Optimize costs further. Train your team to own operations. By end of month 6, you're self-sufficient. We're available for support, but you don't need us.",
   },
   {
     phase: "04",
-    title: "Operationalize",
-    duration: "Weeks 11+",
+    title: "Evolve",
+    duration: "Ongoing",
     description:
-      "Continuous tuning, model retraining, and knowledge transfer. Your team operates independently with systems that keep improving.",
+      "Continuous improvement as your AI maturity grows. New use cases, performance tuning, advanced automation. Managed operations retainer for teams that want ongoing support. You decide when you need us.",
   },
 ];
 
@@ -60,32 +60,30 @@ export default function ProcessSection() {
               marginBottom: "var(--fib-3)",
             }}
           >
-            Process
+            How We Work
           </p>
           <TextScramble
             as="h2"
             className="font-[family-name:var(--font-display)] font-bold leading-[1.1] tracking-[-0.02em] max-w-lg"
             style={{ fontSize: "clamp(var(--text-fib-lg), 4.5vw, var(--text-fib-xl))" }}
           >
-            How We Work
+            Start Small. Prove Value. Scale Fast.
           </TextScramble>
           <p
             className="text-ds-text-secondary max-w-md"
             style={{
               fontSize: "var(--text-fib-base)",
+              lineHeight: 1.618,
               marginTop: "var(--fib-3)",
             }}
           >
-            12 weeks from audit to autonomous operations.
-            No value by week 4? Walk away.
+            One high-impact use case. 90-day pilot. Measurable outcomes.
+            If it works, you&apos;ve got a template for everything else.
+            If it doesn&apos;t, you&apos;re out less than the cost of one failed experiment.
           </p>
         </motion.div>
 
-        {/* 4-column grid — fibonacci gap between cards */}
-        <div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[1px]"
-          style={{ backgroundColor: "var(--color-ds-card-border)" }}
-        >
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4" style={{ gap: "var(--fib-3)" }}>
           {steps.map((step, i) => (
             <motion.div
               key={step.phase}
@@ -93,10 +91,11 @@ export default function ProcessSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="themed-card"
+              className="themed-card rounded-xl"
               style={{
-                backgroundColor: "var(--color-ds-black)",
-                padding: "var(--fib-4) var(--fib-4)",
+                backgroundColor: "var(--color-ds-card)",
+                border: "1px solid var(--color-ds-card-border)",
+                padding: "var(--fib-4)",
               }}
             >
               <div
@@ -111,25 +110,19 @@ export default function ProcessSection() {
               </div>
               <h3
                 className="font-[family-name:var(--font-display)] font-semibold"
-                style={{
-                  fontSize: "var(--text-fib-md)",
-                  marginBottom: "var(--fib-1)",
-                }}
+                style={{ fontSize: "var(--text-fib-md)", marginBottom: "var(--fib-1)" }}
               >
                 {step.title}
               </h3>
               <div
                 className="text-ds-text-dim font-[family-name:var(--font-mono)]"
-                style={{
-                  fontSize: "var(--text-fib-xs)",
-                  marginBottom: "var(--fib-2)",
-                }}
+                style={{ fontSize: "var(--text-fib-xs)", marginBottom: "var(--fib-2)" }}
               >
                 {step.duration}
               </div>
               <p
                 className="text-ds-text-secondary leading-relaxed"
-                style={{ fontSize: "var(--text-fib-sm)" }}
+                style={{ fontSize: "var(--text-fib-sm)", lineHeight: 1.618 }}
               >
                 {step.description}
               </p>

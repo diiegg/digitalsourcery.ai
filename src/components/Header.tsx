@@ -1,6 +1,7 @@
 "use client";
 
 import ThemeSwitcher from "./ThemeSwitcher";
+import FibonacciDots from "./logos/FibonacciDots";
 
 const navLinks = [
   { label: "Services", href: "#services" },
@@ -15,15 +16,9 @@ export default function Header() {
         <nav className="flex items-center justify-between" style={{ height: "var(--fib-5)" }}>
           {/* Logo */}
           <a href="#" className="flex items-center" style={{ gap: "var(--fib-2)" }}>
-            <div
-              className="w-9 h-9 rounded-full flex items-center justify-center"
-              style={{ border: "1px solid var(--color-ds-logo-border)" }}
-            >
-              <div
-                className="w-3 h-3 rounded-full"
-                style={{ backgroundColor: "var(--color-ds-logo-dot)" }}
-              />
-            </div>
+            <span style={{ color: "var(--color-ds-logo-dot)" }}>
+              <FibonacciDots size={34} />
+            </span>
             <span
               className="font-[family-name:var(--font-display)] font-medium text-white tracking-wide"
               style={{ fontSize: "var(--text-fib-sm)" }}

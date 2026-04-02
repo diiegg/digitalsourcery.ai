@@ -25,12 +25,10 @@ export default function HeroSection() {
       style={{ paddingTop: "var(--fib-6)", paddingBottom: "var(--fib-7)" }}
     >
       <div className="mx-auto max-w-[1400px] px-[var(--fib-4)] lg:px-[var(--fib-5)] w-full">
-        {/* Golden ratio grid: 38.2% / 61.8% */}
         <div
           className="grid grid-cols-1 lg:grid-cols-[var(--phi-major)_var(--phi-minor)] items-center min-h-[80vh]"
           style={{ gap: "var(--fib-5)" }}
         >
-          {/* Left — Text (major portion: 61.8%) */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -45,10 +43,10 @@ export default function HeroSection() {
                 marginBottom: "var(--fib-4)",
               }}
             >
-              Infrastructure
+              Make AI Work
               <br />
               <span style={{ color: "var(--color-ds-headline-accent)" }}>
-                That Thinks
+                in Production
               </span>
             </h1>
 
@@ -56,36 +54,43 @@ export default function HeroSection() {
               className="text-ds-text-secondary leading-relaxed max-w-md"
               style={{
                 fontSize: "var(--text-fib-base)",
+                lineHeight: 1.618,
                 marginBottom: "var(--fib-5)",
               }}
             >
-              AI-native platform engineering, intelligent observability,
-              and autonomous infrastructure for teams building at scale.
+              Platform engineers who integrate AI with legacy systems,
+              control runaway costs, and build autonomous operations
+              that actually ship. No consultants. No vendor lock-in.
+              Just production-ready software your team owns.
             </p>
 
-            <a
-              href="#contact"
-              className="ds-cta inline-block"
-              style={{
-                fontSize: "var(--text-fib-sm)",
-                padding: "var(--fib-2) var(--fib-3)",
-              }}
-            >
-              Get Started
-            </a>
+            <div className="flex flex-col sm:flex-row items-start" style={{ gap: "var(--fib-3)" }}>
+              <a
+                href="#contact"
+                className="ds-cta inline-block"
+                style={{
+                  fontSize: "var(--text-fib-sm)",
+                  padding: "var(--fib-2) var(--fib-3)",
+                }}
+              >
+                Start a Pilot
+              </a>
+              <a
+                href="#process"
+                className="text-ds-text-secondary hover:text-white transition-colors"
+                style={{ fontSize: "var(--text-fib-sm)", padding: "var(--fib-2) 0" }}
+              >
+                See How It Works
+              </a>
+            </div>
           </motion.div>
 
-          {/* Right — Owl with shader (minor portion: 38.2%) */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.8, delay: 0.3, ease: "easeOut" }}
             className="relative overflow-hidden rounded-2xl"
-            style={{
-              /* Golden rectangle: height = width × φ */
-              aspectRatio: "1 / 1.618",
-              maxHeight: "650px",
-            }}
+            style={{ aspectRatio: "1 / 1.618", maxHeight: "650px" }}
           >
             <ShaderLines />
             <WireframeOwl />

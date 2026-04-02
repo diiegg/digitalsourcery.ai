@@ -5,28 +5,32 @@ import TextScramble from "@/components/TextScramble";
 
 const outcomes = [
   {
-    metric: "60%",
-    label: "Faster incident response",
+    metric: "90",
+    unit: "days",
+    label: "POC to production",
     description:
-      "AI-driven anomaly detection catches issues before they cascade. MTTR drops from hours to minutes.",
+      "From prototype to production in one quarter. Working software integrated with your systems, deployed to your infrastructure, monitored by your team.",
   },
   {
-    metric: "3 min",
-    label: "Infrastructure provisioning",
+    metric: "40-60",
+    unit: "%",
+    label: "AI cost reduction",
     description:
-      "Natural language requests become production-ready deployments with automatic guardrails.",
+      "Predictable budgets. Real-time cost tracking. ROI dashboards. Most clients save more than our fees in reduced infrastructure costs.",
   },
   {
-    metric: "40–60%",
-    label: "Cloud cost reduction",
+    metric: "6",
+    unit: "months",
+    label: "Team self-sufficiency",
     description:
-      "Predictive autoscaling and carbon-aware scheduling optimize spend without sacrificing uptime.",
+      "Full knowledge transfer. Production-grade documentation. No dependency on us. No proprietary frameworks. Your team is stronger than when we started.",
   },
   {
-    metric: "10x",
-    label: "Deployment acceleration",
+    metric: "70",
+    unit: "%+",
+    label: "MTTR reduction",
     description:
-      "AI-augmented CI/CD with intelligent test selection and predictive quality gates.",
+      "80%+ of common incidents auto-remediate. Fewer 3 AM pages. Engineering time back for building, not firefighting.",
   },
 ];
 
@@ -56,18 +60,17 @@ export default function OutcomesSection() {
               marginBottom: "var(--fib-3)",
             }}
           >
-            Outcomes
+            What Changes
           </p>
           <TextScramble
             as="h2"
             className="font-[family-name:var(--font-display)] font-bold leading-[1.1] tracking-[-0.02em] max-w-xl"
             style={{ fontSize: "clamp(var(--text-fib-lg), 4.5vw, var(--text-fib-xl))" }}
           >
-            Measurable Impact, Not Promises
+            Measurable Outcomes, Not Vendor Promises
           </TextScramble>
         </motion.div>
 
-        {/* 2-column grid with golden ratio gap */}
         <div
           className="grid grid-cols-1 md:grid-cols-2"
           style={{ gap: "var(--fib-6) var(--fib-7)" }}
@@ -80,28 +83,29 @@ export default function OutcomesSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: i * 0.1 }}
             >
-              <div
-                className="font-[family-name:var(--font-display)] font-bold"
-                style={{
-                  color: "var(--color-ds-metric)",
-                  fontSize: "var(--text-fib-xl)",
-                  marginBottom: "var(--fib-2)",
-                }}
-              >
-                {item.metric}
+              <div className="flex items-baseline" style={{ gap: "var(--fib-1)", marginBottom: "var(--fib-2)" }}>
+                <span
+                  className="font-[family-name:var(--font-display)] font-bold"
+                  style={{ color: "var(--color-ds-metric)", fontSize: "var(--text-fib-xl)" }}
+                >
+                  {item.metric}
+                </span>
+                <span
+                  className="font-[family-name:var(--font-mono)]"
+                  style={{ color: "var(--color-ds-metric)", fontSize: "var(--text-fib-base)" }}
+                >
+                  {item.unit}
+                </span>
               </div>
               <h3
                 className="font-[family-name:var(--font-display)] font-semibold"
-                style={{
-                  fontSize: "var(--text-fib-base)",
-                  marginBottom: "var(--fib-1)",
-                }}
+                style={{ fontSize: "var(--text-fib-base)", marginBottom: "var(--fib-1)" }}
               >
                 {item.label}
               </h3>
               <p
                 className="text-ds-text-secondary leading-relaxed max-w-sm"
-                style={{ fontSize: "var(--text-fib-sm)" }}
+                style={{ fontSize: "var(--text-fib-sm)", lineHeight: 1.618 }}
               >
                 {item.description}
               </p>

@@ -8,7 +8,6 @@ export default function CTASection() {
     <section
       id="contact"
       style={{
-        /* Cathedral nave rhythm: largest section gets fib-8 padding */
         paddingTop: "var(--fib-8)",
         paddingBottom: "var(--fib-8)",
         borderTop: "1px solid var(--color-ds-border)",
@@ -20,7 +19,6 @@ export default function CTASection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8 }}
-          /* Content width = 61.8% of container */
           style={{ maxWidth: "var(--phi-major)" }}
         >
           <TextScramble
@@ -31,19 +29,21 @@ export default function CTASection() {
               marginBottom: "var(--fib-4)",
             }}
           >
-            Build the intelligence layer for your infrastructure
+            Most AI investments fail between demo and production. Yours doesn&apos;t have to.
           </TextScramble>
 
           <p
             className="text-ds-text-secondary max-w-lg"
             style={{
               fontSize: "var(--text-fib-base)",
-              lineHeight: 1.618, /* golden ratio line-height */
+              lineHeight: 1.618,
               marginBottom: "var(--fib-5)",
             }}
           >
-            Free assessment. No commitment.
-            If we can&apos;t show you the path to value, we&apos;ll tell you.
+            Start with a 90-day pilot. One high-impact use case.
+            Measurable outcomes. If it works, you&apos;ve got a template
+            for everything else. If it doesn&apos;t, you&apos;re out less
+            than the cost of one failed experiment.
           </p>
 
           <div
@@ -58,7 +58,7 @@ export default function CTASection() {
                 padding: "var(--fib-2) var(--fib-4)",
               }}
             >
-              Book a Free Assessment
+              Schedule a Discovery Call
             </a>
             <span
               className="text-ds-text-dim self-center"
