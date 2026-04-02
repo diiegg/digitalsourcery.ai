@@ -20,26 +20,24 @@ const ShaderLines = dynamic(
 
 export default function HeroSection() {
   return (
-    <section
-      className="relative min-h-screen flex items-center"
-      style={{ paddingTop: "var(--fib-6)", paddingBottom: "var(--fib-7)" }}
-    >
-      <div className="mx-auto max-w-[1400px] px-[var(--fib-4)] lg:px-[var(--fib-5)] w-full">
+    <section className="relative min-h-screen flex items-center ambient-glow overflow-hidden">
+      <div className="mx-auto max-w-[1400px] px-[var(--fib-4)] lg:px-[var(--fib-5)] w-full" style={{ paddingTop: "var(--fib-7)", paddingBottom: "var(--fib-7)" }}>
         <div
-          className="grid grid-cols-1 lg:grid-cols-[var(--phi-major)_var(--phi-minor)] items-center min-h-[80vh]"
-          style={{ gap: "var(--fib-5)" }}
+          className="grid grid-cols-1 lg:grid-cols-[var(--phi-major)_var(--phi-minor)] items-center"
+          style={{ gap: "var(--fib-5)", minHeight: "70vh" }}
         >
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1.2, ease: "easeOut" }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: "easeOut" }}
           >
             <AsciiHero text="Digital Sourcery" />
 
             <h1
-              className="font-[family-name:var(--font-display)] font-bold leading-[1.0] tracking-[-0.03em] text-white"
+              className="font-[family-name:var(--font-display)] font-bold tracking-[-0.04em] text-white"
               style={{
                 fontSize: "clamp(var(--text-fib-lg), 7vw, var(--text-fib-2xl))",
+                lineHeight: 0.95,
                 marginBottom: "var(--fib-4)",
               }}
             >
@@ -51,7 +49,7 @@ export default function HeroSection() {
             </h1>
 
             <p
-              className="text-ds-text-secondary leading-relaxed max-w-md"
+              className="text-ds-text-secondary max-w-md"
               style={{
                 fontSize: "var(--text-fib-base)",
                 lineHeight: 1.618,
@@ -64,21 +62,21 @@ export default function HeroSection() {
               Just production-ready software your team owns.
             </p>
 
-            <div className="flex flex-col sm:flex-row items-start" style={{ gap: "var(--fib-3)" }}>
+            <div className="flex flex-col sm:flex-row items-start" style={{ gap: "var(--fib-2)" }}>
               <a
-                href="#contact"
-                className="ds-cta inline-block"
-                style={{
-                  fontSize: "var(--text-fib-sm)",
-                  padding: "var(--fib-2) var(--fib-3)",
-                }}
+                href="mailto:hello@digitalsourcery.ai"
+                className="group relative inline-block font-[family-name:var(--font-display)] font-bold tracking-[0.15em] uppercase bg-white text-black hover:scale-[0.97] transition-transform duration-200"
+                style={{ fontSize: "var(--text-fib-sm)", padding: "var(--fib-2) var(--fib-4)" }}
               >
-                Start a Pilot
+                Start a Discovery Call
+                <span className="absolute right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  &rarr;
+                </span>
               </a>
               <a
                 href="#process"
-                className="text-ds-text-secondary hover:text-white transition-colors"
-                style={{ fontSize: "var(--text-fib-sm)", padding: "var(--fib-2) 0" }}
+                className="text-ds-text-secondary hover:text-white transition-colors font-[family-name:var(--font-mono)] uppercase tracking-[0.1em]"
+                style={{ fontSize: "var(--text-fib-xs)", padding: "var(--fib-2) var(--fib-3)" }}
               >
                 See How It Works
               </a>
@@ -89,7 +87,7 @@ export default function HeroSection() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.8, delay: 0.3, ease: "easeOut" }}
-            className="relative overflow-hidden rounded-2xl"
+            className="relative overflow-hidden rounded-none"
             style={{ aspectRatio: "1 / 1.618", maxHeight: "650px" }}
           >
             <ShaderLines />

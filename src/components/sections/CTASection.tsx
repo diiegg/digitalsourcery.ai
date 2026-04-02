@@ -7,65 +7,51 @@ export default function CTASection() {
   return (
     <section
       id="contact"
+      className="relative overflow-hidden ambient-glow"
       style={{
         paddingTop: "var(--fib-8)",
         paddingBottom: "var(--fib-8)",
-        borderTop: "1px solid var(--color-ds-border)",
       }}
     >
-      <div className="mx-auto max-w-[1400px] px-[var(--fib-4)] lg:px-[var(--fib-5)]">
+      <div className="mx-auto max-w-4xl px-[var(--fib-4)] lg:px-[var(--fib-5)] text-center relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          style={{ maxWidth: "var(--phi-major)" }}
         >
           <TextScramble
             as="h2"
-            className="font-[family-name:var(--font-display)] font-bold leading-[1.05] tracking-[-0.03em]"
+            className="font-[family-name:var(--font-display)] font-bold tracking-[-0.03em] text-white"
             style={{
               fontSize: "clamp(var(--text-fib-lg), 5.5vw, var(--text-fib-2xl))",
-              marginBottom: "var(--fib-4)",
-            }}
-          >
-            Most AI investments fail between demo and production. Yours doesn&apos;t have to.
-          </TextScramble>
-
-          <p
-            className="text-ds-text-secondary max-w-lg"
-            style={{
-              fontSize: "var(--text-fib-base)",
-              lineHeight: 1.618,
+              lineHeight: 1.05,
               marginBottom: "var(--fib-5)",
             }}
           >
-            Start with a 90-day pilot. One high-impact use case.
-            Measurable outcomes. If it works, you&apos;ve got a template
-            for everything else. If it doesn&apos;t, you&apos;re out less
-            than the cost of one failed experiment.
-          </p>
+            Ready to Build the Autonomous Future?
+          </TextScramble>
 
-          <div
-            className="flex flex-col sm:flex-row items-start"
-            style={{ gap: "var(--fib-3)" }}
-          >
+          <div className="flex flex-col md:flex-row justify-center items-center" style={{ gap: "var(--fib-3)" }}>
             <a
               href="mailto:hello@digitalsourcery.ai"
-              className="ds-cta inline-block"
+              className="inline-block font-[family-name:var(--font-display)] font-bold tracking-[0.15em] uppercase bg-white text-black hover:scale-[1.03] transition-transform duration-200"
+              style={{ fontSize: "var(--text-fib-base)", padding: "var(--fib-3) var(--fib-5)" }}
+            >
+              Start a Discovery Call
+            </a>
+            <a
+              href="/stack"
+              className="inline-block font-[family-name:var(--font-display)] font-bold tracking-[0.15em] uppercase hover:bg-[var(--color-ds-card)] transition-colors"
               style={{
-                fontSize: "var(--text-fib-sm)",
-                padding: "var(--fib-2) var(--fib-4)",
+                fontSize: "var(--text-fib-base)",
+                padding: "var(--fib-3) var(--fib-5)",
+                border: "1px solid var(--color-ds-border-light)",
+                color: "var(--color-ds-text)",
               }}
             >
-              Schedule a Discovery Call
+              View Our Stack
             </a>
-            <span
-              className="text-ds-text-dim self-center"
-              style={{ fontSize: "var(--text-fib-sm)" }}
-            >
-              hello@digitalsourcery.ai
-            </span>
           </div>
         </motion.div>
       </div>

@@ -196,3 +196,75 @@ body {
   background-color: var(--color-ds-cta-hover-bg);
   color: var(--color-ds-cta-hover-text);
 }
+
+/* =============================================================
+   GLASS & VISUAL EFFECTS
+   ============================================================= */
+
+/* Glass refraction — frosted glass cards */
+.glass-card {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.04) 0%,
+    rgba(255, 255, 255, 0.01) 100%
+  );
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+[data-theme="accent"] .glass-card {
+  background: linear-gradient(
+    135deg,
+    rgba(201, 218, 237, 0.05) 0%,
+    rgba(201, 218, 237, 0.01) 100%
+  );
+  border: 1px solid rgba(201, 218, 237, 0.08);
+}
+
+/* Accent border-left card */
+.accent-border-card {
+  border-left: 3px solid var(--color-ds-headline-accent);
+}
+
+/* Ambient glow background */
+.ambient-glow {
+  position: relative;
+}
+.ambient-glow::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
+  pointer-events: none;
+}
+[data-theme="accent"] .ambient-glow::before {
+  background: radial-gradient(circle, rgba(201, 218, 237, 0.04) 0%, transparent 70%);
+}
+
+/* Step indicator dot */
+.step-dot {
+  width: 10px;
+  height: 10px;
+  background-color: var(--color-ds-headline-accent);
+}
+
+.step-dot-dim {
+  width: 10px;
+  height: 10px;
+  background-color: var(--color-ds-text-dim);
+}
+
+/* Stack item hover */
+.stack-item {
+  opacity: 0.4;
+  filter: grayscale(100%);
+  transition: all 0.3s ease;
+}
+.stack-item:hover {
+  opacity: 1;
+  filter: grayscale(0%);
+}

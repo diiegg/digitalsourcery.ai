@@ -5,32 +5,24 @@ import TextScramble from "@/components/TextScramble";
 
 const steps = [
   {
-    phase: "01",
-    title: "Discover",
-    duration: "Week 1-2",
-    description:
-      "Understand your systems, constraints, and goals. Map legacy integrations. Identify high-impact, low-cost wins. Define measurable success metrics. No slide decks — technical deep dives with your team.",
+    num: "01",
+    label: "DISCOVER",
+    detail: "Deep-dive technical audit of current debt, bottlenecks, and AI readiness gaps. Map your legacy integrations.",
   },
   {
-    phase: "02",
-    title: "Pilot",
-    duration: "Week 3-12",
-    description:
-      "Build and deploy one high-impact use case. Production-grade code from day one. Integrate with existing systems. Implement cost controls. Validate ROI. Knowledge transfer starts here — pair programming, code reviews, documentation.",
+    num: "02",
+    label: "PILOT",
+    detail: "Proof-of-concept deployment on one high-impact AI workload. Production-grade code from day one.",
   },
   {
-    phase: "03",
-    title: "Scale",
-    duration: "Month 4-6",
-    description:
-      "Expand to additional use cases. Automate what was manual. Optimize costs further. Train your team to own operations. By end of month 6, you're self-sufficient. We're available for support, but you don't need us.",
+    num: "03",
+    label: "SCALE",
+    detail: "Expansion across your production footprint. Knowledge transfer, team upskilling, documentation.",
   },
   {
-    phase: "04",
-    title: "Evolve",
-    duration: "Ongoing",
-    description:
-      "Continuous improvement as your AI maturity grows. New use cases, performance tuning, advanced automation. Managed operations retainer for teams that want ongoing support. You decide when you need us.",
+    num: "04",
+    label: "EVOLVE",
+    detail: "Continuous improvement through feedback loops. Managed operations retainer. Your team owns everything.",
   },
 ];
 
@@ -41,90 +33,66 @@ export default function ProcessSection() {
       style={{
         paddingTop: "var(--fib-7)",
         paddingBottom: "var(--fib-7)",
+        backgroundColor: "var(--color-ds-card)",
         borderTop: "1px solid var(--color-ds-border)",
+        borderBottom: "1px solid var(--color-ds-border)",
       }}
     >
       <div className="mx-auto max-w-[1400px] px-[var(--fib-4)] lg:px-[var(--fib-5)]">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true }}
           transition={{ duration: 0.8 }}
           style={{ marginBottom: "var(--fib-6)" }}
         >
-          <p
-            className="font-[family-name:var(--font-mono)] tracking-[0.2em] uppercase"
-            style={{
-              fontSize: "var(--text-fib-xs)",
-              color: "var(--color-ds-section-label)",
-              marginBottom: "var(--fib-3)",
-            }}
-          >
-            How We Work
-          </p>
           <TextScramble
             as="h2"
-            className="font-[family-name:var(--font-display)] font-bold leading-[1.1] tracking-[-0.02em] max-w-lg"
-            style={{ fontSize: "clamp(var(--text-fib-lg), 4.5vw, var(--text-fib-xl))" }}
+            className="font-[family-name:var(--font-display)] font-bold tracking-[-0.02em] text-white"
+            style={{ fontSize: "clamp(var(--text-fib-lg), 4.5vw, var(--text-fib-xl))", marginBottom: "var(--fib-2)" }}
           >
-            Start Small. Prove Value. Scale Fast.
+            The Engagement Cycle
           </TextScramble>
-          <p
-            className="text-ds-text-secondary max-w-md"
-            style={{
-              fontSize: "var(--text-fib-base)",
-              lineHeight: 1.618,
-              marginTop: "var(--fib-3)",
-            }}
-          >
-            One high-impact use case. 90-day pilot. Measurable outcomes.
-            If it works, you&apos;ve got a template for everything else.
-            If it doesn&apos;t, you&apos;re out less than the cost of one failed experiment.
+          <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-base)" }}>
+            From initial discovery to self-evolving infrastructure.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4" style={{ gap: "var(--fib-3)" }}>
+        <div className="grid grid-cols-1 md:grid-cols-4" style={{ gap: "var(--fib-4)" }}>
           {steps.map((step, i) => (
             <motion.div
-              key={step.phase}
+              key={step.num}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="themed-card rounded-xl"
-              style={{
-                backgroundColor: "var(--color-ds-card)",
-                border: "1px solid var(--color-ds-card-border)",
-                padding: "var(--fib-4)",
-              }}
             >
+              {/* Label */}
               <div
-                className="font-[family-name:var(--font-mono)]"
+                className="font-[family-name:var(--font-mono)] tracking-[0.2em]"
                 style={{
                   fontSize: "var(--text-fib-xs)",
-                  color: "var(--color-ds-phase-num)",
+                  color: "var(--color-ds-headline-accent)",
                   marginBottom: "var(--fib-3)",
                 }}
               >
-                {step.phase}
+                {step.num} / {step.label}
               </div>
-              <h3
-                className="font-[family-name:var(--font-display)] font-semibold"
-                style={{ fontSize: "var(--text-fib-md)", marginBottom: "var(--fib-1)" }}
-              >
-                {step.title}
-              </h3>
-              <div
-                className="text-ds-text-dim font-[family-name:var(--font-mono)]"
-                style={{ fontSize: "var(--text-fib-xs)", marginBottom: "var(--fib-2)" }}
-              >
-                {step.duration}
+
+              {/* Progress line with dot */}
+              <div className="relative" style={{ height: "2px", backgroundColor: "var(--color-ds-border-light)", marginBottom: "var(--fib-3)" }}>
+                <div
+                  className={i === 0 ? "step-dot" : "step-dot-dim"}
+                  style={{ position: "absolute", left: 0, top: "50%", transform: "translateY(-50%)" }}
+                />
               </div>
+
+              {/* Description */}
               <p
-                className="text-ds-text-secondary leading-relaxed"
-                style={{ fontSize: "var(--text-fib-sm)", lineHeight: 1.618 }}
+                className="text-white font-medium"
+                style={{ fontSize: "var(--text-fib-base)", lineHeight: 1.618, paddingRight: "var(--fib-3)" }}
               >
-                {step.description}
+                {step.detail}
               </p>
             </motion.div>
           ))}

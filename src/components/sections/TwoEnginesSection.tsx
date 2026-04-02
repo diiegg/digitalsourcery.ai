@@ -3,187 +3,152 @@
 import { motion } from "framer-motion";
 import TextScramble from "@/components/TextScramble";
 
-const foundation = [
-  "Internal Developer Platforms",
-  "Infrastructure Automation",
-  "Platform Acceleration",
-  "Observability & FinOps",
-];
-
-const intelligence = [
-  "Intelligent Observability",
-  "AI-Driven Platform Engineering",
-  "Autonomous Infrastructure",
-  "AI Platforms for Enterprises",
-  "AI Cost Optimization",
-  "Legacy AI Modernization",
-];
-
 export default function TwoEnginesSection() {
   return (
     <section
       style={{
         paddingTop: "var(--fib-7)",
         paddingBottom: "var(--fib-7)",
-        borderTop: "1px solid var(--color-ds-border)",
       }}
     >
       <div className="mx-auto max-w-[1400px] px-[var(--fib-4)] lg:px-[var(--fib-5)]">
+        {/* Header with line */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          style={{ marginBottom: "var(--fib-6)" }}
-          className="text-center"
+          className="flex flex-col md:flex-row justify-between items-end"
+          style={{ gap: "var(--fib-3)", marginBottom: "var(--fib-6)" }}
         >
           <TextScramble
             as="h2"
-            className="font-[family-name:var(--font-display)] font-bold leading-[1.1] tracking-[-0.02em]"
-            style={{ fontSize: "clamp(var(--text-fib-lg), 4.5vw, var(--text-fib-xl))" }}
+            className="font-[family-name:var(--font-display)] font-bold tracking-[-0.02em] text-white"
+            style={{ fontSize: "clamp(var(--text-fib-lg), 4vw, var(--text-fib-xl))" }}
           >
-            Two Engines. One Mission.
+            Two Engines, One Mission
           </TextScramble>
+          <div className="hidden md:block h-px flex-grow mx-[var(--fib-4)]" style={{ backgroundColor: "var(--color-ds-border-light)", marginBottom: "var(--fib-2)" }} />
           <p
-            className="text-ds-text-secondary mx-auto max-w-lg"
-            style={{ fontSize: "var(--text-fib-base)", lineHeight: 1.618, marginTop: "var(--fib-3)" }}
+            className="font-[family-name:var(--font-mono)] uppercase tracking-[0.15em] text-ds-text-dim whitespace-nowrap"
+            style={{ fontSize: "11px", marginBottom: "var(--fib-1)" }}
           >
-            BlackMagickOps builds the platform.
-            Digital Sourcery makes it intelligent.
-            Together: production-ready AI infrastructure.
+            A Unified Approach
           </p>
         </motion.div>
 
-        <div
-          className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] items-stretch"
-          style={{ gap: "var(--fib-3)" }}
-        >
-          {/* BlackMagickOps — Foundation */}
+        {/* Two tall cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2" style={{ gap: "2px" }}>
+          {/* Digital Sourcery */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="themed-card rounded-xl"
+            className="relative group overflow-hidden flex flex-col justify-between"
             style={{
+              height: "500px",
               backgroundColor: "var(--color-ds-card)",
               border: "1px solid var(--color-ds-card-border)",
-              padding: "var(--fib-4)",
+              padding: "var(--fib-5)",
             }}
           >
-            <p
-              className="font-[family-name:var(--font-mono)] tracking-[0.15em] uppercase"
-              style={{ fontSize: "11px", color: "var(--color-ds-phase-num)", marginBottom: "var(--fib-2)" }}
-            >
-              The Foundation
-            </p>
-            <h3
-              className="font-[family-name:var(--font-display)] font-bold text-white"
-              style={{ fontSize: "var(--text-fib-md)", marginBottom: "var(--fib-3)" }}
-            >
-              BlackMagickOps
-            </h3>
-            <ul>
-              {foundation.map((item) => (
-                <li
-                  key={item}
-                  className="text-ds-text-secondary"
-                  style={{
-                    fontSize: "var(--text-fib-sm)",
-                    lineHeight: 1.618,
-                    paddingLeft: "var(--fib-2)",
-                    marginBottom: "var(--fib-1)",
-                    position: "relative",
-                  }}
-                >
-                  <span style={{ position: "absolute", left: 0, color: "var(--color-ds-text-dim)" }}>+</span>
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <p
-              className="font-[family-name:var(--font-mono)] text-ds-text-dim"
-              style={{
-                fontSize: "11px",
-                marginTop: "var(--fib-3)",
-                borderTop: "1px solid var(--color-ds-border-light)",
-                paddingTop: "var(--fib-2)",
-              }}
-            >
-              Platform engineering, automation, observability — the base layer everything runs on.
-            </p>
-          </motion.div>
+            {/* Top label */}
+            <div>
+              <span
+                className="font-[family-name:var(--font-mono)] uppercase tracking-[0.25em]"
+                style={{ fontSize: "11px", color: "var(--color-ds-headline-accent)" }}
+              >
+                Intelligence Layer
+              </span>
+              <h3
+                className="font-[family-name:var(--font-display)] font-bold text-white"
+                style={{ fontSize: "clamp(var(--text-fib-lg), 4vw, var(--text-fib-xl))", marginTop: "var(--fib-2)" }}
+              >
+                Digital Sourcery
+              </h3>
+            </div>
 
-          {/* Center connector */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="hidden lg:flex items-center justify-center"
-          >
-            <div
-              className="font-[family-name:var(--font-display)] font-bold text-white text-center"
-              style={{ fontSize: "var(--text-fib-lg)", padding: "0 var(--fib-3)" }}
-            >
-              +
+            {/* Bottom glass card */}
+            <div className="glass-card max-w-sm" style={{ padding: "var(--fib-4)" }}>
+              <p className="text-white" style={{ fontSize: "var(--text-fib-base)", lineHeight: 1.618 }}>
+                Predictive observability, autonomous remediation,
+                AI cost optimization, and LLM-driven infrastructure
+                that learns and adapts.
+              </p>
+              <div className="flex flex-wrap" style={{ gap: "var(--fib-1)", marginTop: "var(--fib-3)" }}>
+                {["AIOps", "Self-Healing", "Cost Controls", "MLOps", "Legacy Bridge"].map((tag) => (
+                  <span
+                    key={tag}
+                    className="font-[family-name:var(--font-mono)] text-ds-text-dim"
+                    style={{
+                      fontSize: "10px",
+                      border: "1px solid var(--color-ds-border-light)",
+                      padding: "2px 8px",
+                      textTransform: "uppercase",
+                      letterSpacing: "0.1em",
+                    }}
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
             </div>
           </motion.div>
 
-          {/* Digital Sourcery — Intelligence */}
+          {/* BlackMagickOps */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="themed-card rounded-xl"
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="relative group overflow-hidden flex flex-col justify-between"
             style={{
+              height: "500px",
               backgroundColor: "var(--color-ds-card)",
               border: "1px solid var(--color-ds-card-border)",
-              padding: "var(--fib-4)",
+              padding: "var(--fib-5)",
             }}
           >
-            <p
-              className="font-[family-name:var(--font-mono)] tracking-[0.15em] uppercase"
-              style={{ fontSize: "11px", color: "var(--color-ds-headline-accent)", marginBottom: "var(--fib-2)" }}
-            >
-              The Intelligence Layer
-            </p>
-            <h3
-              className="font-[family-name:var(--font-display)] font-bold text-white"
-              style={{ fontSize: "var(--text-fib-md)", marginBottom: "var(--fib-3)" }}
-            >
-              Digital Sourcery
-            </h3>
-            <ul>
-              {intelligence.map((item) => (
-                <li
-                  key={item}
-                  className="text-ds-text-secondary"
-                  style={{
-                    fontSize: "var(--text-fib-sm)",
-                    lineHeight: 1.618,
-                    paddingLeft: "var(--fib-2)",
-                    marginBottom: "var(--fib-1)",
-                    position: "relative",
-                  }}
-                >
-                  <span style={{ position: "absolute", left: 0, color: "var(--color-ds-headline-accent)" }}>+</span>
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <p
-              className="font-[family-name:var(--font-mono)] text-ds-text-dim"
-              style={{
-                fontSize: "11px",
-                marginTop: "var(--fib-3)",
-                borderTop: "1px solid var(--color-ds-border-light)",
-                paddingTop: "var(--fib-2)",
-              }}
-            >
-              AI observability, autonomous ops, cost optimization — the layer that makes infrastructure think.
-            </p>
+            <div>
+              <span
+                className="font-[family-name:var(--font-mono)] uppercase tracking-[0.25em]"
+                style={{ fontSize: "11px", color: "var(--color-ds-headline-accent)" }}
+              >
+                Foundation Layer
+              </span>
+              <h3
+                className="font-[family-name:var(--font-display)] font-bold text-white"
+                style={{ fontSize: "clamp(var(--text-fib-lg), 4vw, var(--text-fib-xl))", marginTop: "var(--fib-2)" }}
+              >
+                BlackMagickOps
+              </h3>
+            </div>
+
+            <div className="glass-card max-w-sm" style={{ padding: "var(--fib-4)" }}>
+              <p className="text-white" style={{ fontSize: "var(--text-fib-base)", lineHeight: 1.618 }}>
+                Hardened Kubernetes, internal developer platforms,
+                infrastructure-as-code, and zero-trust platform
+                engineering foundations.
+              </p>
+              <div className="flex flex-wrap" style={{ gap: "var(--fib-1)", marginTop: "var(--fib-3)" }}>
+                {["Kubernetes", "IDP", "ArgoCD", "Crossplane", "FinOps"].map((tag) => (
+                  <span
+                    key={tag}
+                    className="font-[family-name:var(--font-mono)] text-ds-text-dim"
+                    style={{
+                      fontSize: "10px",
+                      border: "1px solid var(--color-ds-border-light)",
+                      padding: "2px 8px",
+                      textTransform: "uppercase",
+                      letterSpacing: "0.1em",
+                    }}
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
           </motion.div>
         </div>
       </div>
