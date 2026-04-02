@@ -3,7 +3,6 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import ThemeSwitcher from "./ThemeSwitcher";
 import FibonacciDots from "./logos/FibonacciDots";
 
 const navLinks = [
@@ -18,20 +17,31 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-ds-black/80 backdrop-blur-sm">
-      <div className="mx-auto max-w-[1400px] px-[var(--fib-4)] lg:px-[var(--fib-5)]">
+    <header
+      className="fixed top-0 left-0 right-0 z-50"
+      style={{
+        backgroundColor: "rgba(5, 5, 8, 0.85)",
+        backdropFilter: "blur(20px) saturate(120%)",
+        borderBottom: "1px solid rgba(200, 208, 224, 0.06)",
+      }}
+    >
+      <div className="mx-auto max-w-[1440px] px-[var(--fib-5)]">
         <nav
           className="flex items-center justify-between"
-          style={{ height: "var(--fib-5)" }}
+          style={{ height: "var(--fib-6)" }}
         >
           {/* Logo */}
-          <Link href="/" className="flex items-center" style={{ gap: "var(--fib-2)" }}>
-            <span style={{ color: "var(--color-ds-logo-dot)" }}>
+          <Link
+            href="/"
+            className="flex items-center cursor-pointer"
+            style={{ gap: "var(--fib-2)" }}
+          >
+            <span style={{ color: "var(--color-ds-crystalline)" }}>
               <FibonacciDots size={34} />
             </span>
             <span
-              className="font-[family-name:var(--font-display)] font-medium text-white tracking-wide"
-              style={{ fontSize: "var(--text-fib-sm)" }}
+              className="font-[family-name:var(--font-display)] font-bold text-white tracking-tight"
+              style={{ fontSize: "var(--text-fib-base)" }}
             >
               Digital Sourcery
             </span>
@@ -46,52 +56,61 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`transition-colors duration-200 ${
+                className={`font-[family-name:var(--font-display)] uppercase tracking-[0.15em] transition-colors duration-300 cursor-pointer ${
                   pathname === link.href
                     ? "text-white"
-                    : "text-ds-text-secondary hover:text-white"
+                    : "text-[var(--color-ds-crystalline)]/60 hover:text-[var(--color-ds-warm)]"
                 }`}
-                style={{ fontSize: "var(--text-fib-xs)" }}
+                style={{
+                  fontSize: "var(--text-fib-xs)",
+                  paddingBottom: "var(--fib-1)",
+                  borderBottom: pathname === link.href
+                    ? "2px solid var(--color-ds-warm)"
+                    : "2px solid transparent",
+                }}
               >
                 {link.label}
               </Link>
             ))}
           </div>
 
-          {/* CTA + Theme + Mobile toggle */}
-          <div className="flex items-center" style={{ gap: "var(--fib-2)" }}>
-            <ThemeSwitcher />
-            <Link
-              href="/intelligence"
-              className="ds-cta hidden sm:inline-block"
+          {/* CTA + Mobile toggle */}
+          <div className="flex items-center" style={{ gap: "var(--fib-3)" }}>
+            <a
+              href="mailto:hello@digitalsourcery.ai"
+              className="hidden sm:inline-block font-[family-name:var(--font-display)] font-bold uppercase tracking-[0.15em] bg-white text-black hover:scale-[0.97] transition-transform duration-200 cursor-pointer ds-cta-prismatic"
               style={{
                 fontSize: "var(--text-fib-xs)",
                 padding: "var(--fib-1) var(--fib-3)",
               }}
             >
-              Get Started
-            </Link>
+              Start a Discovery Call
+            </a>
 
             {/* Mobile hamburger */}
             <button
-              className="md:hidden flex flex-col justify-center items-center w-8 h-8"
+              className="md:hidden flex flex-col justify-center items-center w-10 h-10 cursor-pointer"
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label="Toggle menu"
             >
               <span
-                className="block w-5 h-px bg-white transition-transform duration-200"
+                className="block w-5 h-px bg-white transition-all duration-300"
                 style={{
-                  transform: mobileOpen ? "rotate(45deg) translateY(3px)" : "none",
+                  transform: mobileOpen ? "rotate(45deg) translateY(4px)" : "none",
                 }}
               />
               <span
-                className="block w-5 h-px bg-white mt-1.5 transition-opacity duration-200"
-                style={{ opacity: mobileOpen ? 0 : 1 }}
+                className="block w-5 h-px bg-white transition-all duration-300"
+                style={{
+                  marginTop: "6px",
+                  opacity: mobileOpen ? 0 : 1,
+                }}
               />
               <span
-                className="block w-5 h-px bg-white mt-1.5 transition-transform duration-200"
+                className="block w-5 h-px bg-white transition-all duration-300"
                 style={{
-                  transform: mobileOpen ? "rotate(-45deg) translateY(-3px)" : "none",
+                  marginTop: "6px",
+                  transform: mobileOpen ? "rotate(-45deg) translateY(-4px)" : "none",
                 }}
               />
             </button>
@@ -102,18 +121,18 @@ export default function Header() {
       {/* Mobile dropdown */}
       {mobileOpen && (
         <div
-          className="md:hidden border-t"
           style={{
-            backgroundColor: "var(--color-ds-black)",
-            borderColor: "var(--color-ds-border)",
-            padding: "var(--fib-3) var(--fib-4)",
+            backgroundColor: "rgba(5, 5, 8, 0.98)",
+            borderTop: "1px solid rgba(200, 208, 224, 0.06)",
+            padding: "var(--fib-4) var(--fib-5)",
           }}
+          className="md:hidden"
         >
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className={`block transition-colors duration-200 ${
+              className={`block font-[family-name:var(--font-display)] uppercase tracking-[0.15em] transition-colors duration-200 cursor-pointer ${
                 pathname === link.href
                   ? "text-white"
                   : "text-ds-text-secondary hover:text-white"
@@ -127,18 +146,18 @@ export default function Header() {
               {link.label}
             </Link>
           ))}
-          <Link
-            href="/intelligence"
-            className="ds-cta inline-block"
+          <a
+            href="mailto:hello@digitalsourcery.ai"
+            className="inline-block font-[family-name:var(--font-display)] font-bold uppercase tracking-[0.15em] bg-white text-black cursor-pointer ds-cta-prismatic"
             style={{
               fontSize: "var(--text-fib-xs)",
               padding: "var(--fib-1) var(--fib-3)",
-              marginTop: "var(--fib-2)",
+              marginTop: "var(--fib-3)",
             }}
             onClick={() => setMobileOpen(false)}
           >
-            Get Started
-          </Link>
+            Start a Discovery Call
+          </a>
         </div>
       )}
     </header>
