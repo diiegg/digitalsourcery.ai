@@ -1,4 +1,9 @@
+"use client";
+
 import Link from "next/link";
+import dynamic from "next/dynamic";
+
+const AsciiHero = dynamic(() => import("@/components/AsciiHero"), { ssr: false });
 
 const intelligenceLinks = [
   { label: "Intelligent Observability", href: "/intelligence" },
@@ -119,6 +124,11 @@ export default function Footer() {
               blackmagickops.com &rarr;
             </Link>
           </div>
+        </div>
+
+        {/* Giant ASCII "Digital Sourcery" */}
+        <div style={{ marginBottom: "var(--fib-5)" }}>
+          <AsciiHero text="Digital Sourcery" />
         </div>
 
         {/* Bottom bar */}
