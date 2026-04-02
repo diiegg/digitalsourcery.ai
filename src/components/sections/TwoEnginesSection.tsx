@@ -25,7 +25,7 @@ export default function TwoEnginesSection() {
               <span className="font-[family-name:var(--font-mono)] uppercase tracking-[0.25em]" style={{ fontSize: "11px", color: "var(--color-ds-warm)" }}>Intelligence Layer</span>
               <h3 className="font-[family-name:var(--font-display)] font-bold text-white" style={{ fontSize: "var(--text-fib-xl)", marginTop: "var(--fib-2)" }}>Digital Sourcery</h3>
             </div>
-            <div className="prismatic-glass prismatic-edge max-w-sm" style={{ padding: "var(--fib-4)" }}>
+            <div className="refractive-card max-w-sm" style={{ padding: "var(--fib-4)" }}>
               <p className="text-white" style={{ fontSize: "var(--text-fib-base)", lineHeight: 1.618 }}>Predictive observability, autonomous remediation, AI cost optimization, and LLM-driven infrastructure that learns and adapts.</p>
               <div className="flex flex-wrap" style={{ gap: "var(--fib-1)", marginTop: "var(--fib-3)" }}>
                 {["AIOps", "Self-Healing", "Cost Controls", "MLOps", "Legacy Bridge"].map((tag) => (
@@ -40,7 +40,7 @@ export default function TwoEnginesSection() {
               <span className="font-[family-name:var(--font-mono)] uppercase tracking-[0.25em]" style={{ fontSize: "11px", color: "var(--color-ds-warm)" }}>Foundation Layer</span>
               <h3 className="font-[family-name:var(--font-display)] font-bold text-white" style={{ fontSize: "var(--text-fib-xl)", marginTop: "var(--fib-2)" }}>BlackMagickOps</h3>
             </div>
-            <div className="prismatic-glass prismatic-edge max-w-sm" style={{ padding: "var(--fib-4)" }}>
+            <div className="refractive-card max-w-sm" style={{ padding: "var(--fib-4)" }}>
               <p className="text-white" style={{ fontSize: "var(--text-fib-base)", lineHeight: 1.618 }}>Hardened Kubernetes, internal developer platforms, infrastructure-as-code, and zero-trust platform engineering foundations.</p>
               <div className="flex flex-wrap" style={{ gap: "var(--fib-1)", marginTop: "var(--fib-3)" }}>
                 {["Kubernetes", "IDP", "ArgoCD", "Crossplane", "FinOps"].map((tag) => (

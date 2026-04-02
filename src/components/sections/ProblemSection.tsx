@@ -11,7 +11,7 @@ const problems = [
 
 export default function ProblemSection() {
   return (
-    <section style={{ paddingTop: "var(--fib-7)", paddingBottom: "var(--fib-7)", backgroundColor: "var(--color-ds-card)", borderTop: "1px solid var(--color-ds-border)", borderBottom: "1px solid var(--color-ds-border)" }}>
+    <section className="crystalline-bg" style={{ paddingTop: "var(--fib-7)", paddingBottom: "var(--fib-7)", backgroundColor: "var(--color-ds-carbon)", borderTop: "1px solid rgba(200, 208, 224, 0.06)", borderBottom: "1px solid rgba(200, 208, 224, 0.06)" }}>
       <div className="mx-auto max-w-[1440px] px-[var(--fib-5)]">
         <div className="grid grid-cols-1 md:grid-cols-2 items-center" style={{ gap: "var(--fib-6)" }}>
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}>
@@ -28,7 +28,7 @@ export default function ProblemSection() {
 
           <div className="flex flex-col" style={{ gap: "var(--fib-3)" }}>
             {problems.map((p, i) => (
-              <motion.div key={i} initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }} className="prismatic-glass accent-border-card" style={{ padding: "var(--fib-4)" }}>
+              <motion.div key={i} initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }} className="refractive-card accent-border-card" style={{ padding: "var(--fib-4)" }}>
                 <h3 className="font-[family-name:var(--font-display)] font-bold text-white" style={{ fontSize: "var(--text-fib-md)" }}>{p.title}</h3>
                 <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-sm)", lineHeight: 1.618, marginTop: "var(--fib-2)" }}>{p.detail}</p>
               </motion.div>

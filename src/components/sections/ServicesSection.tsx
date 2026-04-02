@@ -33,7 +33,7 @@ export default function ServicesSection() {
 
         <motion.div variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3" style={{ gap: "var(--fib-3)" }}>
           {services.map((service) => (
-            <motion.div key={service.num} variants={fadeUp} className="prismatic-glass prismatic-edge text-ds-text cursor-default" style={{ padding: "var(--fib-4)" }}>
+            <motion.div key={service.num} variants={fadeUp} className="refractive-card text-ds-text cursor-default" style={{ padding: "var(--fib-4)" }}>
               <div className="font-[family-name:var(--font-mono)]" style={{ fontSize: "var(--text-fib-xs)", color: "var(--color-ds-warm-dim)", marginBottom: "var(--fib-2)" }}>{service.num}</div>
               <h3 className="font-[family-name:var(--font-display)] font-bold text-white" style={{ fontSize: "var(--text-fib-md)", marginBottom: "var(--fib-2)" }}>{service.title}</h3>
               <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-sm)", lineHeight: 1.618, marginBottom: "var(--fib-3)" }}>{service.description}</p>

@@ -31,7 +31,7 @@ export default function StackSection() {
 
         <motion.div variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} className="grid grid-cols-1 md:grid-cols-2" style={{ gap: "var(--fib-3)" }}>
           {verdicts.map((v) => (
-            <motion.div key={v.category} variants={fadeUp} className="prismatic-glass prismatic-edge cursor-default" style={{ padding: "var(--fib-5)" }}>
+            <motion.div key={v.category} variants={fadeUp} className="refractive-card cursor-default" style={{ padding: "var(--fib-5)" }}>
               <h3 className="font-[family-name:var(--font-display)] font-bold text-white" style={{ fontSize: "var(--text-fib-md)", marginBottom: "var(--fib-1)" }}>{v.category}</h3>
               <p className="font-[family-name:var(--font-mono)]" style={{ fontSize: "var(--text-fib-xs)", color: "var(--color-ds-warm-dim)", marginBottom: "var(--fib-4)" }}>Tested: {v.tested}</p>
               <p className="font-[family-name:var(--font-display)] font-semibold" style={{ fontSize: "var(--text-fib-base)", color: "var(--color-ds-warm)", lineHeight: 1.5, marginBottom: "var(--fib-3)" }}>{v.verdict}</p>

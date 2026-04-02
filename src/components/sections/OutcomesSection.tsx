@@ -17,7 +17,7 @@ export default function OutcomesSection() {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2" style={{ gap: "var(--fib-3)", minHeight: "500px" }}>
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }} className="md:col-span-2 md:row-span-2 prismatic-glass prismatic-edge flex flex-col justify-end relative overflow-hidden" style={{ padding: "var(--fib-5)" }}>
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }} className="md:col-span-2 md:row-span-2 refractive-card flex flex-col justify-end relative overflow-hidden" style={{ padding: "var(--fib-5)" }}>
             <div style={{ marginBottom: "var(--fib-4)" }}>
               <div className="font-[family-name:var(--font-display)] font-bold text-white" style={{ fontSize: "var(--text-fib-2xl)" }}>90</div>
               <h3 className="font-[family-name:var(--font-display)] font-bold uppercase tracking-[0.15em]" style={{ fontSize: "var(--text-fib-md)", color: "var(--color-ds-warm)" }}>Days to Production</h3>
@@ -25,7 +25,7 @@ export default function OutcomesSection() {
             <p className="text-ds-text-secondary max-w-md" style={{ fontSize: "var(--text-fib-sm)", lineHeight: 1.618 }}>From prototype to production in one quarter. Working software integrated with your systems, deployed to your infrastructure, monitored by your team.</p>
           </motion.div>
 
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.1, ease: [0.22, 1, 0.36, 1] }} className="prismatic-glass flex flex-col justify-center" style={{ padding: "var(--fib-4)" }}>
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.1, ease: [0.22, 1, 0.36, 1] }} className="refractive-card flex flex-col justify-center" style={{ padding: "var(--fib-4)" }}>
             <div className="font-[family-name:var(--font-display)] font-bold text-white" style={{ fontSize: "var(--text-fib-xl)" }}>40-60%</div>
             <h3 className="font-[family-name:var(--font-display)] font-bold uppercase tracking-[0.15em]" style={{ fontSize: "var(--text-fib-xs)", color: "var(--color-ds-warm)", marginTop: "var(--fib-1)" }}>AI Cost Reduction</h3>
             <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-xs)", lineHeight: 1.5, marginTop: "var(--fib-2)" }}>Semantic caching, model routing, and token budgets. Most clients save more than our fees.</p>
