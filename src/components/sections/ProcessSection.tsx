@@ -17,11 +17,9 @@ export default function ProcessSection() {
 
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-
     const interval = setInterval(() => {
       setActiveStep((prev) => (prev + 1) % 4);
     }, 5000);
-
     return () => clearInterval(interval);
   }, []);
 
@@ -46,75 +44,32 @@ export default function ProcessSection() {
             const isActive = i === activeStep;
 
             return (
-              <motion.div
-                key={step.num}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
-              >
-                {/* Inner wrapper — this is what animates active/dim */}
-                <div
-                  className={isActive ? "refractive-card" : ""}
-                  style={{
-                    padding: "var(--fib-4)",
-                    filter: isActive ? "none" : "brightness(0.4)",
-                    transform: isActive ? "scale(1.02)" : "scale(1)",
-                    transition: "all 0.6s cubic-bezier(0.22, 1, 0.36, 1)",
-                    boxShadow: isActive
-                      ? "0 0 40px rgba(200, 208, 224, 0.06), 0 0 80px rgba(200, 208, 224, 0.03)"
-                      : "none",
-                  }}
-                >
-                  <div className="flex items-center justify-between" style={{ marginBottom: "var(--fib-3)" }}>
-                    <div
-                      className="font-[family-name:var(--font-mono)] tracking-[0.2em]"
-                      style={{
-                        fontSize: "var(--text-fib-xs)",
-                        color: isActive ? "var(--color-ds-warm)" : "var(--color-ds-text-dim)",
-                        transition: "color 0.6s ease",
-                      }}
-                    >
-                      {step.num} / {step.label}
-                    </div>
-                    <Icon
-                      size={18}
-                      strokeWidth={1.5}
-                      style={{
-                        color: isActive ? "var(--color-ds-warm)" : "var(--color-ds-crystalline)",
-                        opacity: isActive ? 0.8 : 0.2,
-                        transition: "all 0.6s ease",
-                      }}
-                    />
+              <motion.div key={step.num} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}>
+                <div className="flex items-center justify-between" style={{ marginBottom: "var(--fib-3)" }}>
+                  <div className="font-[family-name:var(--font-mono)] tracking-[0.2em]" style={{ fontSize: "var(--text-fib-xs)", color: "var(--color-ds-warm)" }}>
+                    {step.num} / {step.label}
                   </div>
-
-                  <div className="relative" style={{ height: "2px", backgroundColor: "var(--color-ds-border-light)", marginBottom: "var(--fib-3)" }}>
-                    <div
-                      style={{
-                        position: "absolute",
-                        left: 0,
-                        top: "50%",
-                        transform: "translateY(-50%)",
-                        width: "10px",
-                        height: "10px",
-                        backgroundColor: isActive ? "var(--color-ds-warm)" : "var(--color-ds-text-dim)",
-                        transition: "background-color 0.6s ease",
-                      }}
-                    />
-                  </div>
-
-                  <p
-                    style={{
-                      fontSize: "var(--text-fib-base)",
-                      lineHeight: 1.618,
-                      paddingRight: "var(--fib-3)",
-                      color: isActive ? "var(--color-ds-text)" : "var(--color-ds-text-secondary)",
-                      transition: "color 0.6s ease",
-                    }}
-                  >
-                    {step.detail}
-                  </p>
+                  <Icon size={18} style={{ color: "var(--color-ds-crystalline)", opacity: 0.3 }} strokeWidth={1.5} />
                 </div>
+                <div className="relative" style={{ height: "2px", backgroundColor: "var(--color-ds-border-light)", marginBottom: "var(--fib-3)" }}>
+                  {/* The square — prismatic glow when active */}
+                  <div
+                    style={{
+                      position: "absolute",
+                      left: 0,
+                      top: "50%",
+                      transform: "translateY(-50%)",
+                      width: "10px",
+                      height: "10px",
+                      backgroundColor: isActive ? "var(--color-ds-warm)" : "var(--color-ds-text-dim)",
+                      boxShadow: isActive
+                        ? "0 0 12px rgba(227, 204, 177, 0.6), 0 0 30px rgba(200, 208, 224, 0.3), 0 0 50px rgba(200, 208, 224, 0.15)"
+                        : "none",
+                      transition: "all 0.6s ease",
+                    }}
+                  />
+                </div>
+                <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-base)", lineHeight: 1.618, paddingRight: "var(--fib-3)" }}>{step.detail}</p>
               </motion.div>
             );
           })}
