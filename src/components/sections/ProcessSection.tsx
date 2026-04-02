@@ -2,12 +2,13 @@
 
 import { motion } from "framer-motion";
 import TextScramble from "@/components/TextScramble";
+import { Search, Rocket, Scale, RefreshCw } from "lucide-react";
 
 const steps = [
-  { num: "01", label: "DISCOVER", detail: "Deep-dive technical audit of current debt, bottlenecks, and AI readiness gaps. Map your legacy integrations." },
-  { num: "02", label: "PILOT", detail: "Proof-of-concept deployment on one high-impact AI workload. Production-grade code from day one." },
-  { num: "03", label: "SCALE", detail: "Expansion across your production footprint. Knowledge transfer, team upskilling, documentation." },
-  { num: "04", label: "EVOLVE", detail: "Continuous improvement through feedback loops. Managed operations retainer. Your team owns everything." },
+  { num: "01", label: "DISCOVER", icon: Search, detail: "Deep-dive technical audit of current debt, bottlenecks, and AI readiness gaps. Map your legacy integrations." },
+  { num: "02", label: "PILOT", icon: Rocket, detail: "Proof-of-concept deployment on one high-impact AI workload. Production-grade code from day one." },
+  { num: "03", label: "SCALE", icon: Scale, detail: "Expansion across your production footprint. Knowledge transfer, team upskilling, documentation." },
+  { num: "04", label: "EVOLVE", icon: RefreshCw, detail: "Continuous improvement through feedback loops. Managed operations retainer. Your team owns everything." },
 ];
 
 export default function ProcessSection() {
@@ -27,17 +28,23 @@ export default function ProcessSection() {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-4" style={{ gap: "var(--fib-4)" }}>
-          {steps.map((step, i) => (
-            <motion.div key={step.num} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}>
-              <div className="font-[family-name:var(--font-mono)] tracking-[0.2em]" style={{ fontSize: "var(--text-fib-xs)", color: "var(--color-ds-warm)", marginBottom: "var(--fib-3)" }}>
-                {step.num} / {step.label}
-              </div>
-              <div className="relative" style={{ height: "2px", backgroundColor: "var(--color-ds-border-light)", marginBottom: "var(--fib-3)" }}>
-                <div className={i === 0 ? "step-dot" : "step-dot-dim"} style={{ position: "absolute", left: 0, top: "50%", transform: "translateY(-50%)" }} />
-              </div>
-              <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-base)", lineHeight: 1.618, paddingRight: "var(--fib-3)" }}>{step.detail}</p>
-            </motion.div>
-          ))}
+          {steps.map((step, i) => {
+            const Icon = step.icon;
+            return (
+              <motion.div key={step.num} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}>
+                <div className="flex items-center justify-between" style={{ marginBottom: "var(--fib-3)" }}>
+                  <div className="font-[family-name:var(--font-mono)] tracking-[0.2em]" style={{ fontSize: "var(--text-fib-xs)", color: "var(--color-ds-warm)" }}>
+                    {step.num} / {step.label}
+                  </div>
+                  <Icon size={18} style={{ color: "var(--color-ds-crystalline)", opacity: 0.3 }} strokeWidth={1.5} />
+                </div>
+                <div className="relative" style={{ height: "2px", backgroundColor: "var(--color-ds-border-light)", marginBottom: "var(--fib-3)" }}>
+                  <div className={i === 0 ? "step-dot" : "step-dot-dim"} style={{ position: "absolute", left: 0, top: "50%", transform: "translateY(-50%)" }} />
+                </div>
+                <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-base)", lineHeight: 1.618, paddingRight: "var(--fib-3)" }}>{step.detail}</p>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

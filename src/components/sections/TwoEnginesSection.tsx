@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import TextScramble from "@/components/TextScramble";
+import { Brain, HardDrive } from "lucide-react";
 
 export default function TwoEnginesSection() {
   return (
@@ -22,7 +23,10 @@ export default function TwoEnginesSection() {
         <div className="grid grid-cols-1 md:grid-cols-2" style={{ gap: "2px" }}>
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }} className="relative group overflow-hidden flex flex-col justify-between" style={{ height: "500px", backgroundColor: "var(--color-ds-card)", border: "1px solid var(--color-ds-card-border)", padding: "var(--fib-5)" }}>
             <div>
-              <span className="font-[family-name:var(--font-mono)] uppercase tracking-[0.25em]" style={{ fontSize: "11px", color: "var(--color-ds-warm)" }}>Intelligence Layer</span>
+              <div className="flex items-center justify-between">
+                <span className="font-[family-name:var(--font-mono)] uppercase tracking-[0.25em]" style={{ fontSize: "11px", color: "var(--color-ds-warm)" }}>Intelligence Layer</span>
+                <Brain size={32} style={{ color: "var(--color-ds-crystalline)", opacity: 0.2 }} strokeWidth={1} />
+              </div>
               <h3 className="font-[family-name:var(--font-display)] font-bold text-white" style={{ fontSize: "var(--text-fib-xl)", marginTop: "var(--fib-2)" }}>Digital Sourcery</h3>
             </div>
             <div className="refractive-card max-w-sm" style={{ padding: "var(--fib-4)" }}>
@@ -37,7 +41,10 @@ export default function TwoEnginesSection() {
 
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }} className="relative group overflow-hidden flex flex-col justify-between" style={{ height: "500px", backgroundColor: "var(--color-ds-card)", border: "1px solid var(--color-ds-card-border)", padding: "var(--fib-5)" }}>
             <div>
-              <span className="font-[family-name:var(--font-mono)] uppercase tracking-[0.25em]" style={{ fontSize: "11px", color: "var(--color-ds-warm)" }}>Foundation Layer</span>
+              <div className="flex items-center justify-between">
+                <span className="font-[family-name:var(--font-mono)] uppercase tracking-[0.25em]" style={{ fontSize: "11px", color: "var(--color-ds-warm)" }}>Foundation Layer</span>
+                <HardDrive size={32} style={{ color: "var(--color-ds-crystalline)", opacity: 0.2 }} strokeWidth={1} />
+              </div>
               <h3 className="font-[family-name:var(--font-display)] font-bold text-white" style={{ fontSize: "var(--text-fib-xl)", marginTop: "var(--fib-2)" }}>BlackMagickOps</h3>
             </div>
             <div className="refractive-card max-w-sm" style={{ padding: "var(--fib-4)" }}>

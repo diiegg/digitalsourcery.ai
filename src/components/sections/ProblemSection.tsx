@@ -2,11 +2,12 @@
 
 import { motion } from "framer-motion";
 import TextScramble from "@/components/TextScramble";
+import { AlertTriangle, TrendingUp, Activity } from "lucide-react";
 
 const problems = [
-  { title: "Operational Friction", detail: "70% of engineering time is lost to keeping the lights on rather than feature innovation. AI experiments never leave the notebook." },
-  { title: "Compounding Costs", detail: "Cloud waste hits $26B annually. Add GPU costs, token spend, and agentic workflows — your AI budget is a black box the CFO wants opened." },
-  { title: "The Production Gap", detail: "Models with 94% accuracy in the lab drift to 67% in production. Nobody monitors. Nobody notices until customers complain." },
+  { icon: AlertTriangle, title: "Operational Friction", detail: "70% of engineering time is lost to keeping the lights on rather than feature innovation. AI experiments never leave the notebook." },
+  { icon: TrendingUp, title: "Compounding Costs", detail: "Cloud waste hits $26B annually. Add GPU costs, token spend, and agentic workflows — your AI budget is a black box the CFO wants opened." },
+  { icon: Activity, title: "The Production Gap", detail: "Models with 94% accuracy in the lab drift to 67% in production. Nobody monitors. Nobody notices until customers complain." },
 ];
 
 export default function ProblemSection() {
@@ -27,12 +28,20 @@ export default function ProblemSection() {
           </motion.div>
 
           <div className="flex flex-col" style={{ gap: "var(--fib-3)" }}>
-            {problems.map((p, i) => (
-              <motion.div key={i} initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }} className="refractive-card accent-border-card" style={{ padding: "var(--fib-4)" }}>
-                <h3 className="font-[family-name:var(--font-display)] font-bold text-white" style={{ fontSize: "var(--text-fib-md)" }}>{p.title}</h3>
-                <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-sm)", lineHeight: 1.618, marginTop: "var(--fib-2)" }}>{p.detail}</p>
-              </motion.div>
-            ))}
+            {problems.map((p, i) => {
+              const Icon = p.icon;
+              return (
+                <motion.div key={i} initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }} className="refractive-card accent-border-card flex items-start" style={{ padding: "var(--fib-4)", gap: "var(--fib-3)" }}>
+                  <div className="shrink-0" style={{ marginTop: "2px" }}>
+                    <Icon size={20} style={{ color: "var(--color-ds-warm)" }} strokeWidth={1.5} />
+                  </div>
+                  <div>
+                    <h3 className="font-[family-name:var(--font-display)] font-bold text-white" style={{ fontSize: "var(--text-fib-md)" }}>{p.title}</h3>
+                    <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-sm)", lineHeight: 1.618, marginTop: "var(--fib-2)" }}>{p.detail}</p>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </div>
