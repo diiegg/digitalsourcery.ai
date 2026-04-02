@@ -2,390 +2,221 @@
 
 import { motion } from "framer-motion";
 import TextScramble from "@/components/TextScramble";
+import { LayoutDashboard, Zap, Code2, BarChart3, CheckCircle2, Shield } from "lucide-react";
 
-const services = [
-  {
-    title: "Cognitive IDP",
-    subtitle: "Your developers' time back. Instantly.",
-    problem:
-      "Your developers waste 40% of their sprint wrestling with YAML configs, hunting down microservice owners, and waiting 3 days for infrastructure tickets.",
-    solution:
-      "Ask your IDP: 'Deploy a Python API with Redis caching and PostgreSQL on production-similar staging.' Three minutes later, it's live — with golden-path guardrails, automatic SBOM generation, and SLO dashboards configured.",
-    outcomes: [
-      "MTTR drops from days to minutes",
-      "Developer NPS jumps 40+ points",
-      "Platform teams become force multipliers, not bottlenecks",
-      "Infrastructure ticket volume: 80-95% reduction",
-    ],
-    stack: "Backstage, Kubernetes, ArgoCD, Crossplane, Pulumi",
-  },
-  {
-    title: "Agentic Workflows",
-    subtitle: "Infrastructure that responds before you notice.",
-    problem:
-      "Your on-call engineers get paged at 3 AM for the same issues every week. Manual runbooks, tribal knowledge, and copy-paste remediation. Alert fatigue is burning out your team.",
-    solution:
-      "AI-driven incident response that detects anomalies, diagnoses root causes, and executes remediation automatically. Your engineers sleep through alerts because the system handles 80% of incidents without human intervention.",
-    outcomes: [
-      "80%+ incidents auto-remediated",
-      "Mean time to resolution: minutes, not hours",
-      "On-call burden reduced dramatically",
-      "System learns from every incident",
-    ],
-    stack: "LangChain, OpenAI/Anthropic, Vector DB, Kubernetes Operators",
-  },
-  {
-    title: "Eco-FinOps",
-    subtitle: "Cut cloud costs 40-60% without sacrificing performance.",
-    problem:
-      "Your cloud bill grows faster than your revenue. Nobody knows which team, service, or environment is burning money. The CFO wants answers you can't give.",
-    solution:
-      "Automated cost attribution, predictive budgeting, and intelligent resource optimization. Every dollar traced to a team, service, and business outcome. Spot waste before it compounds.",
-    outcomes: [
-      "40-60% cloud cost reduction",
-      "Real-time cost attribution per team and service",
-      "Predictive budget alerts before overruns",
-      "Carbon-aware scheduling for sustainability goals",
-    ],
-    stack: "Prometheus, Grafana, OpenCost, Kubecost, Custom Controllers",
-  },
+const stagger = { hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.1, delayChildren: 0.15 } } };
+const fadeUp = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } } };
+
+const specs = [
+  { label: "Provisioning Speed", value: "0.04s" },
+  { label: "Service Discovery", value: "Instant", accent: true },
+  { label: "State Management", value: "Atomic" },
+  { label: "Compliance Drift", value: "Zero" },
 ];
 
-const process = [
-  {
-    phase: "01",
-    title: "Discover",
-    duration: "Week 1-2",
-    detail:
-      "Deep system audit. We map dependencies, bottlenecks, and failure modes. Train context models on your architecture. Identify the top 3 automation opportunities with ROI projections.",
-  },
-  {
-    phase: "02",
-    title: "Architect",
-    duration: "Week 3-5",
-    detail:
-      "Design self-healing topologies, agentic workflows, and platform interfaces. Your team reviews architecture decisions with us — no black boxes.",
-  },
-  {
-    phase: "03",
-    title: "Automate",
-    duration: "Week 6-10",
-    detail:
-      "Deploy autonomous pipelines, LLM-powered IDPs, and agentic guardrails. We pair-program with your engineers — this is knowledge transfer, not gatekeeping.",
-  },
-  {
-    phase: "04",
-    title: "Evolve",
-    duration: "Week 11+",
-    detail:
-      "Continuous model tuning, system optimization, and monitoring. Your infrastructure learns from incidents and patches itself before you wake up.",
-  },
+const sealPoints = [
+  "Hardened Platform Architecture",
+  "Automated Incident Pre-emption",
+  "Zero-Trust Security by Default",
+  "Infrastructure-as-Code at Every Layer",
 ];
 
 export default function FoundationContent() {
   return (
     <main className="relative">
       {/* Hero */}
-      <section
-        className="flex items-center"
-        style={{ paddingTop: "var(--fib-7)", paddingBottom: "var(--fib-7)" }}
-      >
-        <div className="mx-auto max-w-[1400px] px-[var(--fib-4)] lg:px-[var(--fib-5)] w-full">
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1 }}
-          >
-            <p
-              className="font-[family-name:var(--font-mono)] tracking-[0.2em] uppercase"
-              style={{
-                fontSize: "var(--text-fib-xs)",
-                color: "var(--color-ds-section-label)",
-                marginBottom: "var(--fib-3)",
-              }}
-            >
-              Powered by BlackMagickOps
-            </p>
-            <h1
-              className="font-[family-name:var(--font-display)] font-bold leading-[1.0] tracking-[-0.03em] text-white"
-              style={{
-                fontSize: "clamp(var(--text-fib-lg), 6vw, var(--text-fib-2xl))",
-                marginBottom: "var(--fib-4)",
-              }}
-            >
-              Your Infrastructure
-              <br />
-              <span style={{ color: "var(--color-ds-headline-accent)" }}>
-                Is Holding You Back.
-              </span>
-            </h1>
-            <p
-              className="text-ds-text-secondary max-w-lg"
-              style={{ fontSize: "var(--text-fib-base)", lineHeight: 1.618, marginBottom: "var(--fib-5)" }}
-            >
-              Slow deploys. Runaway cloud costs. Engineers stuck writing YAML instead of features.
-              We build internal platforms that fix all three — with self-healing infrastructure,
-              developer self-service, and FinOps automation. Delivered in 12 weeks.
-            </p>
-            <a
-              href="#contact"
-              className="ds-cta inline-block"
-              style={{ fontSize: "var(--text-fib-sm)", padding: "var(--fib-2) var(--fib-3)" }}
-            >
-              Free Infrastructure Assessment
-            </a>
-          </motion.div>
-        </div>
-      </section>
+      <section className="relative overflow-hidden" style={{ paddingTop: "var(--fib-7)", paddingBottom: "var(--fib-7)" }}>
+        <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full pointer-events-none" style={{ background: "radial-gradient(circle, rgba(200, 208, 224, 0.04) 0%, transparent 70%)", filter: "blur(80px)" }} />
+        <div className="mx-auto max-w-[1440px] px-[var(--fib-5)] w-full">
+          <div className="flex flex-col md:flex-row items-end" style={{ gap: "var(--fib-6)" }}>
+            <motion.div className="w-full md:w-2/3" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}>
+              <div className="inline-flex items-center refractive-card" style={{ gap: "var(--fib-2)", padding: "var(--fib-1) var(--fib-3)", marginBottom: "var(--fib-5)" }}>
+                <Shield size={14} style={{ color: "var(--color-ds-warm)" }} strokeWidth={1.5} />
+                <span className="font-[family-name:var(--font-display)] uppercase tracking-[0.2em]" style={{ fontSize: "10px", color: "var(--color-ds-warm)" }}>Powered by BlackMagickOps</span>
+              </div>
+              <h1 className="font-[family-name:var(--font-display)] font-bold tracking-[-0.04em] text-white" style={{ fontSize: "var(--text-fib-2xl)", lineHeight: 0.95, marginBottom: "var(--fib-5)" }}>
+                CORE INFRASTRUCTURE
+                <br />
+                <span style={{ color: "var(--color-ds-headline-accent)" }}>ENGINEERING.</span>
+              </h1>
+              <p className="text-ds-text-secondary max-w-xl" style={{ fontSize: "var(--text-fib-md)", lineHeight: 1.618 }}>
+                Forging the obsidian foundation for autonomous systems. We engineer resilient, low-level architecture that accelerates innovation without technical debt.
+              </p>
+            </motion.div>
 
-      {/* Services */}
-      <section
-        style={{
-          paddingTop: "var(--fib-7)",
-          paddingBottom: "var(--fib-7)",
-          borderTop: "1px solid var(--color-ds-border)",
-        }}
-      >
-        <div className="mx-auto max-w-[1400px] px-[var(--fib-4)] lg:px-[var(--fib-5)]">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            style={{ marginBottom: "var(--fib-6)" }}
-          >
-            <TextScramble
-              as="h2"
-              className="font-[family-name:var(--font-display)] font-bold leading-[1.1] tracking-[-0.02em]"
-              style={{ fontSize: "clamp(var(--text-fib-lg), 4.5vw, var(--text-fib-xl))" }}
-            >
-              What We Actually Do
-            </TextScramble>
-          </motion.div>
-
-          <div className="flex flex-col" style={{ gap: "var(--fib-5)" }}>
-            {services.map((service, i) => (
-              <motion.div
-                key={service.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: i * 0.1 }}
-                className="themed-card rounded-xl"
-                style={{
-                  backgroundColor: "var(--color-ds-card)",
-                  border: "1px solid var(--color-ds-card-border)",
-                  padding: "var(--fib-5)",
-                }}
-              >
-                <h3
-                  className="font-[family-name:var(--font-display)] font-bold text-white"
-                  style={{ fontSize: "var(--text-fib-md)", marginBottom: "var(--fib-1)" }}
-                >
-                  {service.title}
-                </h3>
-                <p
-                  className="font-[family-name:var(--font-display)]"
-                  style={{
-                    fontSize: "var(--text-fib-base)",
-                    color: "var(--color-ds-headline-accent)",
-                    marginBottom: "var(--fib-4)",
-                  }}
-                >
-                  {service.subtitle}
-                </p>
-
-                <div className="grid grid-cols-1 lg:grid-cols-2" style={{ gap: "var(--fib-4)" }}>
-                  <div>
-                    <p
-                      className="font-[family-name:var(--font-mono)] uppercase tracking-[0.15em] text-ds-text-dim"
-                      style={{ fontSize: "11px", marginBottom: "var(--fib-2)" }}
-                    >
-                      The Hard Way
-                    </p>
-                    <p
-                      className="text-ds-text-secondary"
-                      style={{ fontSize: "var(--text-fib-sm)", lineHeight: 1.618, marginBottom: "var(--fib-3)" }}
-                    >
-                      {service.problem}
-                    </p>
-
-                    <p
-                      className="font-[family-name:var(--font-mono)] uppercase tracking-[0.15em] text-ds-text-dim"
-                      style={{ fontSize: "11px", marginBottom: "var(--fib-2)" }}
-                    >
-                      The BlackMagickOps Way
-                    </p>
-                    <p
-                      className="text-ds-text-secondary"
-                      style={{ fontSize: "var(--text-fib-sm)", lineHeight: 1.618 }}
-                    >
-                      {service.solution}
-                    </p>
-                  </div>
-
-                  <div>
-                    <p
-                      className="font-[family-name:var(--font-mono)] uppercase tracking-[0.15em] text-ds-text-dim"
-                      style={{ fontSize: "11px", marginBottom: "var(--fib-2)" }}
-                    >
-                      What Changes
-                    </p>
-                    <ul style={{ marginBottom: "var(--fib-3)" }}>
-                      {service.outcomes.map((o) => (
-                        <li
-                          key={o}
-                          className="text-ds-text-secondary"
-                          style={{
-                            fontSize: "var(--text-fib-sm)",
-                            lineHeight: 1.618,
-                            paddingLeft: "var(--fib-2)",
-                            marginBottom: "var(--fib-1)",
-                            position: "relative",
-                          }}
-                        >
-                          <span style={{ position: "absolute", left: 0, color: "var(--color-ds-headline-accent)" }}>+</span>
-                          {o}
-                        </li>
-                      ))}
-                    </ul>
-
-                    <p
-                      className="font-[family-name:var(--font-mono)] text-ds-text-dim"
-                      style={{
-                        fontSize: "11px",
-                        borderTop: "1px solid var(--color-ds-border-light)",
-                        paddingTop: "var(--fib-2)",
-                      }}
-                    >
-                      Stack: {service.stack}
-                    </p>
-                  </div>
+            <motion.div className="w-full md:w-1/3" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1.2, delay: 0.4 }}>
+              <div style={{ borderTop: "1px solid rgba(200, 208, 224, 0.08)", borderBottom: "1px solid rgba(200, 208, 224, 0.08)", padding: "var(--fib-3) 0" }}>
+                <div className="flex justify-between items-center">
+                  <span className="font-[family-name:var(--font-mono)] uppercase tracking-[0.2em]" style={{ fontSize: "10px", color: "var(--color-ds-text-dim)" }}>System Status</span>
+                  <span className="flex items-center font-[family-name:var(--font-mono)] uppercase tracking-[0.2em]" style={{ fontSize: "10px", color: "var(--color-ds-warm)", gap: "var(--fib-1)" }}>
+                    <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ backgroundColor: "var(--color-ds-warm)" }} />
+                    Operational
+                  </span>
                 </div>
-              </motion.div>
-            ))}
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Process */}
-      <section
-        style={{
-          paddingTop: "var(--fib-7)",
-          paddingBottom: "var(--fib-7)",
-          borderTop: "1px solid var(--color-ds-border)",
-        }}
-      >
-        <div className="mx-auto max-w-[1400px] px-[var(--fib-4)] lg:px-[var(--fib-5)]">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            style={{ marginBottom: "var(--fib-6)" }}
-          >
-            <TextScramble
-              as="h2"
-              className="font-[family-name:var(--font-display)] font-bold leading-[1.1] tracking-[-0.02em]"
-              style={{ fontSize: "clamp(var(--text-fib-lg), 4.5vw, var(--text-fib-xl))" }}
-            >
-              How We Work
-            </TextScramble>
-            <p
-              className="text-ds-text-secondary max-w-md"
-              style={{ fontSize: "var(--text-fib-base)", lineHeight: 1.618, marginTop: "var(--fib-3)" }}
-            >
-              No 200-page docs. No drive-by consulting. We pair-program with your team
-              through every phase until your infrastructure runs itself.
-            </p>
-          </motion.div>
+      {/* Bento Grid Services */}
+      <section style={{ paddingTop: "var(--fib-6)", paddingBottom: "var(--fib-7)", borderTop: "1px solid var(--color-ds-border)" }}>
+        <div className="mx-auto max-w-[1440px] px-[var(--fib-5)]">
+          <motion.div variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} className="grid grid-cols-1 md:grid-cols-12" style={{ gap: "var(--fib-2)" }}>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4" style={{ gap: "var(--fib-3)" }}>
-            {process.map((step, i) => (
-              <motion.div
-                key={step.phase}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="themed-card rounded-xl"
-                style={{
-                  backgroundColor: "var(--color-ds-card)",
-                  border: "1px solid var(--color-ds-card-border)",
-                  padding: "var(--fib-4)",
-                }}
-              >
-                <div
-                  className="font-[family-name:var(--font-mono)]"
-                  style={{ fontSize: "var(--text-fib-xs)", color: "var(--color-ds-phase-num)", marginBottom: "var(--fib-3)" }}
-                >
-                  {step.phase}
+            {/* IDP — 8 col */}
+            <motion.div variants={fadeUp} className="md:col-span-8 refractive-card flex flex-col justify-between relative overflow-hidden group" style={{ padding: "var(--fib-5)", minHeight: "400px" }}>
+              <div className="absolute top-[var(--fib-4)] right-[var(--fib-4)]">
+                <LayoutDashboard size={120} style={{ color: "var(--color-ds-crystalline)", opacity: 0.05 }} strokeWidth={0.5} className="group-hover:opacity-[0.1] transition-opacity duration-500" />
+              </div>
+              <div className="flex justify-between items-start">
+                <div className="flex items-center justify-center" style={{ width: "55px", height: "55px", border: "1px solid rgba(200, 208, 224, 0.1)" }}>
+                  <LayoutDashboard size={24} style={{ color: "var(--color-ds-crystalline)" }} strokeWidth={1} />
                 </div>
-                <h3
-                  className="font-[family-name:var(--font-display)] font-semibold"
-                  style={{ fontSize: "var(--text-fib-md)", marginBottom: "var(--fib-1)" }}
-                >
-                  {step.title}
-                </h3>
-                <div
-                  className="text-ds-text-dim font-[family-name:var(--font-mono)]"
-                  style={{ fontSize: "var(--text-fib-xs)", marginBottom: "var(--fib-2)" }}
-                >
-                  {step.duration}
+                <span className="font-[family-name:var(--font-mono)] uppercase tracking-[0.25em]" style={{ fontSize: "10px", color: "var(--color-ds-text-dim)" }}>Module 01</span>
+              </div>
+              <div>
+                <h3 className="font-[family-name:var(--font-display)] font-bold text-white" style={{ fontSize: "var(--text-fib-lg)", marginBottom: "var(--fib-3)" }}>Internal Developer Platforms</h3>
+                <p className="text-ds-text-secondary max-w-md" style={{ fontSize: "var(--text-fib-base)", lineHeight: 1.618 }}>Empower engineering teams with self-service infrastructure. We build unified portals that abstract cloud complexity into developer-centric workflows.</p>
+              </div>
+            </motion.div>
+
+            {/* Platform Acceleration — 4 col */}
+            <motion.div variants={fadeUp} className="md:col-span-4 refractive-card accent-border-card flex flex-col justify-between group" style={{ padding: "var(--fib-4)" }}>
+              <div className="flex items-center justify-center" style={{ width: "44px", height: "44px", border: "1px solid rgba(200, 208, 224, 0.1)", marginBottom: "var(--fib-5)" }}>
+                <Zap size={20} style={{ color: "var(--color-ds-warm)" }} strokeWidth={1.5} />
+              </div>
+              <div>
+                <h3 className="font-[family-name:var(--font-display)] font-bold text-white" style={{ fontSize: "var(--text-fib-md)", marginBottom: "var(--fib-2)" }}>Platform Acceleration</h3>
+                <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-sm)", lineHeight: 1.618 }}>Rapid deployment cycles powered by specialized engineering sprints and automated delivery pipelines.</p>
+              </div>
+            </motion.div>
+
+            {/* Infrastructure Automation — 4 col */}
+            <motion.div variants={fadeUp} className="md:col-span-4 refractive-card accent-border-card flex flex-col justify-between group" style={{ padding: "var(--fib-4)" }}>
+              <div className="flex items-center justify-center" style={{ width: "44px", height: "44px", border: "1px solid rgba(200, 208, 224, 0.1)", marginBottom: "var(--fib-5)" }}>
+                <Code2 size={20} style={{ color: "var(--color-ds-crystalline)" }} strokeWidth={1.5} />
+              </div>
+              <div>
+                <h3 className="font-[family-name:var(--font-display)] font-bold text-white" style={{ fontSize: "var(--text-fib-md)", marginBottom: "var(--fib-2)" }}>Infrastructure Automation</h3>
+                <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-sm)", lineHeight: 1.618 }}>Terraform and OpenTofu blueprints designed for scale, security, and immutable state management.</p>
+              </div>
+            </motion.div>
+
+            {/* Observability & FinOps — 8 col */}
+            <motion.div variants={fadeUp} className="md:col-span-8 refractive-card flex flex-col justify-between relative overflow-hidden group" style={{ padding: "var(--fib-5)" }}>
+              <div className="absolute top-[var(--fib-4)] right-[var(--fib-4)]">
+                <BarChart3 size={80} style={{ color: "var(--color-ds-crystalline)", opacity: 0.05 }} strokeWidth={0.5} className="group-hover:opacity-[0.1] transition-opacity duration-500" />
+              </div>
+              <div className="flex justify-between items-start" style={{ marginBottom: "var(--fib-5)" }}>
+                <div className="flex items-center justify-center" style={{ width: "55px", height: "55px", border: "1px solid rgba(200, 208, 224, 0.1)" }}>
+                  <BarChart3 size={24} style={{ color: "var(--color-ds-crystalline)" }} strokeWidth={1} />
                 </div>
-                <p
-                  className="text-ds-text-secondary"
-                  style={{ fontSize: "var(--text-fib-sm)", lineHeight: 1.618 }}
-                >
-                  {step.detail}
-                </p>
-              </motion.div>
-            ))}
+                <span className="font-[family-name:var(--font-mono)] uppercase tracking-[0.25em]" style={{ fontSize: "10px", color: "var(--color-ds-text-dim)" }}>Module 04</span>
+              </div>
+              <div className="grid md:grid-cols-2" style={{ gap: "var(--fib-5)" }}>
+                <div>
+                  <h3 className="font-[family-name:var(--font-display)] font-bold text-white" style={{ fontSize: "var(--text-fib-md)", marginBottom: "var(--fib-2)" }}>Observability</h3>
+                  <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-sm)", lineHeight: 1.618 }}>Go beyond logs. Full-stack telemetry pipelines that provide real-time insights into system health and user behavior.</p>
+                </div>
+                <div>
+                  <h3 className="font-[family-name:var(--font-display)] font-bold text-white" style={{ fontSize: "var(--text-fib-md)", marginBottom: "var(--fib-2)" }}>FinOps</h3>
+                  <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-sm)", lineHeight: 1.618 }}>Algorithmic cost optimization. Eliminate waste and align cloud spend directly with business value generation.</p>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* BlackMagickOps Seal */}
+      <section style={{ paddingTop: "var(--fib-7)", paddingBottom: "var(--fib-7)", backgroundColor: "var(--color-ds-void)", borderTop: "1px solid rgba(200, 208, 224, 0.06)", borderBottom: "1px solid rgba(200, 208, 224, 0.06)" }}>
+        <div className="mx-auto max-w-[1440px] px-[var(--fib-5)]">
+          <div className="flex flex-col md:flex-row items-center" style={{ gap: "var(--fib-6)" }}>
+            {/* Left — decorative */}
+            <motion.div className="w-full md:w-1/2 flex justify-center" initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}>
+              <div className="relative refractive-card flex items-center justify-center" style={{ width: "340px", height: "340px" }}>
+                {/* Rotating rings */}
+                <div className="absolute border rounded-full" style={{ width: "200px", height: "200px", borderColor: "rgba(227, 204, 177, 0.08)", animation: "spin 20s linear infinite" }} />
+                <div className="absolute border rounded-full" style={{ width: "260px", height: "260px", borderColor: "rgba(200, 208, 224, 0.04)", animation: "spin 30s linear infinite reverse" }} />
+                {/* Center mark */}
+                <div className="relative z-10 flex flex-col items-center">
+                  <div className="flex items-center justify-center" style={{ width: "89px", height: "89px", border: "2px solid var(--color-ds-warm)", boxShadow: "0 0 40px rgba(227, 204, 177, 0.12)", marginBottom: "var(--fib-3)" }}>
+                    <Shield size={40} style={{ color: "var(--color-ds-warm)" }} strokeWidth={1} />
+                  </div>
+                  <h3 className="font-[family-name:var(--font-display)] font-bold text-white uppercase tracking-[0.15em]" style={{ fontSize: "var(--text-fib-base)" }}>BlackMagickOps</h3>
+                  <span className="font-[family-name:var(--font-mono)] uppercase tracking-[0.25em]" style={{ fontSize: "10px", color: "var(--color-ds-warm)", marginTop: "var(--fib-1)" }}>Production-Grade Reliability</span>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Right — description */}
+            <motion.div className="w-full md:w-1/2" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}>
+              <TextScramble as="h2" className="font-[family-name:var(--font-display)] font-bold leading-[1.05] tracking-[-0.03em] text-white" style={{ fontSize: "var(--text-fib-xl)", marginBottom: "var(--fib-5)" }}>
+                The BlackMagickOps Seal
+              </TextScramble>
+              <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-base)", lineHeight: 1.618, marginBottom: "var(--fib-5)" }}>
+                Digital Sourcery&apos;s Foundation services are powered by the BlackMagickOps engineering discipline. Platform engineering, automation, and observability built for precision and reliability.
+              </p>
+              <ul className="flex flex-col" style={{ gap: "var(--fib-3)" }}>
+                {sealPoints.map((point) => (
+                  <li key={point} className="flex items-center" style={{ gap: "var(--fib-2)" }}>
+                    <CheckCircle2 size={16} style={{ color: "var(--color-ds-warm)" }} strokeWidth={1.5} />
+                    <span className="font-[family-name:var(--font-display)] uppercase tracking-[0.1em]" style={{ fontSize: "var(--text-fib-xs)" }}>{point}</span>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Technical Specs Row */}
+      <section style={{ paddingTop: "var(--fib-6)", paddingBottom: "var(--fib-6)", borderBottom: "1px solid rgba(200, 208, 224, 0.06)" }}>
+        <div className="mx-auto max-w-[1440px] px-[var(--fib-5)]">
+          <div className="flex flex-col md:flex-row items-center" style={{ gap: "var(--fib-5)" }}>
+            <div className="shrink-0">
+              <h4 className="font-[family-name:var(--font-display)] font-bold text-white" style={{ fontSize: "var(--text-fib-md)" }}>Technical
+                <br />Resonance</h4>
+            </div>
+            <div className="flex-grow flex flex-wrap" style={{ gap: "var(--fib-6)" }}>
+              {specs.map((s) => (
+                <motion.div key={s.label} className="flex flex-col" style={{ gap: "var(--fib-1)" }} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
+                  <span className="font-[family-name:var(--font-mono)] uppercase tracking-[0.2em]" style={{ fontSize: "10px", color: "var(--color-ds-text-dim)" }}>{s.label}</span>
+                  <span className="font-[family-name:var(--font-display)] font-light" style={{ fontSize: "var(--text-fib-lg)", color: s.accent ? "var(--color-ds-warm)" : "var(--color-ds-text)" }}>{s.value}</span>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section
-        id="contact"
-        style={{
-          paddingTop: "var(--fib-8)",
-          paddingBottom: "var(--fib-8)",
-          borderTop: "1px solid var(--color-ds-border)",
-        }}
-      >
-        <div className="mx-auto max-w-[1400px] px-[var(--fib-4)] lg:px-[var(--fib-5)]">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            style={{ maxWidth: "var(--phi-major)" }}
-          >
-            <h2
-              className="font-[family-name:var(--font-display)] font-bold leading-[1.05] tracking-[-0.03em]"
-              style={{
-                fontSize: "clamp(var(--text-fib-lg), 5vw, var(--text-fib-xl))",
-                marginBottom: "var(--fib-4)",
-              }}
-            >
-              Ready to make your infrastructure a competitive advantage?
-            </h2>
-            <p
-              className="text-ds-text-secondary max-w-lg"
-              style={{ fontSize: "var(--text-fib-base)", lineHeight: 1.618, marginBottom: "var(--fib-5)" }}
-            >
-              Free infrastructure assessment. We&apos;ll map your bottlenecks,
-              identify the top 3 automation opportunities, and give you a
-              clear ROI projection. No commitment.
+      <section style={{ paddingTop: "var(--fib-7)", paddingBottom: "var(--fib-7)" }}>
+        <div className="mx-auto max-w-[1440px] px-[var(--fib-5)]">
+          <motion.div className="refractive-card relative overflow-hidden flex flex-col items-center text-center" style={{ padding: "var(--fib-7) var(--fib-5)" }} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}>
+            <div className="absolute -bottom-24 -left-24 w-64 h-64 rounded-full pointer-events-none" style={{ background: "radial-gradient(circle, rgba(227, 204, 177, 0.08) 0%, transparent 70%)", filter: "blur(60px)" }} />
+
+            <div className="inline-block font-[family-name:var(--font-display)] uppercase tracking-[0.2em]" style={{ fontSize: "var(--text-fib-xs)", color: "var(--color-ds-warm)", border: "1px solid var(--color-ds-warm-dim)", padding: "var(--fib-1) var(--fib-2)", marginBottom: "var(--fib-4)" }}>
+              Build on Obsidian
+            </div>
+
+            <TextScramble as="h2" className="font-[family-name:var(--font-display)] font-bold tracking-[-0.03em] text-white" style={{ fontSize: "var(--text-fib-xl)", lineHeight: 1.1, marginBottom: "var(--fib-5)" }}>
+              Ready to stabilize your digital foundation?
+            </TextScramble>
+
+            <p className="text-ds-text-secondary max-w-2xl" style={{ fontSize: "var(--text-fib-base)", lineHeight: 1.618, marginBottom: "var(--fib-6)" }}>
+              Consult with our foundation architects to deploy a BlackMagickOps-grade infrastructure.
             </p>
-            <a
-              href="mailto:hello@digitalsourcery.ai"
-              className="ds-cta inline-block"
-              style={{ fontSize: "var(--text-fib-sm)", padding: "var(--fib-2) var(--fib-4)" }}
-            >
-              Start a Project
-            </a>
+
+            <div className="flex flex-col md:flex-row" style={{ gap: "var(--fib-3)" }}>
+              <a href="mailto:hello@digitalsourcery.ai" className="inline-block font-[family-name:var(--font-display)] font-bold tracking-[0.15em] uppercase bg-white text-black hover:scale-[0.97] transition-transform duration-200 ds-cta-prismatic" style={{ fontSize: "var(--text-fib-sm)", padding: "var(--fib-3) var(--fib-5)" }}>
+                Initiate Migration
+              </a>
+              <a href="/stack" className="inline-block font-[family-name:var(--font-display)] font-bold tracking-[0.15em] uppercase hover:bg-[var(--color-ds-card)] transition-colors duration-200 ds-cta-prismatic" style={{ fontSize: "var(--text-fib-sm)", padding: "var(--fib-3) var(--fib-5)", border: "1px solid rgba(200, 208, 224, 0.1)", color: "var(--color-ds-text)" }}>
+                View Technical Docs
+              </a>
+            </div>
           </motion.div>
         </div>
       </section>
