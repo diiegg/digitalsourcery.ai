@@ -9,6 +9,7 @@ const DURATION = 600;
 interface TextScrambleProps {
   children: ReactNode;
   className?: string;
+  style?: React.CSSProperties;
   as?: "h1" | "h2" | "h3" | "p" | "span";
   delay?: number;
 }
@@ -16,6 +17,7 @@ interface TextScrambleProps {
 export default function TextScramble({
   children,
   className,
+  style,
   as: Tag = "h2",
   delay = 0,
 }: TextScrambleProps) {
@@ -80,7 +82,7 @@ export default function TextScramble({
   }, [delay]);
 
   return (
-    <Tag ref={ref as React.RefObject<never>} className={className}>
+    <Tag ref={ref as React.RefObject<never>} className={className} style={style}>
       {displayText !== null ? displayText : children}
     </Tag>
   );
