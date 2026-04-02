@@ -129,7 +129,7 @@ export default function StackSection() {
                     className="font-[family-name:var(--font-display)] font-semibold"
                     style={{
                       fontSize: "var(--text-fib-sm)",
-                      color: "var(--color-ds-metric)",
+                      color: "var(--color-ds-headline-accent)",
                       marginBottom: "var(--fib-2)",
                     }}
                   >

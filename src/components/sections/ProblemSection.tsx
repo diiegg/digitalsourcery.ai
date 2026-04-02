@@ -85,7 +85,7 @@ export default function ProblemSection() {
                 className="font-[family-name:var(--font-display)] font-bold"
                 style={{
                   fontSize: "var(--text-fib-md)",
-                  color: "var(--color-ds-metric)",
+                  color: "var(--color-ds-headline-accent)",
                   marginBottom: "var(--fib-3)",
                 }}
               >

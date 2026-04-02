@@ -145,7 +145,7 @@ export default function TwoEnginesSection() {
           >
             <p
               className="font-[family-name:var(--font-mono)] tracking-[0.15em] uppercase"
-              style={{ fontSize: "11px", color: "var(--color-ds-metric)", marginBottom: "var(--fib-2)" }}
+              style={{ fontSize: "11px", color: "var(--color-ds-headline-accent)", marginBottom: "var(--fib-2)" }}
             >
               The Intelligence Layer
             </p>
@@ -168,7 +168,7 @@ export default function TwoEnginesSection() {
                     position: "relative",
                   }}
                 >
-                  <span style={{ position: "absolute", left: 0, color: "var(--color-ds-metric)" }}>+</span>
+                  <span style={{ position: "absolute", left: 0, color: "var(--color-ds-headline-accent)" }}>+</span>
                   {item}
                 </li>
               ))}

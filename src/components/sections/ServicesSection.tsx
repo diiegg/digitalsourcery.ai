@@ -192,7 +192,7 @@ export default function ServicesSection() {
                       style={{
                         position: "absolute",
                         left: 0,
-                        color: "var(--color-ds-metric)",
+                        color: "var(--color-ds-headline-accent)",
                       }}
                     >
                       +

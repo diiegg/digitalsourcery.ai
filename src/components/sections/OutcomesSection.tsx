@@ -86,13 +86,13 @@ export default function OutcomesSection() {
               <div className="flex items-baseline" style={{ gap: "var(--fib-1)", marginBottom: "var(--fib-2)" }}>
                 <span
                   className="font-[family-name:var(--font-display)] font-bold"
-                  style={{ color: "var(--color-ds-metric)", fontSize: "var(--text-fib-xl)" }}
+                  style={{ color: "var(--color-ds-headline-accent)", fontSize: "var(--text-fib-xl)" }}
                 >
                   {item.metric}
                 </span>
                 <span
                   className="font-[family-name:var(--font-mono)]"
-                  style={{ color: "var(--color-ds-metric)", fontSize: "var(--text-fib-base)" }}
+                  style={{ color: "var(--color-ds-headline-accent)", fontSize: "var(--text-fib-base)" }}
                 >
                   {item.unit}
                 </span>
