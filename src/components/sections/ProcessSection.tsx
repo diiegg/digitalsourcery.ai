@@ -52,87 +52,21 @@ export default function ProcessSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
-                className="cursor-pointer"
-                onClick={() => setActiveStep(i)}
                 style={{
-                  transform: isActive ? "scale(1.02)" : "scale(1)",
-                  transition: "all 0.5s cubic-bezier(0.22, 1, 0.36, 1)",
+                  opacity: isActive ? 1 : 0.35,
+                  transition: "opacity 0.5s ease",
                 }}
               >
-                {/* Label + icon */}
                 <div className="flex items-center justify-between" style={{ marginBottom: "var(--fib-3)" }}>
-                  <div
-                    className="font-[family-name:var(--font-mono)] tracking-[0.2em]"
-                    style={{
-                      fontSize: "var(--text-fib-xs)",
-                      color: isActive ? "var(--color-ds-warm)" : "var(--color-ds-text-dim)",
-                      transition: "color 0.5s ease",
-                    }}
-                  >
+                  <div className="font-[family-name:var(--font-mono)] tracking-[0.2em]" style={{ fontSize: "var(--text-fib-xs)", color: "var(--color-ds-warm)" }}>
                     {step.num} / {step.label}
                   </div>
-                  <Icon
-                    size={18}
-                    strokeWidth={1.5}
-                    style={{
-                      color: isActive ? "var(--color-ds-warm)" : "var(--color-ds-crystalline)",
-                      opacity: isActive ? 0.7 : 0.15,
-                      transition: "all 0.5s ease",
-                    }}
-                  />
+                  <Icon size={18} style={{ color: "var(--color-ds-crystalline)", opacity: 0.3 }} strokeWidth={1.5} />
                 </div>
-
-                {/* Progress line with dot */}
-                <div
-                  className="relative"
-                  style={{
-                    height: "2px",
-                    backgroundColor: "var(--color-ds-border-light)",
-                    marginBottom: "var(--fib-3)",
-                    overflow: "hidden",
-                  }}
-                >
-                  {/* Active fill bar */}
-                  <div
-                    style={{
-                      position: "absolute",
-                      left: 0,
-                      top: 0,
-                      height: "100%",
-                      width: isActive ? "100%" : "0%",
-                      backgroundColor: "var(--color-ds-warm)",
-                      transition: isActive
-                        ? "width 5s linear"
-                        : "width 0.3s ease",
-                    }}
-                  />
-                  {/* Dot */}
-                  <div
-                    style={{
-                      position: "absolute",
-                      left: 0,
-                      top: "50%",
-                      transform: "translateY(-50%)",
-                      width: isActive ? "12px" : "8px",
-                      height: isActive ? "12px" : "8px",
-                      backgroundColor: isActive ? "var(--color-ds-warm)" : "var(--color-ds-text-dim)",
-                      transition: "all 0.5s ease",
-                    }}
-                  />
+                <div className="relative" style={{ height: "2px", backgroundColor: "var(--color-ds-border-light)", marginBottom: "var(--fib-3)" }}>
+                  <div className="step-dot" style={{ position: "absolute", left: 0, top: "50%", transform: "translateY(-50%)" }} />
                 </div>
-
-                {/* Description */}
-                <p
-                  style={{
-                    fontSize: "var(--text-fib-base)",
-                    lineHeight: 1.618,
-                    paddingRight: "var(--fib-3)",
-                    color: isActive ? "var(--color-ds-text)" : "var(--color-ds-text-secondary)",
-                    transition: "color 0.5s ease",
-                  }}
-                >
-                  {step.detail}
-                </p>
+                <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-base)", lineHeight: 1.618, paddingRight: "var(--fib-3)" }}>{step.detail}</p>
               </motion.div>
             );
           })}
