@@ -5,6 +5,7 @@ import FibonacciDots from "./logos/FibonacciDots";
 
 const navLinks = [
   { label: "Services", href: "#services" },
+  { label: "Stack", href: "#stack" },
   { label: "Outcomes", href: "#outcomes" },
   { label: "Process", href: "#process" },
 ];
