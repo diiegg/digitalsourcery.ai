@@ -100,52 +100,104 @@ export default function StackSection() {
           </p>
         </motion.div>
 
+        {/* Bento layout: 2 large on top, 3 on bottom — no orphan gap */}
         <motion.div
           variants={stagger}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
-          style={{ gap: "var(--fib-3)" }}
+          className="flex flex-col"
+          style={{ gap: "var(--fib-2)" }}
         >
-          {verdicts.map((v) => (
-            <motion.div
-              key={v.category}
-              variants={fadeUp}
-              className="prismatic-glass prismatic-edge cursor-default group"
-              style={{ padding: "var(--fib-4)" }}
-            >
-              <h3
-                className="font-[family-name:var(--font-display)] font-semibold text-white"
-                style={{ fontSize: "var(--text-fib-base)", marginBottom: "var(--fib-1)" }}
+          {/* Row 1: 2 cards — golden ratio split */}
+          <div
+            className="grid grid-cols-1 lg:grid-cols-[var(--phi-major)_var(--phi-minor)]"
+            style={{ gap: "var(--fib-2)" }}
+          >
+            {verdicts.slice(0, 2).map((v) => (
+              <motion.div
+                key={v.category}
+                variants={fadeUp}
+                className="prismatic-glass prismatic-edge cursor-default"
+                style={{ padding: "var(--fib-4)" }}
               >
-                {v.category}
-              </h3>
-              <p
-                className="font-[family-name:var(--font-mono)]"
-                style={{ fontSize: "10px", color: "var(--color-ds-warm-dim)", marginBottom: "var(--fib-3)" }}
+                <h3
+                  className="font-[family-name:var(--font-display)] font-semibold text-white"
+                  style={{ fontSize: "var(--text-fib-base)", marginBottom: "var(--fib-1)" }}
+                >
+                  {v.category}
+                </h3>
+                <p
+                  className="font-[family-name:var(--font-mono)]"
+                  style={{ fontSize: "10px", color: "var(--color-ds-warm-dim)", marginBottom: "var(--fib-3)" }}
+                >
+                  Tested: {v.tested}
+                </p>
+                <p
+                  className="font-[family-name:var(--font-display)] font-medium"
+                  style={{
+                    fontSize: "var(--text-fib-sm)",
+                    color: "var(--color-ds-warm)",
+                    lineHeight: 1.5,
+                    marginBottom: "var(--fib-2)",
+                  }}
+                >
+                  {v.verdict}
+                </p>
+                <p
+                  className="text-ds-text-secondary"
+                  style={{ fontSize: "var(--text-fib-xs)", lineHeight: 1.618 }}
+                >
+                  {v.detail}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Row 2: 3 equal cards — fills perfectly */}
+          <div
+            className="grid grid-cols-1 md:grid-cols-3"
+            style={{ gap: "var(--fib-2)" }}
+          >
+            {verdicts.slice(2).map((v) => (
+              <motion.div
+                key={v.category}
+                variants={fadeUp}
+                className="prismatic-glass prismatic-edge cursor-default"
+                style={{ padding: "var(--fib-4)" }}
               >
-                Tested: {v.tested}
-              </p>
-              <p
-                className="font-[family-name:var(--font-display)] font-medium"
-                style={{
-                  fontSize: "var(--text-fib-sm)",
-                  color: "var(--color-ds-warm)",
-                  lineHeight: 1.5,
-                  marginBottom: "var(--fib-2)",
-                }}
-              >
-                {v.verdict}
-              </p>
-              <p
-                className="text-ds-text-secondary"
-                style={{ fontSize: "var(--text-fib-xs)", lineHeight: 1.618 }}
-              >
-                {v.detail}
-              </p>
-            </motion.div>
-          ))}
+                <h3
+                  className="font-[family-name:var(--font-display)] font-semibold text-white"
+                  style={{ fontSize: "var(--text-fib-base)", marginBottom: "var(--fib-1)" }}
+                >
+                  {v.category}
+                </h3>
+                <p
+                  className="font-[family-name:var(--font-mono)]"
+                  style={{ fontSize: "10px", color: "var(--color-ds-warm-dim)", marginBottom: "var(--fib-3)" }}
+                >
+                  Tested: {v.tested}
+                </p>
+                <p
+                  className="font-[family-name:var(--font-display)] font-medium"
+                  style={{
+                    fontSize: "var(--text-fib-sm)",
+                    color: "var(--color-ds-warm)",
+                    lineHeight: 1.5,
+                    marginBottom: "var(--fib-2)",
+                  }}
+                >
+                  {v.verdict}
+                </p>
+                <p
+                  className="text-ds-text-secondary"
+                  style={{ fontSize: "var(--text-fib-xs)", lineHeight: 1.618 }}
+                >
+                  {v.detail}
+                </p>
+              </motion.div>
+            ))}
+          </div>
         </motion.div>
       </div>
     </section>

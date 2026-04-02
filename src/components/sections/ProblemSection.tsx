@@ -85,12 +85,12 @@ export default function ProblemSection() {
                 className="prismatic-glass accent-border-card"
                 style={{ padding: "var(--fib-4)" }}
               >
-                <h4
+                <h3
                   className="font-[family-name:var(--font-display)] font-bold text-white"
                   style={{ fontSize: "var(--text-fib-base)", marginBottom: "var(--fib-1)" }}
                 >
                   {p.icon}
-                </h4>
+                </h3>
                 <p
                   className="font-[family-name:var(--font-display)] font-semibold"
                   style={{
