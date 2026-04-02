@@ -138,19 +138,15 @@ export default function ServicesSection() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: i * 0.08 }}
-              className="themed-card text-ds-text rounded-xl"
-              style={{
-                backgroundColor: "var(--color-ds-card)",
-                border: "1px solid var(--color-ds-card-border)",
-                padding: "var(--fib-4)",
-              }}
+              transition={{ duration: 0.6, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
+              className="prismatic-glass prismatic-edge text-ds-text cursor-default"
+              style={{ padding: "var(--fib-4)" }}
             >
               <div
                 className="font-[family-name:var(--font-mono)]"
                 style={{
                   fontSize: "var(--text-fib-xs)",
-                  color: "var(--color-ds-phase-num)",
+                  color: "var(--color-ds-warm-dim)",
                   marginBottom: "var(--fib-2)",
                 }}
               >
@@ -192,7 +188,7 @@ export default function ServicesSection() {
                       style={{
                         position: "absolute",
                         left: 0,
-                        color: "var(--color-ds-headline-accent)",
+                        color: "var(--color-ds-warm)",
                       }}
                     >
                       +

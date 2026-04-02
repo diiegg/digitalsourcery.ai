@@ -42,7 +42,7 @@ export default function OutcomesSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="md:col-span-2 md:row-span-2 glass-card flex flex-col justify-end relative overflow-hidden group"
+            className="md:col-span-2 md:row-span-2 prismatic-glass prismatic-edge flex flex-col justify-end relative overflow-hidden group"
             style={{ padding: "var(--fib-5)" }}
           >
             <div style={{ marginBottom: "var(--fib-3)" }}>
@@ -54,7 +54,7 @@ export default function OutcomesSection() {
               </div>
               <div
                 className="font-[family-name:var(--font-mono)] uppercase tracking-[0.2em]"
-                style={{ fontSize: "var(--text-fib-sm)", color: "var(--color-ds-headline-accent)" }}
+                style={{ fontSize: "var(--text-fib-sm)", color: "var(--color-ds-warm)" }}
               >
                 Days to Production
               </div>
@@ -75,7 +75,7 @@ export default function OutcomesSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="glass-card flex flex-col justify-center"
+            className="prismatic-glass flex flex-col justify-center"
             style={{ padding: "var(--fib-4)" }}
           >
             <div
@@ -86,7 +86,7 @@ export default function OutcomesSection() {
             </div>
             <div
               className="font-[family-name:var(--font-mono)] uppercase tracking-[0.15em]"
-              style={{ fontSize: "var(--text-fib-xs)", color: "var(--color-ds-headline-accent)", marginTop: "var(--fib-1)" }}
+              style={{ fontSize: "var(--text-fib-xs)", color: "var(--color-ds-warm)", marginTop: "var(--fib-1)" }}
             >
               AI Cost Reduction
             </div>
@@ -108,7 +108,7 @@ export default function OutcomesSection() {
             className="flex flex-col justify-center"
             style={{
               padding: "var(--fib-4)",
-              backgroundColor: "var(--color-ds-headline-accent)",
+              backgroundColor: "var(--color-ds-warm)",
               color: "var(--color-ds-black)",
             }}
           >

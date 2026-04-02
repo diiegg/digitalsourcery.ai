@@ -15,6 +15,8 @@
   --color-ds-indigo-glow: #818cf8;
   --color-ds-gold: #c9a84c;
   --color-ds-gold-glow: #e5c07b;
+  --color-ds-warm: #E3CCB1;
+  --color-ds-warm-dim: rgba(227, 204, 177, 0.6);
 
   /* === Theme-driven tokens (defaults = mono) === */
   --color-ds-card: #1a1a1a;
@@ -219,6 +221,51 @@ body {
     rgba(201, 218, 237, 0.01) 100%
   );
   border: 1px solid rgba(201, 218, 237, 0.08);
+}
+
+/* Prismatic glass — iridescent refraction effect */
+.prismatic-glass {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.03) 0%,
+    rgba(200, 220, 255, 0.04) 25%,
+    rgba(255, 200, 220, 0.02) 50%,
+    rgba(200, 255, 220, 0.03) 75%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 0 40px rgba(255, 255, 255, 0.02);
+}
+
+[data-theme="accent"] .prismatic-glass {
+  background: linear-gradient(
+    135deg,
+    rgba(201, 218, 237, 0.04) 0%,
+    rgba(180, 200, 237, 0.05) 25%,
+    rgba(220, 200, 237, 0.03) 50%,
+    rgba(200, 237, 220, 0.04) 75%,
+    rgba(201, 218, 237, 0.03) 100%
+  );
+  border: 1px solid rgba(201, 218, 237, 0.1);
+  box-shadow:
+    inset 0 1px 0 rgba(201, 218, 237, 0.06),
+    0 0 40px rgba(201, 218, 237, 0.03);
+}
+
+/* Prismatic edge — subtle iridescent border glow */
+.prismatic-edge {
+  box-shadow:
+    inset 0 0 20px rgba(200, 220, 255, 0.03),
+    inset 0 0 40px rgba(255, 200, 220, 0.02);
+}
+
+[data-theme="accent"] .prismatic-edge {
+  box-shadow:
+    inset 0 0 20px rgba(201, 218, 237, 0.04),
+    inset 0 0 40px rgba(220, 200, 237, 0.03);
 }
 
 /* Accent border-left card */

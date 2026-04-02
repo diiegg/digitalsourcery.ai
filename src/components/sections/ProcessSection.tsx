@@ -72,7 +72,7 @@ export default function ProcessSection() {
                 className="font-[family-name:var(--font-mono)] tracking-[0.2em]"
                 style={{
                   fontSize: "var(--text-fib-xs)",
-                  color: "var(--color-ds-headline-accent)",
+                  color: "var(--color-ds-warm)",
                   marginBottom: "var(--fib-3)",
                 }}
               >

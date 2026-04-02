@@ -57,7 +57,7 @@ export default function TwoEnginesSection() {
             <div>
               <span
                 className="font-[family-name:var(--font-mono)] uppercase tracking-[0.25em]"
-                style={{ fontSize: "11px", color: "var(--color-ds-headline-accent)" }}
+                style={{ fontSize: "11px", color: "var(--color-ds-warm)" }}
               >
                 Intelligence Layer
               </span>
@@ -70,7 +70,7 @@ export default function TwoEnginesSection() {
             </div>
 
             {/* Bottom glass card */}
-            <div className="glass-card max-w-sm" style={{ padding: "var(--fib-4)" }}>
+            <div className="prismatic-glass prismatic-edge max-w-sm" style={{ padding: "var(--fib-4)" }}>
               <p className="text-white" style={{ fontSize: "var(--text-fib-base)", lineHeight: 1.618 }}>
                 Predictive observability, autonomous remediation,
                 AI cost optimization, and LLM-driven infrastructure
@@ -113,7 +113,7 @@ export default function TwoEnginesSection() {
             <div>
               <span
                 className="font-[family-name:var(--font-mono)] uppercase tracking-[0.25em]"
-                style={{ fontSize: "11px", color: "var(--color-ds-headline-accent)" }}
+                style={{ fontSize: "11px", color: "var(--color-ds-warm)" }}
               >
                 Foundation Layer
               </span>
@@ -125,7 +125,7 @@ export default function TwoEnginesSection() {
               </h3>
             </div>
 
-            <div className="glass-card max-w-sm" style={{ padding: "var(--fib-4)" }}>
+            <div className="prismatic-glass prismatic-edge max-w-sm" style={{ padding: "var(--fib-4)" }}>
               <p className="text-white" style={{ fontSize: "var(--text-fib-base)", lineHeight: 1.618 }}>
                 Hardened Kubernetes, internal developer platforms,
                 infrastructure-as-code, and zero-trust platform

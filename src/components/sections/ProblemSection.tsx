@@ -48,7 +48,7 @@ export default function ProblemSection() {
               className="inline-block font-[family-name:var(--font-mono)] uppercase tracking-[0.2em]"
               style={{
                 fontSize: "var(--text-fib-xs)",
-                color: "var(--color-ds-headline-accent)",
+                color: "var(--color-ds-warm)",
                 border: "1px solid var(--color-ds-border-light)",
                 padding: "var(--fib-1) var(--fib-2)",
                 marginBottom: "var(--fib-4)",
@@ -82,7 +82,7 @@ export default function ProblemSection() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.12 }}
-                className="glass-card accent-border-card"
+                className="prismatic-glass accent-border-card"
                 style={{ padding: "var(--fib-4)" }}
               >
                 <h4
@@ -95,7 +95,7 @@ export default function ProblemSection() {
                   className="font-[family-name:var(--font-display)] font-semibold"
                   style={{
                     fontSize: "var(--text-fib-base)",
-                    color: "var(--color-ds-headline-accent)",
+                    color: "var(--color-ds-warm)",
                     marginBottom: "var(--fib-2)",
                   }}
                 >
