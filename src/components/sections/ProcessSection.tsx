@@ -35,7 +35,7 @@ export default function ProcessSection() {
               <div className="relative" style={{ height: "2px", backgroundColor: "var(--color-ds-border-light)", marginBottom: "var(--fib-3)" }}>
                 <div className={i === 0 ? "step-dot" : "step-dot-dim"} style={{ position: "absolute", left: 0, top: "50%", transform: "translateY(-50%)" }} />
               </div>
-              <p className="text-white font-medium" style={{ fontSize: "var(--text-fib-base)", lineHeight: 1.618, paddingRight: "var(--fib-3)" }}>{step.detail}</p>
+              <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-base)", lineHeight: 1.618, paddingRight: "var(--fib-3)" }}>{step.detail}</p>
             </motion.div>
           ))}
         </div>

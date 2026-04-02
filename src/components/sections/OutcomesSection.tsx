@@ -16,9 +16,9 @@ export default function OutcomesSection() {
           </TextScramble>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2" style={{ gap: "var(--fib-2)", minHeight: "500px" }}>
+        <div className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2" style={{ gap: "var(--fib-3)", minHeight: "500px" }}>
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }} className="md:col-span-2 md:row-span-2 prismatic-glass prismatic-edge flex flex-col justify-end relative overflow-hidden" style={{ padding: "var(--fib-5)" }}>
-            <div style={{ marginBottom: "var(--fib-3)" }}>
+            <div style={{ marginBottom: "var(--fib-4)" }}>
               <div className="font-[family-name:var(--font-display)] font-bold text-white" style={{ fontSize: "var(--text-fib-2xl)" }}>90</div>
               <h3 className="font-[family-name:var(--font-display)] font-bold uppercase tracking-[0.15em]" style={{ fontSize: "var(--text-fib-md)", color: "var(--color-ds-warm)" }}>Days to Production</h3>
             </div>
