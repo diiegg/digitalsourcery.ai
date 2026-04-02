@@ -21,7 +21,7 @@ const ShaderLines = dynamic(
 export default function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center ambient-glow overflow-hidden">
-      <div className="mx-auto max-w-[1400px] px-[var(--fib-4)] lg:px-[var(--fib-5)] w-full" style={{ paddingTop: "var(--fib-7)", paddingBottom: "var(--fib-7)" }}>
+      <div className="mx-auto max-w-[1440px] px-[var(--fib-5)] w-full" style={{ paddingTop: "var(--fib-7)", paddingBottom: "var(--fib-7)" }}>
         <div
           className="grid grid-cols-1 lg:grid-cols-[var(--phi-major)_var(--phi-minor)] items-center"
           style={{ gap: "var(--fib-5)", minHeight: "70vh" }}

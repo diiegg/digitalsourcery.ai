@@ -13,7 +13,7 @@ export default function OutcomesSection() {
         borderTop: "1px solid var(--color-ds-border)",
       }}
     >
-      <div className="mx-auto max-w-[1400px] px-[var(--fib-4)] lg:px-[var(--fib-5)]">
+      <div className="mx-auto max-w-[1440px] px-[var(--fib-5)]">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
