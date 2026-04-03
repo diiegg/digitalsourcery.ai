@@ -2,10 +2,11 @@
 
 @theme {
   /* === Base tokens (shared) === */
-  --color-ds-black: #000000;
-  --color-ds-void: #050505;
-  --color-ds-carbon: #0a0a0a;
-  --color-ds-dark: #141414;
+  --color-ds-black: #050508;
+  --color-ds-void: #030305;
+  --color-ds-carbon: #08080c;
+  --color-ds-dark: #0e0e12;
+  --color-ds-crystalline: #c8d0e0;
   --color-ds-text: #ffffff;
 
   /* Accent colors — available in both themes */
@@ -15,6 +16,8 @@
   --color-ds-indigo-glow: #818cf8;
   --color-ds-gold: #c9a84c;
   --color-ds-gold-glow: #e5c07b;
+  --color-ds-warm: #E3CCB1;
+  --color-ds-warm-dim: rgba(227, 204, 177, 0.6);
 
   /* === Theme-driven tokens (defaults = mono) === */
   --color-ds-card: #1a1a1a;
@@ -116,6 +119,39 @@
 }
 
 /* =============================================================
+   GOLDEN RATIO DESIGN SYSTEM — φ = 1.618033988749895
+   Derived from Fibonacci sequence & sacred geometry.
+   Every proportion on this page relates to its neighbors by φ.
+   ============================================================= */
+:root {
+  /* φ — the golden ratio */
+  --phi: 1.618033988749895;
+
+  /* ── Fibonacci spacing scale (px → rem at 16px base) ── */
+  --fib-1: 0.5rem;      /*   8px */
+  --fib-2: 0.8125rem;   /*  13px */
+  --fib-3: 1.3125rem;   /*  21px */
+  --fib-4: 2.125rem;    /*  34px */
+  --fib-5: 3.4375rem;   /*  55px */
+  --fib-6: 5.5625rem;   /*  89px */
+  --fib-7: 9rem;        /* 144px */
+  --fib-8: 14.5625rem;  /* 233px */
+
+  /* ── Typography scale (fibonacci px values) ── */
+  --text-fib-xs: 0.8125rem;   /*  13px — labels, captions */
+  --text-fib-sm: 0.875rem;    /*  14px — small body */
+  --text-fib-base: 1rem;      /*  16px — body text */
+  --text-fib-md: 1.3125rem;   /*  21px — sub-headings */
+  --text-fib-lg: 2.125rem;    /*  34px — section headings */
+  --text-fib-xl: 3.4375rem;   /*  55px — hero sub-heading */
+  --text-fib-2xl: 5.5625rem;  /*  89px — hero main heading */
+
+  /* ── Golden ratio layout splits ── */
+  --phi-minor: 38.196%;  /* 1 / (1 + φ) — the smaller portion */
+  --phi-major: 61.804%;  /* φ / (1 + φ) — the larger portion */
+}
+
+/* =============================================================
    BASE STYLES
    ============================================================= */
 html {
@@ -126,6 +162,8 @@ body {
   background-color: var(--color-ds-black);
   color: var(--color-ds-text);
   font-family: var(--font-body);
+  font-size: var(--text-fib-base);
+  line-height: 1.618; /* φ — golden ratio line-height */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -160,4 +198,238 @@ body {
 .ds-cta:hover {
   background-color: var(--color-ds-cta-hover-bg);
   color: var(--color-ds-cta-hover-text);
+}
+
+/* =============================================================
+   GLASS & VISUAL EFFECTS
+   ============================================================= */
+
+/* Glass refraction — frosted glass cards */
+.glass-card {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.04) 0%,
+    rgba(255, 255, 255, 0.01) 100%
+  );
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+[data-theme="accent"] .glass-card {
+  background: linear-gradient(
+    135deg,
+    rgba(201, 218, 237, 0.05) 0%,
+    rgba(201, 218, 237, 0.01) 100%
+  );
+  border: 1px solid rgba(201, 218, 237, 0.08);
+}
+
+/* =============================================================
+   PRISMATIC GLASS — Refractive obsidian glass effect
+   Dark translucent bg + silver borders + moving shimmer + glass blur
+   ============================================================= */
+
+/* Main prismatic glass card */
+.prismatic-glass {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    135deg,
+    rgba(200, 208, 224, 0.03) 0%,
+    rgba(10, 10, 10, 0.4) 50%,
+    rgba(200, 208, 224, 0.05) 100%
+  );
+  backdrop-filter: blur(16px) saturate(120%);
+  border: 1px solid rgba(200, 208, 224, 0.15);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Moving light / refraction sweep */
+.prismatic-glass::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(200, 208, 224, 0.08) 45%,
+    rgba(200, 208, 224, 0.12) 50%,
+    rgba(200, 208, 224, 0.08) 55%,
+    transparent 60%
+  );
+  background-size: 200% 100%;
+  animation: refractive-shimmer 8s infinite linear;
+  pointer-events: none;
+}
+
+/* Crystalline border — sharp glass edge with gradient masking */
+.prismatic-glass::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border: 1px solid transparent;
+  background: linear-gradient(
+    135deg,
+    rgba(200, 208, 224, 0.4) 0%,
+    transparent 40%,
+    transparent 60%,
+    rgba(200, 208, 224, 0.2) 100%
+  ) border-box;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Crystalline ambient glow */
+.crystalline-glow {
+  box-shadow:
+    0 0 40px rgba(200, 208, 224, 0.03),
+    inset 0 0 20px rgba(200, 208, 224, 0.02);
+}
+
+/* Shimmer animation */
+@keyframes refractive-shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Refractive card — alias for prismatic-glass + glow combined */
+.refractive-card {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    135deg,
+    rgba(200, 208, 224, 0.03) 0%,
+    rgba(10, 10, 10, 0.45) 50%,
+    rgba(200, 208, 224, 0.04) 100%
+  );
+  border: 1px solid rgba(200, 208, 224, 0.14);
+  backdrop-filter: blur(16px) saturate(120%);
+  box-shadow:
+    0 0 40px rgba(200, 208, 224, 0.03),
+    inset 0 0 20px rgba(200, 208, 224, 0.02);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.refractive-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(200, 208, 224, 0.06) 46%,
+    rgba(200, 208, 224, 0.12) 50%,
+    rgba(200, 208, 224, 0.06) 54%,
+    transparent 60%
+  );
+  background-size: 200% 100%;
+  animation: refractive-shimmer 8s linear infinite;
+}
+
+.refractive-card::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  pointer-events: none;
+  border: 1px solid transparent;
+  background: linear-gradient(
+    135deg,
+    rgba(200, 208, 224, 0.38) 0%,
+    transparent 35%,
+    transparent 65%,
+    rgba(200, 208, 224, 0.18) 100%
+  ) border-box;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+}
+
+/* Prismatic glow — silver-white text glow */
+.prismatic-glow {
+  text-shadow: 0 0 40px rgba(200, 208, 224, 0.15);
+}
+
+/* CTA button prismatic hover glow */
+.ds-cta-prismatic {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.ds-cta-prismatic::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  background: linear-gradient(
+    135deg,
+    rgba(200, 208, 224, 0) 0%,
+    rgba(200, 208, 224, 0.15) 30%,
+    rgba(220, 200, 240, 0.1) 50%,
+    rgba(200, 224, 210, 0.12) 70%,
+    rgba(200, 208, 224, 0) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.ds-cta-prismatic:hover::after {
+  opacity: 1;
+}
+
+.ds-cta-prismatic:hover {
+  box-shadow:
+    0 0 30px rgba(200, 208, 224, 0.12),
+    0 0 60px rgba(200, 208, 224, 0.06),
+    inset 0 0 20px rgba(200, 208, 224, 0.04);
+}
+
+/* Accent border-left card */
+.accent-border-card {
+  border-left: 3px solid var(--color-ds-headline-accent);
+}
+
+/* Ambient glow background */
+.ambient-glow {
+  position: relative;
+}
+.ambient-glow::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
+  pointer-events: none;
+}
+[data-theme="accent"] .ambient-glow::before {
+  background: radial-gradient(circle, rgba(201, 218, 237, 0.04) 0%, transparent 70%);
+}
+
+/* Step indicator dot */
+.step-dot {
+  width: 10px;
+  height: 10px;
+  background-color: var(--color-ds-headline-accent);
+}
+
+.step-dot-dim {
+  width: 10px;
+  height: 10px;
+  background-color: var(--color-ds-text-dim);
+}
+
+/* Stack item hover */
+.stack-item {
+  opacity: 0.4;
+  filter: grayscale(100%);
+  transition: all 0.3s ease;
+}
+.stack-item:hover {
+  opacity: 1;
+  filter: grayscale(0%);
 }
