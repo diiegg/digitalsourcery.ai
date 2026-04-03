@@ -84,13 +84,13 @@ export default function IntelligenceContent() {
     <main className="relative">
       {/* Hero */}
       <section className="flex items-end" style={{ paddingTop: "var(--fib-7)", paddingBottom: "var(--fib-7)" }}>
-        <div className="mx-auto max-w-[1440px] px-[var(--fib-5)] w-full">
+        <div className="ds-container w-full">
           <div className="grid grid-cols-1 md:grid-cols-12 items-end" style={{ gap: "var(--fib-5)" }}>
             <motion.div className="md:col-span-8" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}>
               <div className="inline-block font-[family-name:var(--font-display)] uppercase tracking-[0.2em]" style={{ fontSize: "var(--text-fib-xs)", color: "var(--color-ds-warm)", border: "1px solid var(--color-ds-warm-dim)", padding: "var(--fib-1) var(--fib-2)", marginBottom: "var(--fib-4)" }}>
                 The Intelligence Layer
               </div>
-              <h1 className="font-[family-name:var(--font-display)] font-bold tracking-[-0.04em] text-white" style={{ fontSize: "var(--text-fib-2xl)", lineHeight: 0.95, marginBottom: "var(--fib-5)" }}>
+              <h1 className="font-[family-name:var(--font-display)] font-bold tracking-[-0.04em] text-white" style={{ fontSize: "clamp(var(--text-fib-lg), 8vw, var(--text-fib-2xl))", lineHeight: 0.95, marginBottom: "var(--fib-5)" }}>
                 Make AI Work
                 <br />
                 <span style={{ color: "var(--color-ds-headline-accent)" }}>in Production</span>
@@ -110,7 +110,7 @@ export default function IntelligenceContent() {
 
       {/* Bento Grid Services */}
       <section style={{ paddingBottom: "var(--fib-7)", borderTop: "1px solid var(--color-ds-border)" }}>
-        <div className="mx-auto max-w-[1440px] px-[var(--fib-5)]" style={{ paddingTop: "var(--fib-6)" }}>
+        <div className="ds-container" style={{ paddingTop: "var(--fib-6)" }}>
           <motion.div variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-12" style={{ gap: "var(--fib-2)" }}>
             {services.map((s) => {
               const Icon = s.icon;
@@ -176,7 +176,7 @@ export default function IntelligenceContent() {
 
       {/* The Intelligence Path */}
       <section style={{ paddingTop: "var(--fib-7)", paddingBottom: "var(--fib-7)", backgroundColor: "var(--color-ds-carbon)", borderTop: "1px solid rgba(200, 208, 224, 0.06)", borderBottom: "1px solid rgba(200, 208, 224, 0.06)" }}>
-        <div className="mx-auto max-w-[1440px] px-[var(--fib-5)]">
+        <div className="ds-container">
           <div className="flex flex-col md:flex-row" style={{ gap: "var(--fib-6)" }}>
             {/* Left — heading + phase list */}
             <motion.div className="md:w-1/3" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}>

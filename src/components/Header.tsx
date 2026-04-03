@@ -25,7 +25,7 @@ export default function Header() {
         borderBottom: "1px solid rgba(200, 208, 224, 0.06)",
       }}
     >
-      <div className="mx-auto max-w-[1440px] px-[var(--fib-5)]">
+      <div className="ds-container">
         <nav
           className="flex items-center justify-between"
           style={{ height: "var(--fib-6)" }}

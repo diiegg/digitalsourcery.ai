@@ -27,14 +27,14 @@ export default function FoundationContent() {
       {/* Hero */}
       <section className="relative overflow-hidden" style={{ paddingTop: "var(--fib-7)", paddingBottom: "var(--fib-7)" }}>
         <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full pointer-events-none" style={{ background: "radial-gradient(circle, rgba(200, 208, 224, 0.04) 0%, transparent 70%)", filter: "blur(80px)" }} />
-        <div className="mx-auto max-w-[1440px] px-[var(--fib-5)] w-full">
+        <div className="ds-container w-full">
           <div className="flex flex-col md:flex-row items-end" style={{ gap: "var(--fib-6)" }}>
             <motion.div className="w-full md:w-2/3" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}>
               <div className="inline-flex items-center refractive-card" style={{ gap: "var(--fib-2)", padding: "var(--fib-1) var(--fib-3)", marginBottom: "var(--fib-5)" }}>
                 <Shield size={14} style={{ color: "var(--color-ds-warm)" }} strokeWidth={1.5} />
                 <span className="font-[family-name:var(--font-display)] uppercase tracking-[0.2em]" style={{ fontSize: "10px", color: "var(--color-ds-warm)" }}>Powered by BlackMagickOps</span>
               </div>
-              <h1 className="font-[family-name:var(--font-display)] font-bold tracking-[-0.04em] text-white" style={{ fontSize: "var(--text-fib-2xl)", lineHeight: 0.95, marginBottom: "var(--fib-5)" }}>
+              <h1 className="font-[family-name:var(--font-display)] font-bold tracking-[-0.04em] text-white" style={{ fontSize: "clamp(var(--text-fib-lg), 8vw, var(--text-fib-2xl))", lineHeight: 0.95, marginBottom: "var(--fib-5)" }}>
                 CORE INFRASTRUCTURE
                 <br />
                 <span style={{ color: "var(--color-ds-headline-accent)" }}>ENGINEERING.</span>
@@ -61,7 +61,7 @@ export default function FoundationContent() {
 
       {/* Bento Grid Services */}
       <section style={{ paddingTop: "var(--fib-6)", paddingBottom: "var(--fib-7)", borderTop: "1px solid var(--color-ds-border)" }}>
-        <div className="mx-auto max-w-[1440px] px-[var(--fib-5)]">
+        <div className="ds-container">
           <motion.div variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} className="grid grid-cols-1 md:grid-cols-12" style={{ gap: "var(--fib-2)" }}>
 
             {/* IDP — 8 col */}
@@ -131,11 +131,11 @@ export default function FoundationContent() {
 
       {/* BlackMagickOps Seal */}
       <section style={{ paddingTop: "var(--fib-7)", paddingBottom: "var(--fib-7)", backgroundColor: "var(--color-ds-void)", borderTop: "1px solid rgba(200, 208, 224, 0.06)", borderBottom: "1px solid rgba(200, 208, 224, 0.06)" }}>
-        <div className="mx-auto max-w-[1440px] px-[var(--fib-5)]">
+        <div className="ds-container">
           <div className="flex flex-col md:flex-row items-center" style={{ gap: "var(--fib-6)" }}>
             {/* Left — decorative */}
             <motion.div className="w-full md:w-1/2 flex justify-center" initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}>
-              <div className="relative refractive-card flex items-center justify-center" style={{ width: "340px", height: "340px" }}>
+              <div className="relative refractive-card flex items-center justify-center w-full max-w-[340px] aspect-square">
                 {/* Rotating rings */}
                 <div className="absolute border rounded-full" style={{ width: "200px", height: "200px", borderColor: "rgba(227, 204, 177, 0.08)", animation: "spin 20s linear infinite" }} />
                 <div className="absolute border rounded-full" style={{ width: "260px", height: "260px", borderColor: "rgba(200, 208, 224, 0.04)", animation: "spin 30s linear infinite reverse" }} />
@@ -173,7 +173,7 @@ export default function FoundationContent() {
 
       {/* Technical Specs Row */}
       <section style={{ paddingTop: "var(--fib-6)", paddingBottom: "var(--fib-6)", borderBottom: "1px solid rgba(200, 208, 224, 0.06)" }}>
-        <div className="mx-auto max-w-[1440px] px-[var(--fib-5)]">
+        <div className="ds-container">
           <div className="flex flex-col md:flex-row items-center" style={{ gap: "var(--fib-5)" }}>
             <div className="shrink-0">
               <h4 className="font-[family-name:var(--font-display)] font-bold text-white" style={{ fontSize: "var(--text-fib-md)" }}>Technical
@@ -193,7 +193,7 @@ export default function FoundationContent() {
 
       {/* CTA */}
       <section style={{ paddingTop: "var(--fib-7)", paddingBottom: "var(--fib-7)" }}>
-        <div className="mx-auto max-w-[1440px] px-[var(--fib-5)]">
+        <div className="ds-container">
           <motion.div className="refractive-card relative overflow-hidden flex flex-col items-center text-center" style={{ padding: "var(--fib-7) var(--fib-5)" }} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}>
             <div className="absolute -bottom-24 -left-24 w-64 h-64 rounded-full pointer-events-none" style={{ background: "radial-gradient(circle, rgba(227, 204, 177, 0.08) 0%, transparent 70%)", filter: "blur(60px)" }} />
 

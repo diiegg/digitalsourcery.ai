@@ -156,6 +156,12 @@
    ============================================================= */
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+/* Prevent mobile overflow */
+body {
+  overflow-x: hidden;
 }
 
 body {
@@ -166,6 +172,27 @@ body {
   line-height: 1.618; /* φ — golden ratio line-height */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Responsive container padding — fibonacci-scaled per breakpoint */
+.ds-container {
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--fib-3);  /* 21px on mobile */
+  padding-right: var(--fib-3);
+}
+@media (min-width: 768px) {
+  .ds-container {
+    padding-left: var(--fib-4);  /* 34px on tablet */
+    padding-right: var(--fib-4);
+  }
+}
+@media (min-width: 1024px) {
+  .ds-container {
+    padding-left: var(--fib-5);  /* 55px on desktop */
+    padding-right: var(--fib-5);
+  }
 }
 
 ::selection {

@@ -36,7 +36,7 @@ export default function Footer() {
         paddingBottom: "var(--fib-5)",
       }}
     >
-      <div className="mx-auto max-w-[1440px] px-[var(--fib-5)]">
+      <div className="ds-container">
         <div
           className="grid grid-cols-2 md:grid-cols-4"
           style={{ gap: "var(--fib-5)", marginBottom: "var(--fib-6)" }}

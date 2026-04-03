@@ -10,12 +10,12 @@ const ShaderLines = dynamic(() => import("@/components/ShaderLines"), { ssr: fal
 export default function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center ambient-glow overflow-hidden">
-      <div className="mx-auto max-w-[1440px] px-[var(--fib-5)] w-full" style={{ paddingTop: "var(--fib-7)", paddingBottom: "var(--fib-7)" }}>
+      <div className="ds-container w-full" style={{ paddingTop: "var(--fib-7)", paddingBottom: "var(--fib-7)" }}>
         <div className="grid grid-cols-1 lg:grid-cols-[var(--phi-major)_var(--phi-minor)] items-center" style={{ gap: "var(--fib-5)", minHeight: "70vh" }}>
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}>
             <AsciiHero text="Digital Sourcery" />
 
-            <h1 className="font-[family-name:var(--font-display)] font-bold tracking-[-0.04em] text-white" style={{ fontSize: "var(--text-fib-2xl)", lineHeight: 0.95, marginBottom: "var(--fib-5)" }}>
+            <h1 className="font-[family-name:var(--font-display)] font-bold tracking-[-0.04em] text-white" style={{ fontSize: "clamp(var(--text-fib-lg), 8vw, var(--text-fib-2xl))", lineHeight: 0.95, marginBottom: "var(--fib-5)" }}>
               Make AI Work
               <br />
               <span style={{ color: "var(--color-ds-headline-accent)" }}>in Production</span>

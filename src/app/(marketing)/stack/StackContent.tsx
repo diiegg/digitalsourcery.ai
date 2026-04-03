@@ -40,13 +40,13 @@ export default function StackContent() {
     <main className="relative">
       {/* Hero */}
       <section style={{ paddingTop: "var(--fib-7)", paddingBottom: "var(--fib-7)" }}>
-        <div className="mx-auto max-w-[1440px] px-[var(--fib-5)] w-full">
+        <div className="ds-container w-full">
           <div className="flex flex-col md:flex-row items-end" style={{ gap: "var(--fib-5)" }}>
             <motion.div className="md:w-2/3" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}>
               <div className="inline-block font-[family-name:var(--font-display)] uppercase tracking-[0.2em]" style={{ fontSize: "var(--text-fib-xs)", color: "var(--color-ds-warm)", border: "1px solid var(--color-ds-warm-dim)", padding: "var(--fib-1) var(--fib-2)", marginBottom: "var(--fib-4)" }}>
                 System Architecture
               </div>
-              <h1 className="font-[family-name:var(--font-display)] font-bold tracking-[-0.04em] text-white" style={{ fontSize: "var(--text-fib-2xl)", lineHeight: 0.95, marginBottom: "var(--fib-5)" }}>
+              <h1 className="font-[family-name:var(--font-display)] font-bold tracking-[-0.04em] text-white" style={{ fontSize: "clamp(var(--text-fib-lg), 8vw, var(--text-fib-2xl))", lineHeight: 0.95, marginBottom: "var(--fib-5)" }}>
                 The Reference
                 <br />
                 <span style={{ color: "var(--color-ds-headline-accent)" }}>Stack</span>
@@ -74,7 +74,7 @@ export default function StackContent() {
 
       {/* Bento Grid Deep Dive */}
       <section style={{ paddingBottom: "var(--fib-7)", borderTop: "1px solid var(--color-ds-border)" }}>
-        <div className="mx-auto max-w-[1440px] px-[var(--fib-5)]" style={{ paddingTop: "var(--fib-6)" }}>
+        <div className="ds-container" style={{ paddingTop: "var(--fib-6)" }}>
           <motion.div variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} className="grid grid-cols-1 md:grid-cols-12" style={{ gap: "var(--fib-3)" }}>
 
             {/* Orchestration — 8 col with benchmarks */}
@@ -166,7 +166,7 @@ export default function StackContent() {
 
       {/* Validation Methodology */}
       <section style={{ paddingTop: "var(--fib-7)", paddingBottom: "var(--fib-7)", backgroundColor: "var(--color-ds-carbon)", borderTop: "1px solid rgba(200, 208, 224, 0.06)", borderBottom: "1px solid rgba(200, 208, 224, 0.06)" }}>
-        <div className="mx-auto max-w-[1440px] px-[var(--fib-5)]">
+        <div className="ds-container">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}>
             <TextScramble as="h2" className="font-[family-name:var(--font-display)] font-bold leading-[1.05] tracking-[-0.03em] text-white text-center" style={{ fontSize: "var(--text-fib-xl)", marginBottom: "var(--fib-6)" }}>
               Validation Methodology
@@ -217,7 +217,7 @@ export default function StackContent() {
 
       {/* CTA */}
       <section style={{ paddingTop: "var(--fib-7)", paddingBottom: "var(--fib-7)" }}>
-        <div className="mx-auto max-w-[1440px] px-[var(--fib-5)]">
+        <div className="ds-container">
           <motion.div className="refractive-card relative overflow-hidden flex flex-col items-center text-center" style={{ padding: "var(--fib-7) var(--fib-5)" }} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}>
             <div className="absolute -bottom-24 -left-24 w-64 h-64 rounded-full pointer-events-none" style={{ background: "radial-gradient(circle, rgba(227, 204, 177, 0.06) 0%, transparent 70%)", filter: "blur(60px)" }} />
 

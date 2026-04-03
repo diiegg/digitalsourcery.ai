@@ -7,12 +7,12 @@ import { Brain, HardDrive } from "lucide-react";
 export default function TwoEnginesSection() {
   return (
     <section style={{ paddingTop: "var(--fib-7)", paddingBottom: "var(--fib-7)" }}>
-      <div className="mx-auto max-w-[1440px] px-[var(--fib-5)]">
+      <div className="ds-container">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }} style={{ marginBottom: "var(--fib-6)" }}>
           <div className="inline-block font-[family-name:var(--font-display)] uppercase tracking-[0.2em]" style={{ fontSize: "var(--text-fib-xs)", color: "var(--color-ds-warm)", border: "1px solid var(--color-ds-warm-dim)", padding: "var(--fib-1) var(--fib-2)", marginBottom: "var(--fib-4)" }}>
             A Unified Approach
           </div>
-          <TextScramble as="h2" className="font-[family-name:var(--font-display)] font-bold leading-[1.05] tracking-[-0.03em] text-white" style={{ fontSize: "var(--text-fib-xl)", marginBottom: "var(--fib-5)" }}>
+          <TextScramble as="h2" className="font-[family-name:var(--font-display)] font-bold leading-[1.05] tracking-[-0.03em] text-white" style={{ fontSize: "clamp(var(--text-fib-lg), 5vw, var(--text-fib-xl))", marginBottom: "var(--fib-5)" }}>
             Two Engines, One Mission
           </TextScramble>
           <p className="text-ds-text-secondary max-w-lg" style={{ fontSize: "var(--text-fib-base)", lineHeight: 1.618 }}>
@@ -21,13 +21,13 @@ export default function TwoEnginesSection() {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2" style={{ gap: "2px" }}>
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }} className="relative group overflow-hidden flex flex-col justify-between" style={{ height: "500px", backgroundColor: "var(--color-ds-card)", border: "1px solid var(--color-ds-card-border)", padding: "var(--fib-5)" }}>
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }} className="relative group overflow-hidden flex flex-col justify-between" style={{ minHeight: "400px", backgroundColor: "var(--color-ds-card)", border: "1px solid var(--color-ds-card-border)", padding: "var(--fib-5)" }}>
             <div>
               <div className="flex items-center justify-between">
                 <span className="font-[family-name:var(--font-mono)] uppercase tracking-[0.25em]" style={{ fontSize: "11px", color: "var(--color-ds-warm)" }}>Intelligence Layer</span>
                 <Brain size={32} style={{ color: "var(--color-ds-crystalline)", opacity: 0.2 }} strokeWidth={1} />
               </div>
-              <h3 className="font-[family-name:var(--font-display)] font-bold text-white" style={{ fontSize: "var(--text-fib-xl)", marginTop: "var(--fib-2)" }}>Digital Sourcery</h3>
+              <h3 className="font-[family-name:var(--font-display)] font-bold text-white" style={{ fontSize: "clamp(var(--text-fib-lg), 5vw, var(--text-fib-xl))", marginTop: "var(--fib-2)" }}>Digital Sourcery</h3>
             </div>
             <div className="refractive-card max-w-sm" style={{ padding: "var(--fib-4)" }}>
               <p className="text-white" style={{ fontSize: "var(--text-fib-base)", lineHeight: 1.618 }}>Predictive observability, autonomous remediation, AI cost optimization, and LLM-driven infrastructure that learns and adapts.</p>
@@ -39,13 +39,13 @@ export default function TwoEnginesSection() {
             </div>
           </motion.div>
 
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }} className="relative group overflow-hidden flex flex-col justify-between" style={{ height: "500px", backgroundColor: "var(--color-ds-card)", border: "1px solid var(--color-ds-card-border)", padding: "var(--fib-5)" }}>
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }} className="relative group overflow-hidden flex flex-col justify-between" style={{ minHeight: "400px", backgroundColor: "var(--color-ds-card)", border: "1px solid var(--color-ds-card-border)", padding: "var(--fib-5)" }}>
             <div>
               <div className="flex items-center justify-between">
                 <span className="font-[family-name:var(--font-mono)] uppercase tracking-[0.25em]" style={{ fontSize: "11px", color: "var(--color-ds-warm)" }}>Foundation Layer</span>
                 <HardDrive size={32} style={{ color: "var(--color-ds-crystalline)", opacity: 0.2 }} strokeWidth={1} />
               </div>
-              <h3 className="font-[family-name:var(--font-display)] font-bold text-white" style={{ fontSize: "var(--text-fib-xl)", marginTop: "var(--fib-2)" }}>BlackMagickOps</h3>
+              <h3 className="font-[family-name:var(--font-display)] font-bold text-white" style={{ fontSize: "clamp(var(--text-fib-lg), 5vw, var(--text-fib-xl))", marginTop: "var(--fib-2)" }}>BlackMagickOps</h3>
             </div>
             <div className="refractive-card max-w-sm" style={{ padding: "var(--fib-4)" }}>
               <p className="text-white" style={{ fontSize: "var(--text-fib-base)", lineHeight: 1.618 }}>Hardened Kubernetes, internal developer platforms, infrastructure-as-code, and zero-trust platform engineering foundations.</p>
