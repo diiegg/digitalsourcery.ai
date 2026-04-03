@@ -26,7 +26,7 @@ export default function HeroSection() {
             </p>
 
             <div className="flex flex-col sm:flex-row items-start" style={{ gap: "var(--fib-2)" }}>
-              <a href="mailto:hello@digitalsourcery.ai" className="group relative inline-block font-[family-name:var(--font-display)] font-bold tracking-[0.15em] uppercase bg-white text-black hover:scale-[0.97] transition-transform duration-200 ds-cta-prismatic" style={{ fontSize: "var(--text-fib-sm)", padding: "var(--fib-2) var(--fib-4)" }}>
+              <a href="mailto:hello@digitalsourcery.ai" className="group relative inline-block font-[family-name:var(--font-display)] font-bold tracking-[0.15em] uppercase bg-white text-black hover:scale-[0.97] transition-transform duration-200 rotating-gradient" style={{ fontSize: "var(--text-fib-sm)", padding: "var(--fib-2) var(--fib-4)" }}>
                 Start a Discovery Call
                 <span className="absolute right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">&rarr;</span>
               </a>
