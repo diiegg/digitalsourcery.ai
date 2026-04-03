@@ -2,10 +2,10 @@
 
 import { motion } from "framer-motion";
 import TextScramble from "@/components/TextScramble";
-import { Layers, Scan, CheckCircle2, BarChart3 } from "lucide-react";
+import { Layers, Scan, CheckCircle2 } from "lucide-react";
 
 const stagger = { hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.1, delayChildren: 0.15 } } };
-const fadeUp = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } } };
+const fadeUp = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] } } };
 
 const benchmarks = [
   { name: "Grafana + ML Pipeline", score: 91, primary: true },
@@ -42,7 +42,7 @@ export default function StackContent() {
       <section style={{ paddingTop: "var(--fib-7)", paddingBottom: "var(--fib-7)" }}>
         <div className="mx-auto max-w-[1440px] px-[var(--fib-5)] w-full">
           <div className="flex flex-col md:flex-row items-end" style={{ gap: "var(--fib-5)" }}>
-            <motion.div className="md:w-2/3" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}>
+            <motion.div className="md:w-2/3" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}>
               <div className="inline-block font-[family-name:var(--font-display)] uppercase tracking-[0.2em]" style={{ fontSize: "var(--text-fib-xs)", color: "var(--color-ds-warm)", border: "1px solid var(--color-ds-warm-dim)", padding: "var(--fib-1) var(--fib-2)", marginBottom: "var(--fib-4)" }}>
                 System Architecture
               </div>
@@ -167,7 +167,7 @@ export default function StackContent() {
       {/* Validation Methodology */}
       <section style={{ paddingTop: "var(--fib-7)", paddingBottom: "var(--fib-7)", backgroundColor: "var(--color-ds-carbon)", borderTop: "1px solid rgba(200, 208, 224, 0.06)", borderBottom: "1px solid rgba(200, 208, 224, 0.06)" }}>
         <div className="mx-auto max-w-[1440px] px-[var(--fib-5)]">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}>
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}>
             <TextScramble as="h2" className="font-[family-name:var(--font-display)] font-bold leading-[1.05] tracking-[-0.03em] text-white text-center" style={{ fontSize: "var(--text-fib-xl)", marginBottom: "var(--fib-6)" }}>
               Validation Methodology
             </TextScramble>
@@ -218,7 +218,7 @@ export default function StackContent() {
       {/* CTA */}
       <section style={{ paddingTop: "var(--fib-7)", paddingBottom: "var(--fib-7)" }}>
         <div className="mx-auto max-w-[1440px] px-[var(--fib-5)]">
-          <motion.div className="refractive-card relative overflow-hidden flex flex-col items-center text-center" style={{ padding: "var(--fib-7) var(--fib-5)" }} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}>
+          <motion.div className="refractive-card relative overflow-hidden flex flex-col items-center text-center" style={{ padding: "var(--fib-7) var(--fib-5)" }} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}>
             <div className="absolute -bottom-24 -left-24 w-64 h-64 rounded-full pointer-events-none" style={{ background: "radial-gradient(circle, rgba(227, 204, 177, 0.06) 0%, transparent 70%)", filter: "blur(60px)" }} />
 
             <div className="inline-block font-[family-name:var(--font-display)] uppercase tracking-[0.2em]" style={{ fontSize: "var(--text-fib-xs)", color: "var(--color-ds-warm)", border: "1px solid var(--color-ds-warm-dim)", padding: "var(--fib-1) var(--fib-2)", marginBottom: "var(--fib-4)" }}>

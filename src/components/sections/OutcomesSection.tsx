@@ -8,7 +8,7 @@ export default function OutcomesSection() {
   return (
     <section id="outcomes" style={{ paddingTop: "var(--fib-7)", paddingBottom: "var(--fib-7)", borderTop: "1px solid var(--color-ds-border)" }}>
       <div className="mx-auto max-w-[1440px] px-[var(--fib-5)]">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }} style={{ marginBottom: "var(--fib-6)" }}>
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }} style={{ marginBottom: "var(--fib-6)" }}>
           <div className="inline-block font-[family-name:var(--font-display)] uppercase tracking-[0.2em]" style={{ fontSize: "var(--text-fib-xs)", color: "var(--color-ds-warm)", border: "1px solid var(--color-ds-warm-dim)", padding: "var(--fib-1) var(--fib-2)", marginBottom: "var(--fib-4)" }}>
             Measurable Impact
           </div>
@@ -19,7 +19,7 @@ export default function OutcomesSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2" style={{ gap: "var(--fib-3)", minHeight: "500px" }}>
           {/* Large card */}
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }} className="md:col-span-2 md:row-span-2 refractive-card flex flex-col justify-end relative overflow-hidden" style={{ padding: "var(--fib-5)" }}>
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }} className="md:col-span-2 md:row-span-2 refractive-card flex flex-col justify-end relative overflow-hidden" style={{ padding: "var(--fib-5)" }}>
             <div className="absolute top-[var(--fib-4)] right-[var(--fib-4)]">
               <Rocket size={48} style={{ color: "var(--color-ds-crystalline)", opacity: 0.15 }} strokeWidth={1} />
             </div>
@@ -31,7 +31,7 @@ export default function OutcomesSection() {
           </motion.div>
 
           {/* Cost card */}
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.1, ease: [0.22, 1, 0.36, 1] }} className="refractive-card flex flex-col justify-center relative overflow-hidden" style={{ padding: "var(--fib-4)" }}>
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.1, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }} className="refractive-card flex flex-col justify-center relative overflow-hidden" style={{ padding: "var(--fib-4)" }}>
             <div className="absolute top-[var(--fib-3)] right-[var(--fib-3)]">
               <Percent size={28} style={{ color: "var(--color-ds-crystalline)", opacity: 0.15 }} strokeWidth={1} />
             </div>
@@ -41,7 +41,7 @@ export default function OutcomesSection() {
           </motion.div>
 
           {/* MTTR card — inverted */}
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2, ease: [0.22, 1, 0.36, 1] }} className="flex flex-col justify-center relative overflow-hidden" style={{ padding: "var(--fib-4)", backgroundColor: "var(--color-ds-warm)", color: "var(--color-ds-black)" }}>
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }} className="flex flex-col justify-center relative overflow-hidden" style={{ padding: "var(--fib-4)", backgroundColor: "var(--color-ds-warm)", color: "var(--color-ds-black)" }}>
             <div className="absolute top-[var(--fib-3)] right-[var(--fib-3)]">
               <Zap size={28} style={{ opacity: 0.15 }} strokeWidth={1} />
             </div>

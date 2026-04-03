@@ -5,7 +5,7 @@ import TextScramble from "@/components/TextScramble";
 import { LayoutDashboard, Zap, Code2, BarChart3, CheckCircle2, Shield } from "lucide-react";
 
 const stagger = { hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.1, delayChildren: 0.15 } } };
-const fadeUp = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } } };
+const fadeUp = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] } } };
 
 const specs = [
   { label: "Provisioning Speed", value: "0.04s" },
@@ -29,7 +29,7 @@ export default function FoundationContent() {
         <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full pointer-events-none" style={{ background: "radial-gradient(circle, rgba(200, 208, 224, 0.04) 0%, transparent 70%)", filter: "blur(80px)" }} />
         <div className="mx-auto max-w-[1440px] px-[var(--fib-5)] w-full">
           <div className="flex flex-col md:flex-row items-end" style={{ gap: "var(--fib-6)" }}>
-            <motion.div className="w-full md:w-2/3" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}>
+            <motion.div className="w-full md:w-2/3" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}>
               <div className="inline-flex items-center refractive-card" style={{ gap: "var(--fib-2)", padding: "var(--fib-1) var(--fib-3)", marginBottom: "var(--fib-5)" }}>
                 <Shield size={14} style={{ color: "var(--color-ds-warm)" }} strokeWidth={1.5} />
                 <span className="font-[family-name:var(--font-display)] uppercase tracking-[0.2em]" style={{ fontSize: "10px", color: "var(--color-ds-warm)" }}>Powered by BlackMagickOps</span>
@@ -134,7 +134,7 @@ export default function FoundationContent() {
         <div className="mx-auto max-w-[1440px] px-[var(--fib-5)]">
           <div className="flex flex-col md:flex-row items-center" style={{ gap: "var(--fib-6)" }}>
             {/* Left — decorative */}
-            <motion.div className="w-full md:w-1/2 flex justify-center" initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}>
+            <motion.div className="w-full md:w-1/2 flex justify-center" initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}>
               <div className="relative refractive-card flex items-center justify-center" style={{ width: "340px", height: "340px" }}>
                 {/* Rotating rings */}
                 <div className="absolute border rounded-full" style={{ width: "200px", height: "200px", borderColor: "rgba(227, 204, 177, 0.08)", animation: "spin 20s linear infinite" }} />
@@ -151,7 +151,7 @@ export default function FoundationContent() {
             </motion.div>
 
             {/* Right — description */}
-            <motion.div className="w-full md:w-1/2" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}>
+            <motion.div className="w-full md:w-1/2" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}>
               <TextScramble as="h2" className="font-[family-name:var(--font-display)] font-bold leading-[1.05] tracking-[-0.03em] text-white" style={{ fontSize: "var(--text-fib-xl)", marginBottom: "var(--fib-5)" }}>
                 The BlackMagickOps Seal
               </TextScramble>
@@ -194,7 +194,7 @@ export default function FoundationContent() {
       {/* CTA */}
       <section style={{ paddingTop: "var(--fib-7)", paddingBottom: "var(--fib-7)" }}>
         <div className="mx-auto max-w-[1440px] px-[var(--fib-5)]">
-          <motion.div className="refractive-card relative overflow-hidden flex flex-col items-center text-center" style={{ padding: "var(--fib-7) var(--fib-5)" }} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}>
+          <motion.div className="refractive-card relative overflow-hidden flex flex-col items-center text-center" style={{ padding: "var(--fib-7) var(--fib-5)" }} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}>
             <div className="absolute -bottom-24 -left-24 w-64 h-64 rounded-full pointer-events-none" style={{ background: "radial-gradient(circle, rgba(227, 204, 177, 0.08) 0%, transparent 70%)", filter: "blur(60px)" }} />
 
             <div className="inline-block font-[family-name:var(--font-display)] uppercase tracking-[0.2em]" style={{ fontSize: "var(--text-fib-xs)", color: "var(--color-ds-warm)", border: "1px solid var(--color-ds-warm-dim)", padding: "var(--fib-1) var(--fib-2)", marginBottom: "var(--fib-4)" }}>

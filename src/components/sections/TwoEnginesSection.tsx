@@ -8,7 +8,7 @@ export default function TwoEnginesSection() {
   return (
     <section style={{ paddingTop: "var(--fib-7)", paddingBottom: "var(--fib-7)" }}>
       <div className="mx-auto max-w-[1440px] px-[var(--fib-5)]">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }} style={{ marginBottom: "var(--fib-6)" }}>
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }} style={{ marginBottom: "var(--fib-6)" }}>
           <div className="inline-block font-[family-name:var(--font-display)] uppercase tracking-[0.2em]" style={{ fontSize: "var(--text-fib-xs)", color: "var(--color-ds-warm)", border: "1px solid var(--color-ds-warm-dim)", padding: "var(--fib-1) var(--fib-2)", marginBottom: "var(--fib-4)" }}>
             A Unified Approach
           </div>
@@ -21,7 +21,7 @@ export default function TwoEnginesSection() {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2" style={{ gap: "2px" }}>
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }} className="relative group overflow-hidden flex flex-col justify-between" style={{ height: "500px", backgroundColor: "var(--color-ds-card)", border: "1px solid var(--color-ds-card-border)", padding: "var(--fib-5)" }}>
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }} className="relative group overflow-hidden flex flex-col justify-between" style={{ height: "500px", backgroundColor: "var(--color-ds-card)", border: "1px solid var(--color-ds-card-border)", padding: "var(--fib-5)" }}>
             <div>
               <div className="flex items-center justify-between">
                 <span className="font-[family-name:var(--font-mono)] uppercase tracking-[0.25em]" style={{ fontSize: "11px", color: "var(--color-ds-warm)" }}>Intelligence Layer</span>
@@ -39,7 +39,7 @@ export default function TwoEnginesSection() {
             </div>
           </motion.div>
 
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }} className="relative group overflow-hidden flex flex-col justify-between" style={{ height: "500px", backgroundColor: "var(--color-ds-card)", border: "1px solid var(--color-ds-card-border)", padding: "var(--fib-5)" }}>
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }} className="relative group overflow-hidden flex flex-col justify-between" style={{ height: "500px", backgroundColor: "var(--color-ds-card)", border: "1px solid var(--color-ds-card-border)", padding: "var(--fib-5)" }}>
             <div>
               <div className="flex items-center justify-between">
                 <span className="font-[family-name:var(--font-mono)] uppercase tracking-[0.25em]" style={{ fontSize: "11px", color: "var(--color-ds-warm)" }}>Foundation Layer</span>
