@@ -78,13 +78,13 @@ export default function Header() {
           <div className="flex items-center" style={{ gap: "var(--fib-3)" }}>
             <a
               href="mailto:hello@digitalsourcery.ai"
-              className="hidden sm:inline-block font-[family-name:var(--font-display)] font-bold uppercase tracking-[0.15em] bg-white text-black hover:scale-[0.97] transition-transform duration-200 cursor-pointer ds-cta-prismatic"
+              className="hidden sm:inline-block font-[family-name:var(--font-display)] font-bold uppercase tracking-[0.15em] bg-white text-black hover:scale-[0.97] transition-transform duration-200 cursor-pointer rotating-gradient-btn"
               style={{
                 fontSize: "var(--text-fib-xs)",
                 padding: "var(--fib-1) var(--fib-3)",
               }}
             >
-              Start a Discovery Call
+              <span>Start a Discovery Call</span>
             </a>
 
             {/* Mobile hamburger */}
@@ -148,7 +148,7 @@ export default function Header() {
           ))}
           <a
             href="mailto:hello@digitalsourcery.ai"
-            className="inline-block font-[family-name:var(--font-display)] font-bold uppercase tracking-[0.15em] bg-white text-black cursor-pointer ds-cta-prismatic"
+            className="inline-block font-[family-name:var(--font-display)] font-bold uppercase tracking-[0.15em] bg-white text-black cursor-pointer rotating-gradient-btn"
             style={{
               fontSize: "var(--text-fib-xs)",
               padding: "var(--fib-1) var(--fib-3)",
@@ -156,7 +156,7 @@ export default function Header() {
             }}
             onClick={() => setMobileOpen(false)}
           >
-            Start a Discovery Call
+            <span>Start a Discovery Call</span>
           </a>
         </div>
       )}

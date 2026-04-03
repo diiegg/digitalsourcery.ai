@@ -352,22 +352,17 @@ body {
   text-shadow: 0 0 40px rgba(200, 208, 224, 0.15);
 }
 
-/* Rotating gradient border — contained inside button */
-.rotating-gradient-btn {
-  position: relative;
-  overflow: hidden;
+/* Rotating gradient border — animates gradient angle, not element transform */
+@property --gradient-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
 }
 
-.rotating-gradient-btn::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 200%;
-  height: 200%;
-  transform: translate(-50%, -50%);
+.rotating-gradient-btn {
+  position: relative;
   background: conic-gradient(
-    from 0deg,
+    from var(--gradient-angle),
     transparent 0%,
     #E3CCB1 10%,
     #c8d0e0 20%,
@@ -377,16 +372,16 @@ body {
     #E3CCB1 70%,
     transparent 80%
   );
-  animation: rotate-gradient 4s linear infinite;
-  pointer-events: none;
+  animation: spin-gradient 4s linear infinite;
 }
 
 .rotating-gradient-btn::after {
   content: '';
+  display: block;
   position: absolute;
-  inset: 3px;
   background: white;
-  pointer-events: none;
+  inset: 3px;
+  z-index: 0;
 }
 
 .rotating-gradient-btn > span {
@@ -394,9 +389,9 @@ body {
   z-index: 1;
 }
 
-@keyframes rotate-gradient {
-  0% { transform: translate(-50%, -50%) rotate(0deg); }
-  100% { transform: translate(-50%, -50%) rotate(360deg); }
+@keyframes spin-gradient {
+  0% { --gradient-angle: 0deg; }
+  100% { --gradient-angle: 360deg; }
 }
 
 /* CTA button prismatic hover glow */
