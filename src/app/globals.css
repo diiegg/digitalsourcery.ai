@@ -352,44 +352,41 @@ body {
   text-shadow: 0 0 40px rgba(200, 208, 224, 0.15);
 }
 
-/* Rotating gradient border — conic sweep around button */
+/* Rotating gradient border — conic sweep around button only */
 .rotating-gradient {
   position: relative;
-  overflow: hidden;
-  z-index: 0;
+  isolation: isolate;
 }
 
 .rotating-gradient::before {
   content: '';
   position: absolute;
-  inset: -2px;
+  inset: -3px;
   background: conic-gradient(
     from var(--r, 0deg),
     transparent 0%,
-    rgba(227, 204, 177, 0.8) 10%,
-    rgba(200, 208, 224, 0.6) 20%,
+    rgba(227, 204, 177, 0.9) 10%,
+    rgba(200, 208, 224, 0.7) 20%,
     transparent 30%,
     transparent 50%,
-    rgba(200, 208, 224, 0.4) 60%,
-    rgba(227, 204, 177, 0.6) 70%,
+    rgba(200, 208, 224, 0.5) 60%,
+    rgba(227, 204, 177, 0.7) 70%,
     transparent 80%
   );
   animation: rotate-gradient 4s linear infinite;
-  z-index: -2;
+  z-index: -1;
+  pointer-events: none;
 }
 
-.rotating-gradient::after {
-  content: '';
-  position: absolute;
-  inset: 2px;
-  background: white;
-  z-index: -1;
+.rotating-gradient-dark {
+  position: relative;
+  isolation: isolate;
 }
 
 .rotating-gradient-dark::before {
   content: '';
   position: absolute;
-  inset: -2px;
+  inset: -3px;
   background: conic-gradient(
     from var(--r, 0deg),
     transparent 0%,
@@ -398,19 +395,12 @@ body {
     transparent 30%,
     transparent 50%,
     rgba(200, 208, 224, 0.3) 60%,
-    rgba(227, 204, 177, 0.4) 70%,
+    rgba(227, 204, 177, 0.5) 70%,
     transparent 80%
   );
   animation: rotate-gradient 4s linear infinite;
-  z-index: -2;
-}
-
-.rotating-gradient-dark::after {
-  content: '';
-  position: absolute;
-  inset: 2px;
-  background: var(--color-ds-black);
   z-index: -1;
+  pointer-events: none;
 }
 
 @keyframes rotate-gradient {
