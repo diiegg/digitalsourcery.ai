@@ -126,9 +126,9 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Giant ASCII "Digital Sourcery" */}
+        {/* Giant ASCII "Digital Sorcery" */}
         <div style={{ marginBottom: "var(--fib-5)" }}>
-          <AsciiHero text="Digital Sourcery" />
+          <AsciiHero text="Digital Sorcery" />
         </div>
 
         {/* Bottom bar */}
@@ -141,7 +141,7 @@ export default function Footer() {
           }}
         >
           <span className="text-ds-text-dim" style={{ fontSize: "var(--text-fib-sm)" }}>
-            &copy; {new Date().getFullYear()} Digital Sourcery
+            &copy; {new Date().getFullYear()} Digital Sorcery
           </span>
           <span className="text-ds-text-dim" style={{ fontSize: "var(--text-fib-sm)" }}>
             Powered by BlackMagickOps

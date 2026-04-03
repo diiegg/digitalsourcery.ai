@@ -43,7 +43,7 @@ export default function Header() {
               className="font-[family-name:var(--font-display)] font-bold text-white tracking-tight"
               style={{ fontSize: "var(--text-fib-base)" }}
             >
-              Digital Sourcery
+              Digital Sorcery
             </span>
           </Link>
 

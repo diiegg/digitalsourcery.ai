@@ -13,7 +13,7 @@ export default function HeroSection() {
       <div className="mx-auto max-w-[1440px] px-[var(--fib-5)] w-full" style={{ paddingTop: "var(--fib-7)", paddingBottom: "var(--fib-7)" }}>
         <div className="grid grid-cols-1 lg:grid-cols-[var(--phi-major)_var(--phi-minor)] items-center" style={{ gap: "var(--fib-5)", minHeight: "70vh" }}>
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}>
-            <AsciiHero text="Digital Sourcery" />
+            <AsciiHero text="Digital Sorcery" />
 
             <h1 className="font-[family-name:var(--font-display)] font-bold tracking-[-0.04em] text-white" style={{ fontSize: "var(--text-fib-2xl)", lineHeight: 0.95, marginBottom: "var(--fib-5)" }}>
               Make AI Work

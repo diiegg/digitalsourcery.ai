@@ -34,7 +34,7 @@ export default function LogoPreview() {
             <div className="flex items-center" style={{ gap: "var(--fib-2)", marginBottom: "var(--fib-2)" }}>
               <span className="text-white"><FibonacciDots size={34} /></span>
               <span className="font-[family-name:var(--font-display)] text-white font-medium" style={{ fontSize: "var(--text-fib-sm)" }}>
-                Digital Sourcery
+                Digital Sorcery
               </span>
             </div>
             <p className="text-ds-text-dim font-[family-name:var(--font-mono)]" style={{ fontSize: "11px" }}>
@@ -57,7 +57,7 @@ export default function LogoPreview() {
             <div className="flex items-center" style={{ gap: "var(--fib-2)", marginBottom: "var(--fib-2)" }}>
               <span className="text-white"><GoldenFlower size={34} /></span>
               <span className="font-[family-name:var(--font-display)] text-white font-medium" style={{ fontSize: "var(--text-fib-sm)" }}>
-                Digital Sourcery
+                Digital Sorcery
               </span>
             </div>
             <p className="text-ds-text-dim font-[family-name:var(--font-mono)]" style={{ fontSize: "11px" }}>
@@ -80,7 +80,7 @@ export default function LogoPreview() {
             <div className="flex items-center" style={{ gap: "var(--fib-2)", marginBottom: "var(--fib-2)" }}>
               <span className="text-white"><FibonacciSpiral size={34} /></span>
               <span className="font-[family-name:var(--font-display)] text-white font-medium" style={{ fontSize: "var(--text-fib-sm)" }}>
-                Digital Sourcery
+                Digital Sorcery
               </span>
             </div>
             <p className="text-ds-text-dim font-[family-name:var(--font-mono)]" style={{ fontSize: "11px" }}>

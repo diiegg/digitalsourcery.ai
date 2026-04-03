@@ -59,7 +59,7 @@ export default function AboutContent() {
               className="text-ds-text-secondary"
               style={{ fontSize: "var(--text-fib-base)", lineHeight: 1.618, marginBottom: "var(--fib-4)" }}
             >
-              Digital Sourcery was founded by infrastructure engineers who&apos;ve spent years
+              Digital Sorcery was founded by infrastructure engineers who&apos;ve spent years
               building and scaling cloud-native systems across manufacturing, energy, SaaS,
               and enterprise. We&apos;ve seen the same problems repeat across organizations —
               AI prototypes that never ship, costs that spiral, teams that drown in alerts.
@@ -78,7 +78,7 @@ export default function AboutContent() {
               The foundation — platform engineering, automation, observability —
               comes from <strong className="text-white">BlackMagickOps</strong>,
               our engineering practice built on the belief that precision is discipline
-              and automation is leverage. Digital Sourcery adds the intelligence layer:
+              and automation is leverage. Digital Sorcery adds the intelligence layer:
               AI that makes infrastructure predict, heal, and optimize itself.
             </p>
           </motion.div>

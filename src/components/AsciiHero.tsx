@@ -25,7 +25,7 @@ type Particle = {
   delay: number;
 };
 
-export default function AsciiHero({ text = "Digital Sourcery" }: { text?: string }) {
+export default function AsciiHero({ text = "Digital Sorcery" }: { text?: string }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 

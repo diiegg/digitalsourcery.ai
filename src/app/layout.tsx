@@ -24,7 +24,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Digital Sourcery — Make AI Work in Production",
+  title: "Digital Sorcery — Make AI Work in Production",
   description:
     "Platform engineers who integrate AI with legacy systems, control costs, and build autonomous operations. Production-ready software your team owns.",
   keywords: [
@@ -39,16 +39,16 @@ export const metadata: Metadata = {
     "AI platform",
   ],
   openGraph: {
-    title: "Digital Sourcery — Make AI Work in Production",
+    title: "Digital Sorcery — Make AI Work in Production",
     description:
       "Platform engineers who integrate AI with legacy systems, control costs, and build autonomous operations. Production-ready software your team owns.",
     url: "https://digitalsourcery.ai",
-    siteName: "Digital Sourcery",
+    siteName: "Digital Sorcery",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Digital Sourcery — Make AI Work in Production",
+    title: "Digital Sorcery — Make AI Work in Production",
     description:
       "Platform engineers who make AI production-ready. Legacy integration, cost control, autonomous operations.",
   },

@@ -156,7 +156,7 @@ export default function FoundationContent() {
                 The BlackMagickOps Seal
               </TextScramble>
               <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-base)", lineHeight: 1.618, marginBottom: "var(--fib-5)" }}>
-                Digital Sourcery&apos;s Foundation services are powered by the BlackMagickOps engineering discipline. Platform engineering, automation, and observability built for precision and reliability.
+                Digital Sorcery&apos;s Foundation services are powered by the BlackMagickOps engineering discipline. Platform engineering, automation, and observability built for precision and reliability.
               </p>
               <ul className="flex flex-col" style={{ gap: "var(--fib-3)" }}>
                 {sealPoints.map((point) => (

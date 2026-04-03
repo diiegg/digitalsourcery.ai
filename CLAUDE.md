@@ -1,4 +1,4 @@
-# Digital Sourcery — Project Instructions
+# Digital Sorcery — Project Instructions
 
 ## Required Skills
 
@@ -25,7 +25,7 @@ These skills are NOT optional. Invoke them before starting any design or develop
 ## Brand Rules
 
 - **BlackMagickOps** = Platform Engineering & Automation (NOT DevOps)
-- **Digital Sourcery** = AI Intelligence Layer
+- **Digital Sorcery** = AI Intelligence Layer
 - Never mix services between brands
 - Never use "CAIO" or "Chief AI Officer"
 - Never limit to specific verticals — ALL industries

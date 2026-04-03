@@ -16,7 +16,7 @@ export default function TwoEnginesSection() {
             Two Engines, One Mission
           </TextScramble>
           <p className="text-ds-text-secondary max-w-lg" style={{ fontSize: "var(--text-fib-base)", lineHeight: 1.618 }}>
-            BlackMagickOps builds the platform. Digital Sourcery makes it intelligent. Together: production-ready AI infrastructure.
+            BlackMagickOps builds the platform. Digital Sorcery makes it intelligent. Together: production-ready AI infrastructure.
           </p>
         </motion.div>
 
@@ -27,7 +27,7 @@ export default function TwoEnginesSection() {
                 <span className="font-[family-name:var(--font-mono)] uppercase tracking-[0.25em]" style={{ fontSize: "11px", color: "var(--color-ds-warm)" }}>Intelligence Layer</span>
                 <Brain size={32} style={{ color: "var(--color-ds-crystalline)", opacity: 0.2 }} strokeWidth={1} />
               </div>
-              <h3 className="font-[family-name:var(--font-display)] font-bold text-white" style={{ fontSize: "var(--text-fib-xl)", marginTop: "var(--fib-2)" }}>Digital Sourcery</h3>
+              <h3 className="font-[family-name:var(--font-display)] font-bold text-white" style={{ fontSize: "var(--text-fib-xl)", marginTop: "var(--fib-2)" }}>Digital Sorcery</h3>
             </div>
             <div className="refractive-card max-w-sm" style={{ padding: "var(--fib-4)" }}>
               <p className="text-white" style={{ fontSize: "var(--text-fib-base)", lineHeight: 1.618 }}>Predictive observability, autonomous remediation, AI cost optimization, and LLM-driven infrastructure that learns and adapts.</p>
