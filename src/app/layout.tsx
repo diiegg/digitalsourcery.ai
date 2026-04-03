@@ -24,31 +24,33 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Digital Sourcery — Infrastructure That Thinks",
+  title: "Digital Sourcery — Make AI Work in Production",
   description:
-    "AI-native platform engineering, intelligent observability, and autonomous infrastructure. We build the intelligence layer for modern cloud platforms.",
+    "Platform engineers who integrate AI with legacy systems, control costs, and build autonomous operations. Production-ready software your team owns.",
   keywords: [
     "AI infrastructure",
-    "AIOps",
-    "autonomous platforms",
-    "intelligent observability",
     "platform engineering",
-    "AI-native",
-    "self-healing infrastructure",
+    "AIOps",
+    "AI observability",
+    "MLOps",
+    "AI governance",
+    "intelligent infrastructure",
+    "production AI",
+    "AI platform",
   ],
   openGraph: {
-    title: "Digital Sourcery — Infrastructure That Thinks",
+    title: "Digital Sourcery — Make AI Work in Production",
     description:
-      "AI-native platform engineering, intelligent observability, and autonomous infrastructure for teams building at scale.",
+      "Platform engineers who integrate AI with legacy systems, control costs, and build autonomous operations. Production-ready software your team owns.",
     url: "https://digitalsourcery.ai",
     siteName: "Digital Sourcery",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Digital Sourcery — Infrastructure That Thinks",
+    title: "Digital Sourcery — Make AI Work in Production",
     description:
-      "AI-native platform engineering, intelligent observability, and autonomous infrastructure.",
+      "Platform engineers who make AI production-ready. Legacy integration, cost control, autonomous operations.",
   },
 };
 
