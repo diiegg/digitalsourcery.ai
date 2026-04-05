@@ -46,7 +46,7 @@ export default function ProblemSection() {
 
           {/* Right — abstract gradient illustration */}
           <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }} className="relative">
-            <div className="relative overflow-hidden" style={{ aspectRatio: "4 / 5", borderRadius: "var(--fib-3)", background: "linear-gradient(160deg, rgba(227, 204, 177, 0.08) 0%, rgba(8, 8, 12, 0.95) 30%, rgba(8, 8, 12, 0.98) 70%, rgba(200, 208, 224, 0.06) 100%)" }}>
+            <div className="relative overflow-hidden w-full" style={{ aspectRatio: "4 / 5", maxHeight: "500px", borderRadius: "var(--fib-3)", background: "linear-gradient(160deg, rgba(227, 204, 177, 0.08) 0%, rgba(8, 8, 12, 0.95) 30%, rgba(8, 8, 12, 0.98) 70%, rgba(200, 208, 224, 0.06) 100%)" }}>
               {/* Abstract fragmentation SVG */}
               <svg className="absolute inset-0 w-full h-full" viewBox="0 0 400 500" fill="none" preserveAspectRatio="xMidYMid slice">
                 <defs>

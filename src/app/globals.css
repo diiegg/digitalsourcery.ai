@@ -156,9 +156,32 @@
    ============================================================= */
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+/* Responsive container — fibonacci-scaled per breakpoint */
+.ds-container {
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--fib-3);  /* 21px mobile */
+  padding-right: var(--fib-3);
+}
+@media (min-width: 768px) {
+  .ds-container {
+    padding-left: var(--fib-4);  /* 34px tablet */
+    padding-right: var(--fib-4);
+  }
+}
+@media (min-width: 1024px) {
+  .ds-container {
+    padding-left: var(--fib-5);  /* 55px desktop */
+    padding-right: var(--fib-5);
+  }
 }
 
 body {
+  overflow-x: hidden;
   background-color: var(--color-ds-black);
   color: var(--color-ds-text);
   font-family: var(--font-body);
