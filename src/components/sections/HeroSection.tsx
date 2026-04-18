@@ -14,13 +14,13 @@ export default function HeroSection() {
         <div className="grid grid-cols-1 lg:grid-cols-[var(--phi-major)_var(--phi-minor)] items-center" style={{ gap: "var(--fib-5)", minHeight: "70vh" }}>
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}>
             <h1 className="font-[family-name:var(--font-display)] font-bold tracking-[-0.04em] text-white" style={{ fontSize: "var(--text-fib-2xl)", lineHeight: 0.95, marginBottom: "var(--fib-5)" }}>
-              Platform engineering
+              Infrastructure
               <br />
-              <span style={{ color: "var(--color-ds-headline-accent)" }}>for the teams who run it.</span>
+              <span style={{ color: "var(--color-ds-headline-accent)" }}>That Thinks</span>
             </h1>
 
             <p className="text-ds-text-secondary max-w-md" style={{ fontSize: "var(--text-fib-base)", lineHeight: 1.618, marginBottom: "var(--fib-5)" }}>
-              We design, build, and hand off the systems your team will operate after we leave. Reference stack, modernised observability, self-healing where automation earns its place — engineered for production.
+              The intelligence layer for production systems. Predictive observability, autonomous remediation, cost control — engineered for what your team already runs, owned by you after we leave.
             </p>
 
             <div className="flex flex-col sm:flex-row items-start" style={{ gap: "var(--fib-2)" }}>

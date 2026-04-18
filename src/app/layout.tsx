@@ -27,33 +27,33 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Digital Sorcery — Platform engineering for the teams who run it",
+  title: "Digital Sorcery — Infrastructure That Thinks",
   description:
-    "We design, build, and hand off infrastructure your team will operate after we leave. Reference stack, modernised observability, self-healing where it earns its place.",
+    "The intelligence layer for production systems. Predictive observability, autonomous remediation, cost control — engineered for what your team already runs, owned by you after we leave.",
   keywords: [
-    "platform engineering",
-    "infrastructure consultancy",
-    "Kubernetes consulting",
-    "observability",
-    "OpenTelemetry",
-    "GitOps",
-    "internal developer platform",
-    "FinOps",
+    "AI infrastructure",
+    "intelligent observability",
+    "AIOps",
     "MLOps",
+    "predictive observability",
+    "autonomous remediation",
+    "AI cost control",
+    "intelligence layer",
+    "production AI",
   ],
   openGraph: {
-    title: "Digital Sorcery — Platform engineering for the teams who run it",
+    title: "Digital Sorcery — Infrastructure That Thinks",
     description:
-      "We design, build, and hand off infrastructure your team will operate after we leave. Reference stack, modernised observability, self-healing where it earns its place.",
+      "The intelligence layer for production systems. Predictive observability, autonomous remediation, cost control — engineered for what your team already runs, owned by you after we leave.",
     url: "https://digitalsourcery.ai",
     siteName: "Digital Sorcery",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Digital Sorcery — Platform engineering for the teams who run it",
+    title: "Digital Sorcery — Infrastructure That Thinks",
     description:
-      "Designed, built, and handed off. Boring tools that hold under failure, observability that earns its alerts back, self-healing where automation earns its place.",
+      "The intelligence layer for production systems. Predictive observability, autonomous remediation, cost control — engineered for what your team already runs.",
   },
 };
 
