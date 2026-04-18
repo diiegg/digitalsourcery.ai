@@ -40,12 +40,18 @@ next-env.d.ts
 
 # Local AI tooling — installed-on-demand, not project code
 .agents/
-.claude/
 .codebuddy/
 .continue/
 .omc/
 .playwright-mcp/
 skills-lock.json
+
+# .claude — block per-machine state, ALLOW project config + hooks
+.claude/*
+!.claude/settings.json
+!.claude/settings.local.json
+!.claude/hooks/
+!.claude/hooks/**
 
 # Test outputs
 test-results/
