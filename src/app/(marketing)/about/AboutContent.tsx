@@ -124,14 +124,14 @@ export default function AboutContent() {
           <div className="grid grid-cols-1 md:grid-cols-12 items-end" style={{ gap: "var(--fib-5)" }}>
             <motion.div className="md:col-span-8" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease }}>
               <h1
-                className="font-[family-name:var(--font-display)] font-bold tracking-[-0.04em] text-white"
-                style={{ fontSize: "clamp(var(--text-fib-xl), 7vw, 128px)", lineHeight: 0.95, marginBottom: "var(--fib-4)" }}
+                className="font-[family-name:var(--font-display)] font-bold tracking-[-0.035em] text-white"
+                style={{ fontSize: "clamp(var(--text-fib-xl), 5.5vw, var(--text-fib-2xl))", lineHeight: 0.98, marginBottom: "var(--fib-4)" }}
               >
                 Engineering
                 <br />
                 <span style={{ color: "var(--color-ds-headline-accent)" }}>With intention.</span>
               </h1>
-              <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-base)", lineHeight: 1.618, marginBottom: "var(--fib-4)", maxWidth: "65ch" }}>
+              <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-md)", lineHeight: 1.55, marginBottom: "var(--fib-4)", maxWidth: "60ch" }}>
                 Digital Sorcery was founded by infrastructure engineers who&apos;ve spent years building and scaling cloud-native systems across manufacturing, energy, SaaS, and enterprise. We&apos;ve seen the same problems repeat across organisations — AI prototypes that never ship, costs that spiral, teams that drown in alerts.
               </p>
               <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-base)", lineHeight: 1.618, marginBottom: "var(--fib-4)", maxWidth: "65ch" }}>

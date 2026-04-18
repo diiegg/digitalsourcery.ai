@@ -114,8 +114,8 @@ export default function StackContent() {
                 Reference Stack
               </div>
               <h1
-                className="font-[family-name:var(--font-display)] font-bold tracking-[-0.04em] text-white"
-                style={{ fontSize: "clamp(var(--text-fib-xl), 6vw, 112px)", lineHeight: 0.95, marginBottom: "var(--fib-5)" }}
+                className="font-[family-name:var(--font-display)] font-bold tracking-[-0.03em] text-white"
+                style={{ fontSize: "clamp(var(--text-fib-lg), 4.5vw, 80px)", lineHeight: 1.02, marginBottom: "var(--fib-5)" }}
               >
                 The tools we reach for.
                 <br />

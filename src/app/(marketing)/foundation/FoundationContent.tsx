@@ -44,8 +44,8 @@ export default function FoundationContent() {
                 </span>
               </div>
               <h1
-                className="font-[family-name:var(--font-display)] font-bold tracking-[-0.04em] text-white"
-                style={{ fontSize: "clamp(var(--text-fib-xl), 7vw, 128px)", lineHeight: 0.95, marginBottom: "var(--fib-5)" }}
+                className="font-[family-name:var(--font-display)] font-bold tracking-[-0.035em] text-white"
+                style={{ fontSize: "clamp(var(--text-fib-xl), 5.5vw, var(--text-fib-2xl))", lineHeight: 0.98, marginBottom: "var(--fib-5)" }}
               >
                 Platform engineering.
                 <br />

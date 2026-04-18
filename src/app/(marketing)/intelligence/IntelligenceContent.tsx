@@ -110,7 +110,7 @@ export default function IntelligenceContent() {
               <div className="inline-block font-[family-name:var(--font-display)] uppercase tracking-[0.2em]" style={{ fontSize: "var(--text-fib-xs)", color: "var(--color-ds-warm)", border: "1px solid var(--color-ds-warm-dim)", padding: "var(--fib-1) var(--fib-2)", marginBottom: "var(--fib-4)" }}>
                 The Intelligence Layer
               </div>
-              <h1 className="font-[family-name:var(--font-display)] font-bold tracking-[-0.04em] text-white" style={{ fontSize: "clamp(var(--text-fib-xl), 6vw, 112px)", lineHeight: 0.95, marginBottom: "var(--fib-5)" }}>
+              <h1 className="font-[family-name:var(--font-display)] font-bold tracking-[-0.03em] text-white" style={{ fontSize: "clamp(var(--text-fib-lg), 4.5vw, 80px)", lineHeight: 1.02, marginBottom: "var(--fib-5)" }}>
                 Systems that adapt.
                 <br />
                 <span style={{ color: "var(--color-ds-headline-accent)" }}>Without surprising the on-call rotation.</span>
