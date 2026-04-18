@@ -37,3 +37,20 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Local AI tooling — installed-on-demand, not project code
+.agents/
+.claude/
+.codebuddy/
+.continue/
+.omc/
+.playwright-mcp/
+skills-lock.json
+
+# Test outputs
+test-results/
+/playwright-report/
+
+# Dev / debug / critique screenshots at repo root
+# (production assets live under public/ or app/)
+/*.png

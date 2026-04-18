@@ -351,7 +351,9 @@ body {
     inset 0 0 20px rgba(200, 208, 224, 0.02);
 }
 
-/* Shimmer animation — slowed (16s) for quieter brand presence */
+/* Shimmer animation — slowed (16s) + capped to 5 iterations for perf.
+   After 80s the card sits idle. GPU compositor stops working on cards
+   the user has scrolled past. Battery + thermal win on mobile. */
 @keyframes refractive-shimmer {
   0%   { background-position: 200% 0; }
   100% { background-position: -200% 0; }
@@ -359,6 +361,8 @@ body {
 .prismatic-glass::before,
 .refractive-card::before {
   animation-duration: 16s !important;
+  animation-iteration-count: 5 !important;
+  animation-fill-mode: forwards;
 }
 
 /* Refractive card — alias for prismatic-glass + glow combined */

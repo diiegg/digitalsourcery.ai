@@ -1,7 +1,15 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Sora, Manrope, JetBrains_Mono } from "next/font/google";
 import ConsoleSignature from "@/components/ConsoleSignature";
 import "./globals.css";
+
+// Next 15 viewport export — sets mobile address-bar tint + PWA color
+export const viewport: Viewport = {
+  themeColor: "#050508",
+  colorScheme: "dark",
+  width: "device-width",
+  initialScale: 1,
+};
 
 // Display: Sora — geometric, calm, technical. Replaces Space Grotesk (banned: training-data default).
 const sora = Sora({
