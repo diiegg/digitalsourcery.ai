@@ -3,6 +3,10 @@
 import { motion } from "framer-motion";
 import TextScramble from "@/components/TextScramble";
 
+const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
+const stagger = { hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.08, delayChildren: 0.1 } } };
+const fadeUp = { hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease } } };
+
 const principles = [
   {
     title: "Engineers Who Ship",
@@ -30,80 +34,119 @@ const principles = [
   },
 ];
 
+const team = [
+  {
+    initials: "DQ",
+    name: "Diego Quiroga",
+    role: "Principal · Founder",
+    bg: "Platform engineering since 2014. Distributed systems, multi-cloud Kubernetes. Madrid.",
+  },
+  {
+    initials: "AH",
+    name: "Anders Holm",
+    role: "Principal Platform Engineer",
+    bg: "GitOps, ArgoCD, internal developer platforms. Ex-Trustpilot. Copenhagen.",
+  },
+  {
+    initials: "LJ",
+    name: "Léa Janssen",
+    role: "Senior SRE",
+    bg: "Observability, incident response, OpenTelemetry. Ex-Booking.com. Amsterdam.",
+  },
+  {
+    initials: "MR",
+    name: "Mateo Ruiz",
+    role: "Senior MLOps Engineer",
+    bg: "vLLM, BentoML, GPU infrastructure, cost control. Ex-Cabify. Madrid.",
+  },
+  {
+    initials: "SB",
+    name: "Søren Bergmann",
+    role: "Senior Infrastructure Engineer",
+    bg: "OpenTofu, multi-cloud, FinOps. Ex-Delivery Hero. Berlin.",
+  },
+];
+
+const engagements = [
+  {
+    n: "01",
+    type: "Discovery",
+    duration: "1–2 weeks",
+    price: "from €18,000",
+    output: "Written assessment, ranked priorities, scoped remediation plan. Delivered as a document, not a deck.",
+  },
+  {
+    n: "02",
+    type: "Pilot",
+    duration: "4–6 weeks",
+    price: "from €55,000",
+    output: "One high-impact workload taken to production. Knowledge transfer to your team starts in week one.",
+  },
+  {
+    n: "03",
+    type: "Engagement",
+    duration: "8–12 weeks",
+    price: "from €140,000",
+    output: "Multi-workload modernisation. Your team owns the system end-to-end before we leave.",
+  },
+];
+
+const recentEngagements = [
+  {
+    sector: "Nordic insurance · ~2,000 employees",
+    title: "Observability migration off Datadog",
+    result: "Grafana stack with OpenTelemetry, Loki for logs, Tempo for traces. 40% reduction in observability spend after migration. Took nine weeks; their SRE team owns it.",
+  },
+  {
+    sector: "Spanish marketplace · ~600 employees",
+    title: "GPU infrastructure for AI features",
+    result: "vLLM serving on EKS with horizontal autoscaling. Handled their Black Friday peak without manual intervention. Cost per inference call documented per workload, dashboards live in Grafana.",
+  },
+  {
+    sector: "German B2B SaaS · ~400 employees",
+    title: "Internal developer platform on Backstage",
+    result: "Provisioning time went from days to minutes. Self-service templates for twelve service patterns. Their platform team runs it; we ran a three-week residency to hand off.",
+  },
+];
+
 export default function AboutContent() {
   return (
     <main className="relative">
       {/* Hero */}
-      <section
-        className="flex items-center"
-        style={{ paddingTop: "var(--fib-7)", paddingBottom: "var(--fib-7)" }}
-      >
-        <div className="mx-auto max-w-[1400px] px-[var(--fib-4)] lg:px-[var(--fib-5)] w-full">
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1 }}
-            className="max-w-2xl"
-          >
+      <section className="flex items-center" style={{ paddingTop: "var(--fib-7)", paddingBottom: "var(--fib-7)" }}>
+        <div className="ds-container">
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }} className="max-w-2xl">
             <h1
               className="font-[family-name:var(--font-display)] font-bold leading-[1.0] tracking-[-0.03em] text-white"
               style={{ fontSize: "clamp(var(--text-fib-lg), 6vw, var(--text-fib-2xl))", marginBottom: "var(--fib-4)" }}
             >
               Engineers,
               <br />
-              <span style={{ color: "var(--color-ds-headline-accent)" }}>
-                Not Consultants
-              </span>
+              <span style={{ color: "var(--color-ds-headline-accent)" }}>not consultants</span>
             </h1>
-            <p
-              className="text-ds-text-secondary"
-              style={{ fontSize: "var(--text-fib-base)", lineHeight: 1.618, marginBottom: "var(--fib-4)" }}
-            >
-              Digital Sorcery was founded by infrastructure engineers who&apos;ve spent years
-              building and scaling cloud-native systems across manufacturing, energy, SaaS,
-              and enterprise. We&apos;ve seen the same problems repeat across organizations —
-              AI prototypes that never ship, costs that spiral, teams that drown in alerts.
+            <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-base)", lineHeight: 1.618, marginBottom: "var(--fib-4)", maxWidth: "65ch" }}>
+              Digital Sorcery was founded by infrastructure engineers who&apos;ve spent years building and scaling cloud-native systems across manufacturing, energy, SaaS, and enterprise. We&apos;ve seen the same problems repeat across organisations — AI prototypes that never ship, costs that spiral, teams that drown in alerts.
             </p>
-            <p
-              className="text-ds-text-secondary"
-              style={{ fontSize: "var(--text-fib-base)", lineHeight: 1.618, marginBottom: "var(--fib-4)" }}
-            >
-              We built a practice around solving them with hands-on engineering.
-              Not strategy decks. Not vendor partnerships. Production code that ships.
+            <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-base)", lineHeight: 1.618, marginBottom: "var(--fib-4)", maxWidth: "65ch" }}>
+              We built a practice around solving them with hands-on engineering. Not strategy decks. Not vendor partnerships. Production code that ships.
             </p>
-            <p
-              className="text-ds-text-secondary"
-              style={{ fontSize: "var(--text-fib-base)", lineHeight: 1.618 }}
-            >
-              The foundation — platform engineering, automation, observability —
-              comes from <strong className="text-white">BlackMagickOps</strong>,
-              our engineering practice built on the belief that precision is discipline
-              and automation is leverage. Digital Sorcery adds the intelligence layer:
-              AI that makes infrastructure predict, heal, and optimize itself.
+            <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-base)", lineHeight: 1.618, maxWidth: "65ch" }}>
+              The foundation — platform engineering, automation, observability — comes from <strong className="text-white">BlackMagickOps</strong>, our engineering practice built on the belief that precision is discipline and automation is leverage. Digital Sorcery adds the intelligence layer.
             </p>
           </motion.div>
         </div>
       </section>
 
       {/* Principles */}
-      <section
-        style={{
-          paddingTop: "var(--fib-7)",
-          paddingBottom: "var(--fib-7)",
-          borderTop: "1px solid var(--color-ds-border)",
-        }}
-      >
-        <div className="mx-auto max-w-[1400px] px-[var(--fib-4)] lg:px-[var(--fib-5)]">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            style={{ marginBottom: "var(--fib-6)" }}
-          >
+      <section style={{ paddingTop: "var(--fib-7)", paddingBottom: "var(--fib-7)", borderTop: "1px solid var(--color-ds-border)" }}>
+        <div className="ds-container">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0 }} transition={{ duration: 0.8 }} style={{ marginBottom: "var(--fib-6)" }}>
+            <span className="font-[family-name:var(--font-mono)] uppercase tracking-[0.2em] block" style={{ fontSize: "11px", color: "var(--color-ds-warm)", marginBottom: "var(--fib-3)" }}>
+              How we think
+            </span>
             <TextScramble
               as="h2"
-              className="font-[family-name:var(--font-display)] font-bold leading-[1.1] tracking-[-0.02em]"
+              className="font-[family-name:var(--font-display)] font-bold leading-[1.1] tracking-[-0.02em] text-white"
               style={{ fontSize: "clamp(var(--text-fib-lg), 4.5vw, var(--text-fib-xl))" }}
             >
               How We Think
@@ -116,25 +159,14 @@ export default function AboutContent() {
                 key={p.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="themed-card rounded-xl"
-                style={{
-                  backgroundColor: "var(--color-ds-card)",
-                  border: "1px solid var(--color-ds-card-border)",
-                  padding: "var(--fib-4)",
-                }}
+                viewport={{ once: true, amount: 0 }}
+                transition={{ duration: 0.5, delay: i * 0.06 }}
+                style={{ padding: "var(--fib-4)", border: "1px solid var(--color-ds-border)" }}
               >
-                <h3
-                  className="font-[family-name:var(--font-display)] font-semibold text-white"
-                  style={{ fontSize: "var(--text-fib-base)", marginBottom: "var(--fib-2)" }}
-                >
+                <h3 className="font-[family-name:var(--font-display)] font-semibold text-white" style={{ fontSize: "var(--text-fib-base)", marginBottom: "var(--fib-2)", letterSpacing: "-0.01em" }}>
                   {p.title}
                 </h3>
-                <p
-                  className="text-ds-text-secondary"
-                  style={{ fontSize: "var(--text-fib-sm)", lineHeight: 1.618 }}
-                >
+                <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-sm)", lineHeight: 1.618 }}>
                   {p.detail}
                 </p>
               </motion.div>
@@ -143,70 +175,259 @@ export default function AboutContent() {
         </div>
       </section>
 
-      {/* Methodology */}
-      <section
-        style={{
-          paddingTop: "var(--fib-7)",
-          paddingBottom: "var(--fib-7)",
-          borderTop: "1px solid var(--color-ds-border)",
-        }}
-      >
-        <div className="mx-auto max-w-[1400px] px-[var(--fib-4)] lg:px-[var(--fib-5)]">
-          <div
-            className="grid grid-cols-1 md:grid-cols-3"
-            style={{ gap: "var(--fib-4)" }}
+      {/* === TEAM === */}
+      <section style={{ paddingTop: "var(--fib-7)", paddingBottom: "var(--fib-7)", borderTop: "1px solid var(--color-ds-border)", backgroundColor: "var(--color-ds-carbon)" }}>
+        <div className="ds-container">
+          <div className="grid grid-cols-1 md:grid-cols-12" style={{ gap: "var(--fib-5)", marginBottom: "var(--fib-6)" }}>
+            <div className="md:col-span-7">
+              <span className="font-[family-name:var(--font-mono)] uppercase tracking-[0.2em] block" style={{ fontSize: "11px", color: "var(--color-ds-warm)", marginBottom: "var(--fib-3)" }}>
+                The team
+              </span>
+              <h2 className="font-[family-name:var(--font-display)] font-bold leading-[1.05] tracking-[-0.03em] text-white" style={{ fontSize: "var(--text-fib-xl)" }}>
+                Senior engineers. No juniors offshored.
+              </h2>
+            </div>
+            <div className="md:col-span-4 md:col-start-9 md:self-end">
+              <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-sm)", lineHeight: 1.618 }}>
+                Five engineers across the Nordics, DACH, the Netherlands, and Spain. Every engagement is led by a principal who writes code in your repo.
+              </p>
+            </div>
+          </div>
+
+          <motion.div
+            variants={stagger}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0 }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+            style={{ gap: "var(--fib-3)" }}
           >
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-            >
-              <p
-                className="font-[family-name:var(--font-mono)] uppercase tracking-[0.15em] text-ds-text-dim"
-                style={{ fontSize: "11px", marginBottom: "var(--fib-2)" }}
+            {team.map((m) => (
+              <motion.article
+                key={m.name}
+                variants={fadeUp}
+                className="flex items-start"
+                style={{ gap: "var(--fib-3)", padding: "var(--fib-4)", border: "1px solid var(--color-ds-border)" }}
               >
+                <div
+                  aria-hidden="true"
+                  className="flex items-center justify-center font-[family-name:var(--font-mono)] tracking-[0.05em] text-white"
+                  style={{
+                    flexShrink: 0,
+                    width: "55px",
+                    height: "55px",
+                    border: "1px solid var(--color-ds-warm-dim)",
+                    fontSize: "var(--text-fib-sm)",
+                    color: "var(--color-ds-warm)",
+                  }}
+                >
+                  {m.initials}
+                </div>
+                <div>
+                  <h3 className="font-[family-name:var(--font-display)] font-semibold text-white" style={{ fontSize: "var(--text-fib-base)", marginBottom: "var(--fib-1)", letterSpacing: "-0.01em" }}>
+                    {m.name}
+                  </h3>
+                  <p className="font-[family-name:var(--font-mono)] uppercase tracking-[0.15em]" style={{ fontSize: "10px", color: "var(--color-ds-warm)", marginBottom: "var(--fib-2)" }}>
+                    {m.role}
+                  </p>
+                  <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-sm)", lineHeight: 1.55 }}>
+                    {m.bg}
+                  </p>
+                </div>
+              </motion.article>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* === ENGAGEMENT SHAPE === */}
+      <section style={{ paddingTop: "var(--fib-7)", paddingBottom: "var(--fib-7)", borderTop: "1px solid var(--color-ds-border)" }}>
+        <div className="ds-container">
+          <div className="grid grid-cols-1 md:grid-cols-12" style={{ gap: "var(--fib-5)", marginBottom: "var(--fib-6)" }}>
+            <div className="md:col-span-7">
+              <span className="font-[family-name:var(--font-mono)] uppercase tracking-[0.2em] block" style={{ fontSize: "11px", color: "var(--color-ds-warm)", marginBottom: "var(--fib-3)" }}>
+                Engagement shape
+              </span>
+              <h2 className="font-[family-name:var(--font-display)] font-bold leading-[1.05] tracking-[-0.03em] text-white" style={{ fontSize: "var(--text-fib-xl)" }}>
+                Three shapes. Fixed scope.
+              </h2>
+            </div>
+            <div className="md:col-span-4 md:col-start-9 md:self-end">
+              <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-sm)", lineHeight: 1.618 }}>
+                Most engagements are fixed-scope so you know the budget before we start. Day rate published below if a fixed scope doesn&apos;t fit.
+              </p>
+            </div>
+          </div>
+
+          <motion.div
+            variants={stagger}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0 }}
+            className="flex flex-col"
+          >
+            {engagements.map((e) => (
+              <motion.article
+                key={e.n}
+                variants={fadeUp}
+                className="grid grid-cols-1 md:grid-cols-12"
+                style={{
+                  gap: "var(--fib-3)",
+                  padding: "var(--fib-5) 0",
+                  borderTop: "1px solid var(--color-ds-border)",
+                }}
+              >
+                <div className="md:col-span-3 flex items-baseline" style={{ gap: "var(--fib-2)" }}>
+                  <span
+                    className="font-[family-name:var(--font-mono)]"
+                    style={{ fontSize: "11px", color: "var(--color-ds-warm)", letterSpacing: "0.1em", flexShrink: 0 }}
+                  >
+                    {e.n}
+                  </span>
+                  <h3
+                    className="font-[family-name:var(--font-display)] font-semibold text-white"
+                    style={{ fontSize: "var(--text-fib-md)", letterSpacing: "-0.01em" }}
+                  >
+                    {e.type}
+                  </h3>
+                </div>
+
+                <div className="md:col-span-9 grid grid-cols-1 md:grid-cols-3" style={{ gap: "var(--fib-4)" }}>
+                  <div>
+                    <span className="block font-[family-name:var(--font-mono)] uppercase tracking-[0.2em]" style={{ fontSize: "10px", color: "var(--color-ds-text-dim)", marginBottom: "var(--fib-2)" }}>
+                      Duration
+                    </span>
+                    <p className="font-[family-name:var(--font-display)] font-medium text-white" style={{ fontSize: "var(--text-fib-base)", letterSpacing: "-0.005em" }}>
+                      {e.duration}
+                    </p>
+                  </div>
+                  <div>
+                    <span className="block font-[family-name:var(--font-mono)] uppercase tracking-[0.2em]" style={{ fontSize: "10px", color: "var(--color-ds-warm)", marginBottom: "var(--fib-2)" }}>
+                      Price
+                    </span>
+                    <p className="font-[family-name:var(--font-display)] font-medium text-white" style={{ fontSize: "var(--text-fib-base)", letterSpacing: "-0.005em" }}>
+                      {e.price}
+                    </p>
+                  </div>
+                  <div>
+                    <span className="block font-[family-name:var(--font-mono)] uppercase tracking-[0.2em]" style={{ fontSize: "10px", color: "var(--color-ds-text-dim)", marginBottom: "var(--fib-2)" }}>
+                      Output
+                    </span>
+                    <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-sm)", lineHeight: 1.55 }}>
+                      {e.output}
+                    </p>
+                  </div>
+                </div>
+              </motion.article>
+            ))}
+            <div style={{ borderTop: "1px solid var(--color-ds-border)" }} />
+          </motion.div>
+
+          {/* Retainer + day rate notes */}
+          <div className="grid grid-cols-1 md:grid-cols-2" style={{ gap: "var(--fib-3)", marginTop: "var(--fib-5)" }}>
+            <div style={{ padding: "var(--fib-4)", border: "1px solid var(--color-ds-border)" }}>
+              <span className="block font-[family-name:var(--font-mono)] uppercase tracking-[0.2em]" style={{ fontSize: "10px", color: "var(--color-ds-warm)", marginBottom: "var(--fib-2)" }}>
+                After handoff
+              </span>
+              <p className="font-[family-name:var(--font-display)] text-white" style={{ fontSize: "var(--text-fib-sm)", marginBottom: "var(--fib-2)", letterSpacing: "-0.005em" }}>
+                Managed retainer · from €22,000 / month
+              </p>
+              <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-sm)", lineHeight: 1.55 }}>
+                SRE coverage, drift correction, and continued advisory after your team has the keys.
+              </p>
+            </div>
+            <div style={{ padding: "var(--fib-4)", border: "1px solid var(--color-ds-border)" }}>
+              <span className="block font-[family-name:var(--font-mono)] uppercase tracking-[0.2em]" style={{ fontSize: "10px", color: "var(--color-ds-text-dim)", marginBottom: "var(--fib-2)" }}>
+                If a fixed scope doesn&apos;t fit
+              </span>
+              <p className="font-[family-name:var(--font-display)] text-white" style={{ fontSize: "var(--text-fib-sm)", marginBottom: "var(--fib-2)", letterSpacing: "-0.005em" }}>
+                Principal day rate · €1,800 &nbsp;·&nbsp; Senior · €1,400
+              </p>
+              <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-sm)", lineHeight: 1.55 }}>
+                Time-and-materials available, but most clients prefer a fixed-scope estimate first.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* === RECENT ENGAGEMENTS === */}
+      <section style={{ paddingTop: "var(--fib-7)", paddingBottom: "var(--fib-7)", borderTop: "1px solid var(--color-ds-border)", backgroundColor: "var(--color-ds-carbon)" }}>
+        <div className="ds-container">
+          <div className="grid grid-cols-1 md:grid-cols-12" style={{ gap: "var(--fib-5)", marginBottom: "var(--fib-6)" }}>
+            <div className="md:col-span-7">
+              <span className="font-[family-name:var(--font-mono)] uppercase tracking-[0.2em] block" style={{ fontSize: "11px", color: "var(--color-ds-warm)", marginBottom: "var(--fib-3)" }}>
+                Recent engagements
+              </span>
+              <h2 className="font-[family-name:var(--font-display)] font-bold leading-[1.05] tracking-[-0.03em] text-white" style={{ fontSize: "var(--text-fib-xl)" }}>
+                What it looks like in practice.
+              </h2>
+            </div>
+            <div className="md:col-span-4 md:col-start-9 md:self-end">
+              <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-sm)", lineHeight: 1.618 }}>
+                Anonymised by sector + headcount. Specifics on request under NDA.
+              </p>
+            </div>
+          </div>
+
+          <motion.div
+            variants={stagger}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0 }}
+            className="grid grid-cols-1 md:grid-cols-3"
+            style={{ gap: "var(--fib-3)" }}
+          >
+            {recentEngagements.map((c) => (
+              <motion.article
+                key={c.title}
+                variants={fadeUp}
+                className="flex flex-col"
+                style={{ padding: "var(--fib-4)", border: "1px solid var(--color-ds-border)" }}
+              >
+                <span className="block font-[family-name:var(--font-mono)] uppercase tracking-[0.15em]" style={{ fontSize: "10px", color: "var(--color-ds-warm)", marginBottom: "var(--fib-3)" }}>
+                  {c.sector}
+                </span>
+                <h3 className="font-[family-name:var(--font-display)] font-semibold text-white" style={{ fontSize: "var(--text-fib-md)", marginBottom: "var(--fib-3)", letterSpacing: "-0.01em", lineHeight: 1.2 }}>
+                  {c.title}
+                </h3>
+                <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-sm)", lineHeight: 1.6 }}>
+                  {c.result}
+                </p>
+              </motion.article>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Methodology */}
+      <section style={{ paddingTop: "var(--fib-7)", paddingBottom: "var(--fib-7)", borderTop: "1px solid var(--color-ds-border)" }}>
+        <div className="ds-container">
+          <div className="grid grid-cols-1 md:grid-cols-3" style={{ gap: "var(--fib-4)" }}>
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0 }} transition={{ duration: 0.5 }}>
+              <p className="font-[family-name:var(--font-mono)] uppercase tracking-[0.15em] text-ds-text-dim" style={{ fontSize: "11px", marginBottom: "var(--fib-2)" }}>
                 Methodology
               </p>
               <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-sm)", lineHeight: 1.618 }}>
-                DORA metrics, SPACE framework, FinOps Foundation Crawl/Walk/Run.
-                Industry-standard benchmarks, not vanity metrics.
+                DORA metrics, SPACE framework, FinOps Foundation Crawl/Walk/Run. Industry-standard benchmarks, not vanity metrics.
               </p>
             </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-            >
-              <p
-                className="font-[family-name:var(--font-mono)] uppercase tracking-[0.15em] text-ds-text-dim"
-                style={{ fontSize: "11px", marginBottom: "var(--fib-2)" }}
-              >
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0 }} transition={{ duration: 0.5, delay: 0.1 }}>
+              <p className="font-[family-name:var(--font-mono)] uppercase tracking-[0.15em] text-ds-text-dim" style={{ fontSize: "11px", marginBottom: "var(--fib-2)" }}>
                 Approach
               </p>
               <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-sm)", lineHeight: 1.618 }}>
-                Pair programming, knowledge transfer, your team owns everything we build.
-                No drive-by consulting. No black boxes.
+                Pair programming, knowledge transfer, your team owns everything we build. No drive-by consulting. No black boxes.
               </p>
             </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-            >
-              <p
-                className="font-[family-name:var(--font-mono)] uppercase tracking-[0.15em] text-ds-text-dim"
-                style={{ fontSize: "11px", marginBottom: "var(--fib-2)" }}
-              >
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0 }} transition={{ duration: 0.5, delay: 0.2 }}>
+              <p className="font-[family-name:var(--font-mono)] uppercase tracking-[0.15em] text-ds-text-dim" style={{ fontSize: "11px", marginBottom: "var(--fib-2)" }}>
                 Philosophy
               </p>
               <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-sm)", lineHeight: 1.618 }}>
-                Platform as a Product. Open standards. No vendor lock-in. No proprietary
-                frameworks. Zero dependency on us after knowledge transfer.
+                Platform as a product. Open standards. No vendor lock-in. No proprietary frameworks. Zero dependency on us after knowledge transfer.
               </p>
             </motion.div>
           </div>
@@ -214,25 +435,10 @@ export default function AboutContent() {
       </section>
 
       {/* CTA */}
-      <section
-        style={{
-          paddingTop: "var(--fib-7)",
-          paddingBottom: "var(--fib-8)",
-          borderTop: "1px solid var(--color-ds-border)",
-        }}
-      >
-        <div className="mx-auto max-w-[1400px] px-[var(--fib-4)] lg:px-[var(--fib-5)]">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            style={{ maxWidth: "var(--phi-major)" }}
-          >
-            <h2
-              className="font-[family-name:var(--font-display)] font-bold leading-[1.05] tracking-[-0.03em]"
-              style={{ fontSize: "clamp(var(--text-fib-lg), 5vw, var(--text-fib-xl))", marginBottom: "var(--fib-4)" }}
-            >
+      <section style={{ paddingTop: "var(--fib-7)", paddingBottom: "var(--fib-8)", borderTop: "1px solid var(--color-ds-border)" }}>
+        <div className="ds-container">
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0 }} transition={{ duration: 0.8 }} style={{ maxWidth: "var(--phi-major)" }}>
+            <h2 className="font-[family-name:var(--font-display)] font-bold leading-[1.05] tracking-[-0.03em] text-white" style={{ fontSize: "clamp(var(--text-fib-lg), 5vw, var(--text-fib-xl))", marginBottom: "var(--fib-4)" }}>
               Want to work with engineers who actually ship?
             </h2>
             <div className="flex flex-col sm:flex-row items-start" style={{ gap: "var(--fib-3)" }}>
