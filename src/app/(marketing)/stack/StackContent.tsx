@@ -202,7 +202,7 @@ export default function StackContent() {
             variants={stagger}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
+            viewport={{ once: true, amount: 0 }}
             className="grid grid-cols-1 md:grid-cols-2"
             style={{ gap: 0, listStyle: "none", padding: 0 }}
           >
@@ -292,7 +292,7 @@ export default function StackContent() {
             variants={stagger}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
+            viewport={{ once: true, amount: 0 }}
             className="flex flex-col"
           >
             {stack.map((s) => (
@@ -408,7 +408,7 @@ export default function StackContent() {
               variants={stagger}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, margin: "-60px" }}
+              viewport={{ once: true, amount: 0 }}
               className="md:col-span-6 md:col-start-7 flex flex-col"
               style={{ gap: 0 }}
             >

@@ -126,7 +126,7 @@ export default function IntelligenceContent() {
       {/* Bento Grid Services */}
       <section style={{ paddingBottom: "var(--fib-7)", borderTop: "1px solid var(--color-ds-border)" }}>
         <div className="mx-auto max-w-[1440px] px-[var(--fib-5)]" style={{ paddingTop: "var(--fib-6)" }}>
-          <motion.div variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-12" style={{ gap: "var(--fib-2)" }}>
+          <motion.div variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0 }} className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-12" style={{ gap: "var(--fib-2)" }}>
             {services.map((s) => {
               const Icon = s.icon;
               return (
@@ -264,7 +264,7 @@ export default function IntelligenceContent() {
             </p>
           </motion.div>
 
-          <motion.div variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3" style={{ gap: "var(--fib-3)" }}>
+          <motion.div variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0 }} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3" style={{ gap: "var(--fib-3)" }}>
             {[
               {
                 icon: ShieldCheck,

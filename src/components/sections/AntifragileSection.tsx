@@ -74,7 +74,7 @@ export default function AntifragileSection() {
         </div>
 
         {/* Principles grid — 3+4 layout */}
-        <motion.div variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }}>
+        <motion.div variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0 }}>
           {/* Top row — 3 cards */}
           <div className="grid grid-cols-1 md:grid-cols-3" style={{ gap: "var(--fib-3)", marginBottom: "var(--fib-3)" }}>
             {principles.slice(0, 3).map((p) => {

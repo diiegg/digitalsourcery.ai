@@ -27,33 +27,33 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Digital Sorcery — Infrastructure That Thinks",
+  title: "Digital Sorcery — Platform engineering for the teams who run it",
   description:
-    "We design, build, and implement AI-powered infrastructure. System architecture, automation, and operational improvements — engineered for production, owned by you.",
+    "We design, build, and hand off infrastructure your team will operate after we leave. Reference stack, modernised observability, self-healing where it earns its place.",
   keywords: [
-    "AI infrastructure",
     "platform engineering",
-    "AIOps",
-    "AI observability",
+    "infrastructure consultancy",
+    "Kubernetes consulting",
+    "observability",
+    "OpenTelemetry",
+    "GitOps",
+    "internal developer platform",
+    "FinOps",
     "MLOps",
-    "AI governance",
-    "intelligent infrastructure",
-    "production AI",
-    "AI platform",
   ],
   openGraph: {
-    title: "Digital Sorcery — Infrastructure That Thinks",
+    title: "Digital Sorcery — Platform engineering for the teams who run it",
     description:
-      "We design, build, and implement AI-powered infrastructure. System architecture, automation, and operational improvements — engineered for production, owned by you.",
+      "We design, build, and hand off infrastructure your team will operate after we leave. Reference stack, modernised observability, self-healing where it earns its place.",
     url: "https://digitalsourcery.ai",
     siteName: "Digital Sorcery",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Digital Sorcery — Infrastructure That Thinks",
+    title: "Digital Sorcery — Platform engineering for the teams who run it",
     description:
-      "We design, build, and implement AI-powered infrastructure — observable, adaptive, and increasingly autonomous.",
+      "Designed, built, and handed off. Boring tools that hold under failure, observability that earns its alerts back, self-healing where automation earns its place.",
   },
 };
 

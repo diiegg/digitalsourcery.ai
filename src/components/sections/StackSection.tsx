@@ -54,7 +54,7 @@ export default function StackSection() {
             className="md:col-span-4"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true, amount: 0 }}
             transition={{ duration: 0.8, ease }}
           >
             <div
@@ -111,7 +111,7 @@ export default function StackSection() {
             variants={stagger}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
+            viewport={{ once: true, amount: 0 }}
             className="md:col-span-8 flex flex-col"
           >
             {excerpts.map((e, i) => (

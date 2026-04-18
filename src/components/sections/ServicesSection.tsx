@@ -125,7 +125,7 @@ export default function ServicesSection() {
       <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: "linear-gradient(rgba(200, 208, 224, 0.015) 1px, transparent 1px), linear-gradient(90deg, rgba(200, 208, 224, 0.015) 1px, transparent 1px)", backgroundSize: "89px 89px" }} />
 
       <div className="ds-container relative">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }} style={{ marginBottom: "var(--fib-6)" }}>
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0 }} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }} style={{ marginBottom: "var(--fib-6)" }}>
           <div className="inline-block font-[family-name:var(--font-display)] uppercase tracking-[0.2em]" style={{ fontSize: "var(--text-fib-xs)", color: "var(--color-ds-warm)", border: "1px solid var(--color-ds-warm-dim)", padding: "var(--fib-1) var(--fib-2)", marginBottom: "var(--fib-4)" }}>
             What We Build
           </div>
@@ -137,7 +137,7 @@ export default function ServicesSection() {
           </p>
         </motion.div>
 
-        <motion.div variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} className="grid grid-cols-1 md:grid-cols-12" style={{ gap: "var(--fib-3)" }}>
+        <motion.div variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0 }} className="grid grid-cols-1 md:grid-cols-12" style={{ gap: "var(--fib-3)" }}>
           <div className="md:col-span-8">
             <ServiceCard service={services[0]} />
           </div>

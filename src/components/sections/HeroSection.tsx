@@ -14,26 +14,38 @@ export default function HeroSection() {
         <div className="grid grid-cols-1 lg:grid-cols-[var(--phi-major)_var(--phi-minor)] items-center" style={{ gap: "var(--fib-5)", minHeight: "70vh" }}>
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}>
             <h1 className="font-[family-name:var(--font-display)] font-bold tracking-[-0.04em] text-white" style={{ fontSize: "var(--text-fib-2xl)", lineHeight: 0.95, marginBottom: "var(--fib-5)" }}>
-              Infrastructure
+              Platform engineering
               <br />
-              <span style={{ color: "var(--color-ds-headline-accent)" }}>That Thinks</span>
+              <span style={{ color: "var(--color-ds-headline-accent)" }}>for the teams who run it.</span>
             </h1>
 
             <p className="text-ds-text-secondary max-w-md" style={{ fontSize: "var(--text-fib-base)", lineHeight: 1.618, marginBottom: "var(--fib-5)" }}>
-              We design, build, and implement AI-powered infrastructure for your team. System architecture, automation, and operational improvements — engineered for production, owned by you.
+              We design, build, and hand off the systems your team will operate after we leave. Reference stack, modernised observability, self-healing where automation earns its place — engineered for production.
             </p>
 
             <div className="flex flex-col sm:flex-row items-start" style={{ gap: "var(--fib-2)" }}>
               <a href="/contact" className="inline-block font-[family-name:var(--font-display)] font-bold tracking-[0.15em] uppercase bg-white text-black hover:scale-[0.97] transition-transform duration-200 rotating-gradient-btn" style={{ fontSize: "var(--text-fib-sm)", padding: "var(--fib-2) var(--fib-4)" }}>
-                <span>Start a Discovery Call</span>
+                <span>Talk to a senior engineer</span>
               </a>
-              <a href="#process" className="text-ds-text-secondary hover:text-white transition-colors font-[family-name:var(--font-mono)] uppercase tracking-[0.1em]" style={{ fontSize: "var(--text-fib-xs)", padding: "var(--fib-2) var(--fib-3)" }}>
-                See How It Works
+              <a href="/stack" className="text-ds-text-secondary hover:text-white transition-colors font-[family-name:var(--font-mono)] uppercase tracking-[0.1em]" style={{ fontSize: "var(--text-fib-xs)", padding: "var(--fib-2) var(--fib-3)" }}>
+                See the reference stack
               </a>
             </div>
           </motion.div>
 
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1.8, delay: 0.3 }} className="relative overflow-hidden" style={{ aspectRatio: "1 / 1.618", maxHeight: "650px" }}>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1.8, delay: 0.3 }}
+            className="relative overflow-hidden"
+            style={{
+              aspectRatio: "1 / 1.618",
+              maxHeight: "650px",
+              opacity: prefersReducedMotion ? 1 : 0.55,
+              filter: prefersReducedMotion ? "none" : "saturate(0.7)",
+            }}
+            aria-hidden="true"
+          >
             {!prefersReducedMotion && (
               <>
                 <ShaderLines />
@@ -42,7 +54,6 @@ export default function HeroSection() {
             )}
             {prefersReducedMotion && (
               <div
-                aria-hidden="true"
                 className="w-full h-full"
                 style={{ background: "radial-gradient(circle at 50% 45%, rgba(200,208,224,0.12) 0%, rgba(227,204,177,0.04) 35%, transparent 70%)" }}
               />

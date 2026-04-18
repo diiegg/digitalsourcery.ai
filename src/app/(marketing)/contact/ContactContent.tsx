@@ -28,18 +28,21 @@ export default function ContactContent() {
       });
 
       if (!response.ok) {
-        throw new Error(`Submission failed (${response.status})`);
+        throw new Error("send_failed");
       }
 
       setStatus("ok");
-    } catch (err) {
+    } catch {
       setStatus("error");
       setErrorMsg(
-        err instanceof Error
-          ? err.message
-          : "Something went wrong. You can also email sayhi@digitalsourcery.ai directly."
+        "We couldn't send your message. Email sayhi@digitalsourcery.ai, or try again in a moment."
       );
     }
+  }
+
+  function resetForm() {
+    setStatus("idle");
+    setErrorMsg(null);
   }
 
   return (
@@ -163,6 +166,8 @@ export default function ContactContent() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, ease }}
+                  role="status"
+                  aria-live="polite"
                   style={{ padding: "var(--fib-5)", border: "1px solid var(--color-ds-warm-dim)" }}
                 >
                   <span
@@ -177,9 +182,17 @@ export default function ContactContent() {
                   >
                     Thanks. A senior engineer will reply within one working day.
                   </h2>
-                  <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-sm)", lineHeight: 1.618 }}>
+                  <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-sm)", lineHeight: 1.618, marginBottom: "var(--fib-4)" }}>
                     If we end up not being the right fit, we&apos;ll tell you and point you somewhere that is. Either way, you hear back.
                   </p>
+                  <button
+                    type="button"
+                    onClick={resetForm}
+                    className="inline-block font-[family-name:var(--font-mono)] uppercase tracking-[0.15em] text-ds-text-secondary hover:text-white transition-colors"
+                    style={{ fontSize: "var(--text-fib-xs)", padding: "var(--fib-2) 0", borderBottom: "1px solid var(--color-ds-border)" }}
+                  >
+                    Send another message
+                  </button>
                 </motion.div>
               ) : (
                 <form
@@ -188,6 +201,7 @@ export default function ContactContent() {
                   data-netlify="true"
                   data-netlify-honeypot="bot-field"
                   onSubmit={handleSubmit}
+                  aria-describedby={status === "error" ? "contact-form-error" : undefined}
                   className="flex flex-col"
                   style={{ gap: "var(--fib-4)" }}
                 >
@@ -225,6 +239,7 @@ export default function ContactContent() {
 
                   {status === "error" && (
                     <p
+                      id="contact-form-error"
                       role="alert"
                       style={{
                         fontSize: "var(--text-fib-sm)",
@@ -233,7 +248,7 @@ export default function ContactContent() {
                         border: "1px solid var(--color-ds-warm-dim)",
                       }}
                     >
-                      {errorMsg ?? "Something went wrong. Please try again or email us directly."}
+                      {errorMsg ?? "We couldn't send your message. Email sayhi@digitalsourcery.ai, or try again in a moment."}
                     </p>
                   )}
 
@@ -243,7 +258,7 @@ export default function ContactContent() {
                     className="self-start inline-block font-[family-name:var(--font-display)] font-bold tracking-[0.15em] uppercase bg-white text-black hover:scale-[0.97] transition-transform duration-200 rotating-gradient-btn disabled:opacity-50"
                     style={{ fontSize: "var(--text-fib-sm)", padding: "var(--fib-3) var(--fib-5)" }}
                   >
-                    <span>{status === "submitting" ? "Sending…" : "Send message"}</span>
+                    <span>{status === "submitting" ? "Sending…" : "Talk to a senior engineer"}</span>
                   </button>
                 </form>
               )}
@@ -303,6 +318,7 @@ function Field(props: FieldProps) {
           id={id}
           name={name}
           required={required}
+          aria-required={required}
           placeholder={placeholder}
           rows={props.rows ?? 4}
           className={sharedClass}
@@ -313,6 +329,7 @@ function Field(props: FieldProps) {
           id={id}
           name={name}
           required={required}
+          aria-required={required}
           placeholder={placeholder}
           type={props.type ?? "text"}
           className={sharedClass}
@@ -342,6 +359,7 @@ function Select({ label, name, required, options }: SelectProps) {
         id={id}
         name={name}
         required={required}
+        aria-required={required}
         defaultValue=""
         className="font-[family-name:var(--font-body)] text-white bg-transparent w-full"
         style={{

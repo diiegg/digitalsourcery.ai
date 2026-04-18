@@ -96,7 +96,7 @@ export default function Header() {
                 padding: "var(--fib-1) var(--fib-3)",
               }}
             >
-              <span>Start a Discovery Call</span>
+              <span>Talk to a senior engineer</span>
             </a>
 
             {/* Mobile hamburger */}
@@ -174,7 +174,7 @@ export default function Header() {
             }}
             onClick={() => setMobileOpen(false)}
           >
-            <span>Start a Discovery Call</span>
+            <span>Talk to a senior engineer</span>
           </a>
         </div>
       )}

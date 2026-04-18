@@ -86,7 +86,7 @@ export default function FoundationContent() {
             </div>
           </div>
 
-          <motion.div variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} className="grid grid-cols-1 md:grid-cols-12" style={{ gap: "var(--fib-2)" }}>
+          <motion.div variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0 }} className="grid grid-cols-1 md:grid-cols-12" style={{ gap: "var(--fib-2)" }}>
 
             {/* Module 01 — IDP — anchor card with refractive shimmer */}
             <motion.div variants={fadeUp} className="md:col-span-8 refractive-card flex flex-col justify-between relative overflow-hidden" style={{ padding: "var(--fib-5)", minHeight: "320px" }}>
@@ -259,7 +259,7 @@ export default function FoundationContent() {
                 className="inline-block font-[family-name:var(--font-display)] font-bold tracking-[0.15em] uppercase bg-white text-black hover:scale-[0.97] transition-transform duration-200 rotating-gradient-btn"
                 style={{ fontSize: "var(--text-fib-sm)", padding: "var(--fib-3) var(--fib-5)" }}
               >
-                <span>Talk to a foundation engineer</span>
+                <span>Talk to a senior engineer</span>
               </a>
               <a
                 href="/stack"
