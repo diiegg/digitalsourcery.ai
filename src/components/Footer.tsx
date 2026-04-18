@@ -102,20 +102,19 @@ export default function Footer() {
             ))}
           </div>
 
-          {/* BlackMagickOps */}
+          {/* Engineering practice */}
           <div>
             <p
               className="font-[family-name:var(--font-display)] uppercase tracking-[0.15em] text-white font-semibold"
               style={{ fontSize: "var(--text-fib-sm)", marginBottom: "var(--fib-3)" }}
             >
-              Platform Foundations
+              Engineering practice
             </p>
             <p
               className="text-ds-text-secondary"
               style={{ fontSize: "var(--text-fib-sm)", lineHeight: 1.618, marginBottom: "var(--fib-3)" }}
             >
-              Built on the engineering discipline of BlackMagickOps — platform engineering,
-              automation, and observability.
+              Built on the BlackMagickOps engineering practice — platform engineering, automation, and observability.
             </p>
             <Link
               href="/foundation"

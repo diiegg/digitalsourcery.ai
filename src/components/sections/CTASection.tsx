@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 
 export default function CTASection() {
+  // Removed TextScramble — restricted to one anchor per page (StackSection on home)
   return (
     <section id="contact" className="relative overflow-hidden ambient-glow" style={{ paddingTop: "var(--fib-8)", paddingBottom: "var(--fib-8)" }}>
       {/* Distilled background — one warm glow + one quiet arc + one anchor circle */}
@@ -32,11 +33,11 @@ export default function CTASection() {
           </div>
 
           <h2 className="font-[family-name:var(--font-display)] font-bold tracking-[-0.03em] text-white" style={{ fontSize: "clamp(var(--text-fib-lg), 5vw, var(--text-fib-xl))", lineHeight: 1.1, marginBottom: "var(--fib-4)" }}>
-            Build Infrastructure That Adapts
+            Modern infrastructure. <span style={{ color: "var(--color-ds-headline-accent)" }}>Owned by your team.</span>
           </h2>
 
           <p className="text-ds-text-secondary max-w-xl" style={{ fontSize: "var(--text-fib-base)", lineHeight: 1.618, marginBottom: "var(--fib-6)" }}>
-            We help engineering teams design and implement modern infrastructure systems — observable, adaptive, and increasingly autonomous. Start with an assessment of where you are and where the architecture needs to go.
+            Designed, built, and handed off. Engagements start with a Discovery — one to two weeks, scoped, written, no slides.
           </p>
 
           <div className="flex flex-col md:flex-row items-start" style={{ gap: "var(--fib-3)" }}>
@@ -44,7 +45,7 @@ export default function CTASection() {
               <span>Talk to a senior engineer</span>
             </a>
             <a href="/stack" className="inline-block font-[family-name:var(--font-display)] font-bold tracking-[0.15em] uppercase hover:bg-[var(--color-ds-card)] transition-colors duration-200 " style={{ fontSize: "var(--text-fib-sm)", padding: "var(--fib-3) var(--fib-5)", border: "1px solid var(--color-ds-border-light)", color: "var(--color-ds-text)" }}>
-              View Our Stack
+              See the reference stack
             </a>
           </div>
         </motion.div>

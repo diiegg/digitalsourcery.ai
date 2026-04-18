@@ -28,7 +28,7 @@ const services = [
     span: "lg:col-span-8",
     icon: Eye,
     label: "Primary Service",
-    title: "AI-augmented Platform Engineering",
+    title: "AI Platform Engineering",
     tagline: "Make machine intelligence work with what you already run.",
     description:
       "We integrate language models, autonomous operations, and intelligent tooling into existing systems without ripping and replacing. Engagements typically reach production within 90 days, scoped to one workload at a time. Knowledge transfer to your team is the deliverable.",
@@ -52,8 +52,8 @@ const services = [
   {
     span: "lg:col-span-4",
     icon: Shield,
-    title: "Self-healing for the failure modes worth automating",
-    tagline: "We do not automate ambiguity.",
+    title: "Self-healing infrastructure",
+    tagline: "We do not automate ambiguity. Operators for the recurring 80%, humans for the rest.",
     description:
       "Custom Kubernetes operators for the recurring incident types in your runbooks. The criterion is simple: if a senior engineer would not need to think, an operator can do it. The rest stays human.",
     outcomes: ["Operators for the recurring 80%", "Predictive autoscaling where load is predictable", "Chaos drills tied to actual failure modes"],
@@ -61,8 +61,8 @@ const services = [
   {
     span: "lg:col-span-4",
     icon: Cpu,
-    title: "AI Platforms — production grade, not notebook grade",
-    tagline: "Run AI at scale, not as prototypes.",
+    title: "AI Platforms",
+    tagline: "Production-grade, not notebook-grade. Run AI at scale, not as prototypes.",
     description:
       "GPU infrastructure, MLOps pipelines, model serving, and agentic workflow orchestration. Built for the engineers who will operate the system after we leave.",
     outcomes: ["GPU clusters and capacity planning", "MLOps end-to-end (data, training, serving, monitoring)", "vLLM / BentoML serving with cost controls"],
@@ -111,12 +111,12 @@ export default function IntelligenceContent() {
                 The Intelligence Layer
               </div>
               <h1 className="font-[family-name:var(--font-display)] font-bold tracking-[-0.04em] text-white" style={{ fontSize: "var(--text-fib-2xl)", lineHeight: 0.95, marginBottom: "var(--fib-5)" }}>
-                The Intelligence
+                Systems that adapt.
                 <br />
-                <span style={{ color: "var(--color-ds-headline-accent)" }}>Layer</span>
+                <span style={{ color: "var(--color-ds-headline-accent)" }}>Without surprising the on-call rotation.</span>
               </h1>
               <p className="text-ds-text-secondary max-w-2xl" style={{ fontSize: "var(--text-fib-md)", lineHeight: 1.55 }}>
-                We design and implement the systems that make infrastructure observable, adaptive, and increasingly autonomous. What we recommend is what we&apos;ve operated.
+                Telemetry, remediation, AI cost control. The intelligence layer for production systems — built on what your team already runs, owned by them after we leave. What we recommend is what we&apos;ve operated.
               </p>
             </motion.div>
           </div>
