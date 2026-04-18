@@ -47,11 +47,16 @@ next-env.d.ts
 skills-lock.json
 
 # .claude — block per-machine state, ALLOW project config + hooks
+# (settings.local.json is the per-user override — contains absolute paths
+#  + permission allowlists specific to the local user, must stay local)
 .claude/*
 !.claude/settings.json
-!.claude/settings.local.json
 !.claude/hooks/
 !.claude/hooks/**
+
+# Per-session critique / audit reports written to repo root by subagents
+critique-*/
+audit-*/
 
 # Test outputs
 test-results/
