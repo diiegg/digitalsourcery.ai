@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import FibonacciDots from "./logos/FibonacciDots";
@@ -15,6 +15,13 @@ const navLinks = [
 export default function Header() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setMobileOpen(false); };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [mobileOpen]);
 
   return (
     <header
@@ -89,9 +96,11 @@ export default function Header() {
 
             {/* Mobile hamburger */}
             <button
-              className="md:hidden flex flex-col justify-center items-center w-10 h-10 cursor-pointer"
+              className="md:hidden flex flex-col justify-center items-center w-11 h-11 cursor-pointer"
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label="Toggle menu"
+              aria-expanded={mobileOpen}
+              aria-controls="mobile-menu"
             >
               <span
                 className="block w-5 h-px bg-white transition-all duration-300"
@@ -121,6 +130,10 @@ export default function Header() {
       {/* Mobile dropdown */}
       {mobileOpen && (
         <div
+          id="mobile-menu"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Site navigation"
           style={{
             backgroundColor: "rgba(5, 5, 8, 0.98)",
             borderTop: "1px solid rgba(200, 208, 224, 0.06)",

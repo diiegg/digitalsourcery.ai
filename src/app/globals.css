@@ -52,31 +52,10 @@
 /* =============================================================
    THEME: MONO (current — clean white/gray, minimal accents)
    ============================================================= */
-[data-theme="mono"] {
-  --color-ds-card: #1a1a1a;
-  --color-ds-card-border: #2a2a2a;
-  --color-ds-text-secondary: #999999;
-  --color-ds-text-dim: #8a8a8a;
-  --color-ds-border: #1f1f1f;
-  --color-ds-border-light: #2a2a2a;
-  --color-ds-accent: #ffffff;
-  --color-ds-metric: #c9a84c;
-  --color-ds-label: #8a8a8a;
-  --color-ds-section-label: #8a8a8a;
-  --color-ds-logo-dot: rgba(255, 255, 255, 0.8);
-  --color-ds-logo-border: #2a2a2a;
-  --color-ds-cta-bg: transparent;
-  --color-ds-cta-border: rgba(255, 255, 255, 0.8);
-  --color-ds-cta-text: #ffffff;
-  --color-ds-cta-hover-bg: #ffffff;
-  --color-ds-cta-hover-text: #000000;
-  --color-ds-card-hover-border: #333333;
-  --color-ds-phase-num: #8a8a8a;
-  --color-ds-headline-accent: #ffffff;
-}
+/* (mono theme retired — site is dark/accent only per CLAUDE.md) */
 
 /* =============================================================
-   THEME: ACCENT (deep violet / electric indigo / muted gold)
+   THEME: ACCENT (active — crystalline silver + warm parchment)
    ============================================================= */
 [data-theme="accent"] {
   --color-ds-card: #0c0c10;
@@ -193,6 +172,39 @@ body {
 ::selection {
   background-color: rgba(255, 255, 255, 0.15);
   color: var(--color-ds-text);
+}
+
+/* === FOCUS VISIBLE — WCAG 2.4.7 === */
+*:focus { outline: none; }
+*:focus-visible {
+  outline: 2px solid var(--color-ds-crystalline);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+.rotating-gradient-btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-ds-black), 0 0 0 4px var(--color-ds-crystalline);
+}
+
+/* === SCREEN-READER ONLY UTILITY === */
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0);
+  white-space: nowrap; border: 0;
+}
+
+/* === REDUCED MOTION — WCAG 2.3.3 === */
+@media (prefers-reduced-motion: reduce) {
+  .prismatic-glass::before,
+  .refractive-card::before,
+  .rotating-gradient-btn {
+    animation: none !important;
+  }
+  .rotating-gradient-btn {
+    background: var(--color-ds-warm-dim);
+  }
 }
 
 /* Theme transition — smooth color changes on theme switch */

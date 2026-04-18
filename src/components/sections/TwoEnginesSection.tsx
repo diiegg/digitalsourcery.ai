@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import TextScramble from "@/components/TextScramble";
 import { Brain, HardDrive } from "lucide-react";
 
 export default function TwoEnginesSection() {
@@ -12,9 +11,9 @@ export default function TwoEnginesSection() {
           <div className="inline-block font-[family-name:var(--font-display)] uppercase tracking-[0.2em]" style={{ fontSize: "var(--text-fib-xs)", color: "var(--color-ds-warm)", border: "1px solid var(--color-ds-warm-dim)", padding: "var(--fib-1) var(--fib-2)", marginBottom: "var(--fib-4)" }}>
             A Unified Approach
           </div>
-          <TextScramble as="h2" className="font-[family-name:var(--font-display)] font-bold leading-[1.05] tracking-[-0.03em] text-white" style={{ fontSize: "clamp(var(--text-fib-lg), 5vw, var(--text-fib-xl))", marginBottom: "var(--fib-5)" }}>
+          <h2 className="font-[family-name:var(--font-display)] font-bold leading-[1.05] tracking-[-0.03em] text-white" style={{ fontSize: "clamp(var(--text-fib-lg), 5vw, var(--text-fib-xl))", marginBottom: "var(--fib-5)" }}>
             Two Engines, One Mission
-          </TextScramble>
+          </h2>
           <p className="text-ds-text-secondary max-w-lg" style={{ fontSize: "var(--text-fib-base)", lineHeight: 1.618 }}>
             BlackMagickOps builds the platform. Digital Sorcery makes it intelligent.
           </p>

@@ -198,9 +198,9 @@ export default function FoundationContent() {
               Build on Obsidian
             </div>
 
-            <TextScramble as="h2" className="font-[family-name:var(--font-display)] font-bold tracking-[-0.03em] text-white" style={{ fontSize: "var(--text-fib-xl)", lineHeight: 1.1, marginBottom: "var(--fib-5)" }}>
+            <h2 className="font-[family-name:var(--font-display)] font-bold tracking-[-0.03em] text-white" style={{ fontSize: "var(--text-fib-xl)", lineHeight: 1.1, marginBottom: "var(--fib-5)" }}>
               Ready to stabilize your digital foundation?
-            </TextScramble>
+            </h2>
 
             <p className="text-ds-text-secondary max-w-2xl" style={{ fontSize: "var(--text-fib-base)", lineHeight: 1.618, marginBottom: "var(--fib-6)" }}>
               Consult with our foundation architects to deploy a BlackMagickOps-grade infrastructure.

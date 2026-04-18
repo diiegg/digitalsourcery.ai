@@ -22,7 +22,7 @@ const principles = [
   },
   {
     title: "AI Is Expensive. We Fix That First.",
-    detail: "73% of companies exceed AI budgets. We implement cost controls from day one — semantic caching, model routing, token budgets. Most clients save more than our fees in reduced AI spend.",
+    detail: "We implement cost controls from day one — semantic caching, model routing, token budgets. The first audit usually pays for itself by tightening what's already running.",
   },
   {
     title: "Platform as a Product",

@@ -1,58 +1,150 @@
 "use client";
 
+import { useRef, useCallback } from "react";
 import { motion } from "framer-motion";
-import TextScramble from "@/components/TextScramble";
-import { Eye, DollarSign, Radio, Layers, Cpu, Shield } from "lucide-react";
+import { Radio, Layers, Cpu } from "lucide-react";
 
 const services = [
-  { num: "01", icon: Eye, title: "AI-Driven Platform Engineering", description: "Make AI work with your existing infrastructure. We integrate LLMs, autonomous operations, and intelligent tooling into legacy systems — without ripping and replacing.", examples: ["AI-powered observability and autonomous incident response", "Self-healing infrastructure and predictive scaling", "Integration with existing monitoring (Prometheus, Datadog, Splunk)", "Knowledge transfer so your team owns it"] },
-  { num: "02", icon: DollarSign, title: "AI Cost Optimization", description: "Stop surprise GPU bills. We implement real-time cost tracking, intelligent caching, model rightsizing, and predictive budgeting. Clients typically reduce AI spend 40-60% within 60 days.", examples: ["Token usage dashboards and automated budget controls", "Cost-per-prediction tracking and ROI visibility", "Model selection optimization (GPT-4 only when needed)", "Inference cost reduction and GPU utilization tuning"] },
-  { num: "03", icon: Radio, title: "Intelligent Observability", description: "Go beyond metrics and logs. AI-powered observability that predicts failures, auto-remediates incidents, and eliminates alert fatigue. Mean time to resolution reduced 70%+.", examples: ["Predictive alerting and anomaly detection", "Automated root cause analysis", "Self-healing runbooks and auto-remediation", "Reduced on-call burden for engineering teams"] },
-  { num: "04", icon: Layers, title: "Legacy AI Modernization", description: "Your 15-year-old ERP wasn't built for AI. We don't replace it — we augment it. Data pipeline modernization, API layers for LLMs, gradual migration strategies.", examples: ["AI capabilities on legacy systems without replacing them", "Modern data pipelines from siloed sources", "Backward compatibility maintained throughout", "Zero downtime, incremental rollouts"] },
-  { num: "05", icon: Cpu, title: "AI Platforms for Enterprises", description: "Helping companies run AI at scale. GPU infrastructure, MLOps pipelines, model deployment, and agentic workflow orchestration.", examples: ["GPU cluster provisioning and management", "MLOps pipelines (training to deployment to monitoring)", "Model serving at scale with cost controls", "Agentic workflow infrastructure"] },
-  { num: "06", icon: Shield, title: "Autonomous Infrastructure", description: "Infrastructure that runs itself. Self-healing clusters, predictive scaling, and AI-driven chaos testing — built on top of your existing systems.", examples: ["Self-healing Kubernetes clusters", "Predictive autoscaling with ML models", "AI-driven chaos engineering and testing", "Autonomous cost optimization"] },
+  {
+    num: "01",
+    icon: Layers,
+    title: "AI Platform Engineering",
+    build: "Internal developer platforms, self-service provisioning workflows, and automated deployment pipelines that remove friction between engineering teams and infrastructure.",
+    problem: "Engineers waste hours on manual provisioning, ticket-based workflows, and infrastructure bottlenecks that slow every deployment cycle.",
+    outcome: "Self-service infrastructure where developers ship independently — without waiting on ops.",
+    tags: ["Internal Platforms", "Provisioning", "Developer Experience"],
+  },
+  {
+    num: "02",
+    icon: Radio,
+    title: "Intelligent Observability",
+    build: "Telemetry pipelines, intelligent alerting systems, and ML-powered incident detection that surfaces real signals from operational noise.",
+    problem: "Teams drown in alerts, miss critical signals, and spend hours on root cause analysis because monitoring generates noise instead of insight.",
+    outcome: "Earlier detection, faster resolution, and engineers focused on building — not firefighting.",
+    tags: ["Telemetry Pipelines", "Alerting Systems", "Incident Detection"],
+  },
+  {
+    num: "03",
+    icon: Cpu,
+    title: "Agentic Automation",
+    build: "Automated remediation workflows, self-healing infrastructure, and AI-driven decision-making that responds to incidents without human intervention.",
+    problem: "Manual runbooks and on-call rotations don't scale. Repetitive incidents consume engineering time that should go toward building capabilities.",
+    outcome: "Systems that diagnose, respond, and recover autonomously — reducing operational burden and improving reliability.",
+    tags: ["Automated Remediation", "Self-Healing", "Decision Workflows"],
+  },
 ];
 
 const stagger = { hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.08, delayChildren: 0.1 } } };
 const fadeUp = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] } } };
 
+function ServiceCard({ service }: { service: typeof services[number] }) {
+  const glowRef = useRef<HTMLDivElement>(null);
+  const cardRef = useRef<HTMLDivElement>(null);
+  const Icon = service.icon;
+
+  const handleMouseMove = useCallback((e: React.MouseEvent) => {
+    if (!glowRef.current || !cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    glowRef.current.style.left = `${e.clientX - rect.left}px`;
+    glowRef.current.style.top = `${e.clientY - rect.top}px`;
+    glowRef.current.style.opacity = "1";
+  }, []);
+
+  const handleMouseLeave = useCallback(() => {
+    if (glowRef.current) glowRef.current.style.opacity = "0";
+  }, []);
+
+  return (
+    <motion.div
+      ref={cardRef}
+      variants={fadeUp}
+      className="refractive-card text-ds-text cursor-default relative overflow-hidden group"
+      style={{ padding: "var(--fib-4)" }}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+    >
+      {/* Mouse-following glow */}
+      <div
+        ref={glowRef}
+        className="pointer-events-none absolute"
+        style={{
+          width: "200px",
+          height: "200px",
+          borderRadius: "50%",
+          background: "radial-gradient(circle, rgba(227, 204, 177, 0.1) 0%, rgba(200, 208, 224, 0.03) 40%, transparent 70%)",
+          transform: "translate(-50%, -50%)",
+          opacity: 0,
+          transition: "opacity 0.5s ease",
+        }}
+      />
+
+      {/* Decorative corner arc */}
+      <svg className="absolute top-0 right-0 pointer-events-none" width="80" height="80" viewBox="0 0 80 80" fill="none">
+        <path d="M80 0 Q80 40 40 80" stroke="#c8d0e0" strokeWidth="0.5" opacity="0.06" />
+        <path d="M80 0 Q80 25 55 50" stroke="#E3CCB1" strokeWidth="0.5" opacity="0.04" />
+      </svg>
+
+      <div className="relative z-10">
+        <div className="flex items-center justify-between" style={{ marginBottom: "var(--fib-3)" }}>
+          <div className="font-[family-name:var(--font-mono)]" style={{ fontSize: "var(--text-fib-xs)", color: "var(--color-ds-warm-dim)" }}>{service.num}</div>
+          <div className="transition-transform duration-500 group-hover:scale-110">
+            <Icon size={24} style={{ color: "var(--color-ds-crystalline)", opacity: 0.4, transition: "opacity 0.5s ease" }} className="group-hover:!opacity-60" strokeWidth={1} />
+          </div>
+        </div>
+        <h3 className="font-[family-name:var(--font-display)] font-bold text-white" style={{ fontSize: "var(--text-fib-md)", marginBottom: "var(--fib-4)" }}>{service.title}</h3>
+
+        <div style={{ marginBottom: "var(--fib-3)" }}>
+          <span className="font-[family-name:var(--font-mono)] uppercase tracking-[0.2em] block" style={{ fontSize: "10px", color: "var(--color-ds-warm)", marginBottom: "var(--fib-1)" }}>What We Build</span>
+          <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-sm)", lineHeight: 1.618 }}>{service.build}</p>
+        </div>
+
+        <div style={{ marginBottom: "var(--fib-3)" }}>
+          <span className="font-[family-name:var(--font-mono)] uppercase tracking-[0.2em] block" style={{ fontSize: "10px", color: "var(--color-ds-text-dim)", marginBottom: "var(--fib-1)" }}>The Problem</span>
+          <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-sm)", lineHeight: 1.618 }}>{service.problem}</p>
+        </div>
+
+        <div style={{ marginBottom: "var(--fib-3)" }}>
+          <span className="font-[family-name:var(--font-mono)] uppercase tracking-[0.2em] block" style={{ fontSize: "10px", color: "var(--color-ds-warm)", marginBottom: "var(--fib-1)" }}>The Outcome</span>
+          <p className="text-white font-[family-name:var(--font-display)] font-semibold" style={{ fontSize: "var(--text-fib-sm)", lineHeight: 1.5 }}>{service.outcome}</p>
+        </div>
+
+        <div className="flex flex-wrap" style={{ gap: "var(--fib-1)", marginTop: "var(--fib-2)" }}>
+          {service.tags.map((tag) => (
+            <span key={tag} className="font-[family-name:var(--font-mono)] text-ds-text-dim" style={{ fontSize: "10px", border: "1px solid var(--color-ds-border-light)", padding: "2px 8px", textTransform: "uppercase", letterSpacing: "0.1em" }}>{tag}</span>
+          ))}
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
 export default function ServicesSection() {
   return (
-    <section id="services" style={{ paddingTop: "var(--fib-7)", paddingBottom: "var(--fib-7)", borderTop: "1px solid var(--color-ds-border)" }}>
-      <div className="mx-auto max-w-[1440px] px-[var(--fib-5)]">
+    <section id="services" className="relative" style={{ paddingTop: "var(--fib-7)", paddingBottom: "var(--fib-7)", borderTop: "1px solid var(--color-ds-border)" }}>
+      {/* Subtle grid overlay */}
+      <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: "linear-gradient(rgba(200, 208, 224, 0.015) 1px, transparent 1px), linear-gradient(90deg, rgba(200, 208, 224, 0.015) 1px, transparent 1px)", backgroundSize: "89px 89px" }} />
+
+      <div className="ds-container relative">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }} style={{ marginBottom: "var(--fib-6)" }}>
           <div className="inline-block font-[family-name:var(--font-display)] uppercase tracking-[0.2em]" style={{ fontSize: "var(--text-fib-xs)", color: "var(--color-ds-warm)", border: "1px solid var(--color-ds-warm-dim)", padding: "var(--fib-1) var(--fib-2)", marginBottom: "var(--fib-4)" }}>
             What We Build
           </div>
-          <TextScramble as="h2" className="font-[family-name:var(--font-display)] font-bold leading-[1.05] tracking-[-0.03em] text-white" style={{ fontSize: "var(--text-fib-xl)", marginBottom: "var(--fib-5)" }}>
-            Production AI for the Real World
-          </TextScramble>
+          <h2 className="font-[family-name:var(--font-display)] font-bold leading-[1.05] tracking-[-0.03em] text-white" style={{ fontSize: "clamp(var(--text-fib-lg), 5vw, var(--text-fib-xl))", marginBottom: "var(--fib-5)" }}>
+            What We Build
+          </h2>
           <p className="text-ds-text-secondary max-w-lg" style={{ fontSize: "var(--text-fib-base)", lineHeight: 1.618 }}>
-            Your legacy systems aren&apos;t dead — they need an intelligence layer. We build on top of what works, using 80% battle-tested tools and 20% custom engineering.
+            We design, implement, and operate three core systems. Each one solves a specific infrastructure problem and delivers measurable engineering value.
           </p>
         </motion.div>
 
-        <motion.div variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3" style={{ gap: "var(--fib-3)" }}>
-          {services.map((service) => {
-            const Icon = service.icon;
-            return (
-              <motion.div key={service.num} variants={fadeUp} className="refractive-card text-ds-text cursor-default" style={{ padding: "var(--fib-4)" }}>
-                <div className="flex items-center justify-between" style={{ marginBottom: "var(--fib-3)" }}>
-                  <div className="font-[family-name:var(--font-mono)]" style={{ fontSize: "var(--text-fib-xs)", color: "var(--color-ds-warm-dim)" }}>{service.num}</div>
-                  <Icon size={24} style={{ color: "var(--color-ds-crystalline)", opacity: 0.4 }} strokeWidth={1} />
-                </div>
-                <h3 className="font-[family-name:var(--font-display)] font-bold text-white" style={{ fontSize: "var(--text-fib-md)", marginBottom: "var(--fib-2)" }}>{service.title}</h3>
-                <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-sm)", lineHeight: 1.618, marginBottom: "var(--fib-3)" }}>{service.description}</p>
-                <ul>
-                  {service.examples.map((ex) => (
-                    <li key={ex} className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-xs)", lineHeight: 1.618, paddingLeft: "var(--fib-2)", marginBottom: "var(--fib-1)", position: "relative" }}>
-                      <span style={{ position: "absolute", left: 0, color: "var(--color-ds-warm)" }}>+</span>{ex}
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            );
-          })}
+        <motion.div variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} className="grid grid-cols-1 md:grid-cols-12" style={{ gap: "var(--fib-3)" }}>
+          <div className="md:col-span-8">
+            <ServiceCard service={services[0]} />
+          </div>
+          <div className="md:col-span-4 flex flex-col" style={{ gap: "var(--fib-3)" }}>
+            <ServiceCard service={services[1]} />
+            <ServiceCard service={services[2]} />
+          </div>
         </motion.div>
       </div>
     </section>

@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import AboutContent from "./AboutContent";
 
 export const metadata: Metadata = {
-  title: "About — Engineers, Not Consultants | Digital Sorcery",
+  title: "About | Digital Sorcery",
   description:
-    "Senior platform engineers who make AI work in production. Founded by infrastructure engineers who've built and scaled cloud-native systems across industries.",
+    "Senior infrastructure engineers. Production code, not strategy decks. Knowledge transfer is the deliverable — after six months, your team owns what we built.",
 };
 
 export default function AboutPage() {

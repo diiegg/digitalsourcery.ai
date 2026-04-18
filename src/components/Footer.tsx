@@ -54,7 +54,7 @@ export default function Footer() {
                 key={link.label}
                 href={link.href}
                 className="block text-ds-text-secondary hover:text-white transition-colors cursor-pointer"
-                style={{ fontSize: "var(--text-fib-sm)", marginBottom: "var(--fib-2)", lineHeight: 1.618 }}
+                style={{ fontSize: "var(--text-fib-sm)", marginBottom: "var(--fib-2)", lineHeight: 1.618, paddingTop: "var(--fib-1)", paddingBottom: "var(--fib-1)", minHeight: "44px", display: "block" }}
               >
                 {link.label}
               </Link>
@@ -74,7 +74,7 @@ export default function Footer() {
                 key={link.label}
                 href={link.href}
                 className="block text-ds-text-secondary hover:text-white transition-colors cursor-pointer"
-                style={{ fontSize: "var(--text-fib-sm)", marginBottom: "var(--fib-2)", lineHeight: 1.618 }}
+                style={{ fontSize: "var(--text-fib-sm)", marginBottom: "var(--fib-2)", lineHeight: 1.618, paddingTop: "var(--fib-1)", paddingBottom: "var(--fib-1)", minHeight: "44px", display: "block" }}
               >
                 {link.label}
               </Link>
@@ -94,7 +94,7 @@ export default function Footer() {
                 key={link.label}
                 href={link.href}
                 className="block text-ds-text-secondary hover:text-white transition-colors cursor-pointer"
-                style={{ fontSize: "var(--text-fib-sm)", marginBottom: "var(--fib-2)", lineHeight: 1.618 }}
+                style={{ fontSize: "var(--text-fib-sm)", marginBottom: "var(--fib-2)", lineHeight: 1.618, paddingTop: "var(--fib-1)", paddingBottom: "var(--fib-1)", minHeight: "44px", display: "block" }}
               >
                 {link.label}
               </Link>

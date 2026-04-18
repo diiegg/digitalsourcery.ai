@@ -83,7 +83,10 @@ export default function TextScramble({
 
   return (
     <Tag ref={ref as React.RefObject<never>} className={className} style={style}>
-      {displayText !== null ? displayText : children}
+      <span aria-hidden={displayText !== null}>
+        {displayText !== null ? displayText : children}
+      </span>
+      {displayText !== null && <span className="sr-only">{children}</span>}
     </Tag>
   );
 }

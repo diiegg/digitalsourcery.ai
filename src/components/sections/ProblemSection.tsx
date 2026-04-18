@@ -1,13 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import TextScramble from "@/components/TextScramble";
 import { AlertTriangle, TrendingUp, Activity } from "lucide-react";
 
 const problems = [
-  { icon: AlertTriangle, stat: "70%", label: "Engineering time lost to maintenance" },
-  { icon: TrendingUp, stat: "$26B", label: "Annual cloud waste globally" },
-  { icon: Activity, stat: "67%", label: "Model accuracy drift in production" },
+  { icon: AlertTriangle, stat: "Fragile", label: "Legacy systems break under change" },
+  { icon: TrendingUp, stat: "Opaque", label: "No visibility into what's failing" },
+  { icon: Activity, stat: "Manual", label: "Every incident needs a human" },
 ];
 
 export default function ProblemSection() {
@@ -18,13 +17,13 @@ export default function ProblemSection() {
           {/* Left — text */}
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}>
             <div className="inline-block font-[family-name:var(--font-display)] uppercase tracking-[0.2em]" style={{ fontSize: "var(--text-fib-xs)", color: "var(--color-ds-warm)", border: "1px solid var(--color-ds-warm-dim)", padding: "var(--fib-1) var(--fib-2)", marginBottom: "var(--fib-4)" }}>
-              The Systemic Crisis
+              The Problem
             </div>
-            <TextScramble as="h2" className="font-[family-name:var(--font-display)] font-bold leading-[1.05] tracking-[-0.03em] text-white" style={{ fontSize: "clamp(var(--text-fib-lg), 5vw, var(--text-fib-xl))", marginBottom: "var(--fib-5)" }}>
-              Complexity Is the Silent Killer.
-            </TextScramble>
+            <h2 className="font-[family-name:var(--font-display)] font-bold leading-[1.05] tracking-[-0.03em] text-white" style={{ fontSize: "clamp(var(--text-fib-lg), 5vw, var(--text-fib-xl))", marginBottom: "var(--fib-5)" }}>
+              Legacy Infrastructure Breaks Under Change.
+            </h2>
             <p className="text-ds-text-secondary max-w-md" style={{ fontSize: "var(--text-fib-base)", lineHeight: 1.618, marginBottom: "var(--fib-5)" }}>
-              Legacy operations are brittle. AI experiments die between notebook and production. Your engineering talent is wasted on maintenance.
+              Most infrastructure wasn&apos;t designed for the AI era. It&apos;s fragile — every change introduces risk, every incident needs a human, and scaling means more complexity. We transform legacy systems into antifragile architecture that improves under stress.
             </p>
 
             {/* Compact stats row */}
