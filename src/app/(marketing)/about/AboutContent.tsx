@@ -244,7 +244,7 @@ export default function AboutContent() {
                 <span>Start a conversation</span>
               </a>
               <span className="text-ds-text-dim self-center" style={{ fontSize: "var(--text-fib-sm)" }}>
-                hello@digitalsourcery.ai
+                sayhi@digitalsourcery.ai
               </span>
             </div>
           </motion.div>

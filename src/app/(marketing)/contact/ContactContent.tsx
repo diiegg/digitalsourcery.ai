@@ -37,7 +37,7 @@ export default function ContactContent() {
       setErrorMsg(
         err instanceof Error
           ? err.message
-          : "Something went wrong. You can also email hello@digitalsourcery.ai directly."
+          : "Something went wrong. You can also email sayhi@digitalsourcery.ai directly."
       );
     }
   }
@@ -147,11 +147,11 @@ export default function ContactContent() {
               >
                 Or email{" "}
                 <a
-                  href="mailto:hello@digitalsourcery.ai"
+                  href="mailto:sayhi@digitalsourcery.ai"
                   className="text-white hover:text-[var(--color-ds-warm)] transition-colors"
                   style={{ borderBottom: "1px solid var(--color-ds-warm-dim)" }}
                 >
-                  hello@digitalsourcery.ai
+                  sayhi@digitalsourcery.ai
                 </a>{" "}
                 if a form feels like ceremony.
               </p>
