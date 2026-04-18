@@ -123,18 +123,49 @@ export default function OutcomesSection() {
           })}
         </div>
 
-        {/* Bottom row — quiet 7/5 zig-zag, no warm-inverted block */}
+        {/* Bottom row — 9/3 asymmetric (visual delta is unmissable) with mono attribution tag on the larger card */}
         <div className="grid grid-cols-1 md:grid-cols-12" style={{ gap: "var(--fib-3)", marginTop: "var(--fib-3)" }}>
           {outcomes.slice(3).map((o, i) => {
             const Icon = o.icon;
-            const span = i === 0 ? "md:col-span-7" : "md:col-span-5";
+            const isLarge = i === 0;
+            const span = isLarge ? "md:col-span-9" : "md:col-span-3";
             return (
-              <motion.div key={o.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }} transition={{ duration: 0.5, delay: 0.1 * (i + 3), ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }} className={`${span} flex flex-col justify-center relative overflow-hidden`} style={{ padding: "var(--fib-4)", border: "1px solid var(--color-ds-border)" }}>
+              <motion.div
+                key={o.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.1 }}
+                transition={{ duration: 0.5, delay: 0.1 * (i + 3), ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
+                className={`${span} flex flex-col justify-center relative overflow-hidden`}
+                style={{ padding: "var(--fib-4)", border: "1px solid var(--color-ds-border)" }}
+              >
                 <div className="absolute top-[var(--fib-3)] right-[var(--fib-3)]" aria-hidden="true">
                   <Icon size={24} style={{ color: "var(--color-ds-crystalline)", opacity: 0.2 }} strokeWidth={1} />
                 </div>
-                <h3 className="font-[family-name:var(--font-display)] font-bold text-white" style={{ fontSize: "var(--text-fib-md)", marginBottom: "var(--fib-2)", letterSpacing: "-0.01em" }}>{o.title}</h3>
-                <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-sm)", lineHeight: 1.618, maxWidth: "55ch" }}>{o.description}</p>
+                {isLarge && (
+                  <span
+                    className="font-[family-name:var(--font-mono)] uppercase tracking-[0.2em] block"
+                    style={{ fontSize: "10px", color: "var(--color-ds-warm)", marginBottom: "var(--fib-2)" }}
+                  >
+                    Per-workload attribution
+                  </span>
+                )}
+                <h3
+                  className="font-[family-name:var(--font-display)] font-bold text-white"
+                  style={{
+                    fontSize: isLarge ? "var(--text-fib-md)" : "var(--text-fib-sm)",
+                    marginBottom: "var(--fib-2)",
+                    letterSpacing: "-0.01em",
+                  }}
+                >
+                  {o.title}
+                </h3>
+                <p
+                  className="text-ds-text-secondary"
+                  style={{ fontSize: "var(--text-fib-sm)", lineHeight: 1.618, maxWidth: isLarge ? "60ch" : "30ch" }}
+                >
+                  {o.description}
+                </p>
               </motion.div>
             );
           })}

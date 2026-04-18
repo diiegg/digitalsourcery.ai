@@ -103,7 +103,7 @@ export default function IntelligenceContent() {
   return (
     <main className="relative">
       {/* Hero */}
-      <section className="flex items-end" style={{ paddingTop: "var(--fib-7)", paddingBottom: "var(--fib-7)" }}>
+      <section style={{ paddingTop: "var(--fib-7)", paddingBottom: "var(--fib-7)" }}>
         <div className="mx-auto max-w-[1440px] px-[var(--fib-5)] w-full">
           <div className="grid grid-cols-1 md:grid-cols-12 items-end" style={{ gap: "var(--fib-5)" }}>
             <motion.div className="md:col-span-8" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease }}>
@@ -118,6 +118,50 @@ export default function IntelligenceContent() {
               <p className="text-ds-text-secondary max-w-2xl" style={{ fontSize: "var(--text-fib-md)", lineHeight: 1.55 }}>
                 Telemetry, remediation, AI cost control. The intelligence layer for production systems — built on what your team already runs, owned by them after we leave. What we recommend is what we&apos;ve operated.
               </p>
+            </motion.div>
+
+            {/* Right rail — what we operate today (turns the empty col-span-4 into proof) */}
+            <motion.div
+              className="md:col-span-3 md:col-start-10"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1.2, delay: 0.4 }}
+            >
+              <div style={{ padding: "var(--fib-3)", border: "1px solid var(--color-ds-border)" }}>
+                <span
+                  className="font-[family-name:var(--font-mono)] uppercase tracking-[0.2em] block"
+                  style={{ fontSize: "10px", color: "var(--color-ds-text-dim)", marginBottom: "var(--fib-3)" }}
+                >
+                  What we operate today
+                </span>
+                <div className="flex flex-wrap" style={{ gap: "var(--fib-1)" }}>
+                  {[
+                    "Grafana",
+                    "OpenTelemetry",
+                    "Loki / Tempo",
+                    "vLLM",
+                    "BentoML",
+                    "LiteLLM",
+                    "Postgres + pgvector",
+                    "ArgoCD",
+                    "Kyverno / OPA",
+                  ].map((tag) => (
+                    <span
+                      key={tag}
+                      className="font-[family-name:var(--font-mono)] text-ds-text-secondary"
+                      style={{
+                        fontSize: "10px",
+                        border: "1px solid var(--color-ds-border-light)",
+                        padding: "2px 8px",
+                        textTransform: "uppercase",
+                        letterSpacing: "0.1em",
+                      }}
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </motion.div>
           </div>
         </div>

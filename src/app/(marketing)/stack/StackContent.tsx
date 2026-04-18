@@ -92,7 +92,7 @@ export default function StackContent() {
     <main className="relative">
 
       {/* === HERO === */}
-      <section style={{ paddingTop: "var(--fib-7)", paddingBottom: "var(--fib-7)" }}>
+      <section className="flex flex-col items-stretch" style={{ paddingTop: "var(--fib-7)", paddingBottom: "var(--fib-7)" }}>
         <div className="ds-container">
           <div className="grid grid-cols-1 md:grid-cols-12" style={{ gap: "var(--fib-5)" }}>
             <motion.div

@@ -118,28 +118,60 @@ const recentEngagements = [
 export default function AboutContent() {
   return (
     <main className="relative">
-      {/* Hero */}
-      <section className="flex items-center" style={{ paddingTop: "var(--fib-7)", paddingBottom: "var(--fib-7)" }}>
+      {/* Hero — left-aligned, mirrors /foundation hero pattern (no Medium-blog centering) */}
+      <section style={{ paddingTop: "var(--fib-7)", paddingBottom: "var(--fib-7)" }}>
         <div className="ds-container">
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }} className="max-w-2xl">
-            <h1
-              className="font-[family-name:var(--font-display)] font-bold leading-[1.0] tracking-[-0.03em] text-white"
-              style={{ fontSize: "clamp(var(--text-fib-lg), 6vw, var(--text-fib-2xl))", marginBottom: "var(--fib-4)" }}
-            >
-              Engineers,
-              <br />
-              <span style={{ color: "var(--color-ds-headline-accent)" }}>not consultants</span>
-            </h1>
-            <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-base)", lineHeight: 1.618, marginBottom: "var(--fib-4)", maxWidth: "65ch" }}>
-              Digital Sorcery was founded by infrastructure engineers who&apos;ve spent years building and scaling cloud-native systems across manufacturing, energy, SaaS, and enterprise. We&apos;ve seen the same problems repeat across organisations — AI prototypes that never ship, costs that spiral, teams that drown in alerts.
-            </p>
-            <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-base)", lineHeight: 1.618, marginBottom: "var(--fib-4)", maxWidth: "65ch" }}>
-              We built a practice around solving them with hands-on engineering. Not strategy decks. Not vendor partnerships. Production code that ships.
-            </p>
-            <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-base)", lineHeight: 1.618, maxWidth: "65ch" }}>
-              The foundation — platform engineering, automation, observability — comes from <strong className="text-white">BlackMagickOps</strong>, our engineering practice built on the belief that precision is discipline and automation is leverage. Digital Sorcery adds the intelligence layer.
-            </p>
-          </motion.div>
+          <div className="grid grid-cols-1 md:grid-cols-12 items-end" style={{ gap: "var(--fib-5)" }}>
+            <motion.div className="md:col-span-8" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease }}>
+              <h1
+                className="font-[family-name:var(--font-display)] font-bold leading-[1.0] tracking-[-0.03em] text-white"
+                style={{ fontSize: "clamp(var(--text-fib-lg), 6vw, var(--text-fib-2xl))", marginBottom: "var(--fib-4)" }}
+              >
+                Engineering
+                <br />
+                <span style={{ color: "var(--color-ds-headline-accent)" }}>With intention.</span>
+              </h1>
+              <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-base)", lineHeight: 1.618, marginBottom: "var(--fib-4)", maxWidth: "65ch" }}>
+                Digital Sorcery was founded by infrastructure engineers who&apos;ve spent years building and scaling cloud-native systems across manufacturing, energy, SaaS, and enterprise. We&apos;ve seen the same problems repeat across organisations — AI prototypes that never ship, costs that spiral, teams that drown in alerts.
+              </p>
+              <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-base)", lineHeight: 1.618, marginBottom: "var(--fib-4)", maxWidth: "65ch" }}>
+                We built a practice around solving them with hands-on engineering. Not strategy decks. Not vendor partnerships. Production code that ships.
+              </p>
+              <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-base)", lineHeight: 1.618, maxWidth: "65ch" }}>
+                The foundation — platform engineering, automation, observability — comes from <strong className="text-white">BlackMagickOps</strong>, our engineering practice built on the belief that precision is discipline and automation is leverage. Digital Sorcery adds the intelligence layer.
+              </p>
+            </motion.div>
+
+            {/* Right rail — Founded / Team / Booking from. Capacity scarcity goes here. */}
+            <motion.div className="md:col-span-3 md:col-start-10" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1.2, delay: 0.4 }}>
+              <div className="flex flex-col" style={{ gap: "var(--fib-3)" }}>
+                <div style={{ borderTop: "1px solid var(--color-ds-border)", paddingTop: "var(--fib-2)" }}>
+                  <span className="font-[family-name:var(--font-mono)] uppercase tracking-[0.2em] block" style={{ fontSize: "10px", color: "var(--color-ds-text-dim)", marginBottom: "var(--fib-1)" }}>
+                    Founded
+                  </span>
+                  <span className="font-[family-name:var(--font-mono)] text-white" style={{ fontSize: "var(--text-fib-sm)" }}>
+                    2024
+                  </span>
+                </div>
+                <div style={{ borderTop: "1px solid var(--color-ds-border)", paddingTop: "var(--fib-2)" }}>
+                  <span className="font-[family-name:var(--font-mono)] uppercase tracking-[0.2em] block" style={{ fontSize: "10px", color: "var(--color-ds-text-dim)", marginBottom: "var(--fib-1)" }}>
+                    Team
+                  </span>
+                  <span className="font-[family-name:var(--font-mono)] text-white" style={{ fontSize: "var(--text-fib-sm)" }}>
+                    6 engineers
+                  </span>
+                </div>
+                <div style={{ borderTop: "1px solid var(--color-ds-warm-dim)", paddingTop: "var(--fib-2)" }}>
+                  <span className="font-[family-name:var(--font-mono)] uppercase tracking-[0.2em] block" style={{ fontSize: "10px", color: "var(--color-ds-warm)", marginBottom: "var(--fib-1)" }}>
+                    Currently booking
+                  </span>
+                  <span className="font-[family-name:var(--font-mono)] text-white" style={{ fontSize: "var(--text-fib-sm)" }}>
+                    From June 2026
+                  </span>
+                </div>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -159,25 +191,48 @@ export default function AboutContent() {
             </TextScramble>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3" style={{ gap: "var(--fib-3)" }}>
+          {/* Principles — stacked editorial (mirrors Services / Stack / Recent Engagements rhythm) */}
+          <motion.div
+            variants={stagger}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0 }}
+            className="flex flex-col"
+          >
             {principles.map((p, i) => (
-              <motion.div
+              <motion.article
                 key={p.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0 }}
-                transition={{ duration: 0.5, delay: i * 0.06 }}
-                style={{ padding: "var(--fib-4)", border: "1px solid var(--color-ds-border)" }}
+                variants={fadeUp}
+                className="grid grid-cols-1 md:grid-cols-12"
+                style={{
+                  gap: "var(--fib-3)",
+                  padding: "var(--fib-5) 0",
+                  borderTop: "1px solid var(--color-ds-border)",
+                }}
               >
-                <h3 className="font-[family-name:var(--font-display)] font-semibold text-white" style={{ fontSize: "var(--text-fib-base)", marginBottom: "var(--fib-2)", letterSpacing: "-0.01em" }}>
-                  {p.title}
-                </h3>
-                <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-sm)", lineHeight: 1.618 }}>
-                  {p.detail}
-                </p>
-              </motion.div>
+                <div className="md:col-span-4 flex items-baseline" style={{ gap: "var(--fib-2)" }}>
+                  <span
+                    className="font-[family-name:var(--font-mono)]"
+                    style={{ fontSize: "11px", color: "var(--color-ds-warm)", letterSpacing: "0.1em", flexShrink: 0 }}
+                  >
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <h3
+                    className="font-[family-name:var(--font-display)] font-semibold text-white"
+                    style={{ fontSize: "var(--text-fib-md)", letterSpacing: "-0.01em" }}
+                  >
+                    {p.title}
+                  </h3>
+                </div>
+                <div className="md:col-span-8">
+                  <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-sm)", lineHeight: 1.618, maxWidth: "70ch" }}>
+                    {p.detail}
+                  </p>
+                </div>
+              </motion.article>
             ))}
-          </div>
+            <div style={{ borderTop: "1px solid var(--color-ds-border)" }} />
+          </motion.div>
         </div>
       </section>
 
