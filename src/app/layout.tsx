@@ -67,8 +67,12 @@ export default function RootLayout({
       <body
         className={`${sora.variable} ${manrope.variable} ${jetbrainsMono.variable} antialiased`}
       >
+        {/* Skip-link — visible only on keyboard focus, jumps past sticky header to main content */}
+        <a href="#main-content" className="ds-skip-link">
+          Skip to main content
+        </a>
         <ConsoleSignature />
-        {children}
+        <div id="main-content">{children}</div>
       </body>
     </html>
   );

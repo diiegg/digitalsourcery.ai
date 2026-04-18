@@ -214,11 +214,11 @@ export default function ContactContent() {
                   </p>
 
                   <div className="grid grid-cols-1 md:grid-cols-2" style={{ gap: "var(--fib-3)" }}>
-                    <Field label="Your name" name="name" type="text" required />
-                    <Field label="Work email" name="email" type="email" required />
+                    <Field label="Your name" name="name" type="text" required autoComplete="name" />
+                    <Field label="Work email" name="email" type="email" required autoComplete="email" />
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2" style={{ gap: "var(--fib-3)" }}>
-                    <Field label="Company" name="company" type="text" required />
+                    <Field label="Company" name="company" type="text" required autoComplete="organization" />
                     <Select label="Role" name="role" required options={[
                       "CTO",
                       "VP / Head of Engineering",
@@ -279,6 +279,7 @@ interface FieldBaseProps {
 interface InputFieldProps extends FieldBaseProps {
   type?: string;
   placeholder?: string;
+  autoComplete?: string;
   as?: never;
   rows?: never;
 }
@@ -287,6 +288,7 @@ interface TextareaFieldProps extends FieldBaseProps {
   as: "textarea";
   rows?: number;
   placeholder?: string;
+  autoComplete?: string;
   type?: never;
 }
 
@@ -321,6 +323,7 @@ function Field(props: FieldProps) {
           aria-required={required}
           placeholder={placeholder}
           rows={props.rows ?? 4}
+          autoComplete={props.autoComplete}
           className={sharedClass}
           style={sharedStyle}
         />
@@ -332,6 +335,7 @@ function Field(props: FieldProps) {
           aria-required={required}
           placeholder={placeholder}
           type={props.type ?? "text"}
+          autoComplete={props.autoComplete}
           className={sharedClass}
           style={sharedStyle}
         />
