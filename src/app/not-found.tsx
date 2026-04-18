@@ -20,8 +20,8 @@ export default function NotFound() {
                 404 · Off the path
               </span>
               <h1
-                className="font-[family-name:var(--font-display)] font-bold tracking-[-0.04em] text-white"
-                style={{ fontSize: "var(--text-fib-2xl)", lineHeight: 0.95, marginBottom: "var(--fib-5)" }}
+                className="font-[family-name:var(--font-display)] font-bold tracking-[-0.045em] text-white"
+                style={{ fontSize: "clamp(var(--text-fib-2xl), 12vw, 220px)", lineHeight: 0.92, marginBottom: "var(--fib-5)" }}
               >
                 Not in the box.
               </h1>
