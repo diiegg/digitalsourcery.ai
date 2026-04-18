@@ -54,7 +54,6 @@ export default function ContactContent() {
           <motion.div
             className="grid grid-cols-1 md:grid-cols-12"
             style={{ gap: "var(--fib-5)" }}
-            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease }}
           >

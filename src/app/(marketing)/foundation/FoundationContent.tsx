@@ -28,7 +28,7 @@ export default function FoundationContent() {
         />
         <div className="ds-container">
           <div className="grid grid-cols-1 md:grid-cols-12 items-end" style={{ gap: "var(--fib-5)" }}>
-            <motion.div className="md:col-span-8" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease }}>
+            <motion.div className="md:col-span-8" animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease }}>
               <div
                 className="inline-flex items-center"
                 style={{

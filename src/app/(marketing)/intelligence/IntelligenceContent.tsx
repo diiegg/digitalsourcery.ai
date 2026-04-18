@@ -106,7 +106,7 @@ export default function IntelligenceContent() {
       <section style={{ paddingTop: "var(--fib-7)", paddingBottom: "var(--fib-7)" }}>
         <div className="mx-auto max-w-[1440px] px-[var(--fib-5)] w-full">
           <div className="grid grid-cols-1 md:grid-cols-12 items-end" style={{ gap: "var(--fib-5)" }}>
-            <motion.div className="md:col-span-8" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease }}>
+            <motion.div className="md:col-span-8" animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease }}>
               <div className="inline-block font-[family-name:var(--font-display)] uppercase tracking-[0.2em]" style={{ fontSize: "var(--text-fib-xs)", color: "var(--color-ds-warm)", border: "1px solid var(--color-ds-warm-dim)", padding: "var(--fib-1) var(--fib-2)", marginBottom: "var(--fib-4)" }}>
                 The Intelligence Layer
               </div>
