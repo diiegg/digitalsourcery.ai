@@ -1,6 +1,6 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
-  "_comment": "Project-level Claude Code config. Tracked in git so every session inherits the same safety guards. Per-machine state lives in .claude/skills, .claude/state, etc. (gitignored).",
+  "_comment": "Project-level Claude Code config. Tracked in git so every session inherits the same safety guards + harness wiring. Per-machine state lives in .claude/skills, .claude/state, .claude/sessions etc. (gitignored).",
   "hooks": {
     "PreToolUse": [
       {
@@ -9,6 +9,19 @@
           {
             "type": "command",
             "command": "bash .claude/hooks/check-git-add-all.sh"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "_comment": "Activates the harness anamnesis loop on every session-end. Reads the .claude/hookify.anamnesis-*.local.md rules and runs reflection / error-learn / compound documentation. Without this, the symlinked rule files sit inert.",
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash ~/.claude/hooks/anamnesis-hook.sh",
+            "timeout": 60
           }
         ]
       }
