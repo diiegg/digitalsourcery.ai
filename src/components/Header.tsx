@@ -71,7 +71,7 @@ export default function Header() {
                 className={`font-[family-name:var(--font-display)] uppercase tracking-[0.15em] transition-colors duration-300 cursor-pointer ${
                   pathname === link.href
                     ? "text-white"
-                    : "text-[var(--color-ds-crystalline)]/60 hover:text-[var(--color-ds-warm)]"
+                    : "text-[var(--color-ds-crystalline)]/75 hover:text-[var(--color-ds-warm)]"
                 }`}
                 style={{
                   fontSize: "var(--text-fib-xs)",
