@@ -237,11 +237,11 @@ export default function AboutContent() {
             </h2>
             <div className="flex flex-col sm:flex-row items-start" style={{ gap: "var(--fib-3)" }}>
               <a
-                href="mailto:hello@digitalsourcery.ai"
+                href="/contact"
                 className="inline-block font-[family-name:var(--font-display)] font-bold tracking-[0.15em] uppercase bg-white text-black hover:scale-[0.97] transition-transform duration-200 rotating-gradient-btn"
                 style={{ fontSize: "var(--text-fib-sm)", padding: "var(--fib-2) var(--fib-4)" }}
               >
-                <span>Start a Conversation</span>
+                <span>Start a conversation</span>
               </a>
               <span className="text-ds-text-dim self-center" style={{ fontSize: "var(--text-fib-sm)" }}>
                 hello@digitalsourcery.ai

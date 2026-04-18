@@ -322,10 +322,14 @@ body {
     inset 0 0 20px rgba(200, 208, 224, 0.02);
 }
 
-/* Shimmer animation */
+/* Shimmer animation — slowed (16s) for quieter brand presence */
 @keyframes refractive-shimmer {
   0%   { background-position: 200% 0; }
   100% { background-position: -200% 0; }
+}
+.prismatic-glass::before,
+.refractive-card::before {
+  animation-duration: 16s !important;
 }
 
 /* Refractive card — alias for prismatic-glass + glow combined */

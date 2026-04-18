@@ -509,7 +509,7 @@ export default function StackContent() {
 
             <div className="flex flex-col md:flex-row" style={{ gap: "var(--fib-3)" }}>
               <a
-                href="mailto:hello@digitalsourcery.ai"
+                href="/contact"
                 className="inline-block font-[family-name:var(--font-display)] font-bold tracking-[0.15em] uppercase bg-white text-black hover:scale-[0.97] transition-transform duration-200 rotating-gradient-btn"
                 style={{ fontSize: "var(--text-fib-sm)", padding: "var(--fib-3) var(--fib-5)" }}
               >

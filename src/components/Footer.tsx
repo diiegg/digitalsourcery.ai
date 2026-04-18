@@ -6,23 +6,24 @@ import dynamic from "next/dynamic";
 const AsciiHero = dynamic(() => import("@/components/AsciiHero"), { ssr: false });
 
 const intelligenceLinks = [
-  { label: "Intelligent Observability", href: "/intelligence" },
-  { label: "AI-Driven Platform Eng", href: "/intelligence" },
-  { label: "Autonomous Infrastructure", href: "/intelligence" },
-  { label: "AI Cost Optimization", href: "/intelligence" },
-  { label: "Legacy AI Modernization", href: "/intelligence" },
+  { label: "Telemetry & Detection", href: "/intelligence" },
+  { label: "AI Platform Engineering", href: "/intelligence" },
+  { label: "Self-healing Infrastructure", href: "/intelligence" },
+  { label: "AI Cost Control", href: "/intelligence" },
+  { label: "Legacy Modernisation", href: "/intelligence" },
 ];
 
 const foundationLinks = [
-  { label: "Cognitive IDP", href: "/foundation" },
-  { label: "Agentic Workflows", href: "/foundation" },
-  { label: "Eco-FinOps", href: "/foundation" },
+  { label: "Internal Developer Platforms", href: "/foundation" },
+  { label: "Infrastructure as Code", href: "/foundation" },
+  { label: "Observability", href: "/foundation" },
+  { label: "FinOps", href: "/foundation" },
 ];
 
 const companyLinks = [
   { label: "About", href: "/about" },
-  { label: "Our Stack", href: "/stack" },
-  { label: "Contact", href: "mailto:hello@digitalsourcery.ai" },
+  { label: "Reference Stack", href: "/stack" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function Footer() {

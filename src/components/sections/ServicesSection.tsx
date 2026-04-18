@@ -12,7 +12,7 @@ const services = [
     build: "Internal developer platforms, self-service provisioning workflows, and automated deployment pipelines that remove friction between engineering teams and infrastructure.",
     problem: "Engineers waste hours on manual provisioning, ticket-based workflows, and infrastructure bottlenecks that slow every deployment cycle.",
     outcome: "Self-service infrastructure where developers ship independently — without waiting on ops.",
-    tags: ["Internal Platforms", "Provisioning", "Developer Experience"],
+    tags: ["Backstage", "Crossplane", "ArgoCD"],
   },
   {
     num: "02",
@@ -21,7 +21,7 @@ const services = [
     build: "Telemetry pipelines, intelligent alerting systems, and ML-powered incident detection that surfaces real signals from operational noise.",
     problem: "Teams drown in alerts, miss critical signals, and spend hours on root cause analysis because monitoring generates noise instead of insight.",
     outcome: "Earlier detection, faster resolution, and engineers focused on building — not firefighting.",
-    tags: ["Telemetry Pipelines", "Alerting Systems", "Incident Detection"],
+    tags: ["Grafana", "OpenTelemetry", "Loki / Tempo"],
   },
   {
     num: "03",
@@ -30,7 +30,7 @@ const services = [
     build: "Automated remediation workflows, self-healing infrastructure, and AI-driven decision-making that responds to incidents without human intervention.",
     problem: "Manual runbooks and on-call rotations don't scale. Repetitive incidents consume engineering time that should go toward building capabilities.",
     outcome: "Systems that diagnose, respond, and recover autonomously — reducing operational burden and improving reliability.",
-    tags: ["Automated Remediation", "Self-Healing", "Decision Workflows"],
+    tags: ["K8s Operators", "GitOps", "n8n / Temporal"],
   },
 ];
 

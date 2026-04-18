@@ -84,7 +84,7 @@ export default function Header() {
           {/* CTA + Mobile toggle */}
           <div className="flex items-center" style={{ gap: "var(--fib-3)" }}>
             <a
-              href="mailto:hello@digitalsourcery.ai"
+              href="/contact"
               className="hidden sm:inline-block font-[family-name:var(--font-display)] font-bold uppercase tracking-[0.15em] bg-white text-black hover:scale-[0.97] transition-transform duration-200 cursor-pointer rotating-gradient-btn"
               style={{
                 fontSize: "var(--text-fib-xs)",
@@ -160,7 +160,7 @@ export default function Header() {
             </Link>
           ))}
           <a
-            href="mailto:hello@digitalsourcery.ai"
+            href="/contact"
             className="inline-block font-[family-name:var(--font-display)] font-bold uppercase tracking-[0.15em] bg-white text-black cursor-pointer rotating-gradient-btn"
             style={{
               fontSize: "var(--text-fib-xs)",
