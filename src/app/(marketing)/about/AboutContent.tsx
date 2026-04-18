@@ -303,7 +303,7 @@ export default function AboutContent() {
                     <span className="block font-[family-name:var(--font-mono)] uppercase tracking-[0.2em]" style={{ fontSize: "10px", color: "var(--color-ds-text-dim)", marginBottom: "var(--fib-2)" }}>
                       Duration
                     </span>
-                    <p className="font-[family-name:var(--font-display)] font-medium text-white" style={{ fontSize: "var(--text-fib-base)", letterSpacing: "-0.005em" }}>
+                    <p className="font-[family-name:var(--font-mono)] text-white" style={{ fontSize: "var(--text-fib-base)", letterSpacing: "0" }}>
                       {e.duration}
                     </p>
                   </div>
@@ -311,7 +311,7 @@ export default function AboutContent() {
                     <span className="block font-[family-name:var(--font-mono)] uppercase tracking-[0.2em]" style={{ fontSize: "10px", color: "var(--color-ds-warm)", marginBottom: "var(--fib-2)" }}>
                       Price
                     </span>
-                    <p className="font-[family-name:var(--font-display)] font-medium text-white" style={{ fontSize: "var(--text-fib-base)", letterSpacing: "-0.005em" }}>
+                    <p className="font-[family-name:var(--font-mono)] text-white" style={{ fontSize: "var(--text-fib-base)", letterSpacing: "0" }}>
                       {e.price}
                     </p>
                   </div>
@@ -335,7 +335,7 @@ export default function AboutContent() {
               <span className="block font-[family-name:var(--font-mono)] uppercase tracking-[0.2em]" style={{ fontSize: "10px", color: "var(--color-ds-warm)", marginBottom: "var(--fib-2)" }}>
                 After handoff
               </span>
-              <p className="font-[family-name:var(--font-display)] text-white" style={{ fontSize: "var(--text-fib-sm)", marginBottom: "var(--fib-2)", letterSpacing: "-0.005em" }}>
+              <p className="font-[family-name:var(--font-mono)] text-white" style={{ fontSize: "var(--text-fib-sm)", marginBottom: "var(--fib-2)", letterSpacing: "0" }}>
                 Managed retainer · from €22,000 / month
               </p>
               <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-sm)", lineHeight: 1.55 }}>
@@ -346,7 +346,7 @@ export default function AboutContent() {
               <span className="block font-[family-name:var(--font-mono)] uppercase tracking-[0.2em]" style={{ fontSize: "10px", color: "var(--color-ds-text-dim)", marginBottom: "var(--fib-2)" }}>
                 If a fixed scope doesn&apos;t fit
               </span>
-              <p className="font-[family-name:var(--font-display)] text-white" style={{ fontSize: "var(--text-fib-sm)", marginBottom: "var(--fib-2)", letterSpacing: "-0.005em" }}>
+              <p className="font-[family-name:var(--font-mono)] text-white" style={{ fontSize: "var(--text-fib-sm)", marginBottom: "var(--fib-2)", letterSpacing: "0" }}>
                 Principal day rate · €1,800 &nbsp;·&nbsp; Senior · €1,400
               </p>
               <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-sm)", lineHeight: 1.55 }}>
@@ -376,32 +376,47 @@ export default function AboutContent() {
             </div>
           </div>
 
+          {/* Stacked editorial — three rows, no 3-equal-card grid */}
           <motion.div
             variants={stagger}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0 }}
-            className="grid grid-cols-1 md:grid-cols-3"
-            style={{ gap: "var(--fib-3)" }}
+            className="flex flex-col"
           >
-            {recentEngagements.map((c) => (
+            {recentEngagements.map((c, i) => (
               <motion.article
                 key={c.title}
                 variants={fadeUp}
-                className="flex flex-col"
-                style={{ padding: "var(--fib-4)", border: "1px solid var(--color-ds-border)" }}
+                className="grid grid-cols-1 md:grid-cols-12"
+                style={{
+                  gap: "var(--fib-3)",
+                  padding: "var(--fib-5) 0",
+                  borderTop: "1px solid var(--color-ds-border)",
+                }}
               >
-                <span className="block font-[family-name:var(--font-mono)] uppercase tracking-[0.15em]" style={{ fontSize: "10px", color: "var(--color-ds-warm)", marginBottom: "var(--fib-3)" }}>
-                  {c.sector}
-                </span>
-                <h3 className="font-[family-name:var(--font-display)] font-semibold text-white" style={{ fontSize: "var(--text-fib-md)", marginBottom: "var(--fib-3)", letterSpacing: "-0.01em", lineHeight: 1.2 }}>
-                  {c.title}
-                </h3>
-                <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-sm)", lineHeight: 1.6 }}>
-                  {c.result}
-                </p>
+                <div className="md:col-span-4 flex items-baseline" style={{ gap: "var(--fib-2)" }}>
+                  <span
+                    className="font-[family-name:var(--font-mono)]"
+                    style={{ fontSize: "11px", color: "var(--color-ds-warm)", letterSpacing: "0.1em", flexShrink: 0 }}
+                  >
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span className="font-[family-name:var(--font-mono)] uppercase tracking-[0.15em] text-ds-text-dim" style={{ fontSize: "10px" }}>
+                    {c.sector}
+                  </span>
+                </div>
+                <div className="md:col-span-8">
+                  <h3 className="font-[family-name:var(--font-display)] font-semibold text-white" style={{ fontSize: "var(--text-fib-md)", marginBottom: "var(--fib-2)", letterSpacing: "-0.01em" }}>
+                    {c.title}
+                  </h3>
+                  <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-sm)", lineHeight: 1.6, maxWidth: "65ch" }}>
+                    {c.result}
+                  </p>
+                </div>
               </motion.article>
             ))}
+            <div style={{ borderTop: "1px solid var(--color-ds-border)" }} />
           </motion.div>
         </div>
       </section>

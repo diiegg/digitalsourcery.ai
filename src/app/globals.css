@@ -137,6 +137,12 @@ html {
   overflow-x: hidden;
 }
 
+/* Anchor jump offset to clear the sticky header (var(--fib-6) = 89px) */
+:target,
+section[id] {
+  scroll-margin-top: calc(var(--fib-6) + var(--fib-3));
+}
+
 /* Responsive container — fibonacci-scaled per breakpoint */
 .ds-container {
   max-width: 1440px;
