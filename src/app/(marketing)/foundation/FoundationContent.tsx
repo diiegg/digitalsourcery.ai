@@ -46,12 +46,9 @@ export default function FoundationContent() {
 
             <motion.div className="w-full md:w-1/3" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1.2, delay: 0.4 }}>
               <div style={{ borderTop: "1px solid rgba(200, 208, 224, 0.08)", borderBottom: "1px solid rgba(200, 208, 224, 0.08)", padding: "var(--fib-3) 0" }}>
-                <div className="flex justify-between items-center">
-                  <span className="font-[family-name:var(--font-mono)] uppercase tracking-[0.2em]" style={{ fontSize: "10px", color: "var(--color-ds-text-dim)" }}>System Status</span>
-                  <span className="flex items-center font-[family-name:var(--font-mono)] uppercase tracking-[0.2em]" style={{ fontSize: "10px", color: "var(--color-ds-warm)", gap: "var(--fib-1)" }}>
-                    <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ backgroundColor: "var(--color-ds-warm)" }} />
-                    Operational
-                  </span>
+                <div className="flex flex-col" style={{ gap: "var(--fib-2)" }}>
+                  <span className="font-[family-name:var(--font-mono)] uppercase tracking-[0.2em]" style={{ fontSize: "10px", color: "var(--color-ds-text-dim)" }}>Engineering Discipline</span>
+                  <span className="font-[family-name:var(--font-display)] font-bold text-white" style={{ fontSize: "var(--text-fib-sm)" }}>Platform Engineering &amp; Automation</span>
                 </div>
               </div>
             </motion.div>
@@ -82,7 +79,7 @@ export default function FoundationContent() {
             </motion.div>
 
             {/* Platform Acceleration — 4 col */}
-            <motion.div variants={fadeUp} className="md:col-span-4 refractive-card accent-border-card flex flex-col justify-between group" style={{ padding: "var(--fib-4)" }}>
+            <motion.div variants={fadeUp} className="md:col-span-4 refractive-card flex flex-col justify-between group" style={{ padding: "var(--fib-4)" }}>
               <div className="flex items-center justify-center" style={{ width: "44px", height: "44px", border: "1px solid rgba(200, 208, 224, 0.1)", marginBottom: "var(--fib-5)" }}>
                 <Zap size={20} style={{ color: "var(--color-ds-warm)" }} strokeWidth={1.5} />
               </div>
@@ -93,7 +90,7 @@ export default function FoundationContent() {
             </motion.div>
 
             {/* Infrastructure Automation — 4 col */}
-            <motion.div variants={fadeUp} className="md:col-span-4 refractive-card accent-border-card flex flex-col justify-between group" style={{ padding: "var(--fib-4)" }}>
+            <motion.div variants={fadeUp} className="md:col-span-4 refractive-card flex flex-col justify-between group" style={{ padding: "var(--fib-4)" }}>
               <div className="flex items-center justify-center" style={{ width: "44px", height: "44px", border: "1px solid rgba(200, 208, 224, 0.1)", marginBottom: "var(--fib-5)" }}>
                 <Code2 size={20} style={{ color: "var(--color-ds-crystalline)" }} strokeWidth={1.5} />
               </div>
