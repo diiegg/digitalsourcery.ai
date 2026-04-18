@@ -124,8 +124,8 @@ export default function AboutContent() {
           <div className="grid grid-cols-1 md:grid-cols-12 items-end" style={{ gap: "var(--fib-5)" }}>
             <motion.div className="md:col-span-8" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease }}>
               <h1
-                className="font-[family-name:var(--font-display)] font-bold tracking-[-0.045em] text-white"
-                style={{ fontSize: "clamp(var(--text-fib-2xl), 12vw, 220px)", lineHeight: 0.92, marginBottom: "var(--fib-4)" }}
+                className="font-[family-name:var(--font-display)] font-bold tracking-[-0.04em] text-white"
+                style={{ fontSize: "clamp(var(--text-fib-xl), 7vw, 128px)", lineHeight: 0.95, marginBottom: "var(--fib-4)" }}
               >
                 Engineering
                 <br />

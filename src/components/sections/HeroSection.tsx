@@ -13,12 +13,12 @@ export default function HeroSection() {
       <div className="mx-auto max-w-[1440px] px-[var(--fib-5)] w-full" style={{ paddingTop: "var(--fib-7)", paddingBottom: "var(--fib-7)" }}>
         <div className="grid grid-cols-1 lg:grid-cols-[var(--phi-major)_var(--phi-minor)] items-center" style={{ gap: "var(--fib-5)", minHeight: "70vh" }}>
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}>
-            {/* Editorial-scale headline — confident, declarative, almost poster-sized on desktop */}
+            {/* Hero headline — calibrated scale (within Vercel/Anthropic editorial range, not Klim type-foundry range) */}
             <h1
-              className="font-[family-name:var(--font-display)] font-bold tracking-[-0.045em] text-white"
+              className="font-[family-name:var(--font-display)] font-bold tracking-[-0.04em] text-white"
               style={{
-                fontSize: "clamp(var(--text-fib-2xl), 12vw, 220px)",
-                lineHeight: 0.92,
+                fontSize: "clamp(var(--text-fib-xl), 7vw, 128px)",
+                lineHeight: 0.95,
                 marginBottom: "var(--fib-5)",
               }}
             >
@@ -27,7 +27,7 @@ export default function HeroSection() {
               <span style={{ color: "var(--color-ds-headline-accent)" }}>That Thinks</span>
             </h1>
 
-            <p className="text-ds-text-secondary max-w-md" style={{ fontSize: "var(--text-fib-base)", lineHeight: 1.618, marginBottom: "var(--fib-5)" }}>
+            <p className="text-ds-text-secondary max-w-xl" style={{ fontSize: "var(--text-fib-md)", lineHeight: 1.5, marginBottom: "var(--fib-5)" }}>
               The intelligence layer for production systems. Predictive observability, autonomous remediation, cost control — engineered for what your team already runs, owned by you after we leave.
             </p>
 
