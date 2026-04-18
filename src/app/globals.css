@@ -432,6 +432,41 @@ body {
   100% { --gradient-angle: 360deg; }
 }
 
+/* === DELIGHT — Logo phyllotaxis rotation on hover === */
+/* Golden angle = 137.508deg. Slow, quiet, unmistakable on hover. */
+.ds-logo-mark {
+  transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+  transform-origin: center;
+}
+.ds-logo-link:hover .ds-logo-mark {
+  transform: rotate(137.508deg);
+}
+@media (prefers-reduced-motion: reduce) {
+  .ds-logo-mark { transition: none; }
+  .ds-logo-link:hover .ds-logo-mark { transform: none; }
+}
+
+/* === DELIGHT — Tactile press on primary CTAs === */
+/* Subtle physical-press feedback on click. Honors prefers-reduced-motion. */
+.rotating-gradient-btn,
+.ds-cta-prismatic,
+a.rotating-gradient-btn,
+button.rotating-gradient-btn {
+  transition: transform 0.12s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+.rotating-gradient-btn:active,
+.ds-cta-prismatic:active,
+a.rotating-gradient-btn:active,
+button.rotating-gradient-btn:active {
+  transform: translateY(1px);
+}
+@media (prefers-reduced-motion: reduce) {
+  .rotating-gradient-btn:active,
+  .ds-cta-prismatic:active {
+    transform: none;
+  }
+}
+
 /* CTA button prismatic hover glow */
 .ds-cta-prismatic {
   position: relative;

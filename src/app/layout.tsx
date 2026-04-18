@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Sora, Manrope, JetBrains_Mono } from "next/font/google";
+import ConsoleSignature from "@/components/ConsoleSignature";
 import "./globals.css";
 
 // Display: Sora — geometric, calm, technical. Replaces Space Grotesk (banned: training-data default).
@@ -66,6 +67,7 @@ export default function RootLayout({
       <body
         className={`${sora.variable} ${manrope.variable} ${jetbrainsMono.variable} antialiased`}
       >
+        <ConsoleSignature />
         {children}
       </body>
     </html>

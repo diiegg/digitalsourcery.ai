@@ -37,17 +37,22 @@ export default function Header() {
           className="flex items-center justify-between"
           style={{ height: "var(--fib-6)" }}
         >
-          {/* Logo */}
+          {/* Logo — slow phyllotaxis rotation on hover (golden angle, 137.5deg) */}
           <Link
             href="/"
-            className="flex items-center cursor-pointer"
+            className="flex items-center cursor-pointer group ds-logo-link"
             style={{ gap: "var(--fib-2)" }}
+            aria-label="Digital Sorcery — home"
           >
-            <span style={{ color: "var(--color-ds-crystalline)" }}>
+            <span
+              className="ds-logo-mark"
+              style={{ color: "var(--color-ds-crystalline)", display: "inline-flex" }}
+              aria-hidden="true"
+            >
               <FibonacciDots size={34} />
             </span>
             <span
-              className="font-[family-name:var(--font-display)] font-bold text-white tracking-tight"
+              className="font-[family-name:var(--font-display)] font-bold text-white tracking-tight transition-colors duration-300 group-hover:text-[var(--color-ds-warm)]"
               style={{ fontSize: "var(--text-fib-base)" }}
             >
               Digital Sorcery
