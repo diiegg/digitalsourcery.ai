@@ -1,6 +1,5 @@
 "use client";
 
-import { useRef, useCallback } from "react";
 import { motion } from "framer-motion";
 import { Timer, TrendingDown, Shield, Gauge, ArrowUpRight } from "lucide-react";
 
@@ -13,21 +12,6 @@ const outcomes = [
 ];
 
 export default function OutcomesSection() {
-  const glowRef = useRef<HTMLDivElement>(null);
-  const cardRef = useRef<HTMLDivElement>(null);
-
-  const handleMouseMove = useCallback((e: React.MouseEvent) => {
-    if (!glowRef.current || !cardRef.current) return;
-    const rect = cardRef.current.getBoundingClientRect();
-    glowRef.current.style.left = `${e.clientX - rect.left}px`;
-    glowRef.current.style.top = `${e.clientY - rect.top}px`;
-    glowRef.current.style.opacity = "1";
-  }, []);
-
-  const handleMouseLeave = useCallback(() => {
-    if (glowRef.current) glowRef.current.style.opacity = "0";
-  }, []);
-
   return (
     <section id="outcomes" style={{ paddingTop: "var(--fib-7)", paddingBottom: "var(--fib-7)", borderTop: "1px solid var(--color-ds-border)" }}>
       <div className="ds-container">
@@ -44,42 +28,29 @@ export default function OutcomesSection() {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2" style={{ gap: "var(--fib-3)" }}>
-          {/* Large featured card — Reduce Manual Operations */}
+          {/* Large featured card — Reduce Manual Operations (distilled: one ambient circle, no mouse-follow) */}
           <motion.div
-            ref={cardRef}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
-            className="md:col-span-2 md:row-span-2 refractive-card flex flex-col justify-between relative overflow-hidden cursor-crosshair"
+            className="md:col-span-2 md:row-span-2 refractive-card flex flex-col justify-between relative overflow-hidden"
             style={{ padding: "var(--fib-5)" }}
-            onMouseMove={handleMouseMove}
-            onMouseLeave={handleMouseLeave}
           >
-            {/* Mouse-following warm glow */}
+            {/* Single ambient warm glow anchor — replaces the mouse-follow + grid + 3-arc decoration */}
             <div
-              ref={glowRef}
-              className="pointer-events-none absolute"
+              className="absolute pointer-events-none"
+              aria-hidden="true"
               style={{
-                width: "300px",
-                height: "300px",
+                top: "30%",
+                left: "20%",
+                width: "320px",
+                height: "320px",
                 borderRadius: "50%",
-                background: "radial-gradient(circle, rgba(227, 204, 177, 0.15) 0%, rgba(227, 204, 177, 0.05) 40%, transparent 70%)",
-                transform: "translate(-50%, -50%)",
-                opacity: 0,
-                transition: "opacity 0.5s ease",
+                background: "radial-gradient(circle, rgba(227, 204, 177, 0.06) 0%, rgba(200, 208, 224, 0.02) 50%, transparent 75%)",
+                filter: "blur(20px)",
               }}
             />
-
-            {/* Grid overlay pattern */}
-            <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: "linear-gradient(rgba(200, 208, 224, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(200, 208, 224, 0.03) 1px, transparent 1px)", backgroundSize: "55px 55px" }} />
-
-            {/* Decorative arcs */}
-            <svg className="absolute top-0 left-0 w-full h-full pointer-events-none" viewBox="0 0 600 400" fill="none" preserveAspectRatio="xMidYMid slice">
-              <circle cx="300" cy="200" r="150" stroke="#E3CCB1" strokeWidth="0.5" opacity="0.06" />
-              <circle cx="300" cy="200" r="100" stroke="#c8d0e0" strokeWidth="0.5" opacity="0.04" />
-              <circle cx="300" cy="200" r="200" stroke="#E3CCB1" strokeWidth="0.3" opacity="0.03" />
-            </svg>
 
             <div className="relative z-10">
               <div className="flex items-center" style={{ gap: "var(--fib-2)", marginBottom: "var(--fib-4)" }}>
