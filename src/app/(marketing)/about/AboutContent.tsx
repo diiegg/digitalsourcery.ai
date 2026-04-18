@@ -65,6 +65,12 @@ const team = [
     role: "Senior Infrastructure Engineer",
     bg: "OpenTofu, multi-cloud, FinOps. Ex-Delivery Hero. Berlin.",
   },
+  {
+    initials: "MC",
+    name: "Mei Chen",
+    role: "Senior Data Engineer",
+    bg: "Streaming pipelines, Kafka, real-time feature stores. Ex-Zalando. Berlin.",
+  },
 ];
 
 const engagements = [
@@ -189,7 +195,7 @@ export default function AboutContent() {
             </div>
             <div className="md:col-span-4 md:col-start-9 md:self-end">
               <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-sm)", lineHeight: 1.618 }}>
-                Five engineers across the Nordics, DACH, the Netherlands, and Spain. Every engagement is led by a principal who writes code in your repo.
+                Six engineers across the Nordics, DACH, the Netherlands, and Spain. Every engagement is led by a principal who writes code in your repo.
               </p>
             </div>
           </div>
