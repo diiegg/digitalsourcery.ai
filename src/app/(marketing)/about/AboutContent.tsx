@@ -255,12 +255,13 @@ export default function AboutContent() {
             </div>
           </div>
 
+          {/* Team — 2-col grid (3 rows × 2 cards). Breaks the banned 3-equal pattern; each card gets more breathing room. */}
           <motion.div
             variants={stagger}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0 }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+            className="grid grid-cols-1 md:grid-cols-2"
             style={{ gap: "var(--fib-3)" }}
           >
             {team.map((m) => (
@@ -268,30 +269,30 @@ export default function AboutContent() {
                 key={m.name}
                 variants={fadeUp}
                 className="flex items-start"
-                style={{ gap: "var(--fib-3)", padding: "var(--fib-4)", border: "1px solid var(--color-ds-border)" }}
+                style={{ gap: "var(--fib-4)", padding: "var(--fib-4) var(--fib-5)", border: "1px solid var(--color-ds-border)" }}
               >
                 <div
                   aria-hidden="true"
-                  className="flex items-center justify-center font-[family-name:var(--font-mono)] tracking-[0.05em] text-white"
+                  className="flex items-center justify-center font-[family-name:var(--font-mono)] tracking-[0.05em]"
                   style={{
                     flexShrink: 0,
-                    width: "55px",
-                    height: "55px",
+                    width: "70px",
+                    height: "70px",
                     border: "1px solid var(--color-ds-warm-dim)",
-                    fontSize: "var(--text-fib-sm)",
+                    fontSize: "var(--text-fib-md)",
                     color: "var(--color-ds-warm)",
                   }}
                 >
                   {m.initials}
                 </div>
                 <div>
-                  <h3 className="font-[family-name:var(--font-display)] font-semibold text-white" style={{ fontSize: "var(--text-fib-base)", marginBottom: "var(--fib-1)", letterSpacing: "-0.01em" }}>
+                  <h3 className="font-[family-name:var(--font-display)] font-semibold text-white" style={{ fontSize: "var(--text-fib-md)", marginBottom: "var(--fib-1)", letterSpacing: "-0.01em" }}>
                     {m.name}
                   </h3>
                   <p className="font-[family-name:var(--font-mono)] uppercase tracking-[0.15em]" style={{ fontSize: "10px", color: "var(--color-ds-warm)", marginBottom: "var(--fib-2)" }}>
                     {m.role}
                   </p>
-                  <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-sm)", lineHeight: 1.55 }}>
+                  <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-sm)", lineHeight: 1.6, maxWidth: "50ch" }}>
                     {m.bg}
                   </p>
                 </div>

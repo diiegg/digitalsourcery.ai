@@ -308,7 +308,14 @@ export default function IntelligenceContent() {
             </p>
           </motion.div>
 
-          <motion.div variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0 }} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3" style={{ gap: "var(--fib-3)" }}>
+          {/* Stacked editorial — six guardrails in horizontal rows (mirrors Services / Stack / Recent Engagements rhythm) */}
+          <motion.div
+            variants={stagger}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0 }}
+            className="flex flex-col"
+          >
             {[
               {
                 icon: ShieldCheck,
@@ -346,23 +353,48 @@ export default function IntelligenceContent() {
                 description: "No manual changes to running systems. Every modification flows through version-controlled pipelines with audit trails, rollback capability, and change verification.",
                 tags: ["GitOps", "Audit Trails", "Immutable Deploys"],
               },
-            ].map((item) => {
+            ].map((item, i) => {
               const Icon = item.icon;
               return (
-                <motion.div key={item.title} variants={fadeUp} className="refractive-card group" style={{ padding: "var(--fib-4)" }}>
-                  <div className="flex items-center justify-between" style={{ marginBottom: "var(--fib-3)" }}>
-                    <Icon size={22} style={{ color: "var(--color-ds-warm)", opacity: 0.6 }} strokeWidth={1.5} aria-hidden="true" />
+                <motion.article
+                  key={item.title}
+                  variants={fadeUp}
+                  className="grid grid-cols-1 md:grid-cols-12"
+                  style={{
+                    gap: "var(--fib-3)",
+                    padding: "var(--fib-5) 0",
+                    borderTop: "1px solid var(--color-ds-border)",
+                  }}
+                >
+                  <div className="md:col-span-4 flex items-baseline" style={{ gap: "var(--fib-2)" }}>
+                    <span
+                      className="font-[family-name:var(--font-mono)]"
+                      style={{ fontSize: "11px", color: "var(--color-ds-warm)", letterSpacing: "0.1em", flexShrink: 0 }}
+                    >
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <Icon size={18} style={{ color: "var(--color-ds-crystalline)", opacity: 0.5, flexShrink: 0, marginRight: "var(--fib-1)" }} strokeWidth={1.5} aria-hidden="true" />
+                    <h3
+                      className="font-[family-name:var(--font-display)] font-semibold text-white"
+                      style={{ fontSize: "var(--text-fib-md)", letterSpacing: "-0.01em" }}
+                    >
+                      {item.title}
+                    </h3>
                   </div>
-                  <h3 className="font-[family-name:var(--font-display)] font-bold text-white" style={{ fontSize: "var(--text-fib-md)", marginBottom: "var(--fib-2)" }}>{item.title}</h3>
-                  <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-sm)", lineHeight: 1.618, marginBottom: "var(--fib-3)" }}>{item.description}</p>
-                  <div className="flex flex-wrap" style={{ gap: "var(--fib-1)" }}>
-                    {item.tags.map((tag) => (
-                      <span key={tag} className="font-[family-name:var(--font-mono)] text-ds-text-dim" style={{ fontSize: "10px", border: "1px solid var(--color-ds-border-light)", padding: "2px 8px", textTransform: "uppercase", letterSpacing: "0.1em" }}>{tag}</span>
-                    ))}
+                  <div className="md:col-span-8">
+                    <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-sm)", lineHeight: 1.618, maxWidth: "70ch", marginBottom: "var(--fib-3)" }}>
+                      {item.description}
+                    </p>
+                    <div className="flex flex-wrap" style={{ gap: "var(--fib-1)" }}>
+                      {item.tags.map((tag) => (
+                        <span key={tag} className="font-[family-name:var(--font-mono)] text-ds-text-dim" style={{ fontSize: "10px", border: "1px solid var(--color-ds-border-light)", padding: "2px 8px", textTransform: "uppercase", letterSpacing: "0.1em" }}>{tag}</span>
+                      ))}
+                    </div>
                   </div>
-                </motion.div>
+                </motion.article>
               );
             })}
+            <div style={{ borderTop: "1px solid var(--color-ds-border)" }} />
           </motion.div>
 
           <motion.div initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.2, ease }} style={{ marginTop: "var(--fib-5)", paddingTop: "var(--fib-4)", borderTop: "1px solid rgba(200, 208, 224, 0.06)" }}>
