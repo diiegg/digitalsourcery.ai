@@ -259,7 +259,7 @@ export default function FoundationContent() {
                 className="inline-block font-[family-name:var(--font-display)] font-bold tracking-[0.15em] uppercase bg-white text-black hover:scale-[0.97] transition-transform duration-200 rotating-gradient-btn"
                 style={{ fontSize: "var(--text-fib-sm)", padding: "var(--fib-3) var(--fib-5)" }}
               >
-                <span>Talk to a senior engineer</span>
+                <span>Start a Discovery</span>
               </a>
               <a
                 href="/stack"

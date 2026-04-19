@@ -68,7 +68,7 @@ export default function ContactContent() {
                   marginBottom: "var(--fib-4)",
                 }}
               >
-                Talk to a senior engineer
+                Start a Discovery
               </div>
               <h1
                 className="font-[family-name:var(--font-display)] font-bold tracking-[-0.04em] text-white"
@@ -257,7 +257,7 @@ export default function ContactContent() {
                     className="self-start inline-block font-[family-name:var(--font-display)] font-bold tracking-[0.15em] uppercase bg-white text-black hover:scale-[0.97] transition-transform duration-200 rotating-gradient-btn disabled:opacity-50"
                     style={{ fontSize: "var(--text-fib-sm)", padding: "var(--fib-3) var(--fib-5)" }}
                   >
-                    <span>{status === "submitting" ? "Sending…" : "Talk to a senior engineer"}</span>
+                    <span>{status === "submitting" ? "Sending…" : "Start a Discovery"}</span>
                   </button>
                 </form>
               )}

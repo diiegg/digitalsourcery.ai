@@ -33,7 +33,7 @@ export default function HeroSection() {
 
             <div className="flex flex-col sm:flex-row items-start" style={{ gap: "var(--fib-2)", marginBottom: "var(--fib-5)" }}>
               <a href="/contact" className="inline-block font-[family-name:var(--font-display)] font-bold tracking-[0.15em] uppercase bg-white text-black hover:scale-[0.97] transition-transform duration-200 rotating-gradient-btn" style={{ fontSize: "var(--text-fib-sm)", padding: "var(--fib-2) var(--fib-4)" }}>
-                <span>Talk to a senior engineer</span>
+                <span>Start a Discovery</span>
               </a>
               <a href="/stack" className="text-ds-text-secondary hover:text-white transition-colors font-[family-name:var(--font-mono)] uppercase tracking-[0.1em]" style={{ fontSize: "var(--text-fib-xs)", padding: "var(--fib-2) var(--fib-3)" }}>
                 See the reference stack

@@ -521,7 +521,7 @@ export default function AboutContent() {
                 className="inline-block font-[family-name:var(--font-display)] font-bold tracking-[0.15em] uppercase bg-white text-black hover:scale-[0.97] transition-transform duration-200 rotating-gradient-btn"
                 style={{ fontSize: "var(--text-fib-sm)", padding: "var(--fib-2) var(--fib-4)" }}
               >
-                <span>Talk to a senior engineer</span>
+                <span>Start a Discovery</span>
               </a>
               <span className="text-ds-text-dim self-center" style={{ fontSize: "var(--text-fib-sm)" }}>
                 sayhi@digitalsourcery.ai
