@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import TextScramble from "@/components/TextScramble";
+import { StackedDiscs, BlobCluster, GeometricGrid, CrystallineFragment, WaveStructure, ConcentricRings } from "@/components/glyphs";
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 const stagger = { hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.08, delayChildren: 0.1 } } };
@@ -10,26 +11,36 @@ const fadeUp = { hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0, tra
 const criteria = [
   {
     n: "01",
+    Glyph: StackedDiscs,
+    glyphLabel: "Foundational stability",
     title: "Operate before optimize",
     body: "Tools that hold under failure beat tools that demo well — boring dependability is a feature.",
   },
   {
     n: "02",
+    Glyph: BlobCluster,
+    glyphLabel: "Open ecosystem",
     title: "Open by default",
     body: "We pick what your team can re-host without a procurement meeting; exit cost matters more than vendor convenience.",
   },
   {
     n: "03",
+    Glyph: CrystallineFragment,
+    glyphLabel: "End-to-end cost",
     title: "Cost is a system property",
     body: "Cheaper inference doesn't help if the architecture around it leaks dollars per second; we measure end-to-end.",
   },
   {
     n: "04",
+    Glyph: ConcentricRings,
+    glyphLabel: "Traceable signal",
     title: "Observable, not just monitored",
     body: "If you can't trace it to a line of code, it's invisible when it matters.",
   },
   {
     n: "05",
+    Glyph: GeometricGrid,
+    glyphLabel: "Handoff topology",
     title: "Owned by your team",
     body: 'Success isn\'t "they kept us" — it\'s "they can run this without us." Handoff is the deliverable.',
   },
@@ -38,13 +49,17 @@ const criteria = [
 const stack = [
   {
     n: "01",
+    Glyph: GeometricGrid,
+    glyphLabel: "Cluster topology",
     domain: "Orchestration & Compute",
     primary: "Managed Kubernetes — EKS, GKE, AKS",
-    why: "Control-plane and ecosystem gravity remain unmatched once a workload needs failure isolation, scheduled batching, and gradual rollouts.",
+    why: "Unmatched control-plane and ecosystem gravity for workloads that need failure isolation and gradual rollouts.",
     swap: "Nomad for teams under ~20 services with no GPU workloads. ECS or Cloud Run for single-region simplicity.",
   },
   {
     n: "02",
+    Glyph: ConcentricRings,
+    glyphLabel: "Inference signal",
     domain: "AI Inference & Serving",
     primary: "vLLM + BentoML, fronted by LiteLLM",
     why: "PagedAttention throughput on open weights, production wrapping via BentoML, one-call API normalisation across providers.",
@@ -52,6 +67,8 @@ const stack = [
   },
   {
     n: "03",
+    Glyph: BlobCluster,
+    glyphLabel: "Unified data",
     domain: "Data Layer",
     primary: "Postgres with pgvector. Kafka or NATS for events.",
     why: "Postgres handles vector workloads to several million rows without a separate database; Kafka for durable replay, NATS for low-latency pub/sub.",
@@ -59,6 +76,8 @@ const stack = [
   },
   {
     n: "04",
+    Glyph: WaveStructure,
+    glyphLabel: "Telemetry streams",
     domain: "Observability",
     primary: "Grafana + OpenTelemetry. Loki, Tempo, Mimir.",
     why: "OTEL keeps you portable; dashboards and alert rules are the deliverable, not the storage backend.",
@@ -66,6 +85,8 @@ const stack = [
   },
   {
     n: "05",
+    Glyph: StackedDiscs,
+    glyphLabel: "Pipeline layers",
     domain: "Delivery & GitOps",
     primary: "GitHub Actions for CI. ArgoCD for Kubernetes deploys.",
     why: "Actions sits where the code already lives; ArgoCD inverts the trust model so the cluster pulls from Git rather than CI pushing in.",
@@ -73,6 +94,8 @@ const stack = [
   },
   {
     n: "06",
+    Glyph: CrystallineFragment,
+    glyphLabel: "Declarative facets",
     domain: "Infrastructure as Code",
     primary: "OpenTofu — state in S3 with DynamoDB lock (or equivalent).",
     why: "Declarative, reviewable, diffable; state integrity is the load-bearing constraint, not module elegance.",
@@ -208,6 +231,7 @@ export default function StackContent() {
             {criteria.map((c, i) => {
               const isLastInColumn =
                 i === criteria.length - 1 || (criteria.length % 2 === 0 && i === criteria.length - 2);
+              const CritGlyph = c.Glyph;
               return (
                 <motion.li
                   key={c.n}
@@ -220,18 +244,19 @@ export default function StackContent() {
                     borderBottom: isLastInColumn ? "1px solid var(--color-ds-border)" : "none",
                   }}
                 >
-                  <span
-                    className="font-[family-name:var(--font-mono)]"
-                    style={{
-                      fontSize: "11px",
-                      color: "var(--color-ds-warm)",
-                      paddingTop: "6px",
-                      letterSpacing: "0.1em",
-                      flexShrink: 0,
-                    }}
-                  >
-                    {c.n}
-                  </span>
+                  <div className="flex flex-col items-start" style={{ gap: "var(--fib-2)", flexShrink: 0 }}>
+                    <CritGlyph size={48} ariaLabel={c.glyphLabel} />
+                    <span
+                      className="font-[family-name:var(--font-mono)]"
+                      style={{
+                        fontSize: "11px",
+                        color: "var(--color-ds-warm)",
+                        letterSpacing: "0.1em",
+                      }}
+                    >
+                      {c.n}
+                    </span>
+                  </div>
                   <div>
                     <h3
                       className="font-[family-name:var(--font-display)] font-semibold text-white"
@@ -294,7 +319,9 @@ export default function StackContent() {
             viewport={{ once: true, amount: 0 }}
             className="flex flex-col"
           >
-            {stack.map((s) => (
+            {stack.map((s) => {
+              const StackGlyph = s.Glyph;
+              return (
               <motion.article
                 key={s.n}
                 variants={fadeUp}
@@ -306,26 +333,28 @@ export default function StackContent() {
                 }}
               >
                 <div
-                  className="md:col-span-3 flex items-baseline"
-                  style={{ gap: "var(--fib-2)" }}
+                  className="md:col-span-3 flex items-start"
+                  style={{ gap: "var(--fib-3)" }}
                 >
-                  <span
-                    className="font-[family-name:var(--font-mono)]"
-                    style={{
-                      fontSize: "11px",
-                      color: "var(--color-ds-warm)",
-                      letterSpacing: "0.1em",
-                      flexShrink: 0,
-                    }}
-                  >
-                    {s.n}
-                  </span>
-                  <h3
-                    className="font-[family-name:var(--font-display)] font-semibold text-white"
-                    style={{ fontSize: "var(--text-fib-md)", letterSpacing: "-0.01em" }}
-                  >
-                    {s.domain}
-                  </h3>
+                  <StackGlyph size={56} ariaLabel={s.glyphLabel} className="flex-shrink-0" />
+                  <div className="flex flex-col" style={{ gap: "var(--fib-1)" }}>
+                    <span
+                      className="font-[family-name:var(--font-mono)]"
+                      style={{
+                        fontSize: "11px",
+                        color: "var(--color-ds-warm)",
+                        letterSpacing: "0.1em",
+                      }}
+                    >
+                      {s.n}
+                    </span>
+                    <h3
+                      className="font-[family-name:var(--font-display)] font-semibold text-white"
+                      style={{ fontSize: "var(--text-fib-md)", letterSpacing: "-0.01em" }}
+                    >
+                      {s.domain}
+                    </h3>
+                  </div>
                 </div>
 
                 <div
@@ -373,7 +402,8 @@ export default function StackContent() {
                   </div>
                 </div>
               </motion.article>
-            ))}
+              );
+            })}
             <div style={{ borderTop: "1px solid var(--color-ds-border)" }} />
           </motion.div>
         </div>

@@ -2,7 +2,8 @@
 
 import { motion } from "framer-motion";
 import TextScramble from "@/components/TextScramble";
-import { LayoutDashboard, Zap, Code2, BarChart3, Shield } from "lucide-react";
+import { Shield } from "lucide-react";
+import { StackedDiscs, WaveStructure, GeometricGrid, ConcentricRings } from "@/components/glyphs";
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 const stagger = { hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.1, delayChildren: 0.15 } } };
@@ -90,31 +91,27 @@ export default function FoundationContent() {
 
             {/* Module 01 — IDP — anchor card with refractive shimmer */}
             <motion.div variants={fadeUp} className="md:col-span-8 refractive-card flex flex-col justify-between relative overflow-hidden" style={{ padding: "var(--fib-5)", minHeight: "320px" }}>
-              <div className="absolute top-[var(--fib-4)] right-[var(--fib-4)]" aria-hidden="true">
-                <LayoutDashboard size={120} style={{ color: "var(--color-ds-crystalline)", opacity: 0.05 }} strokeWidth={0.5} />
+              <div className="absolute" style={{ top: "var(--fib-4)", right: "var(--fib-4)", opacity: 0.4 }} aria-hidden="true">
+                <StackedDiscs size={200} ariaLabel="Layered platform" />
               </div>
-              <div className="flex justify-between items-start">
-                <div className="flex items-center justify-center" style={{ width: "55px", height: "55px", border: "1px solid rgba(200, 208, 224, 0.1)" }}>
-                  <LayoutDashboard size={24} style={{ color: "var(--color-ds-crystalline)" }} strokeWidth={1} aria-hidden="true" />
-                </div>
+              <div className="flex justify-between items-start relative z-10">
+                <StackedDiscs size={56} ariaLabel="Layered platform" />
                 <span className="font-[family-name:var(--font-mono)] uppercase tracking-[0.25em]" style={{ fontSize: "10px", color: "var(--color-ds-text-dim)" }}>Module 01</span>
               </div>
-              <div>
+              <div className="relative z-10">
                 <h3 className="font-[family-name:var(--font-display)] font-bold text-white" style={{ fontSize: "var(--text-fib-lg)", marginBottom: "var(--fib-3)", letterSpacing: "-0.01em" }}>
                   Internal Developer Platforms
                 </h3>
                 <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-base)", lineHeight: 1.618, maxWidth: "55ch" }}>
-                  Self-service infrastructure for your engineers. Backstage or Port, depending on whether the appetite is open-source or speed-to-value. The portal is the deliverable; the wiring beneath it is what we maintain in your repo.
+                  Self-service infrastructure for your engineers. Backstage or Port, depending on whether the appetite is open-source or speed-to-value.
                 </p>
               </div>
             </motion.div>
 
             {/* Module 02 — flat panel */}
             <motion.div variants={fadeUp} className="md:col-span-4 flex flex-col justify-between" style={{ padding: "var(--fib-4)", border: "1px solid var(--color-ds-border)" }}>
-              <div className="flex items-center justify-between" style={{ marginBottom: "var(--fib-4)" }}>
-                <div className="flex items-center justify-center" style={{ width: "44px", height: "44px", border: "1px solid rgba(200, 208, 224, 0.1)" }}>
-                  <Zap size={20} style={{ color: "var(--color-ds-warm)" }} strokeWidth={1.5} aria-hidden="true" />
-                </div>
+              <div className="flex items-start justify-between" style={{ marginBottom: "var(--fib-4)" }}>
+                <WaveStructure size={64} ariaLabel="Continuous delivery" />
                 <span className="font-[family-name:var(--font-mono)] uppercase tracking-[0.25em]" style={{ fontSize: "10px", color: "var(--color-ds-text-dim)" }}>Module 02</span>
               </div>
               <div>
@@ -122,17 +119,15 @@ export default function FoundationContent() {
                   Platform Acceleration
                 </h3>
                 <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-sm)", lineHeight: 1.618 }}>
-                  Reusable golden paths for the workloads your team ships weekly. Less reinvention per service.
+                  Reusable golden paths for workloads your team ships weekly.
                 </p>
               </div>
             </motion.div>
 
             {/* Module 03 — flat panel */}
             <motion.div variants={fadeUp} className="md:col-span-4 flex flex-col justify-between" style={{ padding: "var(--fib-4)", border: "1px solid var(--color-ds-border)" }}>
-              <div className="flex items-center justify-between" style={{ marginBottom: "var(--fib-4)" }}>
-                <div className="flex items-center justify-center" style={{ width: "44px", height: "44px", border: "1px solid rgba(200, 208, 224, 0.1)" }}>
-                  <Code2 size={20} style={{ color: "var(--color-ds-crystalline)" }} strokeWidth={1.5} aria-hidden="true" />
-                </div>
+              <div className="flex items-start justify-between" style={{ marginBottom: "var(--fib-4)" }}>
+                <GeometricGrid size={64} ariaLabel="Declarative topology" />
                 <span className="font-[family-name:var(--font-mono)] uppercase tracking-[0.25em]" style={{ fontSize: "10px", color: "var(--color-ds-text-dim)" }}>Module 03</span>
               </div>
               <div>
@@ -140,29 +135,27 @@ export default function FoundationContent() {
                   Infrastructure as Code
                 </h3>
                 <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-sm)", lineHeight: 1.618 }}>
-                  OpenTofu modules, state in S3 + DynamoDB lock. Reviewable, diffable, owned by your team.
+                  OpenTofu modules with locked state. Reviewable, diffable, owned by your team.
                 </p>
               </div>
             </motion.div>
 
             {/* Module 04 — observability + finops, two-column flat */}
             <motion.div variants={fadeUp} className="md:col-span-8 relative overflow-hidden" style={{ padding: "var(--fib-5)", border: "1px solid var(--color-ds-border)" }}>
-              <div className="absolute top-[var(--fib-4)] right-[var(--fib-4)]" aria-hidden="true">
-                <BarChart3 size={80} style={{ color: "var(--color-ds-crystalline)", opacity: 0.05 }} strokeWidth={0.5} />
+              <div className="absolute" style={{ top: "var(--fib-4)", right: "var(--fib-4)", opacity: 0.35 }} aria-hidden="true">
+                <ConcentricRings size={140} ariaLabel="Signal observability" />
               </div>
-              <div className="flex justify-between items-start" style={{ marginBottom: "var(--fib-5)" }}>
-                <div className="flex items-center justify-center" style={{ width: "55px", height: "55px", border: "1px solid rgba(200, 208, 224, 0.1)" }}>
-                  <BarChart3 size={24} style={{ color: "var(--color-ds-crystalline)" }} strokeWidth={1} aria-hidden="true" />
-                </div>
+              <div className="flex justify-between items-start relative z-10" style={{ marginBottom: "var(--fib-5)" }}>
+                <ConcentricRings size={56} ariaLabel="Signal observability" />
                 <span className="font-[family-name:var(--font-mono)] uppercase tracking-[0.25em]" style={{ fontSize: "10px", color: "var(--color-ds-text-dim)" }}>Module 04</span>
               </div>
-              <div className="grid md:grid-cols-2" style={{ gap: "var(--fib-5)" }}>
+              <div className="grid md:grid-cols-2 relative z-10" style={{ gap: "var(--fib-5)" }}>
                 <div>
                   <h3 className="font-[family-name:var(--font-display)] font-bold text-white" style={{ fontSize: "var(--text-fib-md)", marginBottom: "var(--fib-2)", letterSpacing: "-0.01em" }}>
                     Observability
                   </h3>
                   <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-sm)", lineHeight: 1.618 }}>
-                    OpenTelemetry pipelines, Grafana dashboards, alert rules tuned per dependency. The deliverable is the rule set, not the storage backend.
+                    OpenTelemetry pipelines, Grafana dashboards, alert rules tuned per dependency.
                   </p>
                 </div>
                 <div>
@@ -170,7 +163,7 @@ export default function FoundationContent() {
                     FinOps
                   </h3>
                   <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-sm)", lineHeight: 1.618 }}>
-                    Cost attribution per workload. Right-sizing where waste is real, not theoretical. We measure spend per outcome, not per call.
+                    Cost attribution per workload. Right-sizing where waste is real, not theoretical.
                   </p>
                 </div>
               </div>

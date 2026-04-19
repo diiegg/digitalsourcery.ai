@@ -2,94 +2,82 @@
 
 import { motion } from "framer-motion";
 import TextScramble from "@/components/TextScramble";
-import {
-  Eye,
-  DollarSign,
-  Radio,
-  Layers,
-  Cpu,
-  Shield,
-  ShieldCheck,
-  Lock,
-  KeyRound,
-  ScanEye,
-  GitBranch,
-  RotateCcw,
-  Bot,
-  HeartPulse,
-} from "lucide-react";
+import { StackedDiscs, BlobCluster, GeometricGrid, CrystallineFragment, WaveStructure, ConcentricRings } from "@/components/glyphs";
+
+type GlyphComponent = typeof StackedDiscs;
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 const stagger = { hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.1, delayChildren: 0.15 } } };
 const fadeUp = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease } } };
 
-const services = [
+type Service = {
+  span: string;
+  Glyph: GlyphComponent;
+  glyphLabel: string;
+  label?: string;
+  title: string;
+  tagline: string;
+  description: string;
+  large?: boolean;
+};
+
+const services: Service[] = [
   {
     span: "lg:col-span-8",
-    icon: Eye,
+    Glyph: BlobCluster,
+    glyphLabel: "Unified intelligence",
     label: "Primary Service",
     title: "AI Platform Engineering",
     tagline: "Make machine intelligence work with what you already run.",
     description:
-      "We integrate language models, autonomous operations, and intelligent tooling into existing systems without ripping and replacing. Engagements typically reach production within 90 days, scoped to one workload at a time. Knowledge transfer to your team is the deliverable.",
-    outcomes: [
-      "Observability that earns its alerts back",
-      "Self-service infrastructure for your engineers",
-      "Integration with what already runs (Prometheus, Datadog, Splunk, others)",
-      "Hand-off so your team owns the system end-to-end",
-    ],
+      "We integrate language models, autonomous operations, and intelligent tooling into existing systems without ripping and replacing. Engagements typically reach production within 90 days, scoped to one workload at a time.",
     large: true,
   },
   {
     span: "lg:col-span-4",
-    icon: Radio,
+    Glyph: ConcentricRings,
+    glyphLabel: "Telemetry signal",
     title: "Telemetry & Detection",
     tagline: "Detection calibrated against your incident history, not vendor defaults.",
     description:
-      "OpenTelemetry pipelines wired to dependency graphs. Alert rules tuned per service. We measure mean time to acknowledge as honestly as mean time to resolve.",
-    outcomes: ["OTEL pipelines, vendor-portable", "Alert rules per dependency, not per metric", "Runbooks that close the loop"],
+      "OpenTelemetry pipelines wired to dependency graphs. Alert rules tuned per service.",
   },
   {
     span: "lg:col-span-4",
-    icon: Shield,
+    Glyph: WaveStructure,
+    glyphLabel: "Autonomous flow",
     title: "Self-healing infrastructure",
-    tagline: "We do not automate ambiguity. Operators for the recurring 80%, humans for the rest.",
+    tagline: "Operators for the recurring 80%, humans for the rest.",
     description:
-      "Custom Kubernetes operators for the recurring incident types in your runbooks. The criterion is simple: if a senior engineer would not need to think, an operator can do it. The rest stays human.",
-    outcomes: ["Operators for the recurring 80%", "Predictive autoscaling where load is predictable", "Chaos drills tied to actual failure modes"],
+      "Custom Kubernetes operators for the recurring incident types in your runbooks. If a senior engineer would not need to think, an operator can do it.",
   },
   {
     span: "lg:col-span-4",
-    icon: Cpu,
+    Glyph: StackedDiscs,
+    glyphLabel: "Production AI platform",
     title: "AI Platforms",
-    tagline: "Production-grade, not notebook-grade. Run AI at scale, not as prototypes.",
+    tagline: "Production-grade, not notebook-grade.",
     description:
       "GPU infrastructure, MLOps pipelines, model serving, and agentic workflow orchestration. Built for the engineers who will operate the system after we leave.",
-    outcomes: ["GPU clusters and capacity planning", "MLOps end-to-end (data, training, serving, monitoring)", "vLLM / BentoML serving with cost controls"],
   },
   {
     span: "lg:col-span-4",
-    icon: DollarSign,
+    Glyph: CrystallineFragment,
+    glyphLabel: "Cost optimization",
     title: "AI Cost Control",
     tagline: "Spend per outcome, not per call.",
     description:
-      "Real-time token accounting, semantic caching, and routing by complexity. The first audit usually pays for itself by tightening what's already running.",
-    outcomes: ["Per-call accounting and dashboards", "Semantic caching where queries recur", "Model routing by request complexity, not vendor brand"],
+      "Real-time token accounting, semantic caching, and routing by complexity. The first audit usually pays for itself.",
   },
 ];
 
 const legacyService = {
-  icon: Layers,
+  Glyph: GeometricGrid,
+  glyphLabel: "Legacy system topology",
   title: "Legacy AI Modernization",
   tagline: "Old systems aren't dead. They need an interface.",
   description:
-    "A 15-year-old ERP wasn't built for AI — but it doesn't need to be replaced. We add an event-driven interface, expose the data the model needs, and migrate incrementally. No big-bang risk to production.",
-  outcomes: [
-    "Event bridges over fragile API wrappers",
-    "Incremental migration paths, not big-bang rewrites",
-    "Real-time data flowing from legacy stores into AI",
-    "Zero disruption to operations",
-  ],
+    "A 15-year-old ERP wasn't built for AI — but it doesn't need to be replaced. We add an event-driven interface, expose the data the model needs, and migrate incrementally.",
 };
 
 const pathDetails = [
@@ -172,11 +160,11 @@ export default function IntelligenceContent() {
         <div className="mx-auto max-w-[1440px] px-[var(--fib-5)]" style={{ paddingTop: "var(--fib-6)" }}>
           <motion.div variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0 }} className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-12" style={{ gap: "var(--fib-2)" }}>
             {services.map((s) => {
-              const Icon = s.icon;
+              const ServiceGlyph = s.Glyph;
               return (
                 <motion.div key={s.title} variants={fadeUp} className={`${s.span} refractive-card flex flex-col justify-between relative overflow-hidden group`} style={{ padding: "var(--fib-5)", minHeight: s.large ? "380px" : "auto" }}>
-                  <div className="absolute top-[var(--fib-4)] right-[var(--fib-4)]" aria-hidden="true">
-                    <Icon size={s.large ? 64 : 32} style={{ color: "var(--color-ds-crystalline)", opacity: 0.08 }} strokeWidth={1} className="group-hover:opacity-[0.15] transition-opacity duration-500" />
+                  <div className="absolute" style={{ top: "var(--fib-4)", right: "var(--fib-4)", opacity: s.large ? 0.45 : 0.5 }} aria-hidden="true">
+                    <ServiceGlyph size={s.large ? 160 : 88} ariaLabel={s.glyphLabel} className="group-hover:opacity-100 transition-opacity duration-500" />
                   </div>
 
                   <div>
@@ -193,8 +181,8 @@ export default function IntelligenceContent() {
 
             {/* Legacy — full width */}
             <motion.div variants={fadeUp} className="lg:col-span-12 refractive-card flex flex-col md:flex-row items-start justify-between relative overflow-hidden group" style={{ padding: "var(--fib-5)", gap: "var(--fib-5)" }}>
-              <div className="absolute top-[var(--fib-4)] right-[var(--fib-4)]" aria-hidden="true">
-                <Layers size={48} style={{ color: "var(--color-ds-crystalline)", opacity: 0.08 }} strokeWidth={1} className="group-hover:opacity-[0.15] transition-opacity duration-500" />
+              <div className="absolute" style={{ top: "var(--fib-4)", right: "var(--fib-4)", opacity: 0.45 }} aria-hidden="true">
+                <legacyService.Glyph size={120} ariaLabel={legacyService.glyphLabel} className="group-hover:opacity-100 transition-opacity duration-500" />
               </div>
               <div style={{ maxWidth: "640px" }}>
                 <h3 className="font-[family-name:var(--font-display)] font-bold text-white" style={{ fontSize: "var(--text-fib-md)", marginBottom: "var(--fib-2)", letterSpacing: "-0.01em" }}>{legacyService.title}</h3>
@@ -256,15 +244,17 @@ export default function IntelligenceContent() {
 
             <motion.div variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true }} className="grid grid-cols-2" style={{ gap: "var(--fib-2)" }}>
               {[
-                { icon: GitBranch, title: "Preview Environments", desc: "Every change gets an isolated full-stack replica before reaching production." },
-                { icon: RotateCcw, title: "Instant Rollbacks", desc: "Millisecond recovery by redirecting to a known-good deployment state." },
-                { icon: Bot, title: "Autonomous Recovery", desc: "Systems detect anomalies and initiate remediation without human intervention." },
-                { icon: HeartPulse, title: "Self-Healing Compute", desc: "Failed processes auto-route to healthy instances. No dropped requests." },
+                { Glyph: BlobCluster as GlyphComponent, glyphLabel: "Parallel branches", title: "Preview Environments", desc: "Every change gets an isolated full-stack replica before reaching production." },
+                { Glyph: CrystallineFragment as GlyphComponent, glyphLabel: "State recovery", title: "Instant Rollbacks", desc: "Millisecond recovery by redirecting to a known-good deployment state." },
+                { Glyph: WaveStructure as GlyphComponent, glyphLabel: "Autonomous remediation", title: "Autonomous Recovery", desc: "Systems detect anomalies and initiate remediation without human intervention." },
+                { Glyph: ConcentricRings as GlyphComponent, glyphLabel: "Heartbeat signal", title: "Self-Healing Compute", desc: "Failed processes auto-route to healthy instances. No dropped requests." },
               ].map((item) => {
-                const Icon = item.icon;
+                const ItemGlyph = item.Glyph;
                 return (
-                  <motion.div key={item.title} variants={fadeUp} className="group" style={{ padding: "var(--fib-4)", backgroundColor: "var(--color-ds-card)", border: "1px solid rgba(200, 208, 224, 0.04)" }}>
-                    <Icon size={20} style={{ color: "var(--color-ds-warm)", opacity: 0.6, marginBottom: "var(--fib-3)" }} strokeWidth={1.5} aria-hidden="true" />
+                  <motion.div key={item.title} variants={fadeUp} className="group relative overflow-hidden" style={{ padding: "var(--fib-4)", backgroundColor: "var(--color-ds-card)", border: "1px solid rgba(200, 208, 224, 0.04)" }}>
+                    <div style={{ marginBottom: "var(--fib-3)", opacity: 0.7 }} aria-hidden="true">
+                      <ItemGlyph size={48} ariaLabel={item.glyphLabel} />
+                    </div>
                     <h3 className="font-[family-name:var(--font-display)] font-bold text-white" style={{ fontSize: "var(--text-fib-sm)", marginBottom: "var(--fib-2)" }}>{item.title}</h3>
                     <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-xs)", lineHeight: 1.618 }}>{item.desc}</p>
                   </motion.div>
@@ -297,43 +287,49 @@ export default function IntelligenceContent() {
           >
             {[
               {
-                icon: ShieldCheck,
+                Glyph: GeometricGrid as GlyphComponent,
+                glyphLabel: "Policy lattice",
                 title: "Policy Enforcement",
-                description: "Infrastructure policies defined as code, not documentation. Every deployment validated against security, compliance, and architectural constraints before it reaches production.",
+                description: "Infrastructure policies defined as code, not documentation. Every deployment validated against security, compliance, and architectural constraints before reaching production.",
                 tags: ["OPA", "Kyverno", "Sentinel"],
               },
               {
-                icon: Lock,
+                Glyph: ConcentricRings as GlyphComponent,
+                glyphLabel: "Containment rings",
                 title: "Blast Radius Containment",
                 description: "Namespace isolation, network policies, and resource quotas so a bad deployment or misconfigured agent cannot cascade.",
                 tags: ["Network Policies", "RBAC", "Resource Limits"],
               },
               {
-                icon: KeyRound,
+                Glyph: StackedDiscs as GlyphComponent,
+                glyphLabel: "Layered access",
                 title: "Access Boundaries",
-                description: "Zero-trust access for every deployment. Custom domains, SSO, and role-based controls so only authorised users and agents touch the system.",
+                description: "Zero-trust access for every deployment. SSO, role-based controls, and custom domains so only authorised users and agents touch the system.",
                 tags: ["Zero-Trust", "SSO", "OIDC"],
               },
               {
-                icon: ScanEye,
+                Glyph: BlobCluster as GlyphComponent,
+                glyphLabel: "Continuous scan",
                 title: "Continuous Compliance",
-                description: "Automated scanning for misconfigurations, exposed secrets, and drift from desired state. Violations flagged and remediated before they become incidents.",
+                description: "Automated scanning for misconfigurations, exposed secrets, and drift from desired state. Violations flagged before they become incidents.",
                 tags: ["Config Scanning", "Secret Detection", "Drift Detection"],
               },
               {
-                icon: Shield,
+                Glyph: WaveStructure as GlyphComponent,
+                glyphLabel: "Bounded automation",
                 title: "Agent Safety Controls",
                 description: "Approval workflows, dry-run requirements, and scope restrictions so automation cannot exceed its mandate.",
                 tags: ["Approval Gates", "Dry-Run", "Scope Limits"],
               },
               {
-                icon: Layers,
+                Glyph: CrystallineFragment as GlyphComponent,
+                glyphLabel: "Immutable facets",
                 title: "Immutable Infrastructure",
-                description: "No manual changes to running systems. Every modification flows through version-controlled pipelines with audit trails, rollback capability, and change verification.",
+                description: "No manual changes to running systems. Every modification flows through version-controlled pipelines with audit trails and rollback capability.",
                 tags: ["GitOps", "Audit Trails", "Immutable Deploys"],
               },
             ].map((item, i) => {
-              const Icon = item.icon;
+              const GuardGlyph = item.Glyph;
               return (
                 <motion.article
                   key={item.title}
@@ -345,20 +341,22 @@ export default function IntelligenceContent() {
                     borderTop: "1px solid var(--color-ds-border)",
                   }}
                 >
-                  <div className="md:col-span-4 flex items-baseline" style={{ gap: "var(--fib-2)" }}>
-                    <span
-                      className="font-[family-name:var(--font-mono)]"
-                      style={{ fontSize: "11px", color: "var(--color-ds-warm)", letterSpacing: "0.1em", flexShrink: 0 }}
-                    >
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <Icon size={18} style={{ color: "var(--color-ds-crystalline)", opacity: 0.5, flexShrink: 0, marginRight: "var(--fib-1)" }} strokeWidth={1.5} aria-hidden="true" />
-                    <h3
-                      className="font-[family-name:var(--font-display)] font-semibold text-white"
-                      style={{ fontSize: "var(--text-fib-md)", letterSpacing: "-0.01em" }}
-                    >
-                      {item.title}
-                    </h3>
+                  <div className="md:col-span-4 flex items-start" style={{ gap: "var(--fib-3)" }}>
+                    <GuardGlyph size={56} ariaLabel={item.glyphLabel} className="flex-shrink-0" />
+                    <div className="flex flex-col" style={{ gap: "var(--fib-1)" }}>
+                      <span
+                        className="font-[family-name:var(--font-mono)]"
+                        style={{ fontSize: "11px", color: "var(--color-ds-warm)", letterSpacing: "0.1em" }}
+                      >
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <h3
+                        className="font-[family-name:var(--font-display)] font-semibold text-white"
+                        style={{ fontSize: "var(--text-fib-md)", letterSpacing: "-0.01em" }}
+                      >
+                        {item.title}
+                      </h3>
+                    </div>
                   </div>
                   <div className="md:col-span-8">
                     <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-sm)", lineHeight: 1.618, maxWidth: "70ch", marginBottom: "var(--fib-3)" }}>
