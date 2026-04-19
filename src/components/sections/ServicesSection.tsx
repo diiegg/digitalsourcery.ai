@@ -11,6 +11,7 @@ const services = [
   {
     num: "01",
     Glyph: StackedDiscs,
+    variant: 0, // vertical-stack
     glyphLabel: "Layered platform",
     title: "AI Platform Engineering",
     build: "Self-service developer platforms with automated provisioning and deployment pipelines.",
@@ -20,6 +21,7 @@ const services = [
   {
     num: "02",
     Glyph: ConcentricRings,
+    variant: 0, // sonar
     glyphLabel: "Signal detection",
     title: "Intelligent Observability",
     build: "Telemetry, intelligent alerting, and ML-powered incident detection that cuts through noise.",
@@ -29,6 +31,7 @@ const services = [
   {
     num: "03",
     Glyph: WaveStructure,
+    variant: 0, // sine 5-line
     glyphLabel: "Autonomous flow",
     title: "Agentic Automation",
     build: "Self-healing infrastructure with autonomous remediation and AI-driven incident response.",
@@ -100,6 +103,7 @@ export default function ServicesSection() {
                     </span>
                     <Glyph
                       size={96}
+                      variant={s.variant}
                       ariaLabel={s.glyphLabel}
                       className="opacity-80 transition-opacity duration-500 group-hover:opacity-100"
                     />

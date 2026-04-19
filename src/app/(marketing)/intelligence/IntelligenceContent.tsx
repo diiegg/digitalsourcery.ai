@@ -13,6 +13,7 @@ const fadeUp = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, tra
 type Service = {
   span: string;
   Glyph: GlyphComponent;
+  variant: number;
   glyphLabel: string;
   label?: string;
   title: string;
@@ -25,7 +26,8 @@ const services: Service[] = [
   {
     span: "lg:col-span-8",
     Glyph: BlobCluster,
-    glyphLabel: "Unified intelligence",
+    variant: 0, // orbital
+    glyphLabel: "Orbital intelligence",
     label: "Primary Service",
     title: "AI Platform Engineering",
     tagline: "Make machine intelligence work with what you already run.",
@@ -36,7 +38,8 @@ const services: Service[] = [
   {
     span: "lg:col-span-4",
     Glyph: ConcentricRings,
-    glyphLabel: "Telemetry signal",
+    variant: 9, // interrupted
+    glyphLabel: "Interrupted signal arcs",
     title: "Telemetry & Detection",
     tagline: "Detection calibrated against your incident history, not vendor defaults.",
     description:
@@ -45,7 +48,8 @@ const services: Service[] = [
   {
     span: "lg:col-span-4",
     Glyph: WaveStructure,
-    glyphLabel: "Autonomous flow",
+    variant: 5, // double-helix
+    glyphLabel: "Operator-human helix",
     title: "Self-healing infrastructure",
     tagline: "Operators for the recurring 80%, humans for the rest.",
     description:
@@ -54,7 +58,8 @@ const services: Service[] = [
   {
     span: "lg:col-span-4",
     Glyph: StackedDiscs,
-    glyphLabel: "Production AI platform",
+    variant: 9, // funnel
+    glyphLabel: "Production AI funnel",
     title: "AI Platforms",
     tagline: "Production-grade, not notebook-grade.",
     description:
@@ -63,7 +68,8 @@ const services: Service[] = [
   {
     span: "lg:col-span-4",
     Glyph: CrystallineFragment,
-    glyphLabel: "Cost optimization",
+    variant: 8, // shattered
+    glyphLabel: "Shattered cost surface",
     title: "AI Cost Control",
     tagline: "Spend per outcome, not per call.",
     description:
@@ -73,7 +79,8 @@ const services: Service[] = [
 
 const legacyService = {
   Glyph: GeometricGrid,
-  glyphLabel: "Legacy system topology",
+  variant: 9, // corner-star
+  glyphLabel: "Legacy corner-star topology",
   title: "Legacy AI Modernization",
   tagline: "Old systems aren't dead. They need an interface.",
   description:
@@ -164,7 +171,7 @@ export default function IntelligenceContent() {
               return (
                 <motion.div key={s.title} variants={fadeUp} className={`${s.span} refractive-card flex flex-col justify-between relative overflow-hidden group`} style={{ padding: "var(--fib-5)", minHeight: s.large ? "380px" : "auto" }}>
                   <div className="absolute" style={{ top: "var(--fib-4)", right: "var(--fib-4)", opacity: s.large ? 0.45 : 0.5 }} aria-hidden="true">
-                    <ServiceGlyph size={s.large ? 160 : 88} ariaLabel={s.glyphLabel} className="group-hover:opacity-100 transition-opacity duration-500" />
+                    <ServiceGlyph size={s.large ? 160 : 88} variant={s.variant} ariaLabel={s.glyphLabel} className="group-hover:opacity-100 transition-opacity duration-500" />
                   </div>
 
                   <div>
@@ -182,7 +189,7 @@ export default function IntelligenceContent() {
             {/* Legacy — full width */}
             <motion.div variants={fadeUp} className="lg:col-span-12 refractive-card flex flex-col md:flex-row items-start justify-between relative overflow-hidden group" style={{ padding: "var(--fib-5)", gap: "var(--fib-5)" }}>
               <div className="absolute" style={{ top: "var(--fib-4)", right: "var(--fib-4)", opacity: 0.45 }} aria-hidden="true">
-                <legacyService.Glyph size={120} ariaLabel={legacyService.glyphLabel} className="group-hover:opacity-100 transition-opacity duration-500" />
+                <legacyService.Glyph size={120} variant={legacyService.variant} ariaLabel={legacyService.glyphLabel} className="group-hover:opacity-100 transition-opacity duration-500" />
               </div>
               <div style={{ maxWidth: "640px" }}>
                 <h3 className="font-[family-name:var(--font-display)] font-bold text-white" style={{ fontSize: "var(--text-fib-md)", marginBottom: "var(--fib-2)", letterSpacing: "-0.01em" }}>{legacyService.title}</h3>
@@ -244,16 +251,16 @@ export default function IntelligenceContent() {
 
             <motion.div variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true }} className="grid grid-cols-2" style={{ gap: "var(--fib-2)" }}>
               {[
-                { Glyph: BlobCluster as GlyphComponent, glyphLabel: "Parallel branches", title: "Preview Environments", desc: "Every change gets an isolated full-stack replica before reaching production." },
-                { Glyph: CrystallineFragment as GlyphComponent, glyphLabel: "State recovery", title: "Instant Rollbacks", desc: "Millisecond recovery by redirecting to a known-good deployment state." },
-                { Glyph: WaveStructure as GlyphComponent, glyphLabel: "Autonomous remediation", title: "Autonomous Recovery", desc: "Systems detect anomalies and initiate remediation without human intervention." },
-                { Glyph: ConcentricRings as GlyphComponent, glyphLabel: "Heartbeat signal", title: "Self-Healing Compute", desc: "Failed processes auto-route to healthy instances. No dropped requests." },
+                { Glyph: BlobCluster as GlyphComponent, variant: 3, glyphLabel: "Twin parallel branches", title: "Preview Environments", desc: "Every change gets an isolated full-stack replica before reaching production." },
+                { Glyph: CrystallineFragment as GlyphComponent, variant: 9, glyphLabel: "State recovery shards", title: "Instant Rollbacks", desc: "Millisecond recovery by redirecting to a known-good deployment state." },
+                { Glyph: WaveStructure as GlyphComponent, variant: 7, glyphLabel: "Breathing recovery", title: "Autonomous Recovery", desc: "Systems detect anomalies and initiate remediation without human intervention." },
+                { Glyph: ConcentricRings as GlyphComponent, variant: 5, glyphLabel: "Healing heartbeat", title: "Self-Healing Compute", desc: "Failed processes auto-route to healthy instances. No dropped requests." },
               ].map((item) => {
                 const ItemGlyph = item.Glyph;
                 return (
                   <motion.div key={item.title} variants={fadeUp} className="group relative overflow-hidden" style={{ padding: "var(--fib-4)", backgroundColor: "var(--color-ds-card)", border: "1px solid rgba(200, 208, 224, 0.04)" }}>
                     <div style={{ marginBottom: "var(--fib-3)", opacity: 0.7 }} aria-hidden="true">
-                      <ItemGlyph size={48} ariaLabel={item.glyphLabel} />
+                      <ItemGlyph size={48} variant={item.variant} ariaLabel={item.glyphLabel} />
                     </div>
                     <h3 className="font-[family-name:var(--font-display)] font-bold text-white" style={{ fontSize: "var(--text-fib-sm)", marginBottom: "var(--fib-2)" }}>{item.title}</h3>
                     <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-xs)", lineHeight: 1.618 }}>{item.desc}</p>
@@ -288,42 +295,48 @@ export default function IntelligenceContent() {
             {[
               {
                 Glyph: GeometricGrid as GlyphComponent,
-                glyphLabel: "Policy lattice",
+                variant: 2, // hexagonal-lattice
+                glyphLabel: "Hexagonal policy lattice",
                 title: "Policy Enforcement",
                 description: "Infrastructure policies defined as code, not documentation. Every deployment validated against security, compliance, and architectural constraints before reaching production.",
                 tags: ["OPA", "Kyverno", "Sentinel"],
               },
               {
                 Glyph: ConcentricRings as GlyphComponent,
-                glyphLabel: "Containment rings",
+                variant: 6, // eclipse
+                glyphLabel: "Eclipse containment",
                 title: "Blast Radius Containment",
                 description: "Namespace isolation, network policies, and resource quotas so a bad deployment or misconfigured agent cannot cascade.",
                 tags: ["Network Policies", "RBAC", "Resource Limits"],
               },
               {
                 Glyph: StackedDiscs as GlyphComponent,
-                glyphLabel: "Layered access",
+                variant: 5, // telescoped
+                glyphLabel: "Telescoped access",
                 title: "Access Boundaries",
                 description: "Zero-trust access for every deployment. SSO, role-based controls, and custom domains so only authorised users and agents touch the system.",
                 tags: ["Zero-Trust", "SSO", "OIDC"],
               },
               {
                 Glyph: BlobCluster as GlyphComponent,
-                glyphLabel: "Continuous scan",
+                variant: 6, // scattered
+                glyphLabel: "Scattered scan",
                 title: "Continuous Compliance",
                 description: "Automated scanning for misconfigurations, exposed secrets, and drift from desired state. Violations flagged before they become incidents.",
                 tags: ["Config Scanning", "Secret Detection", "Drift Detection"],
               },
               {
                 Glyph: WaveStructure as GlyphComponent,
-                glyphLabel: "Bounded automation",
+                variant: 6, // square-wave
+                glyphLabel: "Square-bounded automation",
                 title: "Agent Safety Controls",
                 description: "Approval workflows, dry-run requirements, and scope restrictions so automation cannot exceed its mandate.",
                 tags: ["Approval Gates", "Dry-Run", "Scope Limits"],
               },
               {
                 Glyph: CrystallineFragment as GlyphComponent,
-                glyphLabel: "Immutable facets",
+                variant: 7, // faceted
+                glyphLabel: "Faceted immutability",
                 title: "Immutable Infrastructure",
                 description: "No manual changes to running systems. Every modification flows through version-controlled pipelines with audit trails and rollback capability.",
                 tags: ["GitOps", "Audit Trails", "Immutable Deploys"],
@@ -342,7 +355,7 @@ export default function IntelligenceContent() {
                   }}
                 >
                   <div className="md:col-span-4 flex items-start" style={{ gap: "var(--fib-3)" }}>
-                    <GuardGlyph size={56} ariaLabel={item.glyphLabel} className="flex-shrink-0" />
+                    <GuardGlyph size={56} variant={item.variant} ariaLabel={item.glyphLabel} className="flex-shrink-0" />
                     <div className="flex flex-col" style={{ gap: "var(--fib-1)" }}>
                       <span
                         className="font-[family-name:var(--font-mono)]"

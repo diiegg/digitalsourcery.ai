@@ -12,35 +12,40 @@ const criteria = [
   {
     n: "01",
     Glyph: StackedDiscs,
-    glyphLabel: "Foundational stability",
+    variant: 7, // offset-shells
+    glyphLabel: "Offset stability shells",
     title: "Operate before optimize",
     body: "Tools that hold under failure beat tools that demo well — boring dependability is a feature.",
   },
   {
     n: "02",
     Glyph: BlobCluster,
-    glyphLabel: "Open ecosystem",
+    variant: 8, // nucleated
+    glyphLabel: "Nucleated open ecosystem",
     title: "Open by default",
     body: "We pick what your team can re-host without a procurement meeting; exit cost matters more than vendor convenience.",
   },
   {
     n: "03",
     Glyph: CrystallineFragment,
-    glyphLabel: "End-to-end cost",
+    variant: 6, // exploding
+    glyphLabel: "End-to-end cost burst",
     title: "Cost is a system property",
     body: "Cheaper inference doesn't help if the architecture around it leaks dollars per second; we measure end-to-end.",
   },
   {
     n: "04",
     Glyph: ConcentricRings,
-    glyphLabel: "Traceable signal",
+    variant: 3, // vortex
+    glyphLabel: "Traceable signal vortex",
     title: "Observable, not just monitored",
     body: "If you can't trace it to a line of code, it's invisible when it matters.",
   },
   {
     n: "05",
     Glyph: GeometricGrid,
-    glyphLabel: "Handoff topology",
+    variant: 4, // branching-tree
+    glyphLabel: "Handoff branching tree",
     title: "Owned by your team",
     body: 'Success isn\'t "they kept us" — it\'s "they can run this without us." Handoff is the deliverable.',
   },
@@ -50,7 +55,8 @@ const stack = [
   {
     n: "01",
     Glyph: GeometricGrid,
-    glyphLabel: "Cluster topology",
+    variant: 6, // dense-mesh
+    glyphLabel: "Cluster dense-mesh",
     domain: "Orchestration & Compute",
     primary: "Managed Kubernetes — EKS, GKE, AKS",
     why: "Unmatched control-plane and ecosystem gravity for workloads that need failure isolation and gradual rollouts.",
@@ -59,7 +65,8 @@ const stack = [
   {
     n: "02",
     Glyph: ConcentricRings,
-    glyphLabel: "Inference signal",
+    variant: 2, // ripple
+    glyphLabel: "Inference ripple",
     domain: "AI Inference & Serving",
     primary: "vLLM + BentoML, fronted by LiteLLM",
     why: "PagedAttention throughput on open weights, production wrapping via BentoML, one-call API normalisation across providers.",
@@ -68,7 +75,8 @@ const stack = [
   {
     n: "03",
     Glyph: BlobCluster,
-    glyphLabel: "Unified data",
+    variant: 9, // archipelago
+    glyphLabel: "Data archipelago",
     domain: "Data Layer",
     primary: "Postgres with pgvector. Kafka or NATS for events.",
     why: "Postgres handles vector workloads to several million rows without a separate database; Kafka for durable replay, NATS for low-latency pub/sub.",
@@ -77,7 +85,8 @@ const stack = [
   {
     n: "04",
     Glyph: WaveStructure,
-    glyphLabel: "Telemetry streams",
+    variant: 2, // decay
+    glyphLabel: "Telemetry decay streams",
     domain: "Observability",
     primary: "Grafana + OpenTelemetry. Loki, Tempo, Mimir.",
     why: "OTEL keeps you portable; dashboards and alert rules are the deliverable, not the storage backend.",
@@ -86,7 +95,8 @@ const stack = [
   {
     n: "05",
     Glyph: StackedDiscs,
-    glyphLabel: "Pipeline layers",
+    variant: 1, // horizontal-cascade
+    glyphLabel: "Pipeline cascade",
     domain: "Delivery & GitOps",
     primary: "GitHub Actions for CI. ArgoCD for Kubernetes deploys.",
     why: "Actions sits where the code already lives; ArgoCD inverts the trust model so the cluster pulls from Git rather than CI pushing in.",
@@ -95,7 +105,8 @@ const stack = [
   {
     n: "06",
     Glyph: CrystallineFragment,
-    glyphLabel: "Declarative facets",
+    variant: 3, // prismatic
+    glyphLabel: "Declarative prismatic",
     domain: "Infrastructure as Code",
     primary: "OpenTofu — state in S3 with DynamoDB lock (or equivalent).",
     why: "Declarative, reviewable, diffable; state integrity is the load-bearing constraint, not module elegance.",
@@ -245,7 +256,7 @@ export default function StackContent() {
                   }}
                 >
                   <div className="flex flex-col items-start" style={{ gap: "var(--fib-2)", flexShrink: 0 }}>
-                    <CritGlyph size={48} ariaLabel={c.glyphLabel} />
+                    <CritGlyph size={48} variant={c.variant} ariaLabel={c.glyphLabel} />
                     <span
                       className="font-[family-name:var(--font-mono)]"
                       style={{
@@ -336,7 +347,7 @@ export default function StackContent() {
                   className="md:col-span-3 flex items-start"
                   style={{ gap: "var(--fib-3)" }}
                 >
-                  <StackGlyph size={56} ariaLabel={s.glyphLabel} className="flex-shrink-0" />
+                  <StackGlyph size={56} variant={s.variant} ariaLabel={s.glyphLabel} className="flex-shrink-0" />
                   <div className="flex flex-col" style={{ gap: "var(--fib-1)" }}>
                     <span
                       className="font-[family-name:var(--font-mono)]"

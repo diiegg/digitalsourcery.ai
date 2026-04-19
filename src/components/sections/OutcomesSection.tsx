@@ -4,11 +4,11 @@ import { motion } from "framer-motion";
 import { WaveStructure, GeometricGrid, ConcentricRings, CrystallineFragment, StackedDiscs } from "@/components/glyphs";
 
 const outcomes = [
-  { Glyph: WaveStructure, glyphLabel: "Continuous flow", title: "Reduce Manual Operations", description: "Automated provisioning, self-healing runbooks, and agentic workflows replace repetitive manual work." },
-  { Glyph: GeometricGrid, glyphLabel: "Deployment topology", title: "Improve Deployment Speed", description: "Self-service platforms with preview environments and progressive rollouts." },
-  { Glyph: ConcentricRings, glyphLabel: "Signal detection", title: "Detect Issues Earlier", description: "ML-powered anomaly detection surfaces real problems before they reach users — not after." },
-  { Glyph: CrystallineFragment, glyphLabel: "Cost optimization", title: "Optimize Cloud Cost", description: "Right-sized infrastructure and automated scaling aligned to actual demand." },
-  { Glyph: StackedDiscs, glyphLabel: "Antifragile architecture", title: "Increase System Reliability", description: "Antifragile architecture with instant rollbacks, redundancy, and autonomous recovery." },
+  { Glyph: WaveStructure, variant: 9, glyphLabel: "Flowing automation", title: "Reduce Manual Operations", description: "Automated provisioning, self-healing runbooks, and agentic workflows replace repetitive manual work." },
+  { Glyph: GeometricGrid, variant: 3, glyphLabel: "Deployment spokes", title: "Improve Deployment Speed", description: "Self-service platforms with preview environments and progressive rollouts." },
+  { Glyph: ConcentricRings, variant: 8, glyphLabel: "Anomaly ping-trail", title: "Detect Issues Earlier", description: "ML-powered anomaly detection surfaces real problems before they reach users — not after." },
+  { Glyph: CrystallineFragment, variant: 0, glyphLabel: "Cost optimization", title: "Optimize Cloud Cost", description: "Right-sized infrastructure and automated scaling aligned to actual demand." },
+  { Glyph: StackedDiscs, variant: 8, glyphLabel: "Antifragile dome", title: "Increase System Reliability", description: "Antifragile architecture with instant rollbacks, redundancy, and autonomous recovery." },
 ];
 
 export default function OutcomesSection() {
@@ -54,12 +54,12 @@ export default function OutcomesSection() {
 
             {/* Large ambient glyph anchor — top-right */}
             <div className="absolute pointer-events-none z-0" style={{ top: "var(--fib-3)", right: "var(--fib-4)", opacity: 0.45 }} aria-hidden="true">
-              <WaveStructure size={180} ariaLabel="Continuous flow" />
+              <WaveStructure size={180} variant={9} ariaLabel="Flowing automation" />
             </div>
 
             <div className="relative z-10">
               <div className="flex items-center" style={{ gap: "var(--fib-2)", marginBottom: "var(--fib-4)" }}>
-                <WaveStructure size={28} ariaLabel="Continuous flow" />
+                <WaveStructure size={28} variant={9} ariaLabel="Flowing automation" />
                 <span className="font-[family-name:var(--font-mono)] uppercase tracking-[0.2em]" style={{ fontSize: "10px", color: "var(--color-ds-warm)" }}>Primary Outcome</span>
               </div>
               <h3 className="font-[family-name:var(--font-display)] font-bold text-white" style={{ fontSize: "clamp(var(--text-fib-lg), 5vw, var(--text-fib-xl))", marginBottom: "var(--fib-4)" }}>
@@ -90,7 +90,7 @@ export default function OutcomesSection() {
             return (
               <motion.div key={o.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.1 * (i + 1), ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }} className="refractive-card flex flex-col justify-center relative overflow-hidden" style={{ padding: "var(--fib-4)" }}>
                 <div className="absolute" style={{ top: "var(--fib-3)", right: "var(--fib-3)", opacity: 0.5 }} aria-hidden="true">
-                  <CardGlyph size={72} ariaLabel={o.glyphLabel} />
+                  <CardGlyph size={72} variant={o.variant} ariaLabel={o.glyphLabel} />
                 </div>
                 <h3 className="font-[family-name:var(--font-display)] font-bold text-white relative z-10" style={{ fontSize: "var(--text-fib-md)", marginBottom: "var(--fib-2)", marginTop: "var(--fib-5)" }}>{o.title}</h3>
                 <p className="text-ds-text-secondary relative z-10" style={{ fontSize: "var(--text-fib-xs)", lineHeight: 1.618 }}>{o.description}</p>
@@ -116,7 +116,7 @@ export default function OutcomesSection() {
                 style={{ padding: "var(--fib-4)", border: "1px solid var(--color-ds-border)" }}
               >
                 <div className="absolute" style={{ top: "var(--fib-3)", right: "var(--fib-3)", opacity: isLarge ? 0.55 : 0.45 }} aria-hidden="true">
-                  <CardGlyph size={isLarge ? 96 : 72} ariaLabel={o.glyphLabel} />
+                  <CardGlyph size={isLarge ? 96 : 72} variant={o.variant} ariaLabel={o.glyphLabel} />
                 </div>
                 {isLarge && (
                   <span

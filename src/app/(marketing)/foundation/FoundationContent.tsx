@@ -92,10 +92,10 @@ export default function FoundationContent() {
             {/* Module 01 — IDP — anchor card with refractive shimmer */}
             <motion.div variants={fadeUp} className="md:col-span-8 refractive-card flex flex-col justify-between relative overflow-hidden" style={{ padding: "var(--fib-5)", minHeight: "320px" }}>
               <div className="absolute" style={{ top: "var(--fib-4)", right: "var(--fib-4)", opacity: 0.4 }} aria-hidden="true">
-                <StackedDiscs size={200} ariaLabel="Layered platform" />
+                <StackedDiscs size={200} variant={6} ariaLabel="Nested platform shells" />
               </div>
               <div className="flex justify-between items-start relative z-10">
-                <StackedDiscs size={56} ariaLabel="Layered platform" />
+                <StackedDiscs size={56} variant={6} ariaLabel="Nested platform shells" />
                 <span className="font-[family-name:var(--font-mono)] uppercase tracking-[0.25em]" style={{ fontSize: "10px", color: "var(--color-ds-text-dim)" }}>Module 01</span>
               </div>
               <div className="relative z-10">
@@ -111,7 +111,7 @@ export default function FoundationContent() {
             {/* Module 02 — flat panel */}
             <motion.div variants={fadeUp} className="md:col-span-4 flex flex-col justify-between" style={{ padding: "var(--fib-4)", border: "1px solid var(--color-ds-border)" }}>
               <div className="flex items-start justify-between" style={{ marginBottom: "var(--fib-4)" }}>
-                <WaveStructure size={64} ariaLabel="Continuous delivery" />
+                <WaveStructure size={64} variant={3} ariaLabel="Golden-path delivery packets" />
                 <span className="font-[family-name:var(--font-mono)] uppercase tracking-[0.25em]" style={{ fontSize: "10px", color: "var(--color-ds-text-dim)" }}>Module 02</span>
               </div>
               <div>
@@ -127,7 +127,7 @@ export default function FoundationContent() {
             {/* Module 03 — flat panel */}
             <motion.div variants={fadeUp} className="md:col-span-4 flex flex-col justify-between" style={{ padding: "var(--fib-4)", border: "1px solid var(--color-ds-border)" }}>
               <div className="flex items-start justify-between" style={{ marginBottom: "var(--fib-4)" }}>
-                <GeometricGrid size={64} ariaLabel="Declarative topology" />
+                <GeometricGrid size={64} variant={8} ariaLabel="Declarative cross topology" />
                 <span className="font-[family-name:var(--font-mono)] uppercase tracking-[0.25em]" style={{ fontSize: "10px", color: "var(--color-ds-text-dim)" }}>Module 03</span>
               </div>
               <div>
@@ -143,10 +143,10 @@ export default function FoundationContent() {
             {/* Module 04 — observability + finops, two-column flat */}
             <motion.div variants={fadeUp} className="md:col-span-8 relative overflow-hidden" style={{ padding: "var(--fib-5)", border: "1px solid var(--color-ds-border)" }}>
               <div className="absolute" style={{ top: "var(--fib-4)", right: "var(--fib-4)", opacity: 0.35 }} aria-hidden="true">
-                <ConcentricRings size={140} ariaLabel="Signal observability" />
+                <ConcentricRings size={140} variant={4} ariaLabel="Bullseye observability" />
               </div>
               <div className="flex justify-between items-start relative z-10" style={{ marginBottom: "var(--fib-5)" }}>
-                <ConcentricRings size={56} ariaLabel="Signal observability" />
+                <ConcentricRings size={56} variant={4} ariaLabel="Bullseye observability" />
                 <span className="font-[family-name:var(--font-mono)] uppercase tracking-[0.25em]" style={{ fontSize: "10px", color: "var(--color-ds-text-dim)" }}>Module 04</span>
               </div>
               <div className="grid md:grid-cols-2 relative z-10" style={{ gap: "var(--fib-5)" }}>
