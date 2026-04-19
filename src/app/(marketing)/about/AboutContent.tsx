@@ -2,33 +2,48 @@
 
 import { motion } from "framer-motion";
 import TextScramble from "@/components/TextScramble";
+import { StackedDiscs, BlobCluster, GeometricGrid, CrystallineFragment, WaveStructure, ConcentricRings } from "@/components/glyphs";
+
+type GlyphComponent = typeof StackedDiscs;
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 const stagger = { hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.08, delayChildren: 0.1 } } };
 const fadeUp = { hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease } } };
 
-const principles = [
+const principles: { Glyph: GlyphComponent; glyphLabel: string; title: string; detail: string }[] = [
   {
+    Glyph: WaveStructure,
+    glyphLabel: "Continuous shipping",
     title: "Engineers Who Ship",
     detail: "We commit code to your repo, join your standups, and ship working software — senior engineers only, no offshore handoff.",
   },
   {
+    Glyph: ConcentricRings,
+    glyphLabel: "Measured testing",
     title: "Opinions Backed by Testing",
     detail: "We don't recommend tools from vendor demos; we deploy them, benchmark them, and break them first.",
   },
   {
+    Glyph: GeometricGrid,
+    glyphLabel: "Handoff topology",
     title: "Your Team Owns Everything",
     detail: "No proprietary frameworks, no vendor dependencies, no black boxes — after six months, you don't need us.",
   },
   {
+    Glyph: BlobCluster,
+    glyphLabel: "Existing systems",
     title: "Legacy Is Reality, Not a Problem",
-    detail: "Your 15-year-old ERP runs the business; we integrate AI with what you have using event bridges and incremental patterns that don't risk production.",
+    detail: "Your 15-year-old ERP runs the business; we integrate AI using event bridges and incremental patterns that don't risk production.",
   },
   {
+    Glyph: CrystallineFragment,
+    glyphLabel: "Cost optimization",
     title: "AI Is Expensive. We Fix That First.",
     detail: "Cost controls from day one — semantic caching, model routing, token budgets. The first audit usually pays for itself.",
   },
   {
+    Glyph: StackedDiscs,
+    glyphLabel: "Layered platform product",
     title: "Platform as a Product",
     detail: "Internal platforms are products your developers consume — we treat them that way, with user research and iterative improvement.",
   },
@@ -73,9 +88,11 @@ const team = [
   },
 ];
 
-const engagements = [
+const engagements: { n: string; Glyph: GlyphComponent; glyphLabel: string; type: string; duration: string; price: string; output: string }[] = [
   {
     n: "01",
+    Glyph: BlobCluster,
+    glyphLabel: "Discovery scoping",
     type: "Discovery",
     duration: "1–2 weeks",
     price: "from €18,000",
@@ -83,6 +100,8 @@ const engagements = [
   },
   {
     n: "02",
+    Glyph: ConcentricRings,
+    glyphLabel: "Pilot validation",
     type: "Pilot",
     duration: "4–6 weeks",
     price: "from €55,000",
@@ -90,6 +109,8 @@ const engagements = [
   },
   {
     n: "03",
+    Glyph: StackedDiscs,
+    glyphLabel: "Multi-workload engagement",
     type: "Engagement",
     duration: "8–12 weeks",
     price: "from €140,000",
@@ -97,18 +118,24 @@ const engagements = [
   },
 ];
 
-const recentEngagements = [
+const recentEngagements: { Glyph: GlyphComponent; glyphLabel: string; sector: string; title: string; result: string }[] = [
   {
+    Glyph: WaveStructure,
+    glyphLabel: "Telemetry migration",
     sector: "Nordic insurance · ~2,000 employees",
     title: "Observability migration off Datadog",
     result: "Grafana + OpenTelemetry stack delivered in nine weeks; 40% reduction in observability spend, owned end-to-end by their SRE team.",
   },
   {
+    Glyph: GeometricGrid,
+    glyphLabel: "GPU compute topology",
     sector: "Spanish marketplace · ~600 employees",
     title: "GPU infrastructure for AI features",
     result: "vLLM on EKS with horizontal autoscaling; handled Black Friday peak without manual intervention, cost-per-inference attributed per workload.",
   },
   {
+    Glyph: CrystallineFragment,
+    glyphLabel: "Self-service templates",
     sector: "German B2B SaaS · ~400 employees",
     title: "Internal developer platform on Backstage",
     result: "Provisioning days → minutes, twelve self-service service templates, three-week residency to hand off to their platform team.",
@@ -196,7 +223,9 @@ export default function AboutContent() {
             viewport={{ once: true, amount: 0 }}
             className="flex flex-col"
           >
-            {principles.map((p, i) => (
+            {principles.map((p, i) => {
+              const PrincipleGlyph = p.Glyph;
+              return (
               <motion.article
                 key={p.title}
                 variants={fadeUp}
@@ -207,19 +236,22 @@ export default function AboutContent() {
                   borderTop: "1px solid var(--color-ds-border)",
                 }}
               >
-                <div className="md:col-span-4 flex items-baseline" style={{ gap: "var(--fib-2)" }}>
-                  <span
-                    className="font-[family-name:var(--font-mono)]"
-                    style={{ fontSize: "11px", color: "var(--color-ds-warm)", letterSpacing: "0.1em", flexShrink: 0 }}
-                  >
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <h3
-                    className="font-[family-name:var(--font-display)] font-semibold text-white"
-                    style={{ fontSize: "var(--text-fib-md)", letterSpacing: "-0.01em" }}
-                  >
-                    {p.title}
-                  </h3>
+                <div className="md:col-span-4 flex items-start" style={{ gap: "var(--fib-3)" }}>
+                  <PrincipleGlyph size={48} ariaLabel={p.glyphLabel} className="flex-shrink-0" />
+                  <div className="flex flex-col" style={{ gap: "var(--fib-1)" }}>
+                    <span
+                      className="font-[family-name:var(--font-mono)]"
+                      style={{ fontSize: "11px", color: "var(--color-ds-warm)", letterSpacing: "0.1em" }}
+                    >
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <h3
+                      className="font-[family-name:var(--font-display)] font-semibold text-white"
+                      style={{ fontSize: "var(--text-fib-md)", letterSpacing: "-0.01em" }}
+                    >
+                      {p.title}
+                    </h3>
+                  </div>
                 </div>
                 <div className="md:col-span-8">
                   <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-sm)", lineHeight: 1.618, maxWidth: "70ch" }}>
@@ -227,7 +259,8 @@ export default function AboutContent() {
                   </p>
                 </div>
               </motion.article>
-            ))}
+              );
+            })}
             <div style={{ borderTop: "1px solid var(--color-ds-border)" }} />
           </motion.div>
         </div>
@@ -325,7 +358,9 @@ export default function AboutContent() {
             viewport={{ once: true, amount: 0 }}
             className="flex flex-col"
           >
-            {engagements.map((e) => (
+            {engagements.map((e) => {
+              const EngGlyph = e.Glyph;
+              return (
               <motion.article
                 key={e.n}
                 variants={fadeUp}
@@ -336,19 +371,22 @@ export default function AboutContent() {
                   borderTop: "1px solid var(--color-ds-border)",
                 }}
               >
-                <div className="md:col-span-3 flex items-baseline" style={{ gap: "var(--fib-2)" }}>
-                  <span
-                    className="font-[family-name:var(--font-mono)]"
-                    style={{ fontSize: "11px", color: "var(--color-ds-warm)", letterSpacing: "0.1em", flexShrink: 0 }}
-                  >
-                    {e.n}
-                  </span>
-                  <h3
-                    className="font-[family-name:var(--font-display)] font-semibold text-white"
-                    style={{ fontSize: "var(--text-fib-md)", letterSpacing: "-0.01em" }}
-                  >
-                    {e.type}
-                  </h3>
+                <div className="md:col-span-3 flex items-start" style={{ gap: "var(--fib-3)" }}>
+                  <EngGlyph size={56} ariaLabel={e.glyphLabel} className="flex-shrink-0" />
+                  <div className="flex flex-col" style={{ gap: "var(--fib-1)" }}>
+                    <span
+                      className="font-[family-name:var(--font-mono)]"
+                      style={{ fontSize: "11px", color: "var(--color-ds-warm)", letterSpacing: "0.1em" }}
+                    >
+                      {e.n}
+                    </span>
+                    <h3
+                      className="font-[family-name:var(--font-display)] font-semibold text-white"
+                      style={{ fontSize: "var(--text-fib-md)", letterSpacing: "-0.01em" }}
+                    >
+                      {e.type}
+                    </h3>
+                  </div>
                 </div>
 
                 <div className="md:col-span-9 grid grid-cols-1 md:grid-cols-3" style={{ gap: "var(--fib-4)" }}>
@@ -378,7 +416,8 @@ export default function AboutContent() {
                   </div>
                 </div>
               </motion.article>
-            ))}
+              );
+            })}
             <div style={{ borderTop: "1px solid var(--color-ds-border)" }} />
           </motion.div>
 
@@ -437,7 +476,9 @@ export default function AboutContent() {
             viewport={{ once: true, amount: 0 }}
             className="flex flex-col"
           >
-            {recentEngagements.map((c, i) => (
+            {recentEngagements.map((c, i) => {
+              const RecGlyph = c.Glyph;
+              return (
               <motion.article
                 key={c.title}
                 variants={fadeUp}
@@ -448,16 +489,19 @@ export default function AboutContent() {
                   borderTop: "1px solid var(--color-ds-border)",
                 }}
               >
-                <div className="md:col-span-4 flex items-baseline" style={{ gap: "var(--fib-2)" }}>
-                  <span
-                    className="font-[family-name:var(--font-mono)]"
-                    style={{ fontSize: "11px", color: "var(--color-ds-warm)", letterSpacing: "0.1em", flexShrink: 0 }}
-                  >
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <span className="font-[family-name:var(--font-mono)] uppercase tracking-[0.15em] text-ds-text-dim" style={{ fontSize: "10px" }}>
-                    {c.sector}
-                  </span>
+                <div className="md:col-span-4 flex items-start" style={{ gap: "var(--fib-3)" }}>
+                  <RecGlyph size={56} ariaLabel={c.glyphLabel} className="flex-shrink-0" />
+                  <div className="flex flex-col" style={{ gap: "var(--fib-1)" }}>
+                    <span
+                      className="font-[family-name:var(--font-mono)]"
+                      style={{ fontSize: "11px", color: "var(--color-ds-warm)", letterSpacing: "0.1em" }}
+                    >
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <span className="font-[family-name:var(--font-mono)] uppercase tracking-[0.15em] text-ds-text-dim" style={{ fontSize: "10px" }}>
+                      {c.sector}
+                    </span>
+                  </div>
                 </div>
                 <div className="md:col-span-8">
                   <h3 className="font-[family-name:var(--font-display)] font-semibold text-white" style={{ fontSize: "var(--text-fib-md)", marginBottom: "var(--fib-2)", letterSpacing: "-0.01em" }}>
@@ -468,7 +512,8 @@ export default function AboutContent() {
                   </p>
                 </div>
               </motion.article>
-            ))}
+              );
+            })}
             <div style={{ borderTop: "1px solid var(--color-ds-border)" }} />
           </motion.div>
         </div>
