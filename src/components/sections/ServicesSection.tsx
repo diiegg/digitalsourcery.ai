@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Radio, Layers, Cpu } from "lucide-react";
+import { StackedDiscs, ConcentricRings, WaveStructure } from "@/components/glyphs";
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 const stagger = { hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.08, delayChildren: 0.1 } } };
@@ -10,29 +10,29 @@ const fadeUp = { hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0, tra
 const services = [
   {
     num: "01",
-    icon: Layers,
+    Glyph: StackedDiscs,
+    glyphLabel: "Layered platform",
     title: "AI Platform Engineering",
-    build: "Internal developer platforms, self-service provisioning workflows, and automated deployment pipelines that remove friction between engineering teams and infrastructure.",
-    problem: "Engineers waste hours on manual provisioning, ticket-based workflows, and infrastructure bottlenecks that slow every deployment cycle.",
+    build: "Self-service developer platforms with automated provisioning and deployment pipelines.",
     outcome: "Self-service infrastructure where developers ship independently — without waiting on ops.",
     tags: ["Backstage", "Crossplane", "ArgoCD"],
   },
   {
     num: "02",
-    icon: Radio,
+    Glyph: ConcentricRings,
+    glyphLabel: "Signal detection",
     title: "Intelligent Observability",
-    build: "Telemetry pipelines, intelligent alerting systems, and ML-powered incident detection that surfaces real signals from operational noise.",
-    problem: "Teams drown in alerts, miss critical signals, and spend hours on root cause analysis because monitoring generates noise instead of insight.",
+    build: "Telemetry, intelligent alerting, and ML-powered incident detection that cuts through noise.",
     outcome: "Earlier detection, faster resolution, and engineers focused on building — not firefighting.",
     tags: ["Grafana", "OpenTelemetry", "Loki / Tempo"],
   },
   {
     num: "03",
-    icon: Cpu,
+    Glyph: WaveStructure,
+    glyphLabel: "Autonomous flow",
     title: "Agentic Automation",
-    build: "Automated remediation workflows, self-healing infrastructure, and AI-driven decision-making that responds to incidents without human intervention.",
-    problem: "Manual runbooks and on-call rotations don't scale. Repetitive incidents consume engineering time that should go toward building capabilities.",
-    outcome: "Systems that diagnose, respond, and recover autonomously — reducing operational burden and improving reliability.",
+    build: "Self-healing infrastructure with autonomous remediation and AI-driven incident response.",
+    outcome: "Systems that diagnose, respond, and recover autonomously — reducing operational burden.",
     tags: ["K8s Operators", "GitOps", "n8n / Temporal"],
   },
 ];
@@ -77,7 +77,7 @@ export default function ServicesSection() {
           className="flex flex-col"
         >
           {services.map((s) => {
-            const Icon = s.icon;
+            const Glyph = s.Glyph;
             return (
               <motion.article
                 key={s.num}
@@ -89,21 +89,19 @@ export default function ServicesSection() {
                   borderTop: "1px solid var(--color-ds-border)",
                 }}
               >
-                {/* Left column — number + title + tags */}
+                {/* Left column — glyph + number + title + tags */}
                 <div className="md:col-span-4">
-                  <div className="flex items-center justify-between" style={{ marginBottom: "var(--fib-3)" }}>
+                  <div className="flex items-start justify-between" style={{ marginBottom: "var(--fib-3)" }}>
                     <span
                       className="font-[family-name:var(--font-mono)]"
-                      style={{ fontSize: "11px", color: "var(--color-ds-warm)", letterSpacing: "0.1em" }}
+                      style={{ fontSize: "11px", color: "var(--color-ds-warm)", letterSpacing: "0.1em", marginTop: "var(--fib-2)" }}
                     >
                       {s.num}
                     </span>
-                    <Icon
-                      size={20}
-                      style={{ color: "var(--color-ds-crystalline)", opacity: 0.4 }}
-                      strokeWidth={1.5}
-                      className="transition-opacity duration-500 group-hover:opacity-70"
-                      aria-hidden="true"
+                    <Glyph
+                      size={96}
+                      ariaLabel={s.glyphLabel}
+                      className="opacity-80 transition-opacity duration-500 group-hover:opacity-100"
                     />
                   </div>
                   <h3

@@ -1,14 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Timer, TrendingDown, Shield, Gauge, ArrowUpRight } from "lucide-react";
+import { WaveStructure, GeometricGrid, ConcentricRings, CrystallineFragment, StackedDiscs } from "@/components/glyphs";
 
 const outcomes = [
-  { icon: Timer, title: "Reduce Manual Operations", description: "Automated provisioning, self-healing runbooks, and agentic workflows replace repetitive manual work. Engineers build instead of babysit." },
-  { icon: ArrowUpRight, title: "Improve Deployment Speed", description: "Self-service platforms with preview environments and progressive rollouts. Teams ship independently with built-in safety nets." },
-  { icon: Shield, title: "Detect Issues Earlier", description: "ML-powered anomaly detection and intelligent alerting surfaces real problems before they reach users — not after." },
-  { icon: TrendingDown, title: "Optimize Cloud Cost", description: "Right-sized infrastructure, intelligent caching, and automated scaling aligned to actual demand. Spend follows workload, not guesswork." },
-  { icon: Gauge, title: "Increase System Reliability", description: "Antifragile architecture with instant rollbacks, built-in redundancy, and autonomous recovery. Systems improve under stress." },
+  { Glyph: WaveStructure, glyphLabel: "Continuous flow", title: "Reduce Manual Operations", description: "Automated provisioning, self-healing runbooks, and agentic workflows replace repetitive manual work." },
+  { Glyph: GeometricGrid, glyphLabel: "Deployment topology", title: "Improve Deployment Speed", description: "Self-service platforms with preview environments and progressive rollouts." },
+  { Glyph: ConcentricRings, glyphLabel: "Signal detection", title: "Detect Issues Earlier", description: "ML-powered anomaly detection surfaces real problems before they reach users — not after." },
+  { Glyph: CrystallineFragment, glyphLabel: "Cost optimization", title: "Optimize Cloud Cost", description: "Right-sized infrastructure and automated scaling aligned to actual demand." },
+  { Glyph: StackedDiscs, glyphLabel: "Antifragile architecture", title: "Increase System Reliability", description: "Antifragile architecture with instant rollbacks, redundancy, and autonomous recovery." },
 ];
 
 export default function OutcomesSection() {
@@ -52,9 +52,14 @@ export default function OutcomesSection() {
               }}
             />
 
+            {/* Large ambient glyph anchor — top-right */}
+            <div className="absolute pointer-events-none z-0" style={{ top: "var(--fib-3)", right: "var(--fib-4)", opacity: 0.45 }} aria-hidden="true">
+              <WaveStructure size={180} ariaLabel="Continuous flow" />
+            </div>
+
             <div className="relative z-10">
               <div className="flex items-center" style={{ gap: "var(--fib-2)", marginBottom: "var(--fib-4)" }}>
-                <Timer size={20} style={{ color: "var(--color-ds-warm)" }} strokeWidth={1.5} />
+                <WaveStructure size={28} ariaLabel="Continuous flow" />
                 <span className="font-[family-name:var(--font-mono)] uppercase tracking-[0.2em]" style={{ fontSize: "10px", color: "var(--color-ds-warm)" }}>Primary Outcome</span>
               </div>
               <h3 className="font-[family-name:var(--font-display)] font-bold text-white" style={{ fontSize: "clamp(var(--text-fib-lg), 5vw, var(--text-fib-xl))", marginBottom: "var(--fib-4)" }}>
@@ -81,14 +86,14 @@ export default function OutcomesSection() {
 
           {/* Right column — stacked outcome cards */}
           {outcomes.slice(1, 3).map((o, i) => {
-            const Icon = o.icon;
+            const CardGlyph = o.Glyph;
             return (
               <motion.div key={o.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.1 * (i + 1), ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }} className="refractive-card flex flex-col justify-center relative overflow-hidden" style={{ padding: "var(--fib-4)" }}>
-                <div className="absolute top-[var(--fib-3)] right-[var(--fib-3)]">
-                  <Icon size={24} style={{ color: "var(--color-ds-crystalline)", opacity: 0.15 }} strokeWidth={1} />
+                <div className="absolute" style={{ top: "var(--fib-3)", right: "var(--fib-3)", opacity: 0.5 }} aria-hidden="true">
+                  <CardGlyph size={72} ariaLabel={o.glyphLabel} />
                 </div>
-                <h3 className="font-[family-name:var(--font-display)] font-bold text-white" style={{ fontSize: "var(--text-fib-md)", marginBottom: "var(--fib-2)" }}>{o.title}</h3>
-                <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-xs)", lineHeight: 1.618 }}>{o.description}</p>
+                <h3 className="font-[family-name:var(--font-display)] font-bold text-white relative z-10" style={{ fontSize: "var(--text-fib-md)", marginBottom: "var(--fib-2)", marginTop: "var(--fib-5)" }}>{o.title}</h3>
+                <p className="text-ds-text-secondary relative z-10" style={{ fontSize: "var(--text-fib-xs)", lineHeight: 1.618 }}>{o.description}</p>
               </motion.div>
             );
           })}
@@ -97,7 +102,7 @@ export default function OutcomesSection() {
         {/* Bottom row — 9/3 asymmetric (visual delta is unmissable) with mono attribution tag on the larger card */}
         <div className="grid grid-cols-1 md:grid-cols-12" style={{ gap: "var(--fib-3)", marginTop: "var(--fib-3)" }}>
           {outcomes.slice(3).map((o, i) => {
-            const Icon = o.icon;
+            const CardGlyph = o.Glyph;
             const isLarge = i === 0;
             const span = isLarge ? "md:col-span-9" : "md:col-span-3";
             return (
@@ -110,8 +115,8 @@ export default function OutcomesSection() {
                 className={`${span} flex flex-col justify-center relative overflow-hidden`}
                 style={{ padding: "var(--fib-4)", border: "1px solid var(--color-ds-border)" }}
               >
-                <div className="absolute top-[var(--fib-3)] right-[var(--fib-3)]" aria-hidden="true">
-                  <Icon size={24} style={{ color: "var(--color-ds-crystalline)", opacity: 0.2 }} strokeWidth={1} />
+                <div className="absolute" style={{ top: "var(--fib-3)", right: "var(--fib-3)", opacity: isLarge ? 0.55 : 0.45 }} aria-hidden="true">
+                  <CardGlyph size={isLarge ? 96 : 72} ariaLabel={o.glyphLabel} />
                 </div>
                 {isLarge && (
                   <span
