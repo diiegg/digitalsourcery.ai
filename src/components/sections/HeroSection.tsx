@@ -28,7 +28,7 @@ export default function HeroSection() {
             </h1>
 
             <p className="text-ds-text-secondary max-w-xl" style={{ fontSize: "var(--text-fib-md)", lineHeight: 1.5, marginBottom: "var(--fib-5)" }}>
-              The intelligence layer for production systems. Predictive observability, autonomous remediation, cost control — engineered for what your team already runs, owned by you after we leave.
+              The intelligence layer for production systems. Predictive observability, autonomous remediation, cost control.
             </p>
 
             <div className="flex flex-col sm:flex-row items-start" style={{ gap: "var(--fib-2)", marginBottom: "var(--fib-5)" }}>

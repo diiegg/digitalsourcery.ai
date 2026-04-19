@@ -131,8 +131,8 @@ export default function ServicesSection() {
                   </div>
                 </div>
 
-                {/* Right column — three sub-blocks */}
-                <div className="md:col-span-8 grid grid-cols-1 md:grid-cols-3" style={{ gap: "var(--fib-4)" }}>
+                {/* Right column — two sub-blocks (The problem dropped — redundant with the Problem section above) */}
+                <div className="md:col-span-8 grid grid-cols-1 md:grid-cols-2" style={{ gap: "var(--fib-4)" }}>
                   <div>
                     <span
                       className="block font-[family-name:var(--font-mono)] uppercase tracking-[0.2em]"
@@ -142,17 +142,6 @@ export default function ServicesSection() {
                     </span>
                     <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-sm)", lineHeight: 1.6 }}>
                       {s.build}
-                    </p>
-                  </div>
-                  <div>
-                    <span
-                      className="block font-[family-name:var(--font-mono)] uppercase tracking-[0.2em]"
-                      style={{ fontSize: "10px", color: "var(--color-ds-text-dim)", marginBottom: "var(--fib-2)" }}
-                    >
-                      The problem
-                    </span>
-                    <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-sm)", lineHeight: 1.6 }}>
-                      {s.problem}
                     </p>
                   </div>
                   <div>

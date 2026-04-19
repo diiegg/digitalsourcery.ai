@@ -11,27 +11,27 @@ const criteria = [
   {
     n: "01",
     title: "Operate before optimize",
-    body: "Tools that hold under failure beat tools that demo well. Boring dependability is a feature, not a compromise.",
+    body: "Tools that hold under failure beat tools that demo well — boring dependability is a feature.",
   },
   {
     n: "02",
     title: "Open by default",
-    body: "Exit cost matters more than vendor convenience. We pick what your team can re-host without a procurement meeting.",
+    body: "We pick what your team can re-host without a procurement meeting; exit cost matters more than vendor convenience.",
   },
   {
     n: "03",
     title: "Cost is a system property",
-    body: "A cheaper inference call doesn't help if the architecture around it leaks dollars per second. We measure end-to-end.",
+    body: "Cheaper inference doesn't help if the architecture around it leaks dollars per second; we measure end-to-end.",
   },
   {
     n: "04",
     title: "Observable, not just monitored",
-    body: "If you can't trace it to a line of code, it's invisible when it matters. Every layer instrumented at install time.",
+    body: "If you can't trace it to a line of code, it's invisible when it matters.",
   },
   {
     n: "05",
     title: "Owned by your team",
-    body: 'The success metric isn\'t "they kept us." It\'s "they can run this without us." Handoff is the deliverable.',
+    body: 'Success isn\'t "they kept us" — it\'s "they can run this without us." Handoff is the deliverable.',
   },
 ];
 
@@ -47,35 +47,35 @@ const stack = [
     n: "02",
     domain: "AI Inference & Serving",
     primary: "vLLM + BentoML, fronted by LiteLLM",
-    why: "vLLM gives PagedAttention throughput on open weights. BentoML wraps it for production. LiteLLM normalises self-hosted and provider APIs behind one call.",
+    why: "PagedAttention throughput on open weights, production wrapping via BentoML, one-call API normalisation across providers.",
     swap: "Bedrock or Vertex AI when compliance forces a managed provider, or when volume doesn't justify GPU operations.",
   },
   {
     n: "03",
     domain: "Data Layer",
     primary: "Postgres with pgvector. Kafka or NATS for events.",
-    why: "Postgres handles vector workloads to several million rows without a separate database. Kafka for durable replay, NATS for low-latency pub/sub.",
+    why: "Postgres handles vector workloads to several million rows without a separate database; Kafka for durable replay, NATS for low-latency pub/sub.",
     swap: "Qdrant or Weaviate past ~50M vectors when recall outweighs transactional consistency. Pulsar or Redpanda where the team already runs them.",
   },
   {
     n: "04",
     domain: "Observability",
     primary: "Grafana + OpenTelemetry. Loki, Tempo, Mimir.",
-    why: "OTEL keeps you portable. The Grafana stack runs from laptop to multi-cluster. Dashboards and alert rules are the deliverable, not the storage backend.",
+    why: "OTEL keeps you portable; dashboards and alert rules are the deliverable, not the storage backend.",
     swap: "Datadog or Splunk where already paid for and the lock-in is acceptable. We do not migrate observability for fashion.",
   },
   {
     n: "05",
     domain: "Delivery & GitOps",
     primary: "GitHub Actions for CI. ArgoCD for Kubernetes deploys.",
-    why: "Actions sits where the code already lives. ArgoCD inverts the trust model — the cluster pulls from Git instead of CI pushing into the cluster.",
+    why: "Actions sits where the code already lives; ArgoCD inverts the trust model so the cluster pulls from Git rather than CI pushing in.",
     swap: "GitLab CI when GitLab is the SCM. Flagger for progressive delivery beyond what Argo Rollouts handles cleanly.",
   },
   {
     n: "06",
     domain: "Infrastructure as Code",
     primary: "OpenTofu — state in S3 with DynamoDB lock (or equivalent).",
-    why: "Declarative, reviewable, diffable. State integrity is the load-bearing constraint, not module elegance.",
+    why: "Declarative, reviewable, diffable; state integrity is the load-bearing constraint, not module elegance.",
     swap: "Pulumi when the team writes infra in TypeScript or Python and wants types around it. CDK for AWS-only shops with deep CloudFormation tenure.",
   },
 ];

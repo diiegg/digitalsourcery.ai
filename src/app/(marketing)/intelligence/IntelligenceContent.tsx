@@ -185,15 +185,7 @@ export default function IntelligenceContent() {
                     )}
                     <h3 className="font-[family-name:var(--font-display)] font-bold text-white" style={{ fontSize: s.large ? "var(--text-fib-lg)" : "var(--text-fib-md)", marginBottom: "var(--fib-2)", letterSpacing: "-0.01em" }}>{s.title}</h3>
                     <p className="font-[family-name:var(--font-display)]" style={{ fontSize: "var(--text-fib-sm)", color: "var(--color-ds-warm)", marginBottom: "var(--fib-3)" }}>{s.tagline}</p>
-                    <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-sm)", lineHeight: 1.618, marginBottom: "var(--fib-4)", maxWidth: s.large ? "500px" : "none" }}>{s.description}</p>
-
-                    <ul style={{ marginBottom: "var(--fib-2)" }}>
-                      {s.outcomes.map((o) => (
-                        <li key={o} className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-xs)", lineHeight: 1.618, paddingLeft: "var(--fib-2)", marginBottom: "var(--fib-1)", position: "relative" }}>
-                          <span aria-hidden="true" style={{ position: "absolute", left: 0, color: "var(--color-ds-warm)" }}>+</span>{o}
-                        </li>
-                      ))}
-                    </ul>
+                    <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-sm)", lineHeight: 1.618, maxWidth: s.large ? "500px" : "none" }}>{s.description}</p>
                   </div>
                 </motion.div>
               );
@@ -207,14 +199,7 @@ export default function IntelligenceContent() {
               <div style={{ maxWidth: "640px" }}>
                 <h3 className="font-[family-name:var(--font-display)] font-bold text-white" style={{ fontSize: "var(--text-fib-md)", marginBottom: "var(--fib-2)", letterSpacing: "-0.01em" }}>{legacyService.title}</h3>
                 <p className="font-[family-name:var(--font-display)]" style={{ fontSize: "var(--text-fib-sm)", color: "var(--color-ds-warm)", marginBottom: "var(--fib-3)" }}>{legacyService.tagline}</p>
-                <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-sm)", lineHeight: 1.618, marginBottom: "var(--fib-4)" }}>{legacyService.description}</p>
-                <ul>
-                  {legacyService.outcomes.map((o) => (
-                    <li key={o} className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-xs)", lineHeight: 1.618, paddingLeft: "var(--fib-2)", marginBottom: "var(--fib-1)", position: "relative" }}>
-                      <span aria-hidden="true" style={{ position: "absolute", left: 0, color: "var(--color-ds-warm)" }}>+</span>{o}
-                    </li>
-                  ))}
-                </ul>
+                <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-sm)", lineHeight: 1.618 }}>{legacyService.description}</p>
               </div>
             </motion.div>
           </motion.div>
@@ -264,11 +249,8 @@ export default function IntelligenceContent() {
               <h2 className="font-[family-name:var(--font-display)] font-bold leading-[1.05] tracking-[-0.03em] text-white" style={{ fontSize: "var(--text-fib-xl)", marginBottom: "var(--fib-5)" }}>
                 Antifragile Infrastructure
               </h2>
-              <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-base)", lineHeight: 1.618, marginBottom: "var(--fib-4)" }}>
+              <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-base)", lineHeight: 1.618 }}>
                 When agents and humans push changes at high frequency, infrastructure has to do more than survive — it has to absorb the change and improve. We implement systems where every failure leaves the next response stronger.
-              </p>
-              <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-sm)", lineHeight: 1.618 }}>
-                Preview environments catch problems before production. Instant rollbacks contain blast radius. Progressive rollouts limit exposure. Self-healing routes around failure automatically. The result is infrastructure that handles human and agent mistakes by design.
               </p>
             </motion.div>
 
@@ -300,12 +282,9 @@ export default function IntelligenceContent() {
             <div className="inline-block font-[family-name:var(--font-display)] uppercase tracking-[0.2em]" style={{ fontSize: "var(--text-fib-xs)", color: "var(--color-ds-warm)", border: "1px solid var(--color-ds-warm-dim)", padding: "var(--fib-1) var(--fib-2)", marginBottom: "var(--fib-4)" }}>
               Guardrails
             </div>
-            <h2 className="font-[family-name:var(--font-display)] font-bold leading-[1.05] tracking-[-0.03em] text-white" style={{ fontSize: "var(--text-fib-xl)", marginBottom: "var(--fib-5)" }}>
+            <h2 className="font-[family-name:var(--font-display)] font-bold leading-[1.05] tracking-[-0.03em] text-white" style={{ fontSize: "var(--text-fib-xl)" }}>
               Security That Earns Speed
             </h2>
-            <p className="text-ds-text-secondary max-w-2xl" style={{ fontSize: "var(--text-fib-base)", lineHeight: 1.618 }}>
-              Agents and automation increase velocity. Without guardrails, they increase risk in equal measure. We implement boundaries so your team moves quickly without compromising what already runs.
-            </p>
           </motion.div>
 
           {/* Stacked editorial — six guardrails in horizontal rows (mirrors Services / Stack / Recent Engagements rhythm) */}
@@ -397,11 +376,6 @@ export default function IntelligenceContent() {
             <div style={{ borderTop: "1px solid var(--color-ds-border)" }} />
           </motion.div>
 
-          <motion.div initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.2, ease }} style={{ marginTop: "var(--fib-5)", paddingTop: "var(--fib-4)", borderTop: "1px solid rgba(200, 208, 224, 0.06)" }}>
-            <p className="font-[family-name:var(--font-display)] font-semibold text-white max-w-3xl" style={{ fontSize: "var(--text-fib-base)", lineHeight: 1.618 }}>
-              Speed without guardrails is reckless. Guardrails without speed are bureaucracy. We implement both.
-            </p>
-          </motion.div>
         </div>
       </section>
 

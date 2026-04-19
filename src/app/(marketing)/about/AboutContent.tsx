@@ -10,27 +10,27 @@ const fadeUp = { hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0, tra
 const principles = [
   {
     title: "Engineers Who Ship",
-    detail: "We commit code to your repo, join your standups, and ship working software. No PowerPoints. No transformation frameworks. No junior offshore teams. Senior engineers, production code, knowledge transfer.",
+    detail: "We commit code to your repo, join your standups, and ship working software — senior engineers only, no offshore handoff.",
   },
   {
     title: "Opinions Backed by Testing",
-    detail: "We don't recommend tools from vendor demos. We deploy them, benchmark them, and break them. Then we tell you what works. Every recommendation on our Stack page has real data behind it.",
+    detail: "We don't recommend tools from vendor demos; we deploy them, benchmark them, and break them first.",
   },
   {
     title: "Your Team Owns Everything",
-    detail: "No proprietary frameworks. No vendor dependencies. No black boxes. Everything we build, you own. Full knowledge transfer, documentation, and pair programming. After 6 months, you don't need us.",
+    detail: "No proprietary frameworks, no vendor dependencies, no black boxes — after six months, you don't need us.",
   },
   {
     title: "Legacy Is Reality, Not a Problem",
-    detail: "Your 15-year-old ERP runs the business. We don't pretend you'll replace it. We integrate AI with what you have, using event bridges and incremental patterns that don't risk production.",
+    detail: "Your 15-year-old ERP runs the business; we integrate AI with what you have using event bridges and incremental patterns that don't risk production.",
   },
   {
     title: "AI Is Expensive. We Fix That First.",
-    detail: "We implement cost controls from day one — semantic caching, model routing, token budgets. The first audit usually pays for itself by tightening what's already running.",
+    detail: "Cost controls from day one — semantic caching, model routing, token budgets. The first audit usually pays for itself.",
   },
   {
     title: "Platform as a Product",
-    detail: "Internal platforms are products your developers consume. We treat them that way — with user research, adoption metrics, and iterative improvement. Not projects that launch and rot.",
+    detail: "Internal platforms are products your developers consume — we treat them that way, with user research and iterative improvement.",
   },
 ];
 
@@ -101,17 +101,17 @@ const recentEngagements = [
   {
     sector: "Nordic insurance · ~2,000 employees",
     title: "Observability migration off Datadog",
-    result: "Grafana stack with OpenTelemetry, Loki for logs, Tempo for traces. 40% reduction in observability spend after migration. Took nine weeks; their SRE team owns it.",
+    result: "Grafana + OpenTelemetry stack delivered in nine weeks; 40% reduction in observability spend, owned end-to-end by their SRE team.",
   },
   {
     sector: "Spanish marketplace · ~600 employees",
     title: "GPU infrastructure for AI features",
-    result: "vLLM serving on EKS with horizontal autoscaling. Handled their Black Friday peak without manual intervention. Cost per inference call documented per workload, dashboards live in Grafana.",
+    result: "vLLM on EKS with horizontal autoscaling; handled Black Friday peak without manual intervention, cost-per-inference attributed per workload.",
   },
   {
     sector: "German B2B SaaS · ~400 employees",
     title: "Internal developer platform on Backstage",
-    result: "Provisioning time went from days to minutes. Self-service templates for twelve service patterns. Their platform team runs it; we ran a three-week residency to hand off.",
+    result: "Provisioning days → minutes, twelve self-service service templates, three-week residency to hand off to their platform team.",
   },
 ];
 
@@ -134,11 +134,8 @@ export default function AboutContent() {
               <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-md)", lineHeight: 1.55, marginBottom: "var(--fib-4)", maxWidth: "60ch" }}>
                 Digital Sorcery was founded by infrastructure engineers who&apos;ve spent years building and scaling cloud-native systems across manufacturing, energy, SaaS, and enterprise. We&apos;ve seen the same problems repeat across organisations — AI prototypes that never ship, costs that spiral, teams that drown in alerts.
               </p>
-              <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-base)", lineHeight: 1.618, marginBottom: "var(--fib-4)", maxWidth: "65ch" }}>
-                We built a practice around solving them with hands-on engineering. Not strategy decks. Not vendor partnerships. Production code that ships.
-              </p>
               <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-base)", lineHeight: 1.618, maxWidth: "65ch" }}>
-                The foundation — platform engineering, automation, observability — comes from <strong className="text-white">BlackMagickOps</strong>, our engineering practice built on the belief that precision is discipline and automation is leverage. Digital Sorcery adds the intelligence layer.
+                We built a practice around solving them with hands-on engineering — not strategy decks, not vendor partnerships. The foundation comes from <strong className="text-white">BlackMagickOps</strong>; Digital Sorcery adds the intelligence layer.
               </p>
             </motion.div>
 

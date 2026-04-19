@@ -52,7 +52,7 @@ export default function FoundationContent() {
                 <span style={{ color: "var(--color-ds-headline-accent)" }}>Built to outlast us.</span>
               </h1>
               <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-md)", lineHeight: 1.55, maxWidth: "65ch" }}>
-                The foundation layer everything else runs on. Internal developer platforms, infrastructure as code, observability, and FinOps — installed so your team can operate them after we leave.
+                The foundation layer everything else runs on. Internal developer platforms, infrastructure as code, observability, FinOps.
               </p>
             </motion.div>
 
@@ -122,7 +122,7 @@ export default function FoundationContent() {
                   Platform Acceleration
                 </h3>
                 <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-sm)", lineHeight: 1.618 }}>
-                  Reusable golden paths for the workloads your team ships every week. Less reinvention per service.
+                  Reusable golden paths for the workloads your team ships weekly. Less reinvention per service.
                 </p>
               </div>
             </motion.div>
@@ -140,7 +140,7 @@ export default function FoundationContent() {
                   Infrastructure as Code
                 </h3>
                 <p className="text-ds-text-secondary" style={{ fontSize: "var(--text-fib-sm)", lineHeight: 1.618 }}>
-                  OpenTofu modules with state in S3 + DynamoDB lock. Reviewable, diffable, owned by your team.
+                  OpenTofu modules, state in S3 + DynamoDB lock. Reviewable, diffable, owned by your team.
                 </p>
               </div>
             </motion.div>
